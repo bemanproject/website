@@ -78,6 +78,7 @@ const config: Config = {
           position: 'left',
           label: 'Tutorial',
         },
+        {to: '/libraries', label: 'Libraries', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/facebook/docusaurus',
