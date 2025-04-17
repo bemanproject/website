@@ -8,21 +8,9 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 Documentation is written in MDX format.
 Building and deploying it requires Node and NPM.
 
-## Using the Dev Container
+## Installation and development
 
-This project includes a development container configuration for VS Code. To use it:
-
-1. Install [Visual Studio Code](https://code.visualstudio.com/) and the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
-2. Open the project in VS Code.
-3. When prompted, reopen the project in the dev container.
-4. The container will automatically install dependencies and set up the environment.
-
-You can then run the following commands inside the container:
-
-- Start the development server: `make start`
-- Build the static site: `make build`
-
-## Installation and local development
+### Local setup
 
 1. In order to setup the project, you have to install `npm`, `yarn` and `node`. 
 
@@ -72,3 +60,18 @@ yarn --version
     ```bash
     $ make build
     ```
+
+### Dev Container
+
+This project includes a development container configuration for VS Code. To use it:
+
+1. Install [Visual Studio Code](https://code.visualstudio.com/) and the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+2. Open the project in VS Code.
+3. When prompted, reopen the project in the dev container.
+4. The container will automatically install dependencies and set up the environment.
+
+You can then run the following commands inside the container:
+
+- Start the development server: `make start`
+- Build the static site: `make build`
+
