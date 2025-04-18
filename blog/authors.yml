@@ -1,0 +1,27 @@
+JeffGarland :
+  name: Jeff Garland
+  title: Boost c++ developer, C++ Committee Library Working Group Asst. Chair
+  url: https://github.com/JeffGarland
+  image_url: https://avatars.githubusercontent.com/u/4427406?v=4
+  page: true
+  socials:
+    github: JeffGarland
+
+dabrahams:
+  name: Dave Abrahams
+  title: Swift and C++ language/library designer, professor of blowing-your-mind.
+  url: https://github.com/dabrahams
+  image_url: https://avatars.githubusercontent.com/u/44065?v=4
+  page: true
+  socials:
+    github: dabrahams
+
+
+DavidSankel:
+  name: David Sankel
+  title: C++ Developer, Beman Lead
+  url: https://github.com/camio
+  image_url: https://avatars.githubusercontent.com/u/3770603
+  page: true
+  socials:
+    github: camio
