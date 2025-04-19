@@ -1,6 +1,6 @@
 JeffGarland :
   name: Jeff Garland
-  title: Boost c++ developer, C++ Committee Library Working Group Asst. Chair
+  title: Boost C++ Developer, C++ Committee Library Working Group Asst. Chair
   url: https://github.com/JeffGarland
   image_url: https://avatars.githubusercontent.com/u/4427406?v=4
   page: true
@@ -15,7 +15,6 @@ dabrahams:
   page: true
   socials:
     github: dabrahams
-
 
 DavidSankel:
   name: David Sankel
