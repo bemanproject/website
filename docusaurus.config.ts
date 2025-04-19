@@ -1,8 +1,22 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import { execSync } from 'child_process';
 
 // Note: This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+let branchName = process.env.NETLIFY ? process.env.HEAD : 'main';
+// Get the current branch name using git command
+try {
+  const output = execSync('git branch --show-current', { encoding: 'utf-8' }).trim();
+  if(output) {
+    branchName = output;
+  }
+  console.log(`Current branch: ${branchName}`);
+} catch (err) {
+  console.error(`Error determining branch name: ${err}`);
+}
+
 
 const config: Config = {
   title: 'The Beman Project',
@@ -38,7 +52,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            `https://github.com/bemanproject/website/tree/${branchName}`,
         },
         blog: {
           showReadingTime: true,
@@ -48,7 +62,7 @@ const config: Config = {
           },
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            `https://github.com/bemanproject/website/tree/${branchName}`,
           // Blogging config
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
