@@ -3,7 +3,7 @@
  * and scoped locally.
  */
 
-.heroBanner {
+ .heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
@@ -20,4 +20,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+.taglineContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Adjust the space between images and text */
+}
+
+.taglineImage {
+  height: 50px; /* Reduce the height of the images */
+  width: auto; /* Ensure the width adjusts automatically to maintain the aspect ratio */
+  object-fit: contain; /* Maintain aspect ratio of the SVGs */
+}
+
+.hero__subtitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
 }
