@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'The Beman Project',
   tagline: 'Supporting the efficient design and adoption of the highest quality C++ standard libraries.',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/beman_logo.png',
 
   // Set the production url of your site here
   url: 'https://bemanproject.github.io',
@@ -68,7 +68,7 @@ const config: Config = {
       title: 'The Beman Project',
       logo: {
         alt: 'The Beman Project Logo',
-        src: 'img/logo.svg',
+        src: 'img/beman_logo.png',
       },
       items: [
         {
