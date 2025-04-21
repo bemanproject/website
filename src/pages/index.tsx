@@ -19,14 +19,16 @@ function HomepageHeader() {
         <div className="hero__subtitle">
           <div className={styles.taglineContainer}>
             <img
-              src="./img/logo.png"
-              alt="Left Image"
+              /* TODO: check if we can use SVG images*/
+              src="./img/beman_logo.png"
+              alt="Left Logo"
               style={{ width: '400px', height: '400px' }}
             />
             <span>{siteConfig.tagline}</span>
             <img
-              src="./img/logo.png"
-              alt="Right Image"
+              /* TODO: check if we can use SVG images*/
+              src="./img/beman_logo_reversed.png"
+              alt="Right Logo"
               style={{ width: '400px', height: '400px' }}
             />
           </div>
@@ -39,11 +41,11 @@ function HomepageHeader() {
 
 
 export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Beman website/>"
+      description="The Beman Project/>"
     >
       <HomepageHeader />
       <main>

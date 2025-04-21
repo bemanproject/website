@@ -3,7 +3,7 @@
  * and scoped locally.
  */
 
- .heroBanner {
+.heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
@@ -21,7 +21,6 @@
   align-items: center;
   justify-content: center;
 }
-
 
 .taglineContainer {
   display: flex;
