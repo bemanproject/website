@@ -43,6 +43,8 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+  
+  staticDirectories : ['static', 'images'],
 
   presets: [
     [
@@ -87,9 +89,9 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'docsSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
         },
         {to: '/libraries', label: 'Libraries', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
