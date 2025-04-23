@@ -24,3 +24,13 @@ JeffGarland:
   page: true
   socials:
     github: JeffGarland
+
+PaulTsouchlos:
+  name: Paul Tsouchlos
+  title: C++, Open Source enthusiast.
+  url: https://github.com/DeveloperPaul123
+  image_url: https://avatars.githubusercontent.com/u/6591180
+  page: true
+  socials:
+    github: DeveloperPaul123
+    bsky: https://bsky.app/profile/ptsou.bsky.social
