@@ -24,3 +24,13 @@ DavidSankel:
   page: true
   socials:
     github: camio
+
+neatudarius:
+  name: neatudarius
+  title: C++ Developer, WG21 C++ Committee Member, Beman Contributor, Boost Foundation Board Director
+  url: https://github.com/neatudarius
+  image_url: https://avatars.githubusercontent.com/u/8947836
+  page: true
+  socials:
+    github: neatudarius
+    linkedin: neatudarius
