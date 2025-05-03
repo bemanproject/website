@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
-const GodboltEmbed = ({ url, readOnly=false }) => {
+const Godbolt = ({ url, readOnly=false }) => {
   const readOnlyParam = readOnly ? "readOnly=true&" : "";
   const fullUrl = url.includes("godbolt.org/#")
     ? url.replace(
@@ -24,4 +24,4 @@ const GodboltEmbed = ({ url, readOnly=false }) => {
   );
 };
 
-export default GodboltEmbed;
+export default Godbolt;
