@@ -1,6 +1,13 @@
 ---
 slug: about-beman
-authors: [dabrahams]
+authors:
+- name: Dave Abrahams
+  title: Swift and C++ language/library designer, professor of blowing-your-mind.
+  url: https://github.com/dabrahams
+  image_url: https://avatars.githubusercontent.com/u/44065?v=4
+  page: true
+  socials:
+    github: dabrahams
 tags: [beman]
 ---
 
