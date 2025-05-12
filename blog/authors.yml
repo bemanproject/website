@@ -24,3 +24,21 @@ JeffGarland:
   page: true
   socials:
     github: JeffGarland
+
+dneatu:
+  name: Darius Neatu
+  title: TODO
+  url: https://github.com/dariusneatu
+  image_url: https://avatars.githubusercontent.com/u/4427406?v=4
+  page: true
+  socials:
+    github: dariusneatu
+  
+rnichita:
+  name: Radu Nichita
+  title: TODO
+  url: https://github.com/dariusneatu
+  image_url: https://avatars.githubusercontent.com/u/4427406?v=4
+  page: true
+  socials:
+    github: RaduNichita
