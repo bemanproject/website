@@ -8,6 +8,8 @@ authors:
     page: true
     socials:
       github: camio
+      linkedin: david-sankel
+      x: david_sankel
 tags: ["hackathon", "beman"]
 ---
 
