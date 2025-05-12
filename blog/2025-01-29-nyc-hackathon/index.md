@@ -1,6 +1,15 @@
 ---
 slug: nyc-hackathon
-authors: ["camio"]
+authors:
+  - name: David Sankel
+    title: C++ Developer, Beman Lead
+    url: https://github.com/camio
+    image_url: https://avatars.githubusercontent.com/u/3770603
+    page: true
+    socials:
+      github: camio
+      linkedin: david-sankel
+      x: david_sankel
 tags: ["hackathon", "beman"]
 ---
 
