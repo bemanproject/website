@@ -47,7 +47,7 @@ ednolan:
 
 inbal2l:
   name: Inbal Levi
-  title: Beman Lead, ISO C++ Library Evolution Chair.
+  title: Beman Lead, Software Engineer, ISO C++ Library Evolution Chair.
   url: https://github.com/inbal2l
   image_url: https://avatars.githubusercontent.com/u/12187340?v=4
   page: true
@@ -100,8 +100,8 @@ steve-downey:
   page: true
   socials:
     github: steve-downey
-    mastodon: @Sdowney@mastodon.social
-    bluesky: @sdowney.org
+    mastodon: Sdowney@mastodon.social
+    bluesky: sdowney.org
 
 wusatosi:
   name: River Wu
