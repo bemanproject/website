@@ -1,6 +1,15 @@
+bretbrownjr:
+  name: Bret Brown
+  title: Team Lead of the C++ Infrastructure team of the Developer Experience department at Bloomberg.
+  url: https://github.com/bretbrownjr
+  image_url: https://avatars.githubusercontent.com/u/2119138?v=4
+  page: true
+  socials:
+    github: bretbrownjr
+
 camio:
   name: David Sankel
-  title: C++ Developer, Beman Lead
+  title: Software Engineer, Beman Lead
   url: https://github.com/camio
   image_url: https://avatars.githubusercontent.com/u/3770603
   page: true
@@ -14,7 +23,36 @@ dabrahams:
   image_url: https://avatars.githubusercontent.com/u/44065?v=4
   page: true
   socials:
-    github: dabrahams
+    github: camio
+
+dietmarkuehl:
+  name: Dietmar Kühl 
+  title: Software Developer
+  url: http://www.dietmar-kuehl.de/
+  image_url: https://avatars.githubusercontent.com/u/1319703?v=4
+  page: true
+  socials:
+    github: dietmarkuehl
+    stackoverflow: user:1120273
+    linkedin: dietmar-kühl
+
+ednolan:
+  name: Eddie Nolan 
+  title: C++ Developer
+  url: https://www.ednolan.com/
+  image_url: https://avatars.githubusercontent.com/u/907967?v=4
+  page: true
+  socials:
+    github: ednolan
+
+inbal2l:
+  name: Inbal Levi
+  title: Beman Lead, Software Engineer, ISO C++ Library Evolution Chair.
+  url: https://github.com/inbal2l
+  image_url: https://avatars.githubusercontent.com/u/12187340?v=4
+  page: true
+  socials:
+    github: inbal2l
 
 JeffGarland:
   name: Jeff Garland
@@ -24,3 +62,53 @@ JeffGarland:
   page: true
   socials:
     github: JeffGarland
+
+mguludag:
+  name: Muhammed Galib Uludağ 
+  title: SW Engineer (C++ CMake Linux Automotive)
+  url: https://github.com/mguludag
+  image_url: https://avatars.githubusercontent.com/u/12413639?v=4
+  page: true
+  socials:
+    github: mguludag
+
+neatudarius:
+  name: Darius Neațu
+  title: Software Engineer, ISO C++ Committee Member, PL Researcher, Teaching Assistant
+  url: https://github.com/neatudarius
+  image_url: https://avatars.githubusercontent.com/u/8947836?v=4
+  page: true
+  socials:
+    github: neatudarius
+    linkedin: neatudarius
+
+RaduNichita:
+  name: Radu Nichita
+  title: Software Engineer and open source enthusiast
+  url: https://github.com/neatudarius
+  image_url: https://avatars.githubusercontent.com/u/45298861?v=4
+  page: true
+  socials:
+    github: RaduNichita
+    linkedin: radu-nichita
+
+steve-downey:
+  name: Steve Downey
+  title: Software Engineer
+  url: https://www.sdowney.org/
+  image_url: https://avatars.githubusercontent.com/u/2809078?v=4
+  page: true
+  socials:
+    github: steve-downey
+    mastodon: Sdowney@mastodon.social
+    bluesky: sdowney.org
+
+wusatosi:
+  name: River Wu
+  title: Core contributor to the Beman Project, Alumni of University of Michigan.
+  url: https://github.com/wusatosi
+  image_url: https://avatars.githubusercontent.com/u/26424577?v=4
+  page: true
+  socials:
+    github: wusatosi
+    linkedin: xueqing-wu-29a25724b
