@@ -1,11 +1,6 @@
 # The Beman Project Website
 
-This is the repository hosting the code for the future Beman Website.
-
-We aim to replace the content from the [existing Beman website](https://www.bemanproject.org) by deploying the website generated from current repository.
-
-<!-- TODO: Remove this after the website deployment switch. -->
-> Note: https://bemanproject.github.io/website/ is used a temporary domain while we boostrap the new website infrastructure.
+This is the repository hosting the code for the future Beman Website: https://bemanproject.org/.
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 Documentation is written in MDX format.
