@@ -1,15 +1,20 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import { execSync } from 'child_process';
+
+const remarkEmbedder = require('@remark-embedder/core');
+const YouTubeTransformer = require('./src/components/youtube-transformer.js');
 
 // Note: This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 let branchName = process.env.NETLIFY ? process.env.HEAD : 'main';
 // Get the current branch name using git command
 try {
-  const output = execSync('git branch --show-current', { encoding: 'utf-8' }).trim();
-  if(output) {
+  const output = execSync('git branch --show-current', {
+    encoding: 'utf-8',
+  }).trim();
+  if (output) {
     branchName = output;
   }
   console.log(`Current branch: ${branchName}`);
@@ -20,7 +25,8 @@ try {
 
 const config: Config = {
   title: 'The Beman Project',
-  tagline: 'Supporting the efficient design and adoption of the highest quality C++ standard libraries.',
+  tagline:
+    'Supporting the efficient design and adoption of the highest quality C++ standard libraries.',
   favicon: './img/beman_logo.png',
 
   // Set the production url of your site here
@@ -43,8 +49,8 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  
-  staticDirectories : ['static', 'images'],
+
+  staticDirectories: ['static', 'images'],
 
   presets: [
     [
@@ -52,9 +58,11 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            `https://github.com/bemanproject/website/tree/${branchName}`,
+          // Remove this to remove the 'edit this page' links.
+          editUrl: `https://github.com/bemanproject/website/tree/${branchName}`,
+          remarkPlugins: [
+            [remarkEmbedder, { transformers: [YouTubeTransformer] }],
+          ],
         },
         blog: {
           showReadingTime: true,
@@ -62,9 +70,11 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            `https://github.com/bemanproject/website/tree/${branchName}`,
+          remarkPlugins: [
+            [remarkEmbedder, { transformers: [YouTubeTransformer] }],
+          ],
+          // Remove this to remove the 'edit this page' links.
+          editUrl: `https://github.com/bemanproject/website/tree/${branchName}`,
           // Blogging config
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -93,14 +103,14 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        {to: '/libraries', label: 'Libraries', position: 'left'},
-        {to: '/blog', label: 'Blog', position: 'left'},
+        { to: '/libraries', label: 'Libraries', position: 'left' },
+        { to: '/blog', label: 'Blog', position: 'left' },
         {
           'aria-label': 'Discourse Forum',
           'className': 'navbar--discourse-link',
           'href': 'https://discourse.bemanproject.org/',
           'position': 'right',
-				},
+        },
         {
           'aria-label': 'GitHub Repository',
           'className': 'navbar--github-link',
