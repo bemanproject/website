@@ -5,6 +5,7 @@ import { execSync } from 'child_process';
 
 const remarkEmbedder = require('@remark-embedder/core');
 const YouTubeTransformer = require('./src/components/youtube-transformer.js');
+const GodboltTransformer = require('./src/components/godbolt-transformer.js');
 
 // Note: This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -61,7 +62,7 @@ const config: Config = {
           // Remove this to remove the 'edit this page' links.
           editUrl: `https://github.com/bemanproject/website/tree/${branchName}`,
           remarkPlugins: [
-            [remarkEmbedder, { transformers: [YouTubeTransformer] }],
+            [remarkEmbedder, { transformers: [YouTubeTransformer, GodboltTransformer] }],
           ],
         },
         blog: {
@@ -71,7 +72,7 @@ const config: Config = {
             xslt: true,
           },
           remarkPlugins: [
-            [remarkEmbedder, { transformers: [YouTubeTransformer] }],
+            [remarkEmbedder, { transformers: [YouTubeTransformer, GodboltTransformer] }],
           ],
           // Remove this to remove the 'edit this page' links.
           editUrl: `https://github.com/bemanproject/website/tree/${branchName}`,
