@@ -174,7 +174,7 @@ Complete examples can be found in [https://github.com/bemanproject/exemplar/rele
 
 Here is snapshot of notes for a particular release in `exemplar`:
 
-<img src="../release-notes-examples.png"/>
+![](../images/release-notes-examples.png)
 
 
 ## Top-level
