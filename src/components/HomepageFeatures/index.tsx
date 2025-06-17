@@ -23,7 +23,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         The Beman Project strives to be a distributor of a single-download library collection for C++ libraries proposed for standardization. Our goals are to provide stable distributions that match with the latest versions of C++ proposals.
-        (check <a href="/website/libraries"> The Beman Libraries page</a>).
+        (check <a href="/libraries"> The Beman Libraries page</a>).
         Please note that it’s early days for the project so we’re still building our tooling and other details – please join the discussion at <a href ="https://discourse.bemanproject.org/"> our discourse </a>.
       </>
     ),
