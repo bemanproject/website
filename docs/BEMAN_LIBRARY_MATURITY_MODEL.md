@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 2
 ---
 
 import beman_library_production_ready_api_may_undergo_changes from '../images/logos/beman_logo-beman_library_production_ready_api_may_undergo_changes.png'
