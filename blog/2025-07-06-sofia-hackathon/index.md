@@ -29,7 +29,7 @@ Moving on, the second part of the evening was a hackathon with our latest tool [
 
 For more context, the `beman-tidy` helps you to apply the Beman Standard to your codebase, at a later stage in the library development. 
 
-Since the `beman-tidy` framework was ready, but still required some work to implemented around 40-50 checks, we created a the [beman-tidy Board](https://github.com/orgs/bemanproject/projects/8) to track the progress of the implementation and to split the work into smaller tasks.
+Since the `beman-tidy` framework was ready, but still required some work to implement around 40-50 checks, we created a the [beman-tidy Board](https://github.com/orgs/bemanproject/projects/8) to track the progress of the implementation and to split the work into smaller tasks.
 
 ![beman tidy board](./images/beman-tidy-board.png)
 
