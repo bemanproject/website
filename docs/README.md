@@ -15,4 +15,4 @@ This directory contains information about how the project works, goals, and comm
 - [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md): The Beman Project's code of conduct.
 - [FAQ.md](./FAQ.md): Frequently asked questions about the Beman Project.
 - [GOVERNANCE.md](./GOVERNANCE.md): The governance document outlines the structure of the Beman Project.
-- [MISSION_STATEMENT.md](./MISSION_STATEMENT.md): The mission statement of the Beman Project.
+- [MISSION.md](./MISSION.md): The mission statement of the Beman Project.
