@@ -89,7 +89,7 @@ const config: Config = {
 
   themeConfig: {
     //TODO: Replace with your project's social card
-    image: './img/docusaurus-social-card.jpg',
+    image: './img/beman_logo.png',
     navbar: {
       title: 'The Beman Project',
       logo: {
