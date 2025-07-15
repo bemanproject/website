@@ -26,7 +26,7 @@ try {
 const config: Config = {
   title: 'The Beman Project',
   tagline:
-    'Tomorrow\'s C++ Standard Libraries Today.',
+    'Tomorrow\'s C++ Standard Libraries Today',
   favicon: './img/beman_logo.png',
 
   // Set the production url of your site here
