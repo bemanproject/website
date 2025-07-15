@@ -26,7 +26,7 @@ try {
 const config: Config = {
   title: 'The Beman Project',
   tagline:
-    'Supporting the efficient design and adoption of the highest quality C++ standard libraries.',
+    'Tomorrow\'s C++ Standard Libraries Today',
   favicon: './img/beman_logo.png',
 
   // Set the production url of your site here
