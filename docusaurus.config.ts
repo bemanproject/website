@@ -58,8 +58,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Remove this to remove the 'edit this page' links.
-          editUrl: `https://github.com/bemanproject/website/tree/${branchName}`,
           remarkPlugins: [
             [remarkEmbedder, { transformers: [YouTubeTransformer] }],
           ],
@@ -73,8 +71,6 @@ const config: Config = {
           remarkPlugins: [
             [remarkEmbedder, { transformers: [YouTubeTransformer] }],
           ],
-          // Remove this to remove the 'edit this page' links.
-          editUrl: `https://github.com/bemanproject/website/tree/${branchName}`,
           // Blogging config
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
