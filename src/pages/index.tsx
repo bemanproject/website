@@ -20,14 +20,14 @@ function HomepageHeader() {
           <div className={styles.taglineContainer}>
             <img
               /* TODO: check if we can use SVG images*/
-              src="./img/beman_logo.png"
+              src="./images/logos/beman_logo.png"
               alt="Left Logo"
               style={{ width: '400px', height: '400px' }}
             />
             <span>{siteConfig.tagline}</span>
             <img
               /* TODO: check if we can use SVG images*/
-              src="./img/beman_logo_reversed.png"
+              src="./images/logos/beman_logo_reversed.png"
               alt="Right Logo"
               style={{ width: '400px', height: '400px' }}
             />

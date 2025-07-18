@@ -1,13 +1,12 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
-
-
-# The Beman Standard
 
 <!--
 SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -->
+
+# The Beman Standard
 
 This document specifies rules and recommendations for Beman project libraries.
 Its goal is to create consistency facilitating the evaluation of, and
@@ -71,11 +70,43 @@ recommendations.
 2. [Boost Software License 1.0](https://www.boost.org/LICENSE_1_0.txt)
 3. [The MIT License](https://opensource.org/license/mit)
 
+Use the following format:
+
+```markdown
+==============================================================================
+The Beman Project is under the Apache License v2.0 with LLVM Exceptions:
+==============================================================================
+
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+... // actual license content
+
+==============================================================================
+Software from third parties included in the Beman Project:
+==============================================================================
+The Beman Project contains third party software which is under different license
+terms. All such code will be identified clearly using at least one of two
+mechanisms:
+1) It will be in a separate directory tree with its own `LICENSE.txt` or
+   `LICENSE` file at the top containing the specific license and restrictions
+   which apply to that software, or
+2) It will contain specific license and restriction terms at the top of every
+   file.
+
+```
+
+Check [LICENSE.APACHE_LLVM](#licenseapache_llvm) for recommended license format.
+
 ### **[LICENSE.APACHE_LLVM]**
 
-**RECOMMENDATION**: All Beman libraries should be licensed
-under the [Apache License v2.0 with LLVM
-Exceptions](https://llvm.org/LICENSE.txt).
+**RECOMMENDATION**: A Beman library should be licensed
+under the `Apache License v2.0 with LLVM Exceptions`
+(first recommended license in [LICENSE.APPROVED](#licenseapproved)).
+
+Use the exact content from [beman/LICENSE](https://github.com/bemanproject/beman/blob/main/LICENSE)
+into your library's `LICENSE` file.
 
 ### **[LICENSE.CRITERIA]**
 
@@ -197,7 +228,7 @@ Here is snapshot of notes for a particular release in `exemplar`:
 
 ### **[RELEASE.GODBOLT_TRUNK_VERSION]**
 
-**RECOMMENDATION**: A Beman library should have at least a trunk version deployed on godbolt with nightyclone mode activated. Check [tutorial: Compiler Explorer Deployment](/tutorials/compiler-explorer-deployment.md).
+**RECOMMENDATION**: A Beman library should have at least a trunk version deployed on godbolt with nightyclone mode activated. Check [tutorial: Compiler Explorer Deployment](https://github.com/bemanproject/beman/blob/main/guidelines/compiler-explorer-deployment.md).
 
 
 ## Top-level
@@ -548,7 +579,7 @@ include
 
 ### **[DIRECTORY.SOURCES]**
 
-**RECOMMENDATION**: Sources and headers not part of the
+**REQUIREMENT**: If present, sources and headers not part of the
 public interface should reside in the top-level `src/` directory, and should use
 the same structure from `include/` - e.g., `src/beman/<short_name>/`. Check `CMAKE.AVOID_PASSTHROUGHS`.
 
@@ -574,7 +605,8 @@ src
 
 **REQUIREMENT**: All test files must reside within the top-level `tests/`
 directory, and should use the same structure from `include/`. If multiple test types are present,
-subdirectories can be made (e.g., unit tests, performance etc).
+subdirectories can be made (e.g., unit tests, performance etc). Each project must have at least
+one relevant test.
 
 Examples:
 
@@ -602,7 +634,7 @@ tests
 
 ### **[DIRECTORY.EXAMPLES]**
 
-**REQUIREMENT**: If present, all example files must reside within the top-level `examples/`
+**REQUIREMENT**: All example files must reside within the top-level `examples/`
 directory. Each project must have at least one relevant example.
 
 Examples:

@@ -27,7 +27,7 @@ const config: Config = {
   title: 'The Beman Project',
   tagline:
     'Supporting the efficient design and adoption of the highest quality C++ standard libraries.',
-  favicon: './img/beman_logo.png',
+  favicon: './images/logos/beman_logo.png',
 
   // Set the production url of your site here
   url: 'https://bemanproject.org/',
@@ -94,7 +94,7 @@ const config: Config = {
       title: 'The Beman Project',
       logo: {
         alt: 'The Beman Project Logo',
-        src: './img/beman_logo.png',
+        src: './images/logos/beman_logo.png',
       },
       items: [
         {
