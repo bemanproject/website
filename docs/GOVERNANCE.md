@@ -1,9 +1,6 @@
 ---
-sidebar_position: 6
+sidebar_position: 5
 ---
-
-
-# Governance
 
 <!--
 SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
