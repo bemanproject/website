@@ -4,8 +4,6 @@ authors: ["camio"]
 tags: ["hackathon", "beman"]
 ---
 
-import DiscourseComments from '@site/src/components/DiscourseComments';
-
 # NYC Hackathon
 
 ![busy coding](./images/hacking.jpg "Several hackathon members busy coding. They give the impression of serious and intense work happening!")
@@ -35,5 +33,3 @@ Overall it was productive and a ton of fun. Thanks to Robert, Eddie, Linus,
 River, Nick, Bret, and Robert for participating!
 
 ![portrait of attendees](./images/final-photo.jpg "All the hackathon folks standing together in a portrait looking very cool.")
-
-<DiscourseComments />
