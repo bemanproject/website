@@ -21,7 +21,7 @@ export default function DiscourseComments(): JSX.Element {
     const win = window as DiscourseEmbedWindow;
     if (!win.DiscourseEmbed) {
       // normalize URL to end with a single slash
-      const forum = https://discourse.example.com/
+      const forum = "https://discourse.bemanproject.org/"
       win.DiscourseEmbed = {
         discourseUrl: forum,
         discourseEmbedUrl: "https://discourse.bemanproject.org/t/test-topic-for-blog-comments/472"
