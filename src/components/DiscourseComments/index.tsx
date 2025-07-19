@@ -21,10 +21,10 @@ export default function DiscourseComments(): JSX.Element {
     const win = window as DiscourseEmbedWindow;
     if (!win.DiscourseEmbed) {
       // normalize URL to end with a single slash
-      const forum = discourseUrl.replace(/\/+$/, '') + '/';
+      const forum = https://discourse.example.com/
       win.DiscourseEmbed = {
         discourseUrl: forum,
-        discourseEmbedUrl: window.location.href,
+        discourseEmbedUrl: "https://discourse.bemanproject.org/t/test-topic-for-blog-comments/472"
       };
       const script = document.createElement('script');
       script.src = forum + 'javascripts/embed.js';
