@@ -1,12 +1,12 @@
 ---
-sidebar_position: 4
+sidebar_position: 7
 ---
-
-# Code of conduct
 
 <!--
 SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 -->
+
+# Code of conduct
 
 ## Guidelines
 
