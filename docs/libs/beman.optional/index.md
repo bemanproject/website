@@ -60,56 +60,26 @@ Full code can be found in [./examples/range_loop.cpp](https://github.com/bemanpr
 [./examples/README.md](https://github.com/bemanproject/optional/blob/main/examples/README.md).  
   
 ```cpp { "compiler": "clang_trunk", "libs": ["beman_optional@trunk"], "options": "-std=c++26" }
-// examples/optional_ref.cpp -*-C++-*-
+// examples/range_loop.cpp -*-C++-*-
 // SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 #include <beman/optional/optional.hpp>
-
-#include <string>
-
-struct Cat {
-    int catalog_index{0};
-};
-
-namespace std17 {
-
-// Prior to C++26, the code would look like this.
-// Using raw pointers to represent optional references.
-// Note: Using smart pointers would also be a choice, but it involves ownership semantics.
-
-Cat* find_cat(std::string) { return nullptr; }
-
-Cat* do_it(Cat& cat) { return &cat; }
-
-Cat* api() {
-    Cat* cat = find_cat("Fido");
-    if (cat != nullptr) {
-        return do_it(*cat);
-    }
-    return nullptr;
-}
-
-} // namespace std17
-
-namespace std26 {
-// After C++26 with P2988R5, the code would look like this.
-// Using directly optional to represent optional references.
-
-beman::optional::optional<Cat&> find_cat(std::string) { return {}; }
-
-beman::optional::optional<Cat&> do_it(Cat& cat) { return {cat}; }
-
-beman::optional::optional<Cat&> api() {
-    beman::optional::optional<Cat&> cat = find_cat("Fido");
-    return cat.and_then(do_it);
-}
-
-} // namespace std26
+#include <iostream>
 
 int main() {
-    // Example from P2988R5: optional reference.
-    [[maybe_unused]] Cat*                              old_cat = std17::api();
-    [[maybe_unused]] beman::optional::optional<Cat&> new_cat = std26::api();
+    // Example from P3168R1: basic range loop over C++26 optional.
+
+    beman::optional::optional<int> empty_opt{};
+    for ([[maybe_unused]] const auto& i : empty_opt) {
+        // Should not see this in console.
+        std::cout << "\"for each loop\" over C++26 optional: empty_opt\n";
+    }
+
+    beman::optional::optional<int> opt{__cplusplus};
+    for (const auto& i : opt) {
+        // Should see this in console.
+        std::cout << "\"for each loop\" over C++26 optional: opt = " << i << "\n";
+    }
 
     return 0;
 }
@@ -118,7 +88,9 @@ int main() {
 // $ cmake --workflow --preset gcc-14
 //
 // # run example:
-// $ .build/gcc-14/examples/RelWithDebInfo/optional_ref
+// $ .build/gcc-14/examples/RelWithDebInfo/range_loop
+//                                                # note: 1st log (empty_opt) is missing from console!
+// "for each loop" over C++26 optional: opt = 26  # 2nd log (non empty opt)
 ```
   
 ### optional_ref
