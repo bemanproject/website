@@ -59,7 +59,7 @@ for (const auto& i : opt) {
 Full code can be found in [./examples/range_loop.cpp](https://github.com/bemanproject/optional/blob/main/examples/range_loop.cpp). Build and run instructions in
 [./examples/README.md](https://github.com/bemanproject/optional/blob/main/examples/README.md).  
   
-```cpp { "compiler": "clang_trunk", "libs": ["beman_optional@trunk"], "options": "-std=c++26" }
+```cpp { "compilers": ["clang_trunk -std=c++26", "gsnapshot -std=c++26"], "libs": ["beman_optional@trunk"], "filters": {"execute":true} }
 // examples/range_loop.cpp -*-C++-*-
 // SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
