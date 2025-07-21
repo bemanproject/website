@@ -123,6 +123,7 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    discourseUrl: 'https://discourse.bemanproject.org/', // Temporary change, re-deploy.
   } satisfies Preset.ThemeConfig,
 };
 
