@@ -2,6 +2,7 @@
 slug: about-beman
 authors: [dabrahams]
 tags: [beman]
+comments: true
 ---
 
 # About Beman
