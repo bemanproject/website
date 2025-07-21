@@ -2,6 +2,7 @@
 slug: beman-tutorial
 authors: [JeffGarland]
 tags: [cppcon, conference]
+comments: true
 ---
 
 # Beman Project Introduction Online

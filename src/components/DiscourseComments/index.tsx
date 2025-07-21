@@ -34,10 +34,36 @@ export default function DiscourseComments(): JSX.Element {
         discourseEmbedUrl: `${base}${path}`,
       };
 
+      // Remove existing Discourse iframe if present
+      const existingIframe = document.querySelector('#discourse-comments iframe');
+      if (existingIframe && existingIframe.parentNode) {
+        existingIframe.parentNode.removeChild(existingIframe);
+      }
+
+      // Load or reload the embed script
+      const existingScript = document.querySelector(`script[src="${forum}javascripts/embed.js"]`);
+      if (existingScript) {
+        existingScript.parentNode.removeChild(existingScript);
+      }
+
       const script = document.createElement('script');
-      script.src = `${forum}javascripts/embed.js`;
+      script.src = forum + 'javascripts/embed.js';
       script.async = true;
+      script.referrerPolicy = 'no-referrer-when-downgrade';
+      script.onload = () => console.log('Discourse script loaded successfully');
+      script.onerror = () => console.error('Failed to load Discourse script');
       document.body.appendChild(script);
+
+      return () => {
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
+        // Clean up iframe on unmount
+        const iframe = document.querySelector('#discourse-comments iframe');
+        if (iframe && iframe.parentNode) {
+          iframe.parentNode.removeChild(iframe);
+        }
+      };
     }
   }, [discourseUrl]);
 

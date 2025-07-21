@@ -2,6 +2,7 @@
 slug: nyc-hackathon
 authors: ["camio"]
 tags: ["hackathon", "beman"]
+comments: true
 ---
 
 # NYC Hackathon
