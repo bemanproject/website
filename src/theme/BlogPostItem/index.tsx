@@ -17,6 +17,8 @@ export default function BlogPostItemWrapper(props) {
     frontMatter.comments === true || frontMatter.comments === "true";
   const shouldShowComments =
     commentsEnabled && !isBlogListPage && frontMatter.slug;
+  console.log(pathname)
+  console.log(shouldShowComments)
 
   return (
     <>
