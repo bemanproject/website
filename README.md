@@ -33,6 +33,7 @@ $ cat blog/2000-10-30-my-blog-example/index.md
 slug: my-blog-example-slug    # Slug example. Remove this comment if using this template.
 authors: [neatudarius]        # Authors list with entrie from blog/authors.yml. Remove this comment if using this template.
 tags: ["cpp26", "beman-docs"] # Blog post valid tags from blog/tags.yml. Remove this comment if using this template.
+comments: true                # If comments should be enabled for this blog post. Default: true.
 ---
 
 # My Blog Example
@@ -62,6 +63,8 @@ socials:        # [optional] Include your socials (like your Github, X, Linkedin
 ```
 
 </details>
+
+> Note: The Discourse comments plugin only works for production website (a.k.a. https://bemanproject.org/). You cannot test it locally or on preview deployments. Check [Integrate Discourse comment feature for blog posts](https://github.com/bemanproject/website/issues/25) for more details.
 
 
 4. Open a `DRAFT PR` and `wait` up to one minute for a preview deployment of your blog post.
