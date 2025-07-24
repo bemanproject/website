@@ -17,7 +17,11 @@ export default function DiscourseComments() {
     return null;
   }
 
-  if (pathname == "/blog" || pathname == '/blog/') {
+  if (
+    pathname === "/blog" ||
+    pathname === "/blog/" ||
+    pathname.startsWith("/blog/authors/")
+  ) {
     return;
   }
 
