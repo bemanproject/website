@@ -10,6 +10,10 @@ beman-infra:
   label: Beman Infra
   permalink: /beman-infra
 
+beman-tidy:
+  label: Beman Tidy
+  permalink: /beman-tidy
+
 beman-library:
   label: Beman Library
   permalink: /beman-library
@@ -49,3 +53,11 @@ cppcon:
 hackathon:
   label: Hackathon
   permalink: /hackathon
+
+sofia:
+  label: Sofia
+  permalink: /sofia
+
+wg21:
+  label: WG21
+  permalink: /wg21
