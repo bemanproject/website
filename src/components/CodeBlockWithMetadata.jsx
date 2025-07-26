@@ -1,5 +1,6 @@
 import React from "react";
 import CodeBlock from "@theme/CodeBlock";
+import Godbolt from "./Godbolt";
 
 let uniqueID = (function () {
   let id = 0;
@@ -60,14 +61,7 @@ export default function CodeBlockWithMetadata({ children, meta, language }) {
 
   return (
     <div style={{ marginBottom: "1em" }}>
-      <a
-        href={`https://godbolt.org/clientstate/${clientStateB64}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ display: "inline-block", marginBottom: "0.5em", color: "#0b5ed7" }}
-      >
-        Try it on Compiler Explorer 🚀
-      </a>
+      <Godbolt url={`https://godbolt.org/clientstate/${clientStateB64}`} />
       <CodeBlock language={language}>{sourceCode}</CodeBlock>
     </div>
   );
