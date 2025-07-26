@@ -84,6 +84,10 @@ const config: Config = {
     ],
   ],
 
+  clientModules: [
+    require.resolve('./src/components/Godbolt.jsx'),
+  ],
+
   themeConfig: {
     //TODO: Replace with your project's social card
     image: './img/beman_logo.png',
