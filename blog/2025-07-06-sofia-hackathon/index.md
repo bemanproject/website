@@ -19,7 +19,7 @@ Since November 2024, we have been organizing Beman presentations at ISO WG21 C++
 
 We had a great turnout, with 25 participants. The evening started with a great discussion about The Beman Project and where it is going, especially considering the C++26 is closed and the design cycle  for C++29 is starting.
 
-We presented our first [Production ready. API may undergo changes.](https://github.com/bemanproject/beman/blob/main/docs/BEMAN_LIBRARY_MATURITY_MODEL.md#production-ready-api-may-undergo-changes), which is the [beman.optional](https://github.com/bemanproject/optional) library, hoping to get it into the C++26 standard and become [Production ready. Stable API.](https://github.com/bemanproject/beman/blob/main/docs/BEMAN_LIBRARY_MATURITY_MODEL.md#production-ready-stable-api). We counted a total of 10 [Under development and not yet ready for production use.](https://github.com/bemanproject/beman/blob/main/docs/BEMAN_LIBRARY_MATURITY_MODEL.md#production-ready-stable-api) Beman libraries.
+We presented our first [Production ready. API may undergo changes.](https://github.com/bemanproject/beman/blob/main/docs/BEMAN_LIBRARY_MATURITY_MODEL.md#production-ready-api-may-undergo-changes) library, which is the [beman.optional](https://github.com/bemanproject/optional) library, hoping to get it into the C++26 standard and become [Production ready. Stable API.](https://github.com/bemanproject/beman/blob/main/docs/BEMAN_LIBRARY_MATURITY_MODEL.md#production-ready-stable-api). We counted a total of 10 [Under development and not yet ready for production use.](https://github.com/bemanproject/beman/blob/main/docs/BEMAN_LIBRARY_MATURITY_MODEL.md#production-ready-stable-api) Beman libraries.
 
 We have continued the discussion around our set of guidelines for the Beman libraries, which are described in [The Beman Standard](https://github.com/bemanproject/beman/blob/main/docs/BEMAN_STANDARD.md). This strong set of rules is a great foundation for our libraries, and it helps the authors to create libraries that are easy to use, maintain, and extend by example, using our awesome [beman.exemplar](https://github.com/bemanproject/exemplar) template library.
 
@@ -35,7 +35,7 @@ We were very happy with the impact of that evening (Wednesday evening, in the mi
 
 After Friday's LEWG session,  [P3655R1: std::zstring_view](https://wg21.link/P3655R1) was presented and got feedback to continue the proposed direction. As an immediate consequence of this event, a new author created the [beman.cstring_view](https://github.com/bemanproject/cstring_view) library, to pursue the C++29 proposal.
 
-The cherry on the cake was that on Saturday's plenary! Lots and lots of great news for Beman folks!
+The cherry on the cake was the Saturday's plenary! Lots and lots of great news for Beman folks!
 
 The proposals behind the [beman.task](https://github.com/bemanproject/task), [beman.execution](https://github.com/bemanproject/execution) and [beman.net](https://github.com/bemanproject/net) libraries got accepted in C++26, although significant work remains to make them production ready.
 
