@@ -2,6 +2,7 @@
 slug: sofia-hackathon
 authors: ["neatudarius"]
 tags: ["beman", "hackathon", "beman-tidy", "sofia", "wg21", "c++26", "c++29"]
+comments: true
 ---
 
 # Beman Sofia Hackathon
