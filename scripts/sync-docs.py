@@ -21,13 +21,30 @@ def copy_images(beman_repo_path: Path, website_repo_path: Path):
     Copy directory beman/images/ to /static/images/ for website build.
     Copy directory beman/images/ to / for previews in editors.
     """
-    beman_images_path = beman_repo_path / 'images'
-    target_directories = [
-        website_repo_path / 'images',
-        website_repo_path / 'static' / 'images',
+    tasks = [
+        {
+            'source': beman_repo_path / 'images',
+            'target': website_repo_path / 'images',
+        },
+        {
+            'source': beman_repo_path / 'images',
+            'target': website_repo_path / 'static' / 'images',
+        },
+        {
+            'source': beman_repo_path / 'docs' / 'images',
+            'target': website_repo_path / 'docs' / 'images',
+        },
+        {
+            'source': beman_repo_path / 'docs' / 'images',
+            'target': website_repo_path / 'static' / 'docs' / 'images',
+        },
     ]
-    for target_directory in target_directories:
+    
+    for task in tasks:
+        beman_images_path = task['source']
+        target_directory = task['target']
         print(f"Copying images from {beman_images_path} to {target_directory}")
+
         # Remove the target_directory if it exists and create it again.
         if target_directory.exists():
             shutil.rmtree(target_directory)
@@ -74,12 +91,12 @@ def main():
 
     copy_images(beman_repo_path, website_repo_path)
     sync_beman_docs(beman_repo_path, website_repo_path, 'docs/README.md', 1)
-    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/BEMAN_LIBRARY_MATURITY_MODEL.md', 2)
-    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/BEMAN_STANDARD.md', 3)
-    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/MISSION.md', 4)
-    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/FAQ.md', 5)
-    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/GOVERNANCE.md', 6)
-    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/CODE_OF_CONDUCT.md', 7)
+    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/beman_library_maturity_model.md', 2)
+    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/beman_standard.md', 3)
+    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/mission.md', 4)
+    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/faq.md', 5)
+    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/governance.md', 6)
+    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/code_of_conduct.md', 7)
 
 if __name__ == "__main__":
     main()
