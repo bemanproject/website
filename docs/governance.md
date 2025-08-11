@@ -35,7 +35,7 @@ This includes strategic planning, setting goals, and ensuring the organization's
 This team should broadly understand both the Standardization process, the needs of library developers, and the concerns from Committee Members.
 The Beman Project Leads ultimately approve or change the process that we use for exposing Beman Libraries to the wider community.
 
-Beman Leads are currently: Jeff Garland, Inbal Levi, and David Sankel.
+Beman Leads are currently: Jeff Garland, Inbal Levi, and Eddie Nolan.
 
 ### 3.1.2 Adding and removing Beman Leads
 
@@ -71,7 +71,7 @@ Beman Project Leads ultimately decide the direction of the Project.
 
 # 5. Code of Conduct
 
-Please refer to our [Code of Conduct](CODE_OF_CONDUCT.md).
+Please refer to our [Code of Conduct](./code_of_conduct.md).
 
 # 5.1 Respectful Behavior:
 

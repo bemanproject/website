@@ -120,7 +120,7 @@ If you have questions, please feel free to ask on our communication channels, or
 
 ## Conduct team
 
-The conduct team will be the Beman Project Leads as outlined in our [Governance Documents](GOVERNANCE.md).
+The conduct team will be the Beman Project Leads as outlined in our [Governance Documents](governance.md).
 
 ### Reporting conduct
 
@@ -196,7 +196,7 @@ If that’s the case, the identities of anyone involved will remain confidential
 ### Appealing
 
 Only permanent resolutions, such as bans, or requests for public actions may be appealed. 
-To appeal a decision of the conduct team, contact the [Beman leads](GOVERNANCE.md) with your appeal and they will review the case.
+To appeal a decision of the conduct team, contact the [Beman leads](governance.md) with your appeal and they will review the case.
 
 In general, it is **not** appropriate to appeal a particular decision in public
 areas of GitHub or Discord. 

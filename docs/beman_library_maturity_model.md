@@ -40,8 +40,8 @@ These libraries were archived and no longer maintained. These libraries are not 
 
 Transition examples:
 
-* They were [Production ready. Stable API.](./BEMAN_LIBRARY_MATURITY_MODEL.md#production-ready-stable-api) at some point, but are no longer developed or maintained, being superseded by native compiler implementations - `Mature retirement`.
+* They were [Production ready. Stable API.](./beman_library_maturity_model.md#production-ready-stable-api) at some point, but are no longer developed or maintained, being superseded by native compiler implementations - `Mature retirement`.
 
-* They were [Production ready. API may undergo changes.](./BEMAN_LIBRARY_MATURITY_MODEL.md#production-ready-api-may-undergo-changes) at some point, but are no longer developed or maintained, being rejected from the ISO C+ Standardization - `Early retirement`.
+* They were [Production ready. API may undergo changes.](./beman_library_maturity_model.md#production-ready-api-may-undergo-changes) at some point, but are no longer developed or maintained, being rejected from the ISO C+ Standardization - `Early retirement`.
 
-* They were [Under development and not yet ready for production use.](./BEMAN_LIBRARY_MATURITY_MODEL.md#under-development-and-not-yet-ready-for-production-use) at some point and were abandoned - `Early retirement`.
+* They were [Under development and not yet ready for production use.](./beman_library_maturity_model.md#under-development-and-not-yet-ready-for-production-use) at some point and were abandoned - `Early retirement`.
