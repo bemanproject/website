@@ -26,16 +26,16 @@ Copying images from ../beman/images to /Users/dariusn/dev/dn/git/Beman/website/i
 Copying images from ../beman/images to /Users/dariusn/dev/dn/git/Beman/website/static/images
 Copying ../beman/docs/README.md to /Users/dariusn/dev/dn/git/Beman/website/docs/README.md
 Inserting sidebar position 1 into /Users/dariusn/dev/dn/git/Beman/website/docs/README.md
-Copying ../beman/docs/BEMAN_LIBRARY_MATURITY_MODEL.md to /Users/dariusn/dev/dn/git/Beman/website/docs/BEMAN_LIBRARY_MATURITY_MODEL.md
-Inserting sidebar position 2 into /Users/dariusn/dev/dn/git/Beman/website/docs/BEMAN_LIBRARY_MATURITY_MODEL.md
-Copying ../beman/docs/BEMAN_STANDARD.md to /Users/dariusn/dev/dn/git/Beman/website/docs/BEMAN_STANDARD.md
-Inserting sidebar position 3 into /Users/dariusn/dev/dn/git/Beman/website/docs/BEMAN_STANDARD.md
-Copying ../beman/docs/MISSION.md to /Users/dariusn/dev/dn/git/Beman/website/docs/MISSION.md
-Inserting sidebar position 4 into /Users/dariusn/dev/dn/git/Beman/website/docs/MISSION.md
-Copying ../beman/docs/FAQ.md to /Users/dariusn/dev/dn/git/Beman/website/docs/FAQ.md
-Inserting sidebar position 5 into /Users/dariusn/dev/dn/git/Beman/website/docs/FAQ.md
-Copying ../beman/docs/GOVERNANCE.md to /Users/dariusn/dev/dn/git/Beman/website/docs/GOVERNANCE.md
-Inserting sidebar position 6 into /Users/dariusn/dev/dn/git/Beman/website/docs/GOVERNANCE.md
-Copying ../beman/docs/CODE_OF_CONDUCT.md to /Users/dariusn/dev/dn/git/Beman/website/docs/CODE_OF_CONDUCT.md
-Inserting sidebar position 7 into /Users/dariusn/dev/dn/git/Beman/website/docs/CODE_OF_CONDUCT.md
+Copying ../beman/docs/beman_library_maturity_model.md to /Users/dariusn/dev/dn/git/Beman/website/docs/beman_library_maturity_model.md
+Inserting sidebar position 2 into /Users/dariusn/dev/dn/git/Beman/website/docs/beman_library_maturity_model.md
+Copying ../beman/docs/beman_standard.md to /Users/dariusn/dev/dn/git/Beman/website/docs/beman_standard.md
+Inserting sidebar position 3 into /Users/dariusn/dev/dn/git/Beman/website/docs/beman_standard.md
+Copying ../beman/docs/mission.md to /Users/dariusn/dev/dn/git/Beman/website/docs/mission.md
+Inserting sidebar position 4 into /Users/dariusn/dev/dn/git/Beman/website/docs/mission.md
+Copying ../beman/docs/faq.md to /Users/dariusn/dev/dn/git/Beman/website/docs/faq.md
+Inserting sidebar position 5 into /Users/dariusn/dev/dn/git/Beman/website/docs/faq.md
+Copying ../beman/docs/governance.md to /Users/dariusn/dev/dn/git/Beman/website/docs/governance.md
+Inserting sidebar position 6 into /Users/dariusn/dev/dn/git/Beman/website/docs/governance.md
+Copying ../beman/docs/code_of_conduct.md to /Users/dariusn/dev/dn/git/Beman/website/docs/code_of_conduct.md
+Inserting sidebar position 7 into /Users/dariusn/dev/dn/git/Beman/website/docs/code_of_conduct.md
 ```

@@ -74,12 +74,12 @@ def main():
 
     copy_images(beman_repo_path, website_repo_path)
     sync_beman_docs(beman_repo_path, website_repo_path, 'docs/README.md', 1)
-    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/BEMAN_LIBRARY_MATURITY_MODEL.md', 2)
-    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/BEMAN_STANDARD.md', 3)
-    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/MISSION.md', 4)
-    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/FAQ.md', 5)
-    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/GOVERNANCE.md', 6)
-    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/CODE_OF_CONDUCT.md', 7)
+    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/beman_library_maturity_model.md', 2)
+    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/beman_standard.md', 3)
+    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/mission.md', 4)
+    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/faq.md', 5)
+    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/governance.md', 6)
+    sync_beman_docs(beman_repo_path, website_repo_path, 'docs/code_of_conduct.md', 7)
 
 if __name__ == "__main__":
     main()
