@@ -12,7 +12,7 @@ This repository implements `std::optional` extensions targeting C++26. The `bema
 
 **Implements**: [Give *std::optional* Range Support (P3168R2)](https://wg21.link/P3168R2) and [`std::optional<T&>` (P2988R5)](https://wg21.link/P2988R5)
 
-**Status**: [Production ready. API may undergo changes.](../../BEMAN_LIBRARY_MATURITY_MODEL.md#production-ready-api-may-undergo-changes)
+**Status**: [Production ready. API may undergo changes.](../../beman_library_maturity_model.md#production-ready-api-may-undergo-changes)
 
 ## License
 

@@ -26,6 +26,23 @@ blog/2000-10-30-my-blog-example/
 
 3. Add your full Markdown blog post content inside the `index.md` file.
 
+   * [optional] Add Godbolt links or generate from C++ codeblock:  
+     * If your content includes Godbolt link(s), simply use the `<Godbolt url="YOUR_GODBOLT_URL"/>` syntax to generate `Try it on Compiler Explorer 🚀` link(s).
+     * If your content includes C++ codeblock, you need to include a custom metadata to the codeblock like below:
+      ```
+      ``` cpp { "compilers": ["clang_trunk -std=c++26", "gsnapshot -std=c++26"], "libs": ["beman_optional@trunk"], "filters": {"execute":true} }
+      // your cpp code
+      ```
+      <details>
+      <summary> Metadata reference </summary>
+
+      The metadata json object is based on the [Compiler Explorer API](https://github.com/compiler-explorer/compiler-explorer/blob/main/docs/API.md) with custom flavor for easier to write. This metadata json structure is basically `{"compilers": ["CompilerName CompilerFlags"], "libs": ["LibraryId@Version"], "filters": {"execute":true}}`
+      * The `CompilerName`s you can get from: https://godbolt.org/api/compilers
+      * The `LibraryId`s you can get from: https://godbolt.org/api/libraries/c++
+
+      </details>
+
+
 Example
 ```shell
 $ cat blog/2000-10-30-my-blog-example/index.md
@@ -65,7 +82,6 @@ socials:        # [optional] Include your socials (like your Github, X, Linkedin
 </details>
 
 > Note: The Discourse comments plugin only works for production website (a.k.a. https://bemanproject.org/). You cannot test it locally or on preview deployments. Check [Integrate Discourse comment feature for blog posts](https://github.com/bemanproject/website/issues/25) for more details.
-
 
 4. Open a `DRAFT PR` and `wait` up to one minute for a preview deployment of your blog post.
 
