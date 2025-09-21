@@ -23,7 +23,7 @@ In short, `bemanproject/infra-containers` is a set of [Docker](https://www.docke
 
 - These images provide a standard set of tools that are "baked-in" the images. There is no further configuration needed in GitHub Actions to get the necessary tooling installed and set up for a particular job.
 - This setup gives complete control of what version of specific tools are installed in a particular image. This gives us full control of the CI environment.
-- The images don't need to be rebuilt for each CI run. They are built once (when changes are made) and the published to a central repository.
+- The images don't need to be rebuilt for each CI run. They are built once (when changes are made) and then published to a central repository.
 
 The `infra-containers` repository also builds `devcontainer` images which are used as online development environments for the Beman library projects.
 
