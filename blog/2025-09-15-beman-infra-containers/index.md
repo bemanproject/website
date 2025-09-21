@@ -19,7 +19,7 @@ This is where [bemanproject/infra-containers](https://github.com/bemanproject/in
 
 # What is it?
 
-In short, `bemanproject/infra-containers` is a set of [Docker](https://www.docker.com/) container images that can be reused in CI pipelines across the Beman library projects. These containers are automatically built and published to the GitHub package registry under the [Beman organization](https://github.com/orgs/bemanproject/packages). Why do this? There are several advantages:
+In short, `bemanproject/infra-containers` is a set of [Docker](https://www.docker.com/) container images that can be reused in CI pipelines across the Beman library projects. These containers are automatically built and published to the GitHub package registry under the [bemanproject organization](https://github.com/orgs/bemanproject/packages). Why do this? There are several advantages:
 
 - These images provide a standard set of tools that are "baked-in" the images. There is no further configuration needed in GitHub Actions to get the necessary tooling installed and set up for a particular job.
 - This setup gives complete control of what version of specific tools are installed in a particular image. This gives us full control of the CI environment.
