@@ -35,7 +35,51 @@ If you're not familiar with Docker or containers in general, this may seem like 
 
 # How is it used?
 
-The simplest way to understand how the `infra-containers` are used is to look at an example. We will use [bemanproject/optional](https://github.com/bemanproject/optional) for this purpose as it is one of the more mature Beman libraries. If we look at its [CI](https://github.com/bemanproject/optional/blob/main/.github/workflows/ci.yml) GitHub actions workflow, we can see exactly [where](https://github.com/bemanproject/optional/blob/e9cbfb1392820b7e6651d23671aeb10b0edfc07b/.github/workflows/ci.yml#L17) the infra container is used, and that's it! According to the GitHub [documentation](https://docs.github.com/en/actions/how-tos/write-workflows/choose-where-workflows-run/run-jobs-in-a-container#defining-the-container-image) on using container images in GitHub Actions, any steps that defined in the job that has a container image set will run inside that container instead of the host specified by the `runs-on` entry in the GitHub Actions yaml file.
+The simplest way to understand how the infra-containers are used is to look at an example. We will use bemanproject/task for this purpose as it runs tests with a large and diverse set of configurations. If we look at its CI GitHub actions workflow, we can see a JSON object used to configure CI. Excerpted below is the Clang portion:
+
+```json
+{
+  "clang": [
+    { "versions": ["20"],
+      "tests": [
+        {"cxxversions": ["c++26"],
+          "tests": [
+            { "stdlibs": ["libstdc++", "libc++"],
+              "tests": [
+                "Debug.Default", "Release.Default", "Release.MaxSan",
+                "Debug.Werror", "Debug.Dynamic"
+              ]
+            }
+          ]
+        },
+        { "cxxversions": ["c++23", "c++20"],
+          "tests": [
+            {"stdlibs": ["libstdc++", "libc++"], "tests": ["Release.Default"]}
+          ]
+        }
+      ]
+    },
+    { "versions": ["19", "18"],
+      "tests": [
+        { "cxxversions": ["c++26", "c++23", "c++20"],
+          "tests": [
+            {"stdlibs": ["libstdc++", "libc++"], "tests": ["Release.Default"]}
+          ]
+        }
+      ]
+    },
+    { "versions": ["17"],
+      "tests": [
+        { "cxxversions": ["c++26", "c++23", "c++20"],
+          "tests": [{"stdlibs": ["libc++"], "tests": ["Release.Default"]}]
+        }
+      ]
+    }
+  ]
+}
+```
+
+The structure of this configuration allows maintainers to easily produce CI matrices that test large combinations of compilers, standard libraries, and build configurations. The snippet above generates 29 individual CI jobs, each of which takes around 2 minutes to run individually. The compiler name and version specified here is used to determine which CI image to pull.
 
 Hopefully this brief overview of `bemanproject/infra-containers` has given you a better understanding of why it's beneficial, how it works and how it's used. If you previously were not familiar with Docker, the GitHub package registry, or even the concept of containers, I hope this has inspired you to dig deeper into the topic to improve your own CI infrastructure at your company or for your personal projects.
 
