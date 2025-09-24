@@ -83,4 +83,14 @@ The structure of this configuration allows maintainers to easily produce CI matr
 
 Hopefully this brief overview of `bemanproject/infra-containers` has given you a better understanding of why it's beneficial, how it works and how it's used. If you previously were not familiar with Docker, the GitHub package registry, or even the concept of containers, I hope this has inspired you to dig deeper into the topic to improve your own CI infrastructure at your company or for your personal projects.
 
-If you're interested in contributing to the Beman Project, please check out the [Beman Project](https://github.com/bemanproject) on GitHub or [join us on Discourse](https://discourse.bemanproject.org/latest) to get involved! Please also checkout the [official website](https://bemanproject.org) for more information on the Beman Project.
+Currently, seven beman projects use this `beman/infra-containers` as part of their GitHub Actions setup, including:
+
+- [bemanproject/cache_latest](https://github.com/bemanproject/cache_latest)
+- [bemanproject/execution](https://github.com/bemanproject/execution)
+- [bemanproject/net](https://github.com/bemanproject/net)
+- [bemanproject/scan_view](https://github.com/bemanproject/scan_view)
+- [bemanproject/scope](https://github.com/bemanproject/scope)
+- [bemanproject/task](https://github.com/bemanproject/task)
+- [bemanproject/transform_view](https://github.com/bemanproject/transform_view)
+
+If you're interested in contributing to the Beman Project, including adapting more Beman projects to use the `bemanproject/infra-containers` setup, please check out the [Beman Project](https://github.com/bemanproject) on GitHub or [join us on Discourse](https://discourse.bemanproject.org/latest) to get involved! Please also checkout the [official website](https://bemanproject.org) for more information on the Beman Project.
