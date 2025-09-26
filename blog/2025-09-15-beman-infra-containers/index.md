@@ -25,7 +25,7 @@ In short, `bemanproject/infra-containers` is a set of [Docker](https://www.docke
 - This setup gives complete control of specific tools are installed in a particular image.
 - The images don't need to be rebuilt for each CI run. They are built once (when changes are made) and then published to a central repository.
 
-The `infra-containers` repository also builds `devcontainer` images which are used as online development environments for the Beman library projects. In addition to the most recent stable versions of GCC and Clang, there are images for the most recent trunk builds of both compilers, as well as one for the [P2996 fork](https://github.com/bloomberg/clang-p2996) of Clang.
+The `infra-containers` repository also builds `devcontainer` images which are used as online development environments for the Beman library projects. In addition to the most recent stable versions of GCC and Clang, there are images for the most recent trunk builds of both compilers, as well as one for the [P2996 reflection fork](https://github.com/bloomberg/clang-p2996) of Clang.
 
 # How does it work?
 
