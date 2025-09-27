@@ -25,17 +25,19 @@ In short, `bemanproject/infra-containers` is a set of [Docker](https://www.docke
 - This setup gives complete control of specific tools are installed in a particular image.
 - The images don't need to be rebuilt for each CI run. They are built once (when changes are made) and then published to a central repository.
 
-The `infra-containers` repository also builds `devcontainer` images which are used as online development environments for the Beman library projects. In addition to the most recent stable versions of GCC and Clang, there are images for the most recent trunk builds of both compilers, as well as one for the [P2996 reflection fork](https://github.com/bloomberg/clang-p2996) of Clang.
+Additionally, this setup allows us to build containers that contain pre-release or forked versions of compilers and other tools that may not be available in standard package repositories. This is especially useful for testing upcoming C++ features that are not yet available in stable compiler releases. Currently images are built using the most recent stable versions of GCC and Clang, the most recent trunk builds of both compilers, as well as one for the [P2996 reflection fork](https://github.com/bloomberg/clang-p2996) of Clang.
+
+The `infra-containers` repository also builds `devcontainer` images which are used as online development environments via [GitHub Codespaces](https://github.com/features/codespaces) for the Beman library projects.
 
 # How does it work?
 
 When a change is made to the `Dockerfile` definitions in the [infra-containers](https://github.com/bemanproject/infra-containers) repository, a series of GitHub Actions are started that build and publish the containers to the package registry, both for production and staging use. These actions additionally run weekly or they can be invoked manually if needed.
 
-If you're not familiar with Docker or containers in general, this may seem like magic. To simplify things, you can think of these images as "virtual" operating systems that have been pre-configured with specific versions of certain tools. For [fast turnaround, binary caching, and building compiler forks](https://www.gentoo.org/) the CI images are built on top of [Gentoo Linux](https://www.gentoo.org/). The devcontainer images are built on top of Ubuntu so that Microsoft's devcontainer images can be used as a base. The devcontainers images are used in [GitHub Codespaces](https://github.com/features/codespaces), which provides an online development environment based on VS Code that can be used directly from a web browser.
+If you're not familiar with Docker or containers in general, this may seem like magic. To simplify things, you can think of these images as "virtual" operating systems that have been pre-configured with specific versions of certain tools. For [fast turnaround, binary caching, and building compiler forks](https://www.gentoo.org/) the CI images are built on top of [Gentoo Linux](https://www.gentoo.org/). The devcontainer images are built on top of Ubuntu so that Microsoft's devcontainer images can be used as a base.
 
 # How is it used?
 
-The simplest way to understand how the infra-containers are used is to look at an example. We will use bemanproject/task for this purpose as it runs tests with a large and diverse set of configurations. If we look at its CI GitHub actions workflow, we can see a JSON object used to configure CI. Excerpted below is the Clang portion:
+The simplest way to understand how the infra-containers are used is to look at an example. We will use bemanproject/task for this purpose as it runs tests with a large and diverse set of configurations. If we look at its [CI GitHub actions workflow](https://github.com/bemanproject/task/blob/66da7a2c82f681c0ae1440bc4940626b2791eb9c/.github/workflows/ci_tests.yml#L35), we can see a JSON object used to configure CI. Excerpted below is the Clang portion:
 
 ```json
 {
