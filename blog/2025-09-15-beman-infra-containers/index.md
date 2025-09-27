@@ -31,7 +31,7 @@ The `infra-containers` repository also builds `devcontainer` images which are us
 
 When a change is made to the `Dockerfile` definitions in the [infra-containers](https://github.com/bemanproject/infra-containers) repository, a series of GitHub Actions are started that build and publish the containers to the package registry, both for production and staging use. These actions additionally run weekly or they can be invoked manually if needed.
 
-If you're not familiar with Docker or containers in general, this may seem like magic. To simplify things, you can think of these images as "virtual" operating systems that have been pre-configured with specific versions of certain tools. More specifically, the CI images are built on top of [Gentoo Linux](https://www.gentoo.org/) for [fast turnaround, binary caching, and building compiler forks](https://www.gentoo.org/) while the devcontainer images are built on top of Ubuntu so that Microsoft's devcontainer images can be used as a base.
+If you're not familiar with Docker or containers in general, this may seem like magic. To simplify things, you can think of these images as "virtual" operating systems that have been pre-configured with specific versions of certain tools. For [fast turnaround, binary caching, and building compiler forks](https://www.gentoo.org/) the CI images are built on top of [Gentoo Linux](https://www.gentoo.org/). The devcontainer images are built on top of Ubuntu so that Microsoft's devcontainer images can be used as a base.
 
 # How is it used?
 
