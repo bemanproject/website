@@ -7,6 +7,8 @@ comments: true
 
 # Reliable CI within a shared container infrastructure
 
+![intro](./images/splash.jpg)
+
 A challenge that comes up when creating a library or any other tool is setting up a reliable and consistent [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) (CI) pipeline for running tests, checks and other tasks. For the Beman Project, it is especially important to have a consistent and reliable CI pipeline that can be used across the full gamut of library projects.
 
 <!-- truncate -->
