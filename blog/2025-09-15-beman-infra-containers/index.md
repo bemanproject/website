@@ -39,7 +39,7 @@ If you're not familiar with Docker or containers in general, this may seem like 
 
 # How is it used?
 
-The simplest way to understand how the infra-containers are used is to look at an example. We will use bemanproject/task for this purpose as it runs tests with a large and diverse set of configurations. If we look at its [CI GitHub actions workflow](https://github.com/bemanproject/task/blob/66da7a2c82f681c0ae1440bc4940626b2791eb9c/.github/workflows/ci_tests.yml#L35), we can see a JSON object used to configure CI. Excerpted below is the Clang portion:
+The simplest way to understand how the infra-containers are used is to look at an example. We will use [bemanproject/task](https://github.com/bemanproject/task) for this purpose as it runs tests with a large and diverse set of configurations. If we look at its [CI GitHub actions workflow](https://github.com/bemanproject/task/blob/66da7a2c82f681c0ae1440bc4940626b2791eb9c/.github/workflows/ci_tests.yml#L35), we can see a JSON object used to configure CI. Excerpted below is the Clang portion:
 
 ```json
 {
