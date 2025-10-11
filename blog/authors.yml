@@ -112,3 +112,13 @@ wusatosi:
   socials:
     github: wusatosi
     linkedin: xueqing-wu-29a25724b
+
+ptsou:
+  name: Paul Tsouchlos
+  title: Software Engineer // Open Source Enthusiast
+  url: https://github.com/DeveloperPaul123
+  image_url: https://cdn.bsky.app/img/avatar/plain/did:plc:5gddchwhd754ni65bvx22eyf/bafkreicbieemdxbw3riqbxcgea7nf2he4fah6jnzn2bz4ado2ob74igyh4@jpeg
+  page: true
+  socials:
+    github: DeveloperPaul123
+    bluesky: ptsou
