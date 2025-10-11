@@ -9,7 +9,7 @@ comments: true
 
 ![intro](./images/splash.jpg)
 
-A challenge that comes up when creating a library or any other tool is setting up a reliable and consistent [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) (CI) pipeline for running tests, checks and other tasks. For the Beman Project, it is especially important to have a consistent and reliable CI pipeline that can be used across the full gamut of library projects.
+A challenge that comes up when creating a library or any other tool is setting up a reliable and consistent [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) (CI) pipeline for running tests, checks and other tasks. For The Beman Project, it is especially important to have a consistent and reliable CI pipeline that can be used across the full gamut of library projects.
 
 <!-- truncate -->
 
@@ -97,4 +97,4 @@ Currently, seven beman projects use this `beman/infra-containers` as part of the
 - [bemanproject/task](https://github.com/bemanproject/task)
 - [bemanproject/transform_view](https://github.com/bemanproject/transform_view)
 
-If you're interested in contributing to the Beman Project, including adapting more Beman projects to use the `bemanproject/infra-containers` setup, please check out the [Beman Project](https://github.com/bemanproject) on GitHub or [join us on Discourse](https://discourse.bemanproject.org/latest) to get involved! Please also checkout the [official website](https://bemanproject.org) for more information on the Beman Project.
+If you're interested in contributing to The Beman Project, including adapting more Beman projects to use the `bemanproject/infra-containers` setup, please check out the [Beman Project](https://github.com/bemanproject) on GitHub or [join us on Discourse](https://discourse.bemanproject.org/latest) to get involved! Please also checkout the [official website](https://bemanproject.org) for more information on The Beman Project.
