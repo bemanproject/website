@@ -8,8 +8,7 @@ on:
   workflow_call:
   workflow_dispatch:
   schedule:
-    # 09:00 EEST/EET ≈ 06:00 UTC
-    - cron: '0 6 * * MON'
+    - cron: '0 6 * * MON'  # 09:00 Romania time
 
 permissions:
   contents: write
@@ -43,6 +42,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
+          base: main
           commit-message: "Auto-sync documentation from latest content of bemanproject/beman"
           branch: auto/sync-docs
           title: "Weekly docs sync"
