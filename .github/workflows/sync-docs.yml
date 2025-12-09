@@ -8,7 +8,8 @@ on:
   workflow_call:
   workflow_dispatch:
   schedule:
-    - cron: '0 6 * * MON'  # 09:00 AM EEST (neatudarius' timezone)
+    # 09:00 EEST/EET ≈ 06:00 UTC
+    - cron: '0 6 * * MON'
 
 permissions:
   contents: write
@@ -47,8 +48,10 @@ jobs:
           title: "Weekly docs sync"
           body: |
             Automated sync of documentation and images from latest content of bemanproject/beman.
-            Triggered by weekly schedule at 09:00 EEST.
-          labels: sync, automation
+            Triggered by the weekly schedule.
+          labels: |
+            sync
+            automation
           author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
           assignees: |
             neatudarius
