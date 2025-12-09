@@ -12,7 +12,7 @@ The Beman Project is dedicated to providing the guidance and facilities to ensur
 We help library authors with development best practices, peer review, and contributing to the C++ standard.
 We distribute the libraries proposed for standardization to facilitate early usage and feedback.
 
-The Beman project is named in memory of Beman Dawes - co-founder of [Boost](https://www.boost.org).
+The Beman Project is named in memory of Beman Dawes - co-founder of [Boost](https://www.boost.org).
 
 # 2. Membership
 
@@ -39,7 +39,7 @@ Beman Leads are currently: Jeff Garland, Inbal Levi, and Eddie Nolan.
 
 ### 3.1.2 Adding and removing Beman Leads
 
-Any member of Beman Project Leads may step down or be replaced when they are no longer able to contribute effectively. 
+Any member of Beman Project Leads may step down or be replaced when they are no longer able to contribute effectively.
 The Beman Project Leads can nominate and decide on adding, removing, or replacing members by a majority decision.
 
 ## 3.2 Beman Project Contributors:
@@ -56,7 +56,7 @@ The Beman Project Library Authors are the Library authors who are maintaining an
 
 ### 3.3.3 Adding and removing Beman Project Library Authors:
 
-Beman Project Library Authors apply for acceptance into Beman Project when they have reached the point of path toward standardization. 
+Beman Project Library Authors apply for acceptance into Beman Project when they have reached the point of path toward standardization.
 This would be the submission of a Paper to the Committee, request to have a library to help write their paper, or a similar path.
 
 Removal as a Beman Project Library Author may be done when the library no longer becomes part of the Beman Project.
@@ -65,8 +65,8 @@ Removal as a Beman Project Library Author may be done when the library no longer
 
 # 4.1 Consensus Decision-Making:
 
-Beman Project strives to make decisions through consensus among the Project Contributors and the Project Leads.  
-Proposals on the best way to proceed should be discussed in good faith.  
+Beman Project strives to make decisions through consensus among the Project Contributors and the Project Leads.
+Proposals on the best way to proceed should be discussed in good faith.
 Beman Project Leads ultimately decide the direction of the Project.
 
 # 5. Code of Conduct
