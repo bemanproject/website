@@ -1,0 +1,56 @@
+name: Auto-sync Beman Docs
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_call:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * MON'  # 09:00 AM EEST (neatudarius' timezone)
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout website repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout beman repo
+        uses: actions/checkout@v4
+        with:
+          repository: bemanproject/beman
+          path: beman
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run sync-docs.py
+        run: |
+          python3 scripts/sync-docs.py beman
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Auto-sync documentation from latest content of bemanproject/beman"
+          branch: auto/sync-docs
+          title: "Weekly docs sync"
+          body: |
+            Automated sync of documentation and images from latest content of bemanproject/beman.
+            Triggered by weekly schedule at 09:00 EEST.
+          labels: sync, automation
+          author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          assignees: |
+            neatudarius
+            RaduNichita
+            mguludag
