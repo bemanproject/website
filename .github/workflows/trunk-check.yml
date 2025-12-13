@@ -24,4 +24,4 @@ jobs:
         uses: trunk-io/trunk-action@v1
         with:
           check-mode: all
-          post-annotations: false
+          post-annotations: true
