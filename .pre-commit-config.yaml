@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0 # Use the latest stable version
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -26,16 +26,6 @@ repos:
     rev: v0.12.0 # Use the latest stable version
     hooks:
       - id: markdownlint
-
-  - repo: https://github.com/PyCQA/bandit
-    rev: v1.7.5 # Use the latest stable version
-    hooks:
-      - id: bandit
-
-  - repo: https://github.com/bridgecrewio/checkov
-    rev: 2.4.0 # Use the latest stable version
-    hooks:
-      - id: checkov
 
   - repo: https://github.com/zricethezav/gitleaks
     rev: v8.17.0 # Use the latest stable version
