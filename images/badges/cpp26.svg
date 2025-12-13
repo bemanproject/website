@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="140" height="20">
-<title>Standard Target: C++26</title>
-<rect width="90" height="20" fill="#555"/>
-  <rect x="90" width="50" height="20" fill="#4c1"/>
-  <text x="45" y="14" fill="#fff" text-anchor="middle" font-family="Verdana" font-size="11">Standard Target</text>
-  <text x="115" y="14" fill="#fff" text-anchor="middle" font-family="Verdana" font-size="11">C++26</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="20"><title>Standard Target: C++26</title><path fill="#555" d="M0 0h90v20H0z"/><path fill="#4c1" d="M90 0h50v20H90z"/><text x="45" y="14" fill="#fff" font-family="Verdana" font-size="11" text-anchor="middle">Standard Target</text><text x="115" y="14" fill="#fff" font-family="Verdana" font-size="11" text-anchor="middle">C++26</text></svg>
