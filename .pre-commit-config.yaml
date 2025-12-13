@@ -42,8 +42,6 @@ repos:
     hooks:
       - id: gitleaks
 
-default_stages: [commit, push]
-
 exclude: |
   ^static/.*
   ^node_modules/.*
