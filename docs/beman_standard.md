@@ -38,7 +38,7 @@ needs. To make changes:
 1. Create a [discourse topic](https://discourse.boost.org) detailing the change
    and how it aligns with the core principles.
 2. After some community discussion, create a PR with the actual change on
-   [GitHub](https://github.com/bemanproject/beman) and apply the _Beman leads_ label.
+   [GitHub](https://github.com/bemanproject/beman) and apply the **Beman leads** label.
    The PR should also link to the discourse topic.
 3. Continue discussions on the PR and discourse topic.
 4. Await a leads decision based on the community feedback.
@@ -325,7 +325,7 @@ If the library has been deployed onto Compiler Explorer, add this badge and repl
 
 ```markdown
 **Implements**: [`std::optional<T&>` (P2988R5)](https://wg21.link/P2988R5) and
-[Give _std::optional_ Range Support (P3168R1)](https://wg21.link/P3168R1).
+[Give **std::optional** Range Support (P3168R1)](https://wg21.link/P3168R1).
 ```
 
 ### **[readme.library_status]**
