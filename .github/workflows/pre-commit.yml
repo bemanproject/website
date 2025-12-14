@@ -1,0 +1,13 @@
+name: Lint Check (pre-commit)
+
+permissions:
+  contents: read
+  checks: write
+  issues: write
+  pull-requests: write
+
+on: [push]
+
+jobs:
+  pre-commit:
+    uses: bemanproject/infra-workflows/.github/workflows/reusable-beman-pre-commit.yml@1.1.0
