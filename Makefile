@@ -1,4 +1,4 @@
-.PHONY: all install build start
+.PHONY: all install build start trunk-check
 
 all: install start
 
@@ -10,3 +10,6 @@ start: # Start local development server
 
 build: # Generate static content for GitHub Pages deployment
 	yarn build
+
+lint: # Run code quality checks
+	trunk check

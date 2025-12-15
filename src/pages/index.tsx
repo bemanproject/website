@@ -1,15 +1,15 @@
-import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Heading from '@theme/Heading';
+import type { ReactNode } from "react";
+import clsx from "clsx";
+import Link from "@docusaurus/Link";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
+import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import Heading from "@theme/Heading";
 
-import styles from './index.module.css';
+import styles from "./index.module.css";
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx(styles.heroBanner)}>
       <div className="container">
@@ -22,14 +22,14 @@ function HomepageHeader() {
               /* TODO: check if we can use SVG images*/
               src="./img/beman_logo.png"
               alt="Left Logo"
-              style={{ width: '400px', height: '400px' }}
+              style={{ width: "400px", height: "400px" }}
             />
             <span>{siteConfig.tagline}</span>
             <img
               /* TODO: check if we can use SVG images*/
               src="./img/beman_logo_reversed.png"
               alt="Right Logo"
-              style={{ width: '400px', height: '400px' }}
+              style={{ width: "400px", height: "400px" }}
             />
           </div>
         </div>
@@ -38,7 +38,6 @@ function HomepageHeader() {
     </header>
   );
 }
-
 
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();

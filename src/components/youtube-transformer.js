@@ -1,12 +1,12 @@
 const YouTubeTransformer = {
-  name: 'YouTube',
+  name: "YouTube",
   shouldTransform(url) {
-    return url.includes('youtube.com') || url.includes('youtu.be');
+    return url.includes("youtube.com") || url.includes("youtu.be");
   },
   getHTML(url) {
-    const videoId = url.includes('youtu.be')
-      ? url.split('/').pop()
-      : new URL(url).searchParams.get('v');
+    const videoId = url.includes("youtu.be")
+      ? url.split("/").pop()
+      : new URL(url).searchParams.get("v");
 
     return `
       <iframe

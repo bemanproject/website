@@ -39,7 +39,7 @@ Beman Leads are currently: Jeff Garland, Inbal Levi, and Eddie Nolan.
 
 ### 3.1.2 Adding and removing Beman Leads
 
-Any member of Beman Project Leads may step down or be replaced when they are no longer able to contribute effectively. 
+Any member of Beman Project Leads may step down or be replaced when they are no longer able to contribute effectively.
 The Beman Project Leads can nominate and decide on adding, removing, or replacing members by a majority decision.
 
 ## 3.2 Beman Project Contributors:
@@ -48,7 +48,7 @@ The Beman Project Contributors are individuals who help execute the facilities p
 
 ### 3.2.3 Adding and removing Beman Project Contributors
 
-The Beman Project Leads may accept new members or remove members to the Beman Project Contributors by majority decision.  There is no restriction to the number of Project Contributors.
+The Beman Project Leads may accept new members or remove members to the Beman Project Contributors by majority decision. There is no restriction to the number of Project Contributors.
 
 ## 3.3 Beman Project Library Authors:
 
@@ -56,7 +56,7 @@ The Beman Project Library Authors are the Library authors who are maintaining an
 
 ### 3.3.3 Adding and removing Beman Project Library Authors:
 
-Beman Project Library Authors apply for acceptance into Beman Project when they have reached the point of path toward standardization. 
+Beman Project Library Authors apply for acceptance into Beman Project when they have reached the point of path toward standardization.
 This would be the submission of a Paper to the Committee, request to have a library to help write their paper, or a similar path.
 
 Removal as a Beman Project Library Author may be done when the library no longer becomes part of the Beman Project.

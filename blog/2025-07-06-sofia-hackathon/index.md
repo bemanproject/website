@@ -9,16 +9,15 @@ comments: true
 
 ![intro](./images/intro-v2.png)
 
-
 During the ISO WG21 C++ Meeting in [Sofia, June 2025](https://wg21.link/N5004), we hosted an in-person Beman - Evening Session — a mix of short presentations, a hands-on hackathon, and plenty of big ideas for the future of C++. What started as a relaxed gathering quickly turned into a productive (and caffeinated) brainstorming hub, where we explored potential C++29 library proposals, shared early-stage experiments, and even wrote code live. It was part workshop, part jam session, and fully in the spirit of what makes the C++ community so unique: collaboration, creativity, and a shared passion for pushing the language forward.
 
 <!-- truncate -->
 
-Since November 2024, we have been organizing Beman presentations at ISO WG21 C++ meetings (Warsaw 2024 - Poland, Hagenberg 2025 - Austria). Since we have been receiving positive feedback, we decided to organize another one in Sofia, June 2025 - Bulgaria.  (Note that our next session will be at CppCon in September in Colorado - stay tuned for more details!)
+Since November 2024, we have been organizing Beman presentations at ISO WG21 C++ meetings (Warsaw 2024 - Poland, Hagenberg 2025 - Austria). Since we have been receiving positive feedback, we decided to organize another one in Sofia, June 2025 - Bulgaria. (Note that our next session will be at CppCon in September in Colorado - stay tuned for more details!)
 
 ![intro](./images/intro-v1.png)
 
-We had a great turnout, with 25 participants. The evening started with a great discussion about The Beman Project and where it is going, especially considering the C++26 is closed and the design cycle  for C++29 is starting.
+We had a great turnout, with 25 participants. The evening started with a great discussion about The Beman Project and where it is going, especially considering the C++26 is closed and the design cycle for C++29 is starting.
 
 We presented our first [Production ready. API may undergo changes.](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#production-ready-api-may-undergo-changes) library, which is the [beman.optional](https://github.com/bemanproject/optional) library, hoping to get it into the C++26 standard and become [Production ready. Stable API.](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#production-ready-stable-api). We counted a total of 10 [Under development and not yet ready for production use.](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#production-ready-stable-api) Beman libraries.
 
@@ -34,7 +33,7 @@ The implication during the hackathon was substantial, with 10 participants worki
 
 We were very happy with the impact of that evening (Wednesday evening, in the middle of the ISO WG21 C++ Meeting), but surprises continued ...
 
-After Friday's LEWG session,  [P3655R1: std::zstring_view](https://wg21.link/P3655R1) was presented and got feedback to continue the proposed direction. As an immediate consequence of this event, a new author created the [beman.cstring_view](https://github.com/bemanproject/cstring_view) library, to pursue the C++29 proposal.
+After Friday's LEWG session, [P3655R1: std::zstring_view](https://wg21.link/P3655R1) was presented and got feedback to continue the proposed direction. As an immediate consequence of this event, a new author created the [beman.cstring_view](https://github.com/bemanproject/cstring_view) library, to pursue the C++29 proposal.
 
 The cherry on the cake was the Saturday's plenary! Lots and lots of great news for Beman folks!
 
