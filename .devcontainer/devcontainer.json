@@ -22,15 +22,14 @@
         "esbenp.prettier-vscode",
         "streetsidesoftware.code-spell-checker",
         "ms-vscode.remote-explorer",
-        "usernamehw.errorlens"
+        "usernamehw.errorlens",
+        "Trunk.io"
       ]
     }
   },
-  "forwardPorts": [
-    3000
-  ],
+  "forwardPorts": [3000],
   "containerUser": "vscode",
-  "postCreateCommand": "yarn install",
+  "postCreateCommand": "yarn install && curl -fsSL https://get.trunk.io -o install.sh && chmod +x install.sh && ./install.sh",
   "waitFor": "postCreateCommand", // otherwise automated jest tests fail
   "features": {
     "node": {

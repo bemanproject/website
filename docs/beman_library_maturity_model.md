@@ -50,7 +50,7 @@ Transition examples:
 ## Review Process for Transitioning a Library to “Production Ready”
 
 For a Beman Project library from **Under Development** to **Production Ready** status a formal review needs to be completed.
-The intent is to ensure that every production-ready library meets the Beman standard for quality, completeness, and
+The intent is to ensure that every production-ready library meets the Beman standard for quality, completeness, and 
 documentation, and that it has received sufficient community review and testing.
 
 ---
@@ -69,7 +69,7 @@ documentation, and that it has received sufficient community review and testing.
    * Link to a PR to review for review comments.
      - Note: The PR may not have much diff content but is the place for gathering feedback.
    * Any other guidance for the reviewers.
-
+   
 3. **Review Criteria**
    To be eligible for *Production Ready* status, a library must demonstrate that it:
 
@@ -77,7 +77,7 @@ documentation, and that it has received sufficient community review and testing.
    * Has **comprehensive unit test coverage** validating functionality and edge cases.
    * Includes **complete and accurate documentation**, including tutorial, design rationale, and examples.
 
-   Note that much of the design documentation may simply reference the WG21 paper.
+   Note that much of the design documentation may simply reference the WG21 paper. 
    Also note that since the current documentation system is a work in progress, docs should be Markdown for now.
 
 4. **Community Evaluation**
@@ -91,4 +91,4 @@ documentation, and that it has received sufficient community review and testing.
    A library may transition to *Production Ready* status only after:
 
    * Demonstrated **positive community consensus** that the review criteria have been met as determined by **at least two project leads**, or
-   * in the rare case there is lack of consensus, the leads make a call.
+   * in the rare case there is lack of consensus, the leads make a call. 

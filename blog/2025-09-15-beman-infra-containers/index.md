@@ -44,38 +44,49 @@ The simplest way to understand how the infra-containers are used is to look at a
 ```json
 {
   "clang": [
-    { "versions": ["20"],
+    {
+      "versions": ["20"],
       "tests": [
-        {"cxxversions": ["c++26"],
+        {
+          "cxxversions": ["c++26"],
           "tests": [
-            { "stdlibs": ["libstdc++", "libc++"],
+            {
+              "stdlibs": ["libstdc++", "libc++"],
               "tests": [
-                "Debug.Default", "Release.Default", "Release.MaxSan",
-                "Debug.Werror", "Debug.Dynamic"
+                "Debug.Default",
+                "Release.Default",
+                "Release.MaxSan",
+                "Debug.Werror",
+                "Debug.Dynamic"
               ]
             }
           ]
         },
-        { "cxxversions": ["c++23", "c++20"],
+        {
+          "cxxversions": ["c++23", "c++20"],
           "tests": [
-            {"stdlibs": ["libstdc++", "libc++"], "tests": ["Release.Default"]}
+            { "stdlibs": ["libstdc++", "libc++"], "tests": ["Release.Default"] }
           ]
         }
       ]
     },
-    { "versions": ["19", "18"],
+    {
+      "versions": ["19", "18"],
       "tests": [
-        { "cxxversions": ["c++26", "c++23", "c++20"],
+        {
+          "cxxversions": ["c++26", "c++23", "c++20"],
           "tests": [
-            {"stdlibs": ["libstdc++", "libc++"], "tests": ["Release.Default"]}
+            { "stdlibs": ["libstdc++", "libc++"], "tests": ["Release.Default"] }
           ]
         }
       ]
     },
-    { "versions": ["17"],
+    {
+      "versions": ["17"],
       "tests": [
-        { "cxxversions": ["c++26", "c++23", "c++20"],
-          "tests": [{"stdlibs": ["libc++"], "tests": ["Release.Default"]}]
+        {
+          "cxxversions": ["c++26", "c++23", "c++20"],
+          "tests": [{ "stdlibs": ["libc++"], "tests": ["Release.Default"] }]
         }
       ]
     }

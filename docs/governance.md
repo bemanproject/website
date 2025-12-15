@@ -48,7 +48,7 @@ The Beman Project Contributors are individuals who help execute the facilities p
 
 ### 3.2.3 Adding and removing Beman Project Contributors
 
-The Beman Project Leads may accept new members or remove members to the Beman Project Contributors by majority decision.  There is no restriction to the number of Project Contributors.
+The Beman Project Leads may accept new members or remove members to the Beman Project Contributors by majority decision. There is no restriction to the number of Project Contributors.
 
 ## 3.3 Beman Project Library Authors:
 
