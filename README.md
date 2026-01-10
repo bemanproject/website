@@ -43,6 +43,7 @@ blog/2000-10-30-my-blog-example/
       </details>
 
 Example
+
 ```shell
 $ cat blog/2000-10-30-my-blog-example/index.md
 ---
@@ -84,30 +85,30 @@ socials:        # [optional] Include your socials (like your Github, X, Linkedin
 
 4. Open a `DRAFT PR` and `wait` up to one minute for a preview deployment of your blog post.
 
-* Draft PR example: [Add blog post: My Blog Example #54](https://github.com/bemanproject/website/pull/54/).
+- Draft PR example: [Add blog post: My Blog Example #54](https://github.com/bemanproject/website/pull/54/).
 
-* Click on the `Deploy Preview` URL (format `https://deploy-preview-${PR NUMBER}--bemanproject.netlify.app/`).
+- Click on the `Deploy Preview` URL (format `https://deploy-preview-${PR NUMBER}--bemanproject.netlify.app/`).
 
-* Successful CI preview deployment example:
+- Successful CI preview deployment example:
 
 ![CI preview deployment success message](./images/tutorial/add-a-blog/ci-preview-deployment-success-message.gif)
 
-* Test your deployment.
+- Test your deployment.
 
 <details>
 <summary> [DEBUG] Inspect CI preview deployment error logs. </summary>
 
 The CI preview deployment logs should be public. Please ping a codeowner otherwise.
 
-* `DRAFT` PR example with CI preview deployment error  - [#49](https://github.com/bemanproject/website/pull/49).
+- `DRAFT` PR example with CI preview deployment error - [#49](https://github.com/bemanproject/website/pull/49).
 
-* Click on the `Latest deploy log` URL - e.g., https://app.netlify.com/sites/bemanproject/deploys/6809108974fd910008633aa9.
+- Click on the `Latest deploy log` URL - e.g., https://app.netlify.com/sites/bemanproject/deploys/6809108974fd910008633aa9.
 
-* Logs inspect example:
+- Logs inspect example:
 
 ![](./images/tutorial/add-a-blog/ci-preview-deployment-failure-message.gif)
 
-* Fix the error, commit and push the changes. Wait for new deployment.
+- Fix the error, commit and push the changes. Wait for new deployment.
 
 > If you need to browse through more recent CI preview deployments logs use https://app.netlify.com/sites/bemanproject/deploys/. Note: netlify provides a single a single CI preview deployment for each PR - latest commit, but stores logs for multiple ones.
 
@@ -116,7 +117,7 @@ The CI preview deployment logs should be public. Please ping a codeowner otherwi
 <details>
 <summary> [DEBUG] Inspect local deployment error logs. </summary>
 
-* On local setup, run `make` (see [Local development](#local-development)) and check if there is any error in the console - example:
+- On local setup, run `make` (see [Local development](#local-development)) and check if there is any error in the console - example:
 
 ```shell
 $ make
@@ -135,9 +136,9 @@ $ make
   - DavidSankel
 ```
 
-* Fix the error, re-deploy the local website.
+- Fix the error, re-deploy the local website.
 
-* Commit and push the changes. Wait for a new CI preview deployment.
+- Commit and push the changes. Wait for a new CI preview deployment.
 
 </details>
 
@@ -146,6 +147,7 @@ $ make
 6. Apply the review feedback. Get approval. Merge the PR.
 
 <!-- TODO: Replace with https://www.bemanproject.org/ after the website deployment switch. -->
+
 7. The updates are automatically deployed to the production website after a few minutes - check https://bemanproject.github.io/website/.
 
 ## Local development
@@ -219,10 +221,9 @@ To start a local development server, run:
 $ make start
 ```
 
-If everything is properly installed, the command  should open a browser window on http://localhost:3000/.
+If everything is properly installed, the command should open a browser window on http://localhost:3000/.
 
 Most changes are reflected live without having to restart the server.
-
 
 ### Generate static content for GitHub Pages deployment
 

@@ -7,6 +7,7 @@ This directory contains scripts for the Beman Project website.
 This script is used to sync the Beman Project documentation from the `beman/` repo to this `website/` repo.
 
 Steps:
+
 1. Copy images from `beman/images/` to `website/images/` and `website/static/images/`.
 2. Copy documentation from `beman/docs/` to `website/docs/`.
 3. Insert sidebar position into the documentation files.

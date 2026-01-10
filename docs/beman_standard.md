@@ -68,7 +68,6 @@ recommendations.
 
 1. [Apache License v2.0 with LLVM Exceptions](https://llvm.org/LICENSE.txt)
 2. [Boost Software License 1.0](https://www.boost.org/LICENSE_1_0.txt)
-3. [The MIT License](https://opensource.org/license/mit)
 
 ### **[license.apache_llvm]**
 
@@ -328,6 +327,8 @@ If the library has been deployed onto Compiler Explorer, add this badge and repl
 **Implements**: [`std::optional<T&>` (P2988R5)](https://wg21.link/P2988R5) and
 [Give *std::optional* Range Support (P3168R1)](https://wg21.link/P3168R1).
 ```
+
+Note that specifying the revision number is optional.
 
 ### **[readme.library_status]**
 

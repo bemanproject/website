@@ -26,7 +26,7 @@ dabrahams:
     github: dabrahams
 
 dietmarkuehl:
-  name: Dietmar Kühl 
+  name: Dietmar Kühl
   title: Software Developer
   url: http://www.dietmar-kuehl.de/
   image_url: https://avatars.githubusercontent.com/u/1319703?v=4
@@ -37,7 +37,7 @@ dietmarkuehl:
     linkedin: dietmar-kühl
 
 ednolan:
-  name: Eddie Nolan 
+  name: Eddie Nolan
   title: C++ Developer
   url: https://www.ednolan.com/
   image_url: https://avatars.githubusercontent.com/u/907967?v=4
@@ -64,7 +64,7 @@ JeffGarland:
     github: JeffGarland
 
 mguludag:
-  name: Muhammed Galib Uludağ 
+  name: Muhammed Galib Uludağ
   title: SW Engineer (C++ CMake Linux Automotive)
   url: https://github.com/mguludag
   image_url: https://avatars.githubusercontent.com/u/12413639?v=4
@@ -112,3 +112,13 @@ wusatosi:
   socials:
     github: wusatosi
     linkedin: xueqing-wu-29a25724b
+
+ptsou:
+  name: Paul Tsouchlos
+  title: Software Engineer // Open Source Enthusiast
+  url: https://github.com/DeveloperPaul123
+  image_url: https://cdn.bsky.app/img/avatar/plain/did:plc:5gddchwhd754ni65bvx22eyf/bafkreicbieemdxbw3riqbxcgea7nf2he4fah6jnzn2bz4ado2ob74igyh4@jpeg
+  page: true
+  socials:
+    github: DeveloperPaul123
+    bluesky: ptsou
