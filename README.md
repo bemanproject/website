@@ -42,7 +42,6 @@ blog/2000-10-30-my-blog-example/
 
       </details>
 
-
 Example
 ```shell
 $ cat blog/2000-10-30-my-blog-example/index.md
