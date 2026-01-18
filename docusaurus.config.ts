@@ -50,6 +50,24 @@ const config: Config = {
 
   staticDirectories: ["static", "images"],
 
+  plugins: [
+    () => ({
+      name: "yaml-loader-plugin",
+      configureWebpack() {
+        return {
+          module: {
+            rules: [
+              {
+                test: /\.ya?ml$/,
+                use: "yaml-loader",
+              },
+            ],
+          },
+        };
+      },
+    }),
+  ],
+
   presets: [
     [
       "classic",
@@ -98,6 +116,7 @@ const config: Config = {
           label: "Docs",
         },
         { to: "/libraries", label: "Libraries", position: "left" },
+        { to: "/talks", label: "Talks", position: 'left'},
         { to: "/blog", label: "Blog", position: "left" },
         {
           "aria-label": "Discourse Forum",
