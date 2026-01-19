@@ -67,3 +67,20 @@ jobs:
             neatudarius
             RaduNichita
             mguludag
+
+      - name: Create Pull Request (test mode on PR)
+        if: github.event_name == 'pull_request' && github.head_ref == 'test/sync-docs-workflow'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          base: main
+          commit-message: "Test: Auto-sync documentation from latest content of bemanproject/beman"
+          branch: auto/sync-docs-test
+          title: "Test: Weekly docs sync"
+          body: |
+            **TEST MODE** - Automated sync of documentation and images from latest content of bemanproject/beman.
+            This PR was created for testing purposes.
+          labels: |
+            sync
+            automation
+            test
+          author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
