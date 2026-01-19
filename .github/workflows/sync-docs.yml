@@ -141,7 +141,7 @@ jobs:
           body: |
             Automated sync of documentation and images from latest content of [bemanproject/beman](https://github.com/bemanproject/beman).
             
-            Related to: #125 - Evergreen issue: automatic doc import
+            Related to: #125 - Evergreen issue: automatic docs import
           labels: |
             sync
             automation
