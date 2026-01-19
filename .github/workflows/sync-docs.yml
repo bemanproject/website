@@ -73,7 +73,7 @@ jobs:
           fi
 
       - name: Create Pull Request
-        if: github.event_name != 'pull_request' || steps.check-pat.outputs.pat_available == 'true'
+        if: github.event_name != 'pull_request'
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
