@@ -79,6 +79,7 @@ jobs:
         if: github.event_name != 'pull_request' && !(github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode == 'true')
         uses: peter-evans/create-pull-request@v6
         with:
+          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
           base: main
           commit-message: "Auto-sync documentation from latest content of bemanproject/beman"
           branch: ${{ steps.branch-name.outputs.branch_name }}
@@ -95,22 +96,33 @@ jobs:
             RaduNichita
             mguludag
 
-      - name: Check repository settings
-        if: github.event_name == 'workflow_dispatch'
+      - name: Check repository settings and PAT
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.head_ref == 'test/sync-docs-workflow')
         run: |
-          echo "ℹ️  If you get permission errors, check repository settings:"
+          echo "ℹ️  Repository settings check:"
           echo "   1. Go to Settings > Actions > General"
           echo "   2. Under 'Workflow permissions', ensure 'Read and write permissions' is selected"
           echo "   3. Check 'Allow GitHub Actions to create and approve pull requests'"
           echo ""
+          if [ -z "${{ secrets.GH_PAT }}" ]; then
+            echo "⚠️  No GH_PAT secret found. To fix permission errors when running on PRs:"
+            echo "   1. Create a Personal Access Token (PAT) with 'repo' scope"
+            echo "   2. Go to Settings > Secrets and variables > Actions"
+            echo "   3. Add a new secret named 'GH_PAT' with your PAT value"
+            echo "   4. Workflow will use PAT instead of GITHUB_TOKEN when available"
+          else
+            echo "✅ GH_PAT secret found - will use it for authentication"
+          fi
+          echo ""
           echo "Current workflow permissions:"
-          echo "  contents: write = ${{ github.event_name != 'pull_request' }}"
-          echo "  pull-requests: write = ${{ github.event_name != 'pull_request' }}"
+          echo "  Event: ${{ github.event_name }}"
+          echo "  Using token: ${{ secrets.GH_PAT && 'GH_PAT' || 'GITHUB_TOKEN' }}"
 
       - name: Create Pull Request (test mode via workflow_dispatch)
         if: github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
+          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
           base: main
           commit-message: "Test: Auto-sync documentation from latest content of bemanproject/beman"
           branch: ${{ steps.branch-name.outputs.branch_name }}
@@ -136,7 +148,7 @@ jobs:
         continue-on-error: true
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
           base: main
           commit-message: "Test: Auto-sync documentation from latest content of bemanproject/beman"
           branch: ${{ steps.branch-name.outputs.branch_name }}
