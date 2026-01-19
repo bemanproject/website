@@ -63,7 +63,7 @@ jobs:
           echo "=== Diff ==="
           git diff || echo "No changes detected"
 
-      - name: Check if PAT is available
+      - name: Check if PAT is available for PR creation
         id: check-pat
         run: |
           if [ -n "${{ secrets.GH_PAT }}" ]; then
@@ -71,11 +71,17 @@ jobs:
             echo "✅ GH_PAT secret is available - will use it for PR creation"
           else
             echo "pat_available=false" >> $GITHUB_OUTPUT
-            echo "⚠️  GH_PAT secret not found - using GITHUB_TOKEN (limited permissions on PRs)"
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+              echo "❌ FATAL: GH_PAT secret is required when running on pull_request events"
+              echo "   Add GH_PAT secret at: Settings > Secrets and variables > Actions"
+              exit 1
+            else
+              echo "⚠️  GH_PAT secret not found - using GITHUB_TOKEN"
+            fi
           fi
 
       - name: Create Pull Request
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' || steps.check-pat.outputs.pat_available == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
