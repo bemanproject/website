@@ -51,8 +51,10 @@ jobs:
       - name: Generate branch name
         id: branch-name
         run: |
-          BRANCH_NAME="website-weekly-docs-import-$(date +%Y-%m-%d)"
+          DATE_STR=$(date +%Y-%m-%d)
+          BRANCH_NAME="website-weekly-docs-import-$DATE_STR"
           echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          echo "date_str=$DATE_STR" >> $GITHUB_OUTPUT
           echo "Generated branch name: $BRANCH_NAME"
 
       - name: Show changes
@@ -86,12 +88,16 @@ jobs:
           echo "  Base branch: main"
           echo ""
           echo "Token Information:"
-          if [ -n "${{ secrets.GH_PAT }}" ]; then
+          GH_PAT_VALUE="${{ secrets.GH_PAT }}"
+          if [ -n "$GH_PAT_VALUE" ] && [ "$GH_PAT_VALUE" != "" ]; then
             echo "  Token type: GH_PAT (Personal Access Token)"
             echo "  Token available: ✅ Yes"
+            echo "  Token length: ${#GH_PAT_VALUE} characters"
           else
             echo "  Token type: GITHUB_TOKEN"
             echo "  Token available: ⚠️  Limited permissions on PRs"
+            echo "  GH_PAT secret: ❌ Not found or empty"
+            echo "  Note: Add GH_PAT secret at: Settings > Secrets and variables > Actions"
           fi
           echo ""
           echo "Permissions:"
@@ -106,14 +112,17 @@ jobs:
       - name: Check if PAT is available for PR creation
         id: check-pat
         run: |
-          if [ -n "${{ secrets.GH_PAT }}" ]; then
+          GH_PAT_VALUE="${{ secrets.GH_PAT }}"
+          if [ -n "$GH_PAT_VALUE" ] && [ "$GH_PAT_VALUE" != "" ]; then
             echo "pat_available=true" >> $GITHUB_OUTPUT
             echo "✅ GH_PAT secret is available - will use it for PR creation"
+            echo "   Token length: ${#GH_PAT_VALUE} characters"
           else
             echo "pat_available=false" >> $GITHUB_OUTPUT
             if [ "${{ github.event_name }}" == "pull_request" ]; then
               echo "❌ FATAL: GH_PAT secret is required when running on pull_request events"
               echo "   Add GH_PAT secret at: Settings > Secrets and variables > Actions"
+              echo "   Current value: [empty or not set]"
               exit 1
             else
               echo "⚠️  GH_PAT secret not found - using GITHUB_TOKEN"
@@ -128,7 +137,7 @@ jobs:
           base: main
           commit-message: "Auto-sync documentation from latest content of bemanproject/beman"
           branch: ${{ steps.branch-name.outputs.branch_name }}
-          title: "Weekly docs sync"
+          title: "Beman website weekly sync import (${{ steps.branch-name.outputs.date_str }}) - please review"
           body: |
             Automated sync of documentation and images from latest content of bemanproject/beman.
           labels: |
