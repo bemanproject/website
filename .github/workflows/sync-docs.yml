@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  pull_request:
   workflow_call:
   workflow_dispatch:
   schedule:
@@ -58,6 +59,7 @@ jobs:
           git diff || echo "No changes detected"
 
       - name: Create Pull Request
+        if: github.event_name != 'pull_request'
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
