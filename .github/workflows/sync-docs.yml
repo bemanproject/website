@@ -126,6 +126,42 @@ jobs:
           echo ""
           echo "=== End Debug Information ==="
 
+      - name: Prepare PR assignees and reviewers
+        id: pr-people
+        run: |
+          # Use repository variables if set, otherwise fall back to hardcoded defaults.
+          # These users are hardcoded as the primary website maintainers responsible
+          # for reviewing documentation sync PRs. If team membership changes, update
+          # repository variables DOC_SYNC_ASSIGNEES and DOC_SYNC_REVIEWERS instead of
+          # modifying this workflow file.
+          # Default assignee: neatudarius (primary website maintainer)
+          # Default reviewers: neatudarius, RaduNichita, mguludag (website maintainers)
+          # Get assignees and reviewers from vars or use defaults
+          if [ -n "${{ vars.DOC_SYNC_ASSIGNEES }}" ]; then
+            ASSIGNEES="${{ vars.DOC_SYNC_ASSIGNEES }}"
+          else
+            ASSIGNEES="neatudarius"
+          fi
+          
+          if [ -n "${{ vars.DOC_SYNC_REVIEWERS }}" ]; then
+            REVIEWERS="${{ vars.DOC_SYNC_REVIEWERS }}"
+          else
+            REVIEWERS="neatudarius
+          RaduNichita
+          mguludag"
+          fi
+          
+          echo "assignees<<EOF" >> $GITHUB_OUTPUT
+          echo "$ASSIGNEES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+          echo "reviewers<<EOF" >> $GITHUB_OUTPUT
+          echo "$REVIEWERS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+          echo "Using assignees: $ASSIGNEES"
+          echo "Using reviewers: $REVIEWERS"
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
@@ -142,9 +178,5 @@ jobs:
             sync
             automation
           author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
-          assignees: |
-            neatudarius
-          reviewers: |
-            neatudarius
-            RaduNichita
-            mguludag
+          assignees: ${{ steps.pr-people.outputs.assignees }}
+          reviewers: ${{ steps.pr-people.outputs.reviewers }}
