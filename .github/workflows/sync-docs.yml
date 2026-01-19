@@ -11,6 +11,8 @@
 # When it runs:
 #   - Weekly on Mondays at 6:00 AM UTC (08:00–09:00 Romania time, depending on DST)
 #   - Runs automatically via GitHub Actions schedule (cron)
+#   - Can be triggered manually via workflow_dispatch (Actions tab → Run workflow)
+#   - Can be triggered via API using repository_dispatch with type "sync-docs"
 #
 # What it does:
 #   1. Clones both the website and beman repositories
@@ -35,6 +37,10 @@ name: Auto-sync Beman Docs
 on:
   schedule:
     - cron: '0 6 * * MON'  # 08:00–09:00 Romania time (depending on DST)
+  workflow_dispatch:  # Manual trigger for testing
+  repository_dispatch:  # API trigger for on-demand runs
+    types:
+      - sync-docs
 
 permissions:
   contents: write
