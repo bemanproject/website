@@ -55,6 +55,14 @@ jobs:
           echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
           echo "Generated branch name: $BRANCH_NAME"
 
+      - name: Show changes
+        run: |
+          echo "=== Changes detected ==="
+          git status
+          echo ""
+          echo "=== Diff ==="
+          git diff || echo "No changes detected"
+
       - name: Debug workflow context and permissions
         run: |
           echo "=== Workflow Debug Information ==="
@@ -94,14 +102,6 @@ jobs:
           git status --short || echo "  (no changes or git error)"
           echo ""
           echo "=== End Debug Information ==="
-
-      - name: Show changes
-        run: |
-          echo "=== Changes detected ==="
-          git status
-          echo ""
-          echo "=== Diff ==="
-          git diff || echo "No changes detected"
 
       - name: Check if PAT is available for PR creation
         id: check-pat
