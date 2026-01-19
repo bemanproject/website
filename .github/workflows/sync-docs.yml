@@ -39,6 +39,13 @@ jobs:
         run: |
           python3 scripts/sync-docs.py beman
 
+      - name: Generate branch name
+        id: branch-name
+        run: |
+          BRANCH_NAME="website-weekly-docs-import-$(date +%Y-%m-%d)"
+          echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          echo "Generated branch name: $BRANCH_NAME"
+
       - name: Show changes (for PR testing)
         if: github.event_name == 'pull_request'
         run: |
@@ -54,7 +61,7 @@ jobs:
         with:
           base: main
           commit-message: "Auto-sync documentation from latest content of bemanproject/beman"
-          branch: auto/sync-docs
+          branch: ${{ steps.branch-name.outputs.branch_name }}
           title: "Weekly docs sync"
           body: |
             Automated sync of documentation and images from latest content of bemanproject/beman.
@@ -74,7 +81,7 @@ jobs:
         with:
           base: main
           commit-message: "Test: Auto-sync documentation from latest content of bemanproject/beman"
-          branch: auto/sync-docs-test
+          branch: ${{ steps.branch-name.outputs.branch_name }}
           title: "Test: Weekly docs sync"
           body: |
             **TEST MODE** - Automated sync of documentation and images from latest content of bemanproject/beman.
