@@ -83,7 +83,6 @@ jobs:
           title: "Weekly docs sync"
           body: |
             Automated sync of documentation and images from latest content of bemanproject/beman.
-            Triggered by the weekly schedule.
           labels: |
             sync
             automation
