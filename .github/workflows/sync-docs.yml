@@ -139,12 +139,16 @@ jobs:
           branch: ${{ steps.branch-name.outputs.branch_name }}
           title: "Beman website weekly sync import (${{ steps.branch-name.outputs.date_str }}) - please review"
           body: |
-            Automated sync of documentation and images from latest content of bemanproject/beman.
+            Automated sync of documentation and images from latest content of [bemanproject/beman](https://github.com/bemanproject/beman).
+            
+            Related to: #125 - Evergreen issue: automatic doc import
           labels: |
             sync
             automation
           author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
           assignees: |
+            neatudarius
+          reviewers: |
             neatudarius
             RaduNichita
             mguludag
