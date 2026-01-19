@@ -56,6 +56,16 @@ jobs:
           echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
           echo "Generated branch name: $BRANCH_NAME"
 
+      - name: Debug workflow context
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "Head ref: ${{ github.head_ref }}"
+          echo "Base ref: ${{ github.base_ref }}"
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "Test mode: ${{ github.event.inputs.test_mode }}"
+          fi
+
       - name: Show changes (for PR testing)
         if: github.event_name == 'pull_request'
         run: |
@@ -84,6 +94,18 @@ jobs:
             neatudarius
             RaduNichita
             mguludag
+
+      - name: Check repository settings
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "ℹ️  If you get permission errors, check repository settings:"
+          echo "   1. Go to Settings > Actions > General"
+          echo "   2. Under 'Workflow permissions', ensure 'Read and write permissions' is selected"
+          echo "   3. Check 'Allow GitHub Actions to create and approve pull requests'"
+          echo ""
+          echo "Current workflow permissions:"
+          echo "  contents: write = ${{ github.event_name != 'pull_request' }}"
+          echo "  pull-requests: write = ${{ github.event_name != 'pull_request' }}"
 
       - name: Create Pull Request (test mode via workflow_dispatch)
         if: github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode == 'true'
