@@ -7,6 +7,9 @@ on:
   pull_request:
   workflow_call:
   workflow_dispatch:
+  repository_dispatch:
+    types:
+      - sync-docs
   schedule:
     - cron: '0 6 * * MON'  # 09:00 Romania time
 
