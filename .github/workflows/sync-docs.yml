@@ -55,31 +55,6 @@ jobs:
           echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
           echo "Generated branch name: $BRANCH_NAME"
 
-      - name: Show changes
-        run: |
-          echo "=== Changes detected ==="
-          git status
-          echo ""
-          echo "=== Diff ==="
-          git diff || echo "No changes detected"
-
-      - name: Check if PAT is available for PR creation
-        id: check-pat
-        run: |
-          if [ -n "${{ secrets.GH_PAT }}" ]; then
-            echo "pat_available=true" >> $GITHUB_OUTPUT
-            echo "✅ GH_PAT secret is available - will use it for PR creation"
-          else
-            echo "pat_available=false" >> $GITHUB_OUTPUT
-            if [ "${{ github.event_name }}" == "pull_request" ]; then
-              echo "❌ FATAL: GH_PAT secret is required when running on pull_request events"
-              echo "   Add GH_PAT secret at: Settings > Secrets and variables > Actions"
-              exit 1
-            else
-              echo "⚠️  GH_PAT secret not found - using GITHUB_TOKEN"
-            fi
-          fi
-
       - name: Debug workflow context and permissions
         run: |
           echo "=== Workflow Debug Information ==="
@@ -119,6 +94,31 @@ jobs:
           git status --short || echo "  (no changes or git error)"
           echo ""
           echo "=== End Debug Information ==="
+
+      - name: Show changes
+        run: |
+          echo "=== Changes detected ==="
+          git status
+          echo ""
+          echo "=== Diff ==="
+          git diff || echo "No changes detected"
+
+      - name: Check if PAT is available for PR creation
+        id: check-pat
+        run: |
+          if [ -n "${{ secrets.GH_PAT }}" ]; then
+            echo "pat_available=true" >> $GITHUB_OUTPUT
+            echo "✅ GH_PAT secret is available - will use it for PR creation"
+          else
+            echo "pat_available=false" >> $GITHUB_OUTPUT
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+              echo "❌ FATAL: GH_PAT secret is required when running on pull_request events"
+              echo "   Add GH_PAT secret at: Settings > Secrets and variables > Actions"
+              exit 1
+            else
+              echo "⚠️  GH_PAT secret not found - using GITHUB_TOKEN"
+            fi
+          fi
 
       - name: Create Pull Request
         if: github.event_name != 'pull_request' || steps.check-pat.outputs.pat_available == 'true'
