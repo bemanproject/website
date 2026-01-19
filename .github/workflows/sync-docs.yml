@@ -114,7 +114,7 @@ jobs:
             echo "  Token type: GITHUB_TOKEN"
             echo "  Token available: ⚠️  Limited permissions on PRs"
             echo "  GH_PAT secret: ❌ Not found or empty"
-            echo "  Note: Add GH_PAT secret at: Settings > Secrets and variables > Actions"
+            echo "  Note: Add GH_PAT secret in repository Settings under Secrets and variables > Actions"
           fi
           echo ""
           echo "Permissions:"
