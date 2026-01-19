@@ -1,0 +1,188 @@
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+# Auto-sync Beman Documentation Workflow
+#
+# Purpose:
+#   This workflow automatically synchronizes documentation and images from the
+#   bemanproject/beman repository to the website repository. It ensures that
+#   the website always has the latest documentation content without manual
+#   intervention.
+#
+# When it runs:
+#   - Weekly on Mondays at 6:00 AM UTC (08:00–09:00 Romania time, depending on DST)
+#   - Runs automatically via GitHub Actions schedule (cron)
+#   - Can be triggered manually via workflow_dispatch (Actions tab → Run workflow)
+#   - Can be triggered via API using repository_dispatch with type "sync-docs"
+#
+# What it does:
+#   1. Clones both the website and beman repositories
+#   2. Runs the sync-docs.py script to copy documentation files and images
+#   3. Cleans up temporary files (removes beman directory)
+#   4. Creates a new branch with format: website-weekly-docs-import-YYYY-MM-DD
+#   5. Creates a pull request with the synced changes
+#
+# Credentials:
+#   - Uses GITHUB_TOKEN (automatically provided by GitHub Actions)
+#   - The token has contents:write and pull-requests:write permissions
+#
+# Expected output:
+#   - A pull request titled: "Beman website weekly sync import (YYYY-MM-DD) - please review"
+#   - PR is assigned to neatudarius
+#   - PR has reviewers: neatudarius, RaduNichita, mguludag
+#   - PR is linked to issue #125 (evergreen issue: automatic docs import)
+#   - PR contains all synced documentation changes from bemanproject/beman
+
+name: Auto-sync Beman Docs
+
+on:
+  schedule:
+    - cron: '0 6 * * MON'  # 08:00–09:00 Romania time (depending on DST)
+  workflow_dispatch:  # Manual trigger for testing
+  repository_dispatch:  # API trigger for on-demand runs
+    types:
+      - sync-docs
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout website repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Checkout beman repo
+        uses: actions/checkout@v4
+        with:
+          repository: bemanproject/beman
+          path: beman
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run sync-docs.py
+        run: |
+          python3 scripts/sync-docs.py beman
+
+      - name: Generate branch name
+        id: branch-name
+        run: |
+          DATE_STR=$(date +%Y-%m-%d)
+          BRANCH_NAME="website-weekly-docs-import-$DATE_STR"
+          echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          echo "date_str=$DATE_STR" >> $GITHUB_OUTPUT
+          echo "Generated branch name: $BRANCH_NAME"
+
+      - name: Show changes
+        run: |
+          echo "=== Changes detected ==="
+          git status
+          echo ""
+          echo "=== Diff ==="
+          git diff || echo "No changes detected"
+
+      - name: Debug workflow context and permissions
+        run: |
+          echo "=== Workflow Debug Information ==="
+          echo ""
+          echo "Event Information:"
+          echo "  Event name: ${{ github.event_name }}"
+          echo "  Ref: ${{ github.ref }}"
+          echo "  Head ref: ${{ github.head_ref }}"
+          echo "  Base ref: ${{ github.base_ref }}"
+          echo "  SHA: ${{ github.sha }}"
+          echo ""
+          echo "Repository Information:"
+          echo "  Repository: ${{ github.repository }}"
+          echo "  Actor: ${{ github.actor }}"
+          echo "  Workflow: ${{ github.workflow }}"
+          echo "  Run ID: ${{ github.run_id }}"
+          echo "  Run number: ${{ github.run_number }}"
+          echo ""
+          echo "Branch Information:"
+          echo "  Generated branch: ${{ steps.branch-name.outputs.branch_name }}"
+          echo "  Base branch: main"
+          echo ""
+          echo "Token Information:"
+          GH_PAT_VALUE="${{ secrets.GH_PAT }}"
+          if [ -n "$GH_PAT_VALUE" ] && [ "$GH_PAT_VALUE" != "" ]; then
+            echo "  Token type: GH_PAT (Personal Access Token)"
+            echo "  Token available: ✅ Yes"
+            echo "  Token length: ${#GH_PAT_VALUE} characters"
+          else
+            echo "  Token type: GITHUB_TOKEN"
+            echo "  Token available: ⚠️  Limited permissions on PRs"
+            echo "  GH_PAT secret: ❌ Not found or empty"
+            echo "  Note: Add GH_PAT secret in repository Settings under Secrets and variables > Actions"
+          fi
+          echo ""
+          echo "Permissions:"
+          echo "  Contents: write"
+          echo "  Pull requests: write"
+          echo ""
+          echo "Git Status:"
+          git status --short || echo "  (no changes or git error)"
+          echo ""
+          echo "=== End Debug Information ==="
+
+      - name: Prepare PR assignees and reviewers
+        id: pr-people
+        run: |
+          # Use repository variables if set, otherwise fall back to hardcoded defaults.
+          # These users are hardcoded as the primary website maintainers responsible
+          # for reviewing documentation sync PRs. If team membership changes, update
+          # repository variables DOC_SYNC_ASSIGNEES and DOC_SYNC_REVIEWERS instead of
+          # modifying this workflow file.
+          # Default assignee: neatudarius (primary website maintainer)
+          # Default reviewers: neatudarius, RaduNichita, mguludag (website maintainers)
+          # Get assignees and reviewers from vars or use defaults
+          if [ -n "${{ vars.DOC_SYNC_ASSIGNEES }}" ]; then
+            ASSIGNEES="${{ vars.DOC_SYNC_ASSIGNEES }}"
+          else
+            ASSIGNEES="neatudarius"
+          fi
+          
+          if [ -n "${{ vars.DOC_SYNC_REVIEWERS }}" ]; then
+            REVIEWERS="${{ vars.DOC_SYNC_REVIEWERS }}"
+          else
+            REVIEWERS="neatudarius
+          RaduNichita
+          mguludag"
+          fi
+          
+          echo "assignees<<EOF" >> $GITHUB_OUTPUT
+          echo "$ASSIGNEES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+          echo "reviewers<<EOF" >> $GITHUB_OUTPUT
+          echo "$REVIEWERS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+          echo "Using assignees: $ASSIGNEES"
+          echo "Using reviewers: $REVIEWERS"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+          base: main
+          commit-message: "Auto-sync documentation from latest content of bemanproject/beman"
+          branch: ${{ steps.branch-name.outputs.branch_name }}
+          title: "Beman website weekly sync import (${{ steps.branch-name.outputs.date_str }}) - please review"
+          body: |
+            Automated sync of documentation and images from latest content of [bemanproject/beman](https://github.com/bemanproject/beman).
+            
+            Related to: #125 - evergreen issue: automatic docs import
+          labels: |
+            sync
+            automation
+          author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          assignees: ${{ steps.pr-people.outputs.assignees }}
+          reviewers: ${{ steps.pr-people.outputs.reviewers }}
