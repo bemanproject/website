@@ -7,6 +7,12 @@ on:
   pull_request:
   workflow_call:
   workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'Run in test mode (adds test label)'
+        required: false
+        default: false
+        type: boolean
   schedule:
     - cron: '0 6 * * MON'  # 09:00 Romania time
 
@@ -60,7 +66,7 @@ jobs:
           git diff || echo "No changes detected"
 
       - name: Create Pull Request
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && !(github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode == 'true')
         uses: peter-evans/create-pull-request@v6
         with:
           base: main
@@ -78,6 +84,24 @@ jobs:
             neatudarius
             RaduNichita
             mguludag
+
+      - name: Create Pull Request (test mode via workflow_dispatch)
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.test_mode == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          base: main
+          commit-message: "Test: Auto-sync documentation from latest content of bemanproject/beman"
+          branch: ${{ steps.branch-name.outputs.branch_name }}
+          title: "Test: Weekly docs sync"
+          body: |
+            **TEST MODE** - Automated sync of documentation and images from latest content of bemanproject/beman.
+            This PR was created for testing purposes via workflow_dispatch.
+          labels: |
+            sync
+            automation
+            test
+          author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          delete-branch: true
 
 
       - name: Note about PR limitations
