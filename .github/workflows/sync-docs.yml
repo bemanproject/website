@@ -80,6 +80,46 @@ jobs:
             fi
           fi
 
+      - name: Debug workflow context and permissions
+        run: |
+          echo "=== Workflow Debug Information ==="
+          echo ""
+          echo "Event Information:"
+          echo "  Event name: ${{ github.event_name }}"
+          echo "  Ref: ${{ github.ref }}"
+          echo "  Head ref: ${{ github.head_ref }}"
+          echo "  Base ref: ${{ github.base_ref }}"
+          echo "  SHA: ${{ github.sha }}"
+          echo ""
+          echo "Repository Information:"
+          echo "  Repository: ${{ github.repository }}"
+          echo "  Actor: ${{ github.actor }}"
+          echo "  Workflow: ${{ github.workflow }}"
+          echo "  Run ID: ${{ github.run_id }}"
+          echo "  Run number: ${{ github.run_number }}"
+          echo ""
+          echo "Branch Information:"
+          echo "  Generated branch: ${{ steps.branch-name.outputs.branch_name }}"
+          echo "  Base branch: main"
+          echo ""
+          echo "Token Information:"
+          if [ -n "${{ secrets.GH_PAT }}" ]; then
+            echo "  Token type: GH_PAT (Personal Access Token)"
+            echo "  Token available: ✅ Yes"
+          else
+            echo "  Token type: GITHUB_TOKEN"
+            echo "  Token available: ⚠️  Limited permissions on PRs"
+          fi
+          echo ""
+          echo "Permissions:"
+          echo "  Contents: write"
+          echo "  Pull requests: write"
+          echo ""
+          echo "Git Status:"
+          git status --short || echo "  (no changes or git error)"
+          echo ""
+          echo "=== End Debug Information ==="
+
       - name: Create Pull Request
         if: github.event_name != 'pull_request' || steps.check-pat.outputs.pat_available == 'true'
         uses: peter-evans/create-pull-request@v6
