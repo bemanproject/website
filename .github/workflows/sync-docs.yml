@@ -39,6 +39,10 @@ jobs:
         run: |
           python3 scripts/sync-docs.py beman
 
+      - name: Clean up beman directory
+        run: |
+          rm -rf beman
+
       - name: Generate branch name
         id: branch-name
         run: |
@@ -75,10 +79,18 @@ jobs:
             RaduNichita
             mguludag
 
+
+      - name: Note about PR limitations
+        if: github.event_name == 'pull_request' && github.head_ref == 'test/sync-docs-workflow'
+        run: |
+          echo "⚠️  Note: GitHub restricts GITHUB_TOKEN permissions when running on PRs for security reasons."
+          echo "To fully test PR creation, use 'workflow_dispatch' trigger or run on 'push' event."
       - name: Create Pull Request (test mode on PR)
         if: github.event_name == 'pull_request' && github.head_ref == 'test/sync-docs-workflow'
+        continue-on-error: true
         uses: peter-evans/create-pull-request@v6
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           base: main
           commit-message: "Test: Auto-sync documentation from latest content of bemanproject/beman"
           branch: ${{ steps.branch-name.outputs.branch_name }}
@@ -91,3 +103,4 @@ jobs:
             automation
             test
           author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          delete-branch: true
