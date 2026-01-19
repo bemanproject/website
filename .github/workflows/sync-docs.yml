@@ -1,5 +1,35 @@
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
+# Auto-sync Beman Documentation Workflow
+#
+# Purpose:
+#   This workflow automatically synchronizes documentation and images from the
+#   bemanproject/beman repository to the website repository. It ensures that
+#   the website always has the latest documentation content without manual
+#   intervention.
+#
+# When it runs:
+#   - Weekly on Mondays at 6:00 AM UTC (08:00–09:00 Romania time, depending on DST)
+#   - Runs automatically via GitHub Actions schedule (cron)
+#
+# What it does:
+#   1. Clones both the website and beman repositories
+#   2. Runs the sync-docs.py script to copy documentation files and images
+#   3. Cleans up temporary files (removes beman directory)
+#   4. Creates a new branch with format: website-weekly-docs-import-YYYY-MM-DD
+#   5. Creates a pull request with the synced changes
+#
+# Credentials:
+#   - Uses GITHUB_TOKEN (automatically provided by GitHub Actions)
+#   - The token has contents:write and pull-requests:write permissions
+#
+# Expected output:
+#   - A pull request titled: "Beman website weekly sync import (YYYY-MM-DD) - please review"
+#   - PR is assigned to neatudarius
+#   - PR has reviewers: neatudarius, RaduNichita, mguludag
+#   - PR is linked to issue #125 (evergreen issue: automatic docs import)
+#   - PR contains all synced documentation changes from bemanproject/beman
+
 name: Auto-sync Beman Docs
 
 on:
