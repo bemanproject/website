@@ -141,6 +141,14 @@ jobs:
         run: |
           echo "⚠️  Note: GitHub restricts GITHUB_TOKEN permissions when running on PRs for security reasons."
           echo "To fully test PR creation, use 'workflow_dispatch' trigger or run on 'push' event."
+          echo ""
+          if [ -n "${{ secrets.GH_PAT }}" ]; then
+            echo "✅ GH_PAT secret is configured - will use it for authentication"
+          else
+            echo "❌ GH_PAT secret NOT found - will use GITHUB_TOKEN (will fail with 403)"
+            echo "   Add GH_PAT secret at: Settings > Secrets and variables > Actions"
+          fi
+
       - name: Create Pull Request (test mode on PR)
         if: github.event_name == 'pull_request' && github.head_ref == 'test/sync-docs-workflow'
         continue-on-error: true
