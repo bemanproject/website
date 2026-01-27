@@ -3,8 +3,10 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import { execSync } from "child_process";
 
-const remarkEmbedder = require("@remark-embedder/core");
-const YouTubeTransformer = require("./src/components/youtube-transformer.js");
+const remarkEmbedder = require('@remark-embedder/core');
+const YouTubeTransformer = require('./src/components/youtube-transformer.js');
+const GodboltTransformer = require('./src/components/godbolt-transformer.js');
+const remarkCodeblockMeta = require('./src/plugins/remark-codeblock-meta');
 
 // Note: This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -57,7 +59,7 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           remarkPlugins: [
-            [remarkEmbedder, { transformers: [YouTubeTransformer] }],
+            [remarkEmbedder, { transformers: [YouTubeTransformer, GodboltTransformer] }], remarkCodeblockMeta
           ],
         },
         blog: {
@@ -67,7 +69,7 @@ const config: Config = {
             xslt: true,
           },
           remarkPlugins: [
-            [remarkEmbedder, { transformers: [YouTubeTransformer] }],
+            [remarkEmbedder, { transformers: [YouTubeTransformer, GodboltTransformer] }], remarkCodeblockMeta
           ],
           // Blogging config
           onInlineTags: "warn",
@@ -79,6 +81,10 @@ const config: Config = {
         },
       } satisfies Preset.Options,
     ],
+  ],
+
+  clientModules: [
+    require.resolve('./src/components/Godbolt.jsx'),
   ],
 
   themeConfig: {
