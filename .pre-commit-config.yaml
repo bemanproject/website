@@ -22,15 +22,14 @@ repos:
     hooks:
       - id: prettier
 
-  - repo: https://github.com/markdownlint/markdownlint
-    rev: v0.12.0 # Use the latest stable version
+  # Node-based markdownlint (avoids Ruby 3.1+ requirement of the mdl gem)
+  - repo: local
     hooks:
       - id: markdownlint
-
-  - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.17.0 # Use the latest stable version
-    hooks:
-      - id: gitleaks
+        name: markdownlint
+        entry: markdownlint-cli
+        language: node
+        types: [markdown]
 
 exclude: |
   ^static/.*
