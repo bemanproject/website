@@ -106,6 +106,12 @@ const config: Config = {
           position: "right",
         },
         {
+          "aria-label": "Discord",
+          className: "navbar--discord-link",
+          href: "https://discord.com/invite/BKpNyJgSbm",
+          position: "right",
+        },
+        {
           "aria-label": "GitHub Repository",
           className: "navbar--github-link",
           href: "https://github.com/bemanproject",
