@@ -26,6 +26,22 @@ blog/2000-10-30-my-blog-example/
 
 3. Add your full Markdown blog post content inside the `index.md` file.
 
+   * [optional] Add Godbolt links or generate from C++ codeblock:  
+     * If your content includes Godbolt link(s), simply use the `<Godbolt url="YOUR_GODBOLT_URL"/>` syntax to generate `Try it on Compiler Explorer 🚀` link(s).
+     * If your content includes C++ codeblock, you need to include a custom metadata to the codeblock like below:
+      ```
+      ``` cpp { "compilers": ["clang_trunk -std=c++26", "gsnapshot -std=c++26"], "libs": ["beman_optional@trunk"], "filters": {"execute":true} }
+      // your cpp code
+      ```
+      <details>
+      <summary> Metadata reference </summary>
+
+      The metadata json object is based on the [Compiler Explorer API](https://github.com/compiler-explorer/compiler-explorer/blob/main/docs/API.md) with custom flavor for easier to write. This metadata json structure is basically `{"compilers": ["CompilerName CompilerFlags"], "libs": ["LibraryId@Version"], "filters": {"execute":true}}`
+      * The `CompilerName`s you can get from: https://godbolt.org/api/compilers
+      * The `LibraryId`s you can get from: https://godbolt.org/api/libraries/c++
+
+      </details>
+
 Example
 
 ```shell
