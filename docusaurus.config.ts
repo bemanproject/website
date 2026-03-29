@@ -140,6 +140,30 @@ const config: Config = {
     },
     footer: {
       style: "dark",
+      links: [
+        {
+          title: "Community",
+          items: [
+            {
+              label: "Discord",
+              href: "https://discord.com/invite/BKpNyJgSbm",
+            },
+            {
+              label: "Discourse",
+              href: "https://discourse.bemanproject.org/",
+            },
+          ],
+        },
+        {
+          title: "More",
+          items: [
+            {
+              label: "GitHub",
+              href: "https://github.com/bemanproject",
+            },
+          ],
+        },
+      ],
       copyright: `Copyright © ${new Date().getFullYear()} The Beman Project. Built with Docusaurus.`,
     },
     prism: {
