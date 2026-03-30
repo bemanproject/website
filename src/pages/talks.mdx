@@ -4,24 +4,27 @@ slug: talks
 hide_table_of_contents: true
 ---
 
-import authors from '@site/blog/authors.yml';
+<!-- markdownlint-disable-file MD033 -->
+
+import authors from "@site/blog/authors.yml";
 
 export const TalkPost = ({ title, date, duration, videoId, authorId, conference, tag }) => {
   const author = authors[authorId];
 
-  // Safety check: if authorId is wrong, show error or fallback
-  if (!author) {
-    return <div className="alert alert--danger">Author ID "{authorId}" not found in authors.yml</div>;
-  }
+// Safety check: if authorId is wrong, show error or fallback
+if (!author) {
+return <div className="alert alert--danger">Author ID "{authorId}" not found in authors.yml</div>;
+}
 
-  const githubLink = author.socials?.github ? `https://github.com/${author.socials.github}` : null;
+const githubLink = author.socials?.github ? `https://github.com/${author.socials.github}` : null;
 
-  return (
-    <article className="margin-bottom--xl">
-      <header>
-        <h2 style={{ marginBottom: '0.5rem', fontSize: '2rem' }}>
-          <a href="#" style={{ textDecoration: 'none' }}>{title}</a>
-        </h2>
+return (
+
+<article className="margin-bottom--xl">
+<header>
+<h2 style={{ marginBottom: '0.5rem', fontSize: '2rem' }}>
+<a href="#" style={{ textDecoration: 'none' }}>{title}</a>
+</h2>
 
         {/* METADATA ROW: Date, Duration, Conference, and Tag */}
         <div className="margin-bottom--md" style={{ color: 'var(--ifm-color-content-secondary)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
@@ -96,10 +99,9 @@ export const TalkPost = ({ title, date, duration, videoId, authorId, conference,
 
       <hr className="margin-vert--xl" />
     </article>
-  );
-};
 
-# Talks
+);
+};
 
 <TalkPost
   title="The Beman Project: Bringing C++ Standard Libraries to the Next Level"
