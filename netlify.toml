@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+#
+# The site is built from copied docs under /docs, not from a git submodule.
+# If .gitmodules references `beman` without a valid url, Netlify's default
+# submodule checkout fails at "preparing repo". Skip submodules unless we add
+# a real submodule with a proper url later.
+[build.environment]
+  GIT_SUBMODULE_STRATEGY = "none"
