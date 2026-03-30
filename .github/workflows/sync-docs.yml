@@ -22,13 +22,17 @@
 #   5. Creates a pull request with the synced changes
 #
 # Credentials:
-#   - Uses GITHUB_TOKEN (automatically provided by GitHub Actions)
-#   - The token has contents:write and pull-requests:write permissions
+#   - create-pull-request uses GITHUB_TOKEN only so the PR is opened by
+#     github-actions[bot]; reviewers can then include neatudarius even when the
+#     workflow is triggered by neatudarius (manual) or by schedule (GH rejects
+#     review requests from the PR author — using a personal PAT as token made
+#     the PAT owner the PR author).
+#   - Optional secrets.GH_PAT is not used for opening the PR (see Create Pull Request step).
 #
 # Expected output:
 #   - A pull request titled: "Beman website weekly sync import (YYYY-MM-DD) - please review"
 #   - PR is assigned to neatudarius
-#   - PR has reviewers: neatudarius, RaduNichita, mguludag
+#   - PR has reviewers: neatudarius, RaduNichita, mguludag (requires GITHUB_TOKEN for PR)
 #   - PR is linked to issue #125 (evergreen issue: automatic docs import)
 #   - PR contains all synced documentation changes from bemanproject/beman
 
@@ -111,16 +115,12 @@ jobs:
           echo "  Base branch: main"
           echo ""
           echo "Token Information:"
+          echo "  Create Pull Request: GITHUB_TOKEN (PR author = github-actions[bot] → neatudarius can be reviewer)"
           GH_PAT_VALUE="${{ secrets.GH_PAT }}"
           if [ -n "$GH_PAT_VALUE" ] && [ "$GH_PAT_VALUE" != "" ]; then
-            echo "  Token type: GH_PAT (Personal Access Token)"
-            echo "  Token available: ✅ Yes"
-            echo "  Token length: ${#GH_PAT_VALUE} characters"
+            echo "  secrets.GH_PAT: set (not used for opening PR in this workflow)"
           else
-            echo "  Token type: GITHUB_TOKEN"
-            echo "  Token available: ⚠️  Limited permissions on PRs"
-            echo "  GH_PAT secret: ❌ Not found or empty"
-            echo "  Note: Add GH_PAT secret in repository Settings under Secrets and variables > Actions"
+            echo "  secrets.GH_PAT: not set (optional)"
           fi
           echo ""
           echo "Permissions:"
@@ -141,7 +141,9 @@ jobs:
           # repository variables DOC_SYNC_ASSIGNEES and DOC_SYNC_REVIEWERS instead of
           # modifying this workflow file.
           # Default assignee: neatudarius (primary website maintainer)
-          # Default reviewers: neatudarius, RaduNichita, mguludag (website maintainers)
+          # Default reviewers: include neatudarius only if Create Pull Request uses
+          # GITHUB_TOKEN (PR opened by bot). Do not use a personal PAT as that step's
+          # token or GitHub will reject neatudarius as reviewer when they are PR author.
           # Get assignees and reviewers from vars or use defaults
           if [ -n "${{ vars.DOC_SYNC_ASSIGNEES }}" ]; then
             ASSIGNEES="${{ vars.DOC_SYNC_ASSIGNEES }}"
@@ -171,7 +173,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           base: main
           commit-message: "Auto-sync documentation from latest content of bemanproject/beman"
           branch: ${{ steps.branch-name.outputs.branch_name }}
