@@ -11,27 +11,27 @@ SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
 `The Beman maturity model` helps developers quickly assess the production readiness of Beman libraries by classifying them based on development phase and interface stability.
 
-![](/images/beman_flow-beman_library_maturity_model.png)
+![Beman Library Maturity Model Flow](/images/beman_flow-beman_library_maturity_model.png)
 
-### Under development and not yet ready for production use.
+## Under development and not yet ready for production use
 
 These libraries may deviate from the Beman Standard due to incompleteness, lack of testing, inconsistencies with the specification, or other non-conformances.
 
 > They are not recommended for production usage!
 
-### Production ready. API may undergo changes.
+## Production ready. API may undergo changes
 
 These Beman-compliant libraries are production-ready, fully implementing the target paper with complete testing and documentation. Users should be aware that future API changes are possible and that standardization is not guaranteed. See below for details on the requirements to transition to production-ready.
 
 > These libraries are recommended for production usage.
 
-### Production ready. Stable API.
+## Production ready. Stable API
 
 These production-ready libraries offer stable, standardized APIs. They are part of the C++ Standard and can be used as a polyfill for compilers lacking native support. Note that these libraries will be retired after two standardization cycles (6 years).
 
 > These libraries are recommended for production usage.
 
-### Retired. No longer maintained or actively developed.
+## Retired. No longer maintained or actively developed
 
 These libraries were archived and no longer maintained. These libraries are not recommended for production use.
 
