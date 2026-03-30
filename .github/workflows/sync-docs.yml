@@ -20,6 +20,7 @@
 #   3. Cleans up temporary files (removes beman directory)
 #   4. Creates a new branch with format: website-weekly-docs-import-YYYY-MM-DD
 #   5. Creates a pull request with the synced changes
+#   6. Rewrites the PR body with a review checklist and the real Netlify deploy-preview URL
 #
 # Credentials:
 #   - create-pull-request uses GITHUB_TOKEN only so the PR is opened by
@@ -34,6 +35,7 @@
 #   - PR assignee: neatudarius only
 #   - PR reviewers: neatudarius, RaduNichita, mguludag (requires GITHUB_TOKEN for PR)
 #   - PR is linked to issue #125 (evergreen issue: automatic docs import)
+#   - PR body asks reviewers to scan the full diff and the Netlify Deploy Preview (link uses PR #)
 #   - PR contains all synced documentation changes from bemanproject/beman
 
 name: Auto-sync Beman Docs
@@ -163,6 +165,7 @@ jobs:
           echo "Using reviewers: $REVIEWERS"
 
       - name: Create Pull Request
+        id: create-pr
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -171,12 +174,29 @@ jobs:
           branch: ${{ steps.branch-name.outputs.branch_name }}
           title: "Beman website weekly sync import (${{ steps.branch-name.outputs.date_str }}) - please review"
           body: |
-            Automated sync of documentation and images from latest content of [bemanproject/beman](https://github.com/bemanproject/beman).
-            
-            Related to: #125 - evergreen issue: automatic docs import
+            _Opening PR — full description with Netlify deploy-preview link is applied in the next step._
           labels: |
             sync
             automation
           author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
           assignees: ${{ steps.pr-people.outputs.assignees }}
           reviewers: ${{ steps.pr-people.outputs.reviewers }}
+
+      - name: Set PR description (checklist + deploy preview link)
+        if: steps.create-pr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR="${{ steps.create-pr.outputs.pull-request-number }}"
+          PREVIEW="https://deploy-preview-${PR}--bemanproject.netlify.app"
+          BODY_FILE="$(mktemp)"
+          {
+            printf '%s\n\n' "Automated sync of documentation and images from latest content of [bemanproject/beman](https://github.com/bemanproject/beman)."
+            printf '%s\n\n' "## Review checklist"
+            printf '%s\n' "- [ ] Manually review the **full diff** on this PR (**Files changed**). The sync script may update many paths."
+            printf '%s\n' "- [ ] After Netlify finishes, use the **Deploy Preview** link in the Netlify bot comment on this PR, or open the preview URL below (once the deploy exists)."
+            printf '\n%s\n\n' "**Deploy preview:** [deploy-preview-${PR} — open site](${PREVIEW})"
+            printf '%s\n' "Related to: #125 — evergreen issue: automatic docs import"
+          } > "$BODY_FILE"
+          gh pr edit "$PR" --body-file "$BODY_FILE"
+          rm -f "$BODY_FILE"
