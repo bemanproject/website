@@ -22,8 +22,10 @@ const FeatureList: FeatureItem[] = [
         the C++ Community to try out new libraries. For library authors we
         assist by helping to make best modern development practices easy.
         Including CI, coverage, and packaging. This project is a completely
-        volunteer effort. Please connect with us on our discourse if you’d like
-        to help.
+        volunteer effort. Please connect with us on our{" "}
+        <a href="https://discourse.bemanproject.org/">discourse</a> or{" "}
+        <a href="https://discord.com/invite/BKpNyJgSbm">Discord</a> if you’d
+        like to help.
       </>
     ),
   },
@@ -37,8 +39,9 @@ const FeatureList: FeatureItem[] = [
         versions of C++ proposals. (check{" "}
         <a href="/libraries"> The Beman Libraries page</a>). Please note that
         it’s early days for the project so we’re still building our tooling and
-        other details – please join the discussion at{" "}
-        <a href="https://discourse.bemanproject.org/"> our discourse </a>.
+        other details – please join the discussion at our{" "}
+        <a href="https://discourse.bemanproject.org/">discourse</a> or{" "}
+        <a href="https://discord.com/invite/BKpNyJgSbm">Discord</a>.
       </>
     ),
   },
@@ -46,8 +49,9 @@ const FeatureList: FeatureItem[] = [
     title: "For Library Authors",
     description: (
       <>
-        Submission into the Beman Project is easy – start a discussion{" "}
-        <a href="https://discourse.bemanproject.org/">on our discourse </a> and
+        Submission into the Beman Project is easy – start a discussion on our{" "}
+        <a href="https://discourse.bemanproject.org/">discourse</a> or{" "}
+        <a href="https://discord.com/invite/BKpNyJgSbm">Discord</a> and the
         the welcome team will help get you started. A general precondition is an
         intent to submit a library for standardization. If you don’t have
         repository yet, or you want to upgrade to our standard we can help. Once

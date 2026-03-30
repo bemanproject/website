@@ -26,13 +26,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px; /* Adjust the space between images and text */
+  gap: 10px;
 }
 
-.taglineImage {
-  height: 50px; /* Reduce the height of the images */
-  width: auto; /* Ensure the width adjusts automatically to maintain the aspect ratio */
-  object-fit: contain; /* Maintain aspect ratio of the SVGs */
+.leftLogo,
+.rightLogo {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+}
+
+.taglineText {
+  display: inline-block;
+  max-width: 32rem;
+  line-height: 1.35;
 }
 
 .hero__subtitle {
@@ -41,4 +48,24 @@
   align-items: center;
   text-align: center;
   margin-top: 10px;
+}
+
+@media screen and (max-width: 996px) {
+  .taglineContainer {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .rightLogo {
+    display: none;
+  }
+
+  .leftLogo {
+    width: min(70vw, 260px);
+    height: auto;
+  }
+
+  .taglineText {
+    max-width: 18rem;
+  }
 }

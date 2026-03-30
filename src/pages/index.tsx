@@ -22,14 +22,14 @@ function HomepageHeader() {
               /* TODO: check if we can use SVG images*/
               src="./img/beman_logo.png"
               alt="Left Logo"
-              style={{ width: "400px", height: "400px" }}
+              className={styles.leftLogo}
             />
-            <span>{siteConfig.tagline}</span>
+            <span className={styles.taglineText}>{siteConfig.tagline}</span>
             <img
               /* TODO: check if we can use SVG images*/
               src="./img/beman_logo_reversed.png"
               alt="Right Logo"
-              style={{ width: "400px", height: "400px" }}
+              className={styles.rightLogo}
             />
           </div>
         </div>

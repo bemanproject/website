@@ -50,6 +50,24 @@ const config: Config = {
 
   staticDirectories: ["static", "images"],
 
+  plugins: [
+    () => ({
+      name: "yaml-loader-plugin",
+      configureWebpack() {
+        return {
+          module: {
+            rules: [
+              {
+                test: /\.ya?ml$/,
+                use: "yaml-loader",
+              },
+            ],
+          },
+        };
+      },
+    }),
+  ],
+
   presets: [
     [
       "classic",
@@ -98,11 +116,18 @@ const config: Config = {
           label: "Docs",
         },
         { to: "/libraries", label: "Libraries", position: "left" },
+        { to: "/talks", label: "Talks", position: 'left'},
         { to: "/blog", label: "Blog", position: "left" },
         {
           "aria-label": "Discourse Forum",
           className: "navbar--discourse-link",
           href: "https://discourse.bemanproject.org/",
+          position: "right",
+        },
+        {
+          "aria-label": "Discord",
+          className: "navbar--discord-link",
+          href: "https://discord.com/invite/BKpNyJgSbm",
           position: "right",
         },
         {
@@ -115,6 +140,30 @@ const config: Config = {
     },
     footer: {
       style: "dark",
+      links: [
+        {
+          title: "Community",
+          items: [
+            {
+              label: "Discord",
+              href: "https://discord.com/invite/BKpNyJgSbm",
+            },
+            {
+              label: "Discourse",
+              href: "https://discourse.bemanproject.org/",
+            },
+          ],
+        },
+        {
+          title: "More",
+          items: [
+            {
+              label: "GitHub",
+              href: "https://github.com/bemanproject",
+            },
+          ],
+        },
+      ],
       copyright: `Copyright © ${new Date().getFullYear()} The Beman Project. Built with Docusaurus.`,
     },
     prism: {
