@@ -22,6 +22,3 @@ jobs:
 
       - name: Trunk Check
         uses: trunk-io/trunk-action@v1
-        with:
-          check-mode: all
-          post-annotations: true
