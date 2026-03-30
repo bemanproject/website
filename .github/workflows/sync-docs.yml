@@ -1,0 +1,202 @@
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+# Auto-sync Beman Documentation Workflow
+#
+# Purpose:
+#   This workflow automatically synchronizes documentation and images from the
+#   bemanproject/beman repository to the website repository. It ensures that
+#   the website always has the latest documentation content without manual
+#   intervention.
+#
+# When it runs:
+#   - Weekly on Mondays at 6:00 AM UTC (08:00–09:00 Romania time, depending on DST)
+#   - Runs automatically via GitHub Actions schedule (cron)
+#   - Can be triggered manually via workflow_dispatch (Actions tab → Run workflow)
+#   - Can be triggered via API using repository_dispatch with type "sync-docs"
+#
+# What it does:
+#   1. Clones both the website and beman repositories
+#   2. Runs the sync-docs.py script to copy documentation files and images
+#   3. Cleans up temporary files (removes beman directory)
+#   4. Creates a new branch with format: website-weekly-docs-import-YYYY-MM-DD
+#   5. Creates a pull request with the synced changes
+#   6. Rewrites the PR body with a review checklist and the real Netlify deploy-preview URL
+#
+# Credentials:
+#   - create-pull-request uses GITHUB_TOKEN only so the PR is opened by
+#     github-actions[bot]; reviewers can then include neatudarius even when the
+#     workflow is triggered by neatudarius (manual) or by schedule (GH rejects
+#     review requests from the PR author — using a personal PAT as token made
+#     the PAT owner the PR author).
+#   - Optional secrets.GH_PAT is not used for opening the PR (see Create Pull Request step).
+#
+# Expected output:
+#   - A pull request titled: "Beman website weekly sync import (YYYY-MM-DD) - please review"
+#   - PR assignee: neatudarius only
+#   - PR reviewers: neatudarius, RaduNichita, mguludag (requires GITHUB_TOKEN for PR)
+#   - PR is linked to issue #125 (evergreen issue: automatic docs import)
+#   - PR body asks reviewers to scan the full diff and the Netlify Deploy Preview (link uses PR #)
+#   - PR contains all synced documentation changes from bemanproject/beman
+
+name: Auto-sync Beman Docs
+
+on:
+  schedule:
+    - cron: '0 6 * * MON'  # 08:00–09:00 Romania time (depending on DST)
+  workflow_dispatch:  # Manual trigger for testing
+  repository_dispatch:  # API trigger for on-demand runs
+    types:
+      - sync-docs
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout website repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Checkout beman repo
+        uses: actions/checkout@v4
+        with:
+          repository: bemanproject/beman
+          path: beman
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run sync-docs.py
+        run: |
+          python3 scripts/sync-docs.py beman
+
+      - name: Generate branch name
+        id: branch-name
+        run: |
+          DATE_STR=$(date +%Y-%m-%d)
+          BRANCH_NAME="website-weekly-docs-import-$DATE_STR"
+          echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          echo "date_str=$DATE_STR" >> $GITHUB_OUTPUT
+          echo "Generated branch name: $BRANCH_NAME"
+
+      - name: Show changes
+        run: |
+          echo "=== Changes detected ==="
+          git status
+          echo ""
+          echo "=== Diff ==="
+          git diff || echo "No changes detected"
+
+      - name: Debug workflow context and permissions
+        run: |
+          echo "=== Workflow Debug Information ==="
+          echo ""
+          echo "Event Information:"
+          echo "  Event name: ${{ github.event_name }}"
+          echo "  Ref: ${{ github.ref }}"
+          echo "  Head ref: ${{ github.head_ref }}"
+          echo "  Base ref: ${{ github.base_ref }}"
+          echo "  SHA: ${{ github.sha }}"
+          echo ""
+          echo "Repository Information:"
+          echo "  Repository: ${{ github.repository }}"
+          echo "  Actor: ${{ github.actor }}"
+          echo "  Workflow: ${{ github.workflow }}"
+          echo "  Run ID: ${{ github.run_id }}"
+          echo "  Run number: ${{ github.run_number }}"
+          echo ""
+          echo "Branch Information:"
+          echo "  Generated branch: ${{ steps.branch-name.outputs.branch_name }}"
+          echo "  Base branch: main"
+          echo ""
+          echo "Token Information:"
+          echo "  Create Pull Request: GITHUB_TOKEN (PR author = github-actions[bot] → neatudarius can be reviewer)"
+          GH_PAT_VALUE="${{ secrets.GH_PAT }}"
+          if [ -n "$GH_PAT_VALUE" ] && [ "$GH_PAT_VALUE" != "" ]; then
+            echo "  secrets.GH_PAT: set (not used for opening PR in this workflow)"
+          else
+            echo "  secrets.GH_PAT: not set (optional)"
+          fi
+          echo ""
+          echo "Permissions:"
+          echo "  Contents: write"
+          echo "  Pull requests: write"
+          echo ""
+          echo "Git Status:"
+          git status --short || echo "  (no changes or git error)"
+          echo ""
+          echo "=== End Debug Information ==="
+
+      - name: Prepare PR assignees and reviewers
+        id: pr-people
+        run: |
+          # Use repository variables if set, otherwise fall back to hardcoded defaults.
+          # Default assignee: neatudarius. Default reviewers: full maintainer team.
+          # Reviewers require GITHUB_TOKEN for PR (bot opens PR); do not use a personal
+          # PAT as create-pull-request token or the PAT owner cannot be a reviewer.
+          DEFAULT_REVIEWERS="$(printf '%s\n' neatudarius RaduNichita mguludag)"
+          if [ -n "${{ vars.DOC_SYNC_ASSIGNEES }}" ]; then
+            ASSIGNEES="${{ vars.DOC_SYNC_ASSIGNEES }}"
+          else
+            ASSIGNEES="neatudarius"
+          fi
+          if [ -n "${{ vars.DOC_SYNC_REVIEWERS }}" ]; then
+            REVIEWERS="${{ vars.DOC_SYNC_REVIEWERS }}"
+          else
+            REVIEWERS="$DEFAULT_REVIEWERS"
+          fi
+          
+          echo "assignees<<EOF" >> $GITHUB_OUTPUT
+          echo "$ASSIGNEES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+          echo "reviewers<<EOF" >> $GITHUB_OUTPUT
+          echo "$REVIEWERS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+          echo "Using assignees: $ASSIGNEES"
+          echo "Using reviewers: $REVIEWERS"
+
+      - name: Create Pull Request
+        id: create-pr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          commit-message: "Auto-sync documentation from latest content of bemanproject/beman"
+          branch: ${{ steps.branch-name.outputs.branch_name }}
+          title: "Beman website weekly sync import (${{ steps.branch-name.outputs.date_str }}) - please review"
+          body: |
+            _Opening PR — full description with Netlify deploy-preview link is applied in the next step._
+          labels: |
+            sync
+            automation
+          author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          assignees: ${{ steps.pr-people.outputs.assignees }}
+          reviewers: ${{ steps.pr-people.outputs.reviewers }}
+
+      - name: Set PR description (checklist + deploy preview link)
+        if: steps.create-pr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR="${{ steps.create-pr.outputs.pull-request-number }}"
+          PREVIEW="https://deploy-preview-${PR}--bemanproject.netlify.app"
+          BODY_FILE="$(mktemp)"
+          {
+            printf '%s\n\n' "Automated sync of documentation and images from latest content of [bemanproject/beman](https://github.com/bemanproject/beman)."
+            printf '%s\n\n' "## Review checklist"
+            printf '%s\n' "- [ ] Manually review the **full diff** on this PR (**Files changed**). The sync script may update many paths."
+            printf '%s\n' "- [ ] After Netlify finishes, use the **Deploy Preview** link in the Netlify bot comment on this PR, or open the preview URL below (once the deploy exists)."
+            printf '\n%s\n\n' "**Deploy preview:** [deploy-preview-${PR} — open site](${PREVIEW})"
+            printf '%s\n' "Related to: #125 — evergreen issue: automatic docs import"
+          } > "$BODY_FILE"
+          gh pr edit "$PR" --body-file "$BODY_FILE"
+          rm -f "$BODY_FILE"
