@@ -31,8 +31,8 @@
 #
 # Expected output:
 #   - A pull request titled: "Beman website weekly sync import (YYYY-MM-DD) - please review"
-#   - PR is assigned to neatudarius
-#   - PR has reviewers: neatudarius, RaduNichita, mguludag (requires GITHUB_TOKEN for PR)
+#   - PR assignee: neatudarius only
+#   - PR reviewers: neatudarius, RaduNichita, mguludag (requires GITHUB_TOKEN for PR)
 #   - PR is linked to issue #125 (evergreen issue: automatic docs import)
 #   - PR contains all synced documentation changes from bemanproject/beman
 
@@ -136,27 +136,19 @@ jobs:
         id: pr-people
         run: |
           # Use repository variables if set, otherwise fall back to hardcoded defaults.
-          # These users are hardcoded as the primary website maintainers responsible
-          # for reviewing documentation sync PRs. If team membership changes, update
-          # repository variables DOC_SYNC_ASSIGNEES and DOC_SYNC_REVIEWERS instead of
-          # modifying this workflow file.
-          # Default assignee: neatudarius (primary website maintainer)
-          # Default reviewers: include neatudarius only if Create Pull Request uses
-          # GITHUB_TOKEN (PR opened by bot). Do not use a personal PAT as that step's
-          # token or GitHub will reject neatudarius as reviewer when they are PR author.
-          # Get assignees and reviewers from vars or use defaults
+          # Default assignee: neatudarius. Default reviewers: full maintainer team.
+          # Reviewers require GITHUB_TOKEN for PR (bot opens PR); do not use a personal
+          # PAT as create-pull-request token or the PAT owner cannot be a reviewer.
+          DEFAULT_REVIEWERS="$(printf '%s\n' neatudarius RaduNichita mguludag)"
           if [ -n "${{ vars.DOC_SYNC_ASSIGNEES }}" ]; then
             ASSIGNEES="${{ vars.DOC_SYNC_ASSIGNEES }}"
           else
             ASSIGNEES="neatudarius"
           fi
-          
           if [ -n "${{ vars.DOC_SYNC_REVIEWERS }}" ]; then
             REVIEWERS="${{ vars.DOC_SYNC_REVIEWERS }}"
           else
-            REVIEWERS="neatudarius
-          RaduNichita
-          mguludag"
+            REVIEWERS="$DEFAULT_REVIEWERS"
           fi
           
           echo "assignees<<EOF" >> $GITHUB_OUTPUT
