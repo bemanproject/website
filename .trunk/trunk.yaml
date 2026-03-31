@@ -20,6 +20,13 @@ lint:
   ignore:
     - linters: [osv-scanner]
       paths: [yarn.lock]
+    - paths:
+        - docs/*.md
+        - docs/images/**
+        - images/**
+        - static/docs/images/**
+        - static/images/**
+        - static/img/**
   enabled:
     - actionlint@1.7.9
     - bandit@1.9.2
