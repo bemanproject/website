@@ -2,6 +2,9 @@
 # Prettier: disable markdownlint formatting rules that clash with Prettier.
 extends: markdownlint/style/prettier
 
+# MD013/line-length : https://github.com/DavidAnson/markdownlint/blob/main/doc/md013.md
+MD013: false
+
 # MD014/commands-show-output : Dollar signs in shell snippets without shown output : https://github.com/DavidAnson/markdownlint/blob/main/doc/md014.md
 # Allow `$ command` style in docs/README without fake output lines.
 MD014: false
