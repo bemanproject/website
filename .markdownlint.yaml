@@ -1,9 +1,12 @@
-default: true
+# MD033/no-inline-html : Inline HTML : https://github.com/DavidAnson/markdownlint/blob/main/doc/md033.md
+# Disable inline HTML linter to allow for MDX components and Docusaurus HTML/JSX tags.
 MD033: false
-MD014: false
-MD034: false
-MD024: false
-MD013: false
-MD029: false
-MD030: false
-MD041: false
+
+# MD024/no-duplicate-heading : Multiple headings with the same content : https://github.com/DavidAnson/markdownlint/blob/main/doc/md024.md
+# Suppress warning about sibling headings while ensuring they are unique globally unless they belong to different parents.
+MD024:
+  siblings_only: true
+
+# MD025/single-title/single-h1 : Multiple top-level headings in the same document : https://github.com/DavidAnson/markdownlint/blob/main/doc/md025.md
+# Disable to allow both frontmatter titles and explicit # H1 tags in the same file if needed for specific page layouts.
+MD025: false
