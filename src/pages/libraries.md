@@ -3,14 +3,14 @@ title: Beman Libraries
 slug: libraries
 ---
 
+# Beman Libraries
+
 Below is a table of all libraries within The Beman Project and their current status.
 
-| Beman Library Name                                         | Status                                                                              | Description                    |
-| ---------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------ |
+| Beman Library Name | Status | Description |
+| --- | --- | --- |
 | [beman.exemplar](https://github.com/bemanproject/exemplar) | Always an under development library, as it is a template / demo for Beman libraries | A Beman Library template repo. |
-
 | [beman.optional](https://github.com/bemanproject/optional) | [Production ready. API may undergo changes.](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#production-ready-api-may-undergo-changes) | C++26 Extensions for std::optional. |
-
 | [beman.any_view](https://github.com/bemanproject/any_view) | [Under development and not yet ready for production use.](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#under-development-and-not-yet-ready-for-production-use) | A generalized type-erased view with customizable properties. |
 | [beman.bounds_test](https://github.com/bemanproject/bounds_test) | [Under development and not yet ready for production use.](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#under-development-and-not-yet-ready-for-production-use) | A library for checking integer operation boundary conditions. |
 | [beman.cstring_view](https://github.com/bemanproject/cstring_view) | [Under development and not yet ready for production use.](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#under-development-and-not-yet-ready-for-production-use) | `cstring_view` following [P3655](https://wg21.link/P3655) |
@@ -27,5 +27,4 @@ Below is a table of all libraries within The Beman Project and their current sta
 | [beman.timed_lock_alg](https://github.com/bemanproject/timed_lock_alg) | [Under development and not yet ready for production use.](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#under-development-and-not-yet-ready-for-production-use) | Timed lock algorithms for multiple lockables ([P3832](https://wg21.link/p3832)) and `std::multi_lock` ([P3833](https://wg21.link/p3833)). |
 | [beman.transform_view](https://github.com/bemanproject/transform_view) | [Under development and not yet ready for production use.](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#under-development-and-not-yet-ready-for-production-use) | An update version of `std::ranges::transform_view` that enables conditional borrowability. |
 | [beman.utf_view](https://github.com/bemanproject/utf_view) | [Under development and not yet ready for production use.](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#under-development-and-not-yet-ready-for-production-use) | UTF Transcoding Views. |
-
 | [beman.dump](https://github.com/bemanproject/dump) | [Retired. No longer maintained or actively developed.](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#retired-no-longer-maintained-or-actively-developed) | A tool for dumping an object's value to standard output. |
