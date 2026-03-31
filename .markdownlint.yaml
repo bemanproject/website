@@ -1,3 +1,11 @@
+# Shared by pre-commit (markdownlint-cli) and Trunk (.trunk/configs is a symlink here).
+# Prettier: disable markdownlint formatting rules that clash with Prettier.
+extends: markdownlint/style/prettier
+
+# MD014/commands-show-output : Dollar signs in shell snippets without shown output : https://github.com/DavidAnson/markdownlint/blob/main/doc/md014.md
+# Allow `$ command` style in docs/README without fake output lines.
+MD014: false
+
 # MD033/no-inline-html : Inline HTML : https://github.com/DavidAnson/markdownlint/blob/main/doc/md033.md
 # Disable inline HTML linter to allow for MDX components and Docusaurus HTML/JSX tags.
 MD033: false
