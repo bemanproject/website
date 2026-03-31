@@ -116,7 +116,7 @@ const config: Config = {
           label: "Docs",
         },
         { to: "/libraries", label: "Libraries", position: "left" },
-        { to: "/talks", label: "Talks", position: 'left'},
+        { to: "/talks", label: "Talks", position: "left" },
         { to: "/blog", label: "Blog", position: "left" },
         {
           "aria-label": "Discourse Forum",

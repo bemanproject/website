@@ -19,7 +19,7 @@ This is where [bemanproject/infra-containers](https://github.com/bemanproject/in
 - How does it work?
 - How is it used?
 
-# What is it?
+## What is it?
 
 In short, `bemanproject/infra-containers` is a set of [Docker](https://www.docker.com/) container images that can be reused in CI pipelines across the Beman library projects. These containers are automatically built and published to the GitHub package registry under the [bemanproject organization](https://github.com/orgs/bemanproject/packages). Why do this? There are several advantages:
 
@@ -31,13 +31,13 @@ Additionally, this setup allows us to build containers that contain pre-release 
 
 The `infra-containers` repository also builds `devcontainer` images which are used as online development environments via [GitHub Codespaces](https://github.com/features/codespaces) for the Beman library projects.
 
-# How does it work?
+## How does it work?
 
 When a change is made to the `Dockerfile` definitions in the [infra-containers](https://github.com/bemanproject/infra-containers) repository, a series of GitHub Actions are started that build and publish the containers to the package registry, both for production and staging use. These actions additionally run weekly or they can be invoked manually if needed.
 
 If you're not familiar with Docker or containers in general, this may seem like magic. To simplify things, you can think of these images as "virtual" operating systems that have been pre-configured with specific versions of certain tools. For [fast turnaround, binary caching, and building compiler forks](https://www.gentoo.org/) the CI images are built on top of [Gentoo Linux](https://www.gentoo.org/). The devcontainer images are built on top of Ubuntu so that Microsoft's devcontainer images can be used as a base.
 
-# How is it used?
+## How is it used?
 
 The simplest way to understand how the infra-containers are used is to look at an example. We will use [bemanproject/task](https://github.com/bemanproject/task) for this purpose as it runs tests with a large and diverse set of configurations. If we look at its [CI GitHub actions workflow](https://github.com/bemanproject/task/blob/66da7a2c82f681c0ae1440bc4940626b2791eb9c/.github/workflows/ci_tests.yml#L35), we can see a JSON object used to configure CI. Excerpted below is the Clang portion:
 

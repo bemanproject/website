@@ -67,15 +67,15 @@ def insert_sidebar_metadata(file_path: Path, sidebar_position: int, sidebar_labe
     with open(file_path, "r") as file:
         lines = file.readlines()
     prefix = [
-        f"---\n",
+        "---\n",
         f"sidebar_position: {sidebar_position}\n",
     ]
     if sidebar_label:
         prefix.append(f"sidebar_label: {sidebar_label}\n")
     else:
         raise ValueError(f"No side label provided for {file_path}")
-    prefix.append(f"---\n")
-    prefix.append(f"\n")
+    prefix.append("---\n")
+    prefix.append("\n")
     with open(file_path, "w") as file:
         file.writelines(prefix + lines)
 

@@ -17,6 +17,17 @@ runtimes:
     - python@3.10.8
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
+  ignore:
+    - linters: [osv-scanner]
+      paths: [yarn.lock]
+    - linters: [ALL]
+      paths:
+        - docs/**/*.md
+        - docs/images/**
+        - images/**
+        - static/docs/images/**
+        - static/images/**
+        - static/img/**
   enabled:
     - actionlint@1.7.9
     - bandit@1.9.2
