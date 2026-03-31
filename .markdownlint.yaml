@@ -9,10 +9,6 @@ MD013: false
 # Allow `$ command` style in docs/README without fake output lines.
 MD014: false
 
-# MD033/no-inline-html : Inline HTML : https://github.com/DavidAnson/markdownlint/blob/main/doc/md033.md
-# Disable inline HTML linter to allow for MDX components and Docusaurus HTML/JSX tags.
-MD033: false
-
 # MD024/no-duplicate-heading : Multiple headings with the same content : https://github.com/DavidAnson/markdownlint/blob/main/doc/md024.md
 # Suppress warning about sibling headings while ensuring they are unique globally unless they belong to different parents.
 MD024:
@@ -21,3 +17,10 @@ MD024:
 # MD025/single-title/single-h1 : Multiple top-level headings in the same document : https://github.com/DavidAnson/markdownlint/blob/main/doc/md025.md
 # Disable to allow both frontmatter titles and explicit # H1 tags in the same file if needed for specific page layouts.
 MD025: false
+
+# MD033/no-inline-html : Inline HTML : https://github.com/DavidAnson/markdownlint/blob/main/doc/md033.md
+# Disable inline HTML linter to allow for MDX components and Docusaurus HTML/JSX tags.
+MD033: false
+
+# MD034/no-bare-urls : https://github.com/DavidAnson/markdownlint/blob/main/doc/md034.md
+MD034: false
