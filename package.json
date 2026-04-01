@@ -48,10 +48,11 @@
     "node": ">=20.0.0"
   },
   "resolutions": {
-    "webpack-dev-server": ">=4.15.3",
+    "webpack-dev-server": ">=5.2.1",
     "serialize-javascript": ">=7.0.5"
   },
   "overrides": {
+    "webpack-dev-server": ">=5.2.1",
     "serialize-javascript": ">=7.0.5"
   }
 }
