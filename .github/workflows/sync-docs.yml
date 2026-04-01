@@ -42,9 +42,9 @@ name: Auto-sync Beman Docs
 
 on:
   schedule:
-    - cron: '0 6 * * MON'  # 08:00–09:00 Romania time (depending on DST)
-  workflow_dispatch:  # Manual trigger for testing
-  repository_dispatch:  # API trigger for on-demand runs
+    - cron: "0 6 * * MON" # 08:00–09:00 Romania time (depending on DST)
+  workflow_dispatch: # Manual trigger for testing
+  repository_dispatch: # API trigger for on-demand runs
     types:
       - sync-docs
 
@@ -71,7 +71,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Run sync-docs.py
         run: |
@@ -152,15 +152,15 @@ jobs:
           else
             REVIEWERS="$DEFAULT_REVIEWERS"
           fi
-          
+
           echo "assignees<<EOF" >> $GITHUB_OUTPUT
           echo "$ASSIGNEES" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
-          
+
           echo "reviewers<<EOF" >> $GITHUB_OUTPUT
           echo "$REVIEWERS" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
-          
+
           echo "Using assignees: $ASSIGNEES"
           echo "Using reviewers: $REVIEWERS"
 
