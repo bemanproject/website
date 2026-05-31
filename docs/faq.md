@@ -48,9 +48,8 @@ we encourage on-going reviews of changes over time - just as would be done in a 
 We understand that libraries evolve and using the github code review facilities allows authors to recieve
 ongoing feedback. And, of course, authors can ask the community for reviews at any time!
 
-The one required review is when a library moves from *under development* to a *production ready* state. The discussion of this process can be found
+The one required review is when a library moves from _under development_ to a _production ready_ state. The discussion of this process can be found
 [here](https://bemanproject.org/docs/beman_library_maturity_model#review-process-for-transitioning-a-library-to-production-ready "production ready review").
-
 
 ## Is there a minimum C++ version required for all Beman Projects to support?
 
