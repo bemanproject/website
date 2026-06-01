@@ -18,6 +18,8 @@ runtimes:
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
   ignore:
+    - linters: [prettier]
+      paths: [mkdocs_theme/main.html]
     - linters: [osv-scanner]
       paths: [yarn.lock]
     - linters: [ALL]

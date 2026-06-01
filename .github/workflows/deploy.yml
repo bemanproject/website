@@ -6,49 +6,72 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: 0 */6 * * *
+  workflow_dispatch:
+
+concurrency:
+  group: gh-pages-publish
+  cancel-in-progress: false
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  build:
-    name: Build static content
+  publish:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout website repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: yarn
 
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Build website
-        run: yarn build
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+          cache: pip
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install docs toolchain
+        run: |
+          tool_bin="$(bash scripts/install-ci-docs-tools.sh "${RUNNER_TEMP}/beman-docs-tools")"
+          echo "${tool_bin}" >> "${GITHUB_PATH}"
+          "${tool_bin}/pandoc" --version
+          "${tool_bin}/mrdocs" --version
+
+      - name: Install website dependencies
+        run: make install
+
+      - name: Build staged website
+        run: |
+          if [ "${GITHUB_REPOSITORY}" = "bemanproject/website" ]; then
+            export BEMAN_SITE_URL="https://bemanproject.org"
+            export BEMAN_BASE_URL="/"
+          else
+            export BEMAN_SITE_URL="https://${GITHUB_REPOSITORY_OWNER}.github.io"
+            export BEMAN_BASE_URL="/${GITHUB_REPOSITORY#*/}/"
+          fi
+          export BEMAN_GITHUB_ORG="${GITHUB_REPOSITORY_OWNER}"
+          export BEMAN_GITHUB_REPO="${GITHUB_REPOSITORY#*/}"
+          python3 scripts/run-staged-website.py build \
+            --work-root "${RUNNER_TEMP}/beman-website-work" \
+            --repos-root "${RUNNER_TEMP}/beman-external" \
+            --clone-missing \
+            --update-repos
         env:
           PAGES_DEPLOY: true
 
-      - name: Upload Build Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: build
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-  deploy:
-    name: Deploy to GitHub Pages
-    needs: build
-
-    permissions:
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Publish to gh-pages branch
+        run: bash scripts/publish-gh-pages.sh gh-pages

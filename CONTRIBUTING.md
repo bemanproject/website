@@ -2,16 +2,44 @@
 
 ## Install dependencies
 
-In order to setup the project, you have to install `npm`, `yarn` and `node`.
+In order to set up the project, use Python and Node.js/npm and install the
+dependencies from `requirements.txt` and `package-lock.json`. If you use
+micromamba, activate the project environment first:
+
+```shell
+$ micromamba activate beman
+```
 
 ```shell
 $ make install
 ```
 
-You can verify `yarn` is properly installed using
+`make install` runs `python -m pip install -r requirements.txt` and `npm ci`.
+With the `beman` micromamba environment active, the Python packages are installed
+into that environment. The npm packages are installed into this repo's
+`node_modules`.
+
+After installation, Make and npm invoke the same composed website pipeline:
+
+| Operation                         | Make         | npm             |
+| --------------------------------- | ------------ | --------------- |
+| Build and start a local server    | `make start` | `npm start`     |
+| Build static output               | `make build` | `npm run build` |
+| Build and serve the static output | `make serve` | `npm run serve` |
+
+The staged site also builds Antora documentation. Pandoc converts Markdown into
+AsciiDoc, and MrDocs generates API reference pages. `make install` does not
+install `pandoc` or `mrdocs`; make sure both are already available on `PATH`
+before running `make start` or `make build`.
+
+Library docs are configured in `beman_libraries_to_import.yaml`. Keep library
+repos adjacent to this repo (`../optional`, `../execution`, ...). Add or edit a
+library there, then run `make start`.
+
+You can verify MkDocs is properly installed using
 
 ```shell
-yarn --version
+$ python -m mkdocs --version
 ```
 
 If this fails, please check manual instructions:
@@ -33,9 +61,8 @@ This project includes a development container configuration for VS Code. To use 
 <summary> Linux instructions</summary>
 
 ```shell
-$ sudo apt install nodejs
-$ sudo apt install npm
-$ npm install -g yarn
+$ sudo apt install python3 python3-pip
+$ python3 -m pip install -r requirements.txt
 ```
 
 </details>
@@ -44,9 +71,8 @@ $ npm install -g yarn
 <summary> MacOS instructions</summary>
 
 ```shell
-$ brew install node
-$ brew install npm
-$ npm install -g yarn
+$ brew install python
+$ python3 -m pip install -r requirements.txt
 ```
 
 </details>
@@ -55,8 +81,8 @@ $ npm install -g yarn
 <summary> Windows instructions</summary>
 
 ```shell
-$ winget install OpenJS.NodeJS
-$ npm install -g yarn
+$ winget install Python.Python.3
+$ python -m pip install -r requirements.txt
 ```
 
 </details>
@@ -67,11 +93,15 @@ To start a local development server, run:
 
 ```shell
 $ make start
+# or, after dependencies are installed:
+$ npm start
 ```
 
-If everything is properly installed, the command should open a browser window on http://localhost:3000/.
+If everything is properly installed, the command builds the composed MkDocs +
+Antora site and serves it on http://127.0.0.1:8000/.
 
-Most changes are reflected live without having to restart the server.
+Rerun `make start` after making documentation changes. The local server serves
+the static composed output; it is not a live-reloading MkDocs-only server.
 
 ## Generate static content for GitHub Pages deployment
 
@@ -79,4 +109,6 @@ To generate static content from the project that can be served using any static 
 
 ```shell
 $ make build
+# or:
+$ npm run build
 ```
