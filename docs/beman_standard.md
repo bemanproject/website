@@ -1,4 +1,5 @@
 ---
+title: Beman Standard
 sidebar_position: 3
 sidebar_label: Beman Standard
 ---
