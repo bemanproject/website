@@ -1,4 +1,5 @@
 ---
+title: Beman Library Maturity Model
 sidebar_position: 2
 sidebar_label: Beman Library Maturity Model
 ---

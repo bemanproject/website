@@ -68,6 +68,7 @@ def insert_sidebar_metadata(file_path: Path, sidebar_position: int, sidebar_labe
         lines = file.readlines()
     prefix = [
         "---\n",
+        f"title: {sidebar_label}\n",
         f"sidebar_position: {sidebar_position}\n",
     ]
     if sidebar_label:
