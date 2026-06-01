@@ -120,18 +120,21 @@ const config: Config = {
         { to: "/blog", label: "Blog", position: "left" },
         {
           "aria-label": "Discourse Forum",
+          title: "Discourse Forum",
           className: "navbar--discourse-link",
           href: "https://discourse.bemanproject.org/",
           position: "right",
         },
         {
           "aria-label": "Discord",
+          title: "Discord",
           className: "navbar--discord-link",
           href: "https://discord.com/invite/BKpNyJgSbm",
           position: "right",
         },
         {
           "aria-label": "GitHub Repository",
+          title: "GitHub",
           className: "navbar--github-link",
           href: "https://github.com/bemanproject",
           position: "right",
