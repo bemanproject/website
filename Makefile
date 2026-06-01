@@ -1,15 +1,21 @@
-.PHONY: all install build start trunk-check
+PYTHON ?= python3
 
-all: install start
+.PHONY: all install build start serve lint
+
+all: start
 
 install: # Install dependencies
-	yarn install
+	$(PYTHON) -m pip install -r requirements.txt
+	npm ci
 
-start: # Start local development server
-	yarn start
+start: install # Install dependencies and start local development server
+	$(PYTHON) scripts/run-staged-website.py start
 
 build: # Generate static content for GitHub Pages deployment
-	yarn build
+	$(PYTHON) scripts/run-staged-website.py build
+
+serve: # Build and serve the staged static site
+	$(PYTHON) scripts/run-staged-website.py serve
 
 lint: # Run code quality checks
 	trunk check

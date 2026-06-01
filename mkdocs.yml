@@ -1,0 +1,46 @@
+site_name: The Beman Project
+site_description: Tomorrow's C++ Standard Libraries Today
+site_url: !ENV [BEMAN_SITE_URL, https://bemanproject.org]
+docs_dir: site_content
+site_dir: build
+use_directory_urls: true
+
+theme:
+  name: null
+  custom_dir: mkdocs_theme
+  locale: en
+
+nav:
+  - Home: index.md
+  - Docs: docs/index.md
+  - Libraries: libraries.md
+  - Talks: talks.md
+  - Blog:
+      - Blog: blog/index.md
+      - Reliable CI within a shared container infrastructure: blog/beman-infra-containers/index.md
+      - Beman Sofia Hackathon: blog/sofia-hackathon/index.md
+      - NYC Hackathon: blog/nyc-hackathon/index.md
+      - Beman Project Introduction Online: blog/beman-tutorial/index.md
+      - About The Beman Project: blog/about-beman/index.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - fenced_code
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+
+extra:
+  tagline: Tomorrow's C++ Standard Libraries Today
+  discourse_url: https://discourse.bemanproject.org/
+  social:
+    discourse: https://discourse.bemanproject.org/
+    discord: https://discord.com/invite/BKpNyJgSbm
+    github: https://github.com/bemanproject

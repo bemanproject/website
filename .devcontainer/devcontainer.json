@@ -1,5 +1,6 @@
 {
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "runArgs": ["--platform=linux/amd64"],
   "customizations": {
     "vscode": {
       "settings": {
@@ -27,14 +28,17 @@
       ]
     }
   },
-  "forwardPorts": [3000],
+  "forwardPorts": [8000],
   "containerUser": "vscode",
-  "postCreateCommand": "yarn install && curl -fsSL https://get.trunk.io -o install.sh && chmod +x install.sh && ./install.sh",
-  "waitFor": "postCreateCommand", // otherwise automated jest tests fail
+  "postCreateCommand": "bash scripts/devcontainer-post-create.sh",
+  "waitFor": "postCreateCommand",
   "features": {
-    "node": {
+    "ghcr.io/devcontainers/features/node:2": {
       "version": "22"
     },
-    "github-cli": "latest"
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
   }
 }

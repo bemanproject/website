@@ -8,18 +8,26 @@ const YouTubeTransformer = require("./src/components/youtube-transformer.js");
 
 // Note: This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
-let branchName = process.env.NETLIFY ? process.env.HEAD : "main";
-// Get the current branch name using git command
-try {
-  const output = execSync("git branch --show-current", {
-    encoding: "utf-8",
-  }).trim();
-  if (output) {
-    branchName = output;
+let branchName =
+  process.env.BEMAN_WEBSITE_BRANCH ||
+  (process.env.NETLIFY ? process.env.HEAD : "main");
+const siteUrl = process.env.BEMAN_SITE_URL || "https://bemanproject.org";
+const siteBaseUrl = process.env.BEMAN_BASE_URL || "/";
+const githubOrg = process.env.BEMAN_GITHUB_ORG || "bemanproject";
+const githubRepo = process.env.BEMAN_GITHUB_REPO || "website";
+if (!process.env.BEMAN_WEBSITE_BRANCH) {
+  // Get the current branch name using git command
+  try {
+    const output = execSync("git branch --show-current", {
+      encoding: "utf-8",
+    }).trim();
+    if (output) {
+      branchName = output;
+    }
+    console.log(`Current branch: ${branchName}`);
+  } catch (err) {
+    console.error(`Error determining branch name: ${err}`);
   }
-  console.log(`Current branch: ${branchName}`);
-} catch (err) {
-  console.error(`Error determining branch name: ${err}`);
 }
 
 const config: Config = {
@@ -28,14 +36,14 @@ const config: Config = {
   favicon: "./img/beman_logo.png",
 
   // Set the production url of your site here
-  url: "https://bemanproject.org/",
+  url: siteUrl,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/",
+  baseUrl: siteBaseUrl,
 
   // GitHub pages deployment config.
-  organizationName: "bemanproject", // Usually your GitHub org/user name.
-  projectName: "website", // Usually your repo name.
+  organizationName: githubOrg, // Usually your GitHub org/user name.
+  projectName: githubRepo, // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",

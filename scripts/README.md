@@ -40,3 +40,71 @@ Inserting sidebar position 6 into /Users/dariusn/dev/dn/git/Beman/website/docs/g
 Copying ../beman/docs/code_of_conduct.md to /Users/dariusn/dev/dn/git/Beman/website/docs/code_of_conduct.md
 Inserting sidebar position 7 into /Users/dariusn/dev/dn/git/Beman/website/docs/code_of_conduct.md
 ```
+
+## sync-external-docs.py
+
+Sync generated documentation outputs from external repos into a destination root.
+
+Configured repos are listed in `beman_libraries_to_import.yaml`.
+
+```shell
+$ python3 scripts/sync-external-docs.py --output-root /tmp/website-stage
+Building docs in /path/to/optional with: make docs
+Copying /path/to/optional/docs/html to /tmp/website-stage/static/optional
+
+# Override the parent folder containing external repos
+$ python3 scripts/sync-external-docs.py --repos-root ../ --output-root /tmp/website-stage
+
+# In CI: clone missing repos and update them before syncing docs
+$ python3 scripts/sync-external-docs.py --repos-root /tmp/beman-external --clone-missing --update-repos --output-root /tmp/website-stage
+```
+
+## run-staged-website.py
+
+Prepare a temporary staged MkDocs content tree, overlay generated library docs, then run MkDocs against that staged content.
+
+By default this uses a persistent temporary workspace rooted at:
+
+```shell
+$TMPDIR/beman-website-work/
+```
+
+Its final staged source tree lives at:
+
+```shell
+$TMPDIR/beman-website-work/site/
+```
+
+Its final rendered artifacts live in the local `build/` directory by default:
+
+```shell
+/path/to/website/build/
+```
+
+Set `PAGES_DEPLOY=true` to make the default `build/` directory a `gh-pages`
+worktree for publishing. Normal local and preview builds do not fetch or require
+the `gh-pages` branch.
+
+When `CI=true`, configured library repositories are cloned into the temporary
+workspace as needed and updated to `main`. Local builds continue to use adjacent
+library checkouts unless `--clone-missing` or `--repos-root` is specified.
+
+`install-ci-docs-tools.sh` installs pinned, checksum-verified Pandoc and MrDocs
+Linux binaries for CI. GitHub Actions and Netlify use this same installer.
+
+```shell
+$ python3 scripts/run-staged-website.py start
+$ python3 scripts/run-staged-website.py build
+$ python3 scripts/run-staged-website.py serve
+```
+
+`make` and `make start` are equivalent and both go through this staged workflow.
+
+## publish-gh-pages.sh
+
+Publish an existing `gh-pages` worktree to the remote `gh-pages` branch.
+
+```shell
+$ bash scripts/publish-gh-pages.sh gh-pages
+$ bash scripts/publish-gh-pages.sh gh-pages /tmp/custom-gh-pages-worktree
+```

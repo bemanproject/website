@@ -1,0 +1,38 @@
+optional:
+  files:
+    - docs/overview.md
+
+execution:
+  files:
+    - docs/overview.md
+    - docs/resources.md
+
+task:
+  files:
+    - docs/resources.md
+    - docs/examples.md
+
+cache_latest:
+  files:
+    - docs/README.md: development.md
+
+copyable_function:
+  files:
+    - docs/README.md: development.md
+
+cstring_view:
+  files:
+    - docs/using_cstring_view.md
+
+monadics:
+  files:
+    - docs/tutorial.md
+    - docs/design_rationale.md
+
+scope:
+  files:
+    - docs/resources.md
+
+transform_view:
+  files:
+    - docs/docs/intro.md: intro.md
