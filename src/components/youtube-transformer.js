@@ -9,7 +9,7 @@ const YouTubeTransformer = {
         "www.youtube.com",
         "m.youtube.com",
         "youtu.be",
-        "www.youtu.be"
+        "www.youtu.be",
       ];
       return allowedHosts.includes(hostname);
     } catch (e) {
@@ -19,7 +19,9 @@ const YouTubeTransformer = {
   },
   getHTML(url) {
     const urlObj = new URL(url);
-    const isShort = urlObj.hostname.toLowerCase() === "youtu.be" || urlObj.hostname.toLowerCase() === "www.youtu.be";
+    const isShort =
+      urlObj.hostname.toLowerCase() === "youtu.be" ||
+      urlObj.hostname.toLowerCase() === "www.youtu.be";
     const videoId = isShort
       ? urlObj.pathname.split("/").filter(Boolean).pop()
       : urlObj.searchParams.get("v");
