@@ -32,6 +32,4 @@ repos:
     hooks:
       - id: gitleaks
 
-exclude: |
-  ^static/.*
-  ^node_modules/.*
+exclude: ^(?:static/|node_modules/|docs/|images/)
