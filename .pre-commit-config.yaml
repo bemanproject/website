@@ -35,3 +35,5 @@ repos:
 exclude: |
   ^static/.*
   ^node_modules/.*
+  ^docs/.*
+  ^images/.*
