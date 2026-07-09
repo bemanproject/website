@@ -35,7 +35,7 @@ This project includes a development container configuration for VS Code. To use 
 ```shell
 $ sudo apt install nodejs
 $ sudo apt install npm
-$ npm install yarn
+$ npm install -g yarn
 ```
 
 </details>
