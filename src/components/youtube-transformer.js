@@ -25,10 +25,15 @@ const YouTubeTransformer = {
     const videoId = isShort
       ? urlObj.pathname.split("/").filter(Boolean).pop()
       : urlObj.searchParams.get("v");
+    const validVideoId = typeof videoId === "string" && /^[A-Za-z0-9_-]{11}$/.test(videoId);
+
+    if (!validVideoId) {
+      return "";
+    }
 
     return `
       <iframe
-        src="https://www.youtube.com/embed/${videoId}"
+        src="https://www.youtube.com/embed/${encodeURIComponent(videoId)}"
         style="width:100%; aspect-ratio:16/9; border:0;"
         allowfullscreen
       ></iframe>
