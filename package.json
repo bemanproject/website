@@ -49,10 +49,12 @@
   },
   "resolutions": {
     "webpack-dev-server": ">=5.2.1 <6",
-    "serialize-javascript": ">=7.0.5"
+    "serialize-javascript": ">=7.0.5",
+    "uuid": ">=9.0.0"
   },
   "overrides": {
     "webpack-dev-server": ">=5.2.1 <6",
-    "serialize-javascript": ">=7.0.5"
+    "serialize-javascript": ">=7.0.5",
+    "uuid": ">=9.0.0"
   }
 }
