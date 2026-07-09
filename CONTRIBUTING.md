@@ -75,7 +75,7 @@ Most changes are reflected live without having to restart the server.
 
 ## Generate static content for GitHub Pages deployment
 
-To generate static from the project that can be served using any static contents hosting service (like `gh-pages`).
+To generate static content from the project that can be served using any static contents hosting service (like `gh-pages`).
 
 ```shell
 $ make build
