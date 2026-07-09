@@ -50,11 +50,22 @@
   "resolutions": {
     "webpack-dev-server": ">=5.2.1 <6",
     "serialize-javascript": ">=7.0.5",
-    "uuid": ">=9.0.0"
+    "uuid": ">=9.0.0",
+    "@babel/core": "7.29.7",
+    "joi": "17.13.4",
+    "gray-matter/js-yaml": "3.15.0",
+    "@docusaurus/utils/js-yaml": "4.2.0",
+    "@docusaurus/utils-validation/js-yaml": "4.2.0",
+    "@docusaurus/plugin-content-docs/js-yaml": "4.2.0",
+    "cosmiconfig/js-yaml": "4.2.0"
   },
   "overrides": {
     "webpack-dev-server": ">=5.2.1 <6",
     "serialize-javascript": ">=7.0.5",
-    "uuid": ">=9.0.0"
+    "uuid": ">=9.0.0",
+    "@babel/core": "7.29.7",
+    "joi": "17.13.4",
+    "js-yaml@^3.13.1": "3.15.0",
+    "js-yaml@^4.1.0": "4.2.0"
   }
 }
