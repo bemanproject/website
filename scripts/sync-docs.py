@@ -49,6 +49,11 @@ def copy_images(beman_repo_path: Path, website_repo_path: Path):
         target_directory = task["target"]
         print(f"Copying images from {beman_images_path} to {target_directory}")
 
+        if not beman_images_path.exists():
+            raise FileNotFoundError(
+                f"Source images directory does not exist: {beman_images_path}"
+            )
+
         # Remove the target_directory if it exists and create it again.
         if target_directory.exists():
             shutil.rmtree(target_directory)
