@@ -532,6 +532,30 @@ add_executable(myrepo-tests)
 gtest_discover_tests(myrepo-tests)
 ```
 
+Document the option in `README.md` under `## Dependencies` → `### Build Environment`:
+
+```Markdown
+# File: <repo>/README.md
+# ...
+## Dependencies
+
+### Build Environment
+
+This project requires at least the following to build:
+
+* A C++ compiler that conforms to C++20 or later
+* CMake 3.30 or later
+* (Test Only) GoogleTest
+
+You can disable building tests by setting CMake option `BEMAN_<short_name>_BUILD_TESTS` to
+`OFF` when configuring the project.
+
+You can disable building examples by setting CMake option `BEMAN_<short_name>_BUILD_EXAMPLES` to
+`OFF` when configuring the project.
+```
+
+See [exemplar/blob/main/README.md](https://github.com/bemanproject/exemplar/blob/main/README.md) for a working example.
+
 ### **[cmake.skip_examples]**
 
 **Recommendation**: The root `CMakeLists.txt` should not build examples and their dependencies when `BEMAN_<short_name>_BUILD_EXAMPLES` is set to `OFF`. The option is prefixed with the project so that projects can compose. Turning on examples for the top level project should not turn on examples for dependencies.
@@ -555,6 +579,30 @@ if(BEMAN_<short_name>_BUILD_EXAMPLES)
   add_subdirectory(examples)
 endif()
 ```
+
+Document the option in `README.md` under `## Dependencies` → `### Build Environment`:
+
+```Markdown
+# File: <repo>/README.md
+# ...
+## Dependencies
+
+### Build Environment
+
+This project requires at least the following to build:
+
+* A C++ compiler that conforms to C++20 or later
+* CMake 3.30 or later
+* (Test Only) GoogleTest
+
+You can disable building tests by setting CMake option `BEMAN_<short_name>_BUILD_TESTS` to
+`OFF` when configuring the project.
+
+You can disable building examples by setting CMake option `BEMAN_<short_name>_BUILD_EXAMPLES` to
+`OFF` when configuring the project.
+```
+
+See [exemplar/blob/main/README.md](https://github.com/bemanproject/exemplar/blob/main/README.md) for a working example.
 
 ### **[cmake.avoid_passthroughs]**
 
@@ -870,3 +918,31 @@ for an example.
 ### **[cpp.extension_identifiers]**
 
 **Recommendation**: For functionality that is not being recommended for standardization, but is an extension provided by the library, its identifiers should be prefixed with `ext_`.
+
+### **[cpp.min_std_version]**
+
+**Recommendation**: Beman authors can choose the minimum C++ standard version their library will support. C++20 is the recommended default because concepts and other C++20 features significantly simplify both implementation and code review. Additionally, most future Beman libraries target C++29 or beyond, making C++20 a practical baseline. That said, supporting C++17 is also reasonable if an author has specific motivation to do so. Some libraries may require a higher minimum version for features like C++26 reflection or other recent language capabilities. The readme should prominently display the minimum supported C++ standard version so users can quickly assess compatibility with their projects. Note that C++ modules are only supported in C++23 and later due to `import std`, and this requirement should be clearly documented in the readme as well.
+
+Use the following style in `README.md` under `## Dependencies` → `### Build Environment`:
+
+```Markdown
+# File: <repo>/README.md
+# ...
+## Dependencies
+
+### Build Environment
+
+This project requires at least the following to build:
+
+* A C++ compiler that conforms to C++20 or later
+* CMake 3.30 or later
+* (Test Only) GoogleTest
+
+You can disable building tests by setting CMake option `BEMAN_<short_name>_BUILD_TESTS` to
+`OFF` when configuring the project.
+
+You can disable building examples by setting CMake option `BEMAN_<short_name>_BUILD_EXAMPLES` to
+`OFF` when configuring the project.
+```
+
+See [exemplar/blob/main/README.md](https://github.com/bemanproject/exemplar/blob/main/README.md) for a working example.
