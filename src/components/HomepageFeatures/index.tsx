@@ -54,7 +54,7 @@ const FeatureList: FeatureItem[] = [
         <a href="https://discord.com/invite/BKpNyJgSbm">Discord</a> and the
         welcome team will help get you started. A general precondition is an
         intent to submit a library for standardization. If you don’t have a
-        repository yet, or you want to upgrade to our standard we can help. Once
+        repository yet, or you want to upgrade to our standard, we can help. Once
         your library is ready and has a paper, we’ll include it in{" "}
         <a href="https://github.com/bemanproject"> the Beman super project </a>.
         Please note that it’s early days for the project so we’re still building
