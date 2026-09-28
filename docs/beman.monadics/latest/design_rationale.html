@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Design Rationale :: Beman Docs</title>
+    <link rel="canonical" href="https://bemanproject.org/docs/beman.monadics/latest/design_rationale.html">
+    <meta name="generator" content="Antora 3.2.0">
+    <script>
+      (function () {
+        function getStoredTheme() {
+          try { return window.localStorage.getItem('theme'); } catch (err) { return null; }
+        }
+        var storedTheme = getStoredTheme();
+        var theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/beman-docs.css?v=12">
+  </head>
+  <body class="article">
+<header class="header site-header">
+  <nav class="navbar site-nav" aria-label="Main navigation">
+    <a class="brand" href="../../../">
+      <img src="../../../img/beman_logo.png" alt="The Beman Project Logo">
+      <span>The Beman Project</span>
+    </a>
+    <button class="navbar-burger site-nav-toggle" type="button" aria-controls="topbar-nav" aria-expanded="false">Menu</button>
+    <button class="theme-toggle theme-toggle-mobile" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+      <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+      </svg>
+      <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+      </svg>
+    </button>
+    <div class="nav-menu navbar-menu" id="topbar-nav">
+      <div class="nav-links navbar-end">
+        <a class="navbar-item" href="../../../">Home</a>
+        <a class="navbar-item active" href="../../">Docs</a>
+        <a class="navbar-item" href="../../../libraries/">Libraries</a>
+        <a class="navbar-item" href="../../../talks/">Talks</a>
+        <a class="navbar-item" href="../../../blog/">Blog</a>
+      </div>
+      <div class="social-links" aria-label="Community links">
+        <a class="social-link discourse" href="https://discourse.bemanproject.org/" aria-label="Discourse Forum"></a>
+        <a class="social-link discord" href="https://discord.com/invite/BKpNyJgSbm" aria-label="Discord"></a>
+        <a class="social-link github" href="https://github.com/bemanproject" aria-label="GitHub Repository"></a>
+        <button class="theme-toggle" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+          <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+          </svg>
+          <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+<script>
+(function () {
+  var themeToggles = document.querySelectorAll('.theme-toggle');
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    themeToggles.forEach(function (themeToggle) {
+      var label = 'Switch between dark and light mode (currently ' + theme + ' mode)';
+      themeToggle.setAttribute('aria-label', label);
+      themeToggle.setAttribute('title', label);
+      themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
+    });
+    try { window.localStorage.setItem('theme', theme); } catch (err) {}
+  }
+  setTheme(currentTheme());
+  themeToggles.forEach(function (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
+    });
+  });
+})();
+</script>
+<div class="body">
+<div class="nav-container" data-component="beman.monadics" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">beman.monadics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Project</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/beman_library_maturity_model.html">Beman Library Maturity Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/beman_standard.html">Beman Standard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/mission.html">Mission</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/governance.html">Governance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/code_of_conduct.html">Code of Conduct</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Libraries</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">optional</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.optional/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.optional/latest/overview.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.optional/latest/reference/beman/optional.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">execution</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/overview.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/reference/beman/execution26.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">task</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">cache_latest</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cache_latest/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cache_latest/latest/development.html">Development</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cache_latest/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">copyable_function</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.copyable_function/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.copyable_function/latest/development.html">Development</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.copyable_function/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">cstring_view</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cstring_view/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cstring_view/latest/using_cstring_view.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cstring_view/latest/reference/beman/cstring_view.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">monadics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="tutorial.html">Tutorial</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="design_rationale.html">Design Rationale</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="reference/beman/monadics.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">scope</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.scope/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.scope/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.scope/latest/reference/beman/scope.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">transform_view</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.transform_view/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.transform_view/latest/intro.html">Intro</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.transform_view/latest/reference/beman/transform_view.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">beman.monadics</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../beman/latest/index.html">Beman Project</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.cache_latest/latest/index.html">beman.cache_latest</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.cache_latest/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.copyable_function/latest/index.html">beman.copyable_function</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.copyable_function/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.cstring_view/latest/index.html">beman.cstring_view</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.cstring_view/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.execution/latest/index.html">beman.execution</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.execution/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="index.html">beman.monadics</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.optional/latest/index.html">beman.optional</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.optional/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.scope/latest/index.html">beman.scope</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.scope/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.task/latest/index.html">beman.task</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.task/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.transform_view/latest/index.html">beman.transform_view</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.transform_view/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../beman/latest/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">beman.monadics</a></li>
+    <li>Libraries</li>
+    <li>monadics</li>
+    <li><a href="design_rationale.html">Design Rationale</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Design Rationale</h1>
+<div class="sect1">
+<h2 id="_design_rationale"><a class="anchor" href="#_design_rationale"></a>Design Rationale</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_goals"><a class="anchor" href="#_goals"></a>Goals</h3>
+<div class="paragraph">
+<p><code>beman.monadics</code> has two related goals:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Validate a unifying abstraction.</strong> Demonstrate that the monadic vocabulary (<code>and_then</code>, <code>transform</code>, <code>or_else</code>, <code>transform_error</code>) can be expressed as free functions over a single "box" abstraction that covers <code>std::optional</code>, <code>std::expected</code>, smart pointers, raw pointers, and arbitrary user types. This is intended to inform a future C&#43;&#43; standardization paper.</p>
+</li>
+<li>
+<p><strong>Provide an open extension point.</strong> Give users a foundation on which they can build additional operations — <code>flatten</code>, <code>join</code>, <code>value_or</code>, <code>sequence</code>, and others — that automatically work for every adapted box type, without modifying the library or the box type itself.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_why_free_functions"><a class="anchor" href="#_why_free_functions"></a>Why Free Functions?</h3>
+<div class="paragraph">
+<p>C&#43;&#43;23 adds monadic operations as member functions of <code>std::optional</code> and <code>std::expected</code>. This works for those types, but member functions cannot be added retroactively to existing types (<code>std::shared_ptr</code>, raw pointers, third-party types), and they cannot be added by users at all without modifying the type.</p>
+</div>
+<div class="paragraph">
+<p>Free functions in a namespace make the operations open for extension:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">// works with any adapted type — no changes to the type required
+ptr | and_then(f) | transform(g) | or_else(h);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_box_abstraction"><a class="anchor" href="#_the_box_abstraction"></a>The Box Abstraction</h3>
+<div class="paragraph">
+<p>A "box" is any type that can hold a value or signal absence/failure. Its capabilities are expressed as a traits class users specialize: <code>box_traits&lt;T&gt;</code>.</p>
+</div>
+<div class="paragraph">
+<p>Box types come in two shapes depending on whether they carry a typed error.</p>
+</div>
+<div class="sect3">
+<h4 id="_without_an_error_channel"><a class="anchor" href="#_without_an_error_channel"></a>Without an error channel</h4>
+<div class="paragraph">
+<p>Types like <code>std::optional</code> and <code>std::shared_ptr</code> signal absence structurally — there is no stored error, only a sentinel constant (e.g. <code>std::nullopt</code>, <code>nullptr</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename T&gt;
+struct beman::monadics::box_traits&lt;MyBox&lt;T&gt;&gt; {
+    // The type of the held value.
+    using value_type = T;
+
+    // The type of the absence sentinel (e.g. std::nullopt_t, std::nullptr_t).
+    // Not a stored value — returned as a compile-time constant by error().
+    using error_type = sentinel_error_type;
+
+    // Produces a box holding U instead of T.
+    template &lt;typename U&gt;
+    using rebind = MyBox&lt;U&gt;;
+
+    // Same shape as rebind: error is not independently parametric.
+    template &lt;typename U&gt;
+    using rebind_error = MyBox&lt;U&gt;;
+
+    // Reports whether the box holds a value.
+    [[nodiscard]] static bool           has_value(const MyBox&lt;T&gt;&amp;);
+
+    // Accesses the value; forwards the box's value category.
+    [[nodiscard]] static decltype(auto) value(auto&amp;&amp; box);
+
+    // Returns the absence sentinel (a compile-time constant, not read from the box).
+    [[nodiscard]] static sentinel_error_type error();
+
+    // Constructs a box holding a value.
+    [[nodiscard]] static MyBox&lt;T&gt; make(value_type v);
+
+    // Constructs an empty box (absent value).
+    [[nodiscard]] static MyBox&lt;T&gt; make_error(error_type e);
+};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>transform_error</code> is automatically disabled for these types: because <code>error()</code> is nullary (returns a constant, takes no box argument), the library cannot call <code>error(box)</code> and detects the absence of an error channel. See <a href="#error-channel-detection">Error Channel Detection</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_with_an_error_channel"><a class="anchor" href="#_with_an_error_channel"></a>With an error channel</h4>
+<div class="paragraph">
+<p>Types like <code>std::expected</code> store the error inside the box alongside the value type:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename T, typename E&gt;
+struct beman::monadics::box_traits&lt;MyBox&lt;T, E&gt;&gt; {
+    // The type of the held value.
+    using value_type = T;
+
+    // The type of the stored error.
+    using error_type = E;
+
+    // Produces a box holding U instead of T, keeping the same error type E.
+    template &lt;typename U&gt; using rebind       = MyBox&lt;U, E&gt;;
+
+    // Produces a box holding the same T but with error type F instead of E.
+    template &lt;typename F&gt; using rebind_error = MyBox&lt;T, F&gt;;
+
+    // Reports whether the box holds a value.
+    [[nodiscard]] static bool           has_value(const MyBox&lt;T, E&gt;&amp;);
+
+    // Accesses the value; forwards the box's value category.
+    [[nodiscard]] static decltype(auto) value(auto&amp;&amp; box);
+
+    // Accesses the stored error; forwards the box's value category.
+    [[nodiscard]] static decltype(auto) error(auto&amp;&amp; box);
+
+    // Constructs a box holding a value.
+    [[nodiscard]] static MyBox&lt;T, E&gt; make(value_type v);
+
+    // Constructs a box holding an error. Enables transform_error.
+    [[nodiscard]] static MyBox&lt;T, E&gt; make_error(error_type e);
+};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All four operations — including <code>transform_error</code> — are available for these types.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_adapting_an_existing_type"><a class="anchor" href="#_adapting_an_existing_type"></a>Adapting an Existing Type</h3>
+<div class="paragraph">
+<p>Most real types already expose part of this interface. The library runs a deduction cascade for each capability: it checks the explicit specialization first, then the box type&#8217;s own members, then the template parameters. You only need to supply what it cannot find on its own.</p>
+</div>
+<div class="sect3">
+<h4 id="_when_almost_everything_is_deducible_minimal_specialization"><a class="anchor" href="#_when_almost_everything_is_deducible_minimal_specialization"></a>When almost everything is deducible - minimal specialization</h4>
+<div class="paragraph">
+<p>Opting a type into the box abstraction is always explicit: a <code>box_traits&lt;T&gt;</code> specialization is required even if the type already exposes a fully compatible interface. This prevents types from being silently treated as boxes with incorrect behaviour. For example, a type that satisfies almost everything but lacks <code>make_error</code> would otherwise be accepted and produce wrong results.</p>
+</div>
+<div class="paragraph">
+<p><code>std::expected&lt;T, E&gt;</code> already has <code>has_value()</code>, <code>value()</code>, <code>error()</code>, nested <code>value_type</code> and <code>error_type</code>, and two template parameters that the library uses for rebind deduction. However, <code>make_error</code> cannot be deduced: <code>std::expected</code> constructs error states via <code>std::unexpect</code>-tagged construction, not from the error type directly. One member suffices:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename T, typename E&gt;
+struct beman::monadics::box_traits&lt;std::expected&lt;T, E&gt;&gt; {
+    [[nodiscard]] static constexpr auto make_error(auto&amp;&amp; e) {
+        return std::expected&lt;T, E&gt;{std::unexpect, std::forward&lt;decltype(e)&gt;(e)};
+    }
+};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All four operations are available after this one-member opt-in.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_when_a_few_pieces_are_missing_minimal_specialization"><a class="anchor" href="#_when_a_few_pieces_are_missing_minimal_specialization"></a>When a few pieces are missing - minimal specialization</h4>
+<div class="paragraph">
+<p><code>std::optional&lt;T&gt;</code> has <code>has_value()</code>, <code>value()</code>, and <code>value_type</code>, but it has no <code>error()</code> member and no <code>error_type</code>. The absence sentinel <code>std::nullopt</code> is a compile-time constant, not something stored in the box, so the library cannot derive it. One member is enough:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename T&gt;
+struct beman::monadics::box_traits&lt;std::optional&lt;T&gt;&gt; {
+    [[nodiscard]] static constexpr auto error() { return std::nullopt; }
+};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From this single function the library derives <code>error_type</code> (<code>std::nullopt_t</code>), and because <code>optional</code> has only one template parameter every <code>rebind_error&lt;E&gt;</code> maps back to <code>optional&lt;T&gt;</code>, so <code>has_error_channel&lt;optional&lt;T&gt;&gt;</code> is false and <code>transform_error</code> is automatically disabled.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_why_a_traits_class_not_a_concept_or_crtp_base"><a class="anchor" href="#_why_a_traits_class_not_a_concept_or_crtp_base"></a>Why a Traits Class, Not a Concept or CRTP Base?</h3>
+<div class="paragraph">
+<p>The central requirement is that the library must work retroactively — for types that already exist and cannot be modified. Consider <code>std::shared_ptr&lt;T&gt;</code>. It has no <code>error()</code> member, no <code>value_type</code>, no <code>make_error</code>. A concept-gated free function can constrain usage but cannot supply missing members. A CRTP base requires inheritance, which is impossible for standard library types and breaks for any <code>final</code> class.</p>
+</div>
+<div class="paragraph">
+<p>A traits specialization adds the missing pieces without touching <code>std::shared_ptr</code> at all:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">template &lt;typename T&gt;
+struct beman::monadics::box_traits&lt;std::shared_ptr&lt;T&gt;&gt; {
+    static bool          has_value(const std::shared_ptr&lt;T&gt;&amp; p) { return static_cast&lt;bool&gt;(p); }
+    static decltype(auto) value(auto&amp;&amp; p) { return *std::forward&lt;decltype(p)&gt;(p); }
+    static std::shared_ptr&lt;T&gt; error() { return nullptr; }
+    static std::shared_ptr&lt;T&gt; make(T v) { return std::make_shared&lt;T&gt;(std::move(v)); }
+};</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Approach</th>
+<th class="tableblock halign-left valign-top">Problem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Member-function concept</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires the type to already expose the right interface; cannot retrofit</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CRTP base</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires inheritance; impossible for <code>final</code> classes and third-party types</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Traits specialization</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Non-intrusive, retroactively applicable to any type</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The traits pattern follows the precedent of <code>std::iterator_traits</code>, <code>std::char_traits</code>, and <code>std::numeric_limits</code>. It separates the "what" (the box type) from the "how" (the trait implementation) without touching the type itself.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_extensibility"><a class="anchor" href="#_extensibility"></a>Extensibility</h3>
+<div class="paragraph">
+<p>The second goal — an open extension point — is what distinguishes this library from simply adding more member functions to standard types.</p>
+</div>
+<div class="paragraph">
+<p><code>get_box_traits&lt;Box&gt;</code> is a public type alias that exposes the full assembled traits for any adapted box: <code>value_type</code>, <code>error_type</code>, <code>has_value</code>, <code>value</code>, <code>error</code>, <code>make</code>, <code>make_error</code>, <code>rebind</code>, and <code>rebind_error</code>. Anyone can use it to write a new operation that works immediately for every existing and future box type.</p>
+</div>
+<div class="sect3">
+<h4 id="_example_value_or"><a class="anchor" href="#_example_value_or"></a>Example: <code>value_or</code></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;beman/monadics/monadics.hpp&gt;
+
+template &lt;beman::monadics::box Box&gt;
+constexpr auto value_or(Box&amp;&amp; box, typename beman::monadics::get_box_traits&lt;Box&gt;::value_type fallback) {
+    using Traits = beman::monadics::get_box_traits&lt;Box&gt;;
+    if (Traits::has_value(box))
+        return Traits::value(std::forward&lt;Box&gt;(box));
+    return fallback;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Works for <code>std::optional</code>, <code>std::expected</code>, <code>std::shared_ptr</code>, and any user-adapted type — zero changes to the library or to the box types.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_flatten"><a class="anchor" href="#_example_flatten"></a>Example: <code>flatten</code></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;beman/monadics/monadics.hpp&gt;
+
+template &lt;beman::monadics::box Box&gt;
+    requires beman::monadics::box&lt;typename beman::monadics::get_box_traits&lt;Box&gt;::value_type&gt;
+constexpr auto flatten(Box&amp;&amp; box) {
+    using Traits   = beman::monadics::get_box_traits&lt;Box&gt;;
+    using InnerBox = typename Traits::value_type;
+
+    if (!Traits::has_value(box))
+        return beman::monadics::propagate_error&lt;InnerBox&gt;(std::forward&lt;Box&gt;(box));
+    return Traits::value(std::forward&lt;Box&gt;(box));
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>flatten(optional&lt;optional&lt;int&gt;&gt;{optional{42}})</code> → <code>optional{42}</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_pipe_compatible_operations_via_operator"><a class="anchor" href="#_example_pipe_compatible_operations_via_operator"></a>Example: pipe-compatible operations via <code>operator|</code></h4>
+<div class="paragraph">
+<p>New operations can support the <code>|</code> pipe syntax by defining a closure type that holds the argument and exposes <code>operator|</code> as a hidden friend — the same pattern used by the library&#8217;s own operations. <code>callable_adaptor&lt;T&gt;</code> is the factory object that constructs a <code>T&lt;Fn&gt;</code> from a user-provided callable:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;beman/monadics/monadics.hpp&gt;
+namespace bms = beman::monadics;
+
+template&lt;typename Fn&gt;
+class value_or_t {
+public:
+    constexpr explicit value_or_t(Fn fn) : fn_(std::move(fn)) {}
+
+    template&lt;bms::box Box&gt;
+    friend constexpr auto operator|(Box&amp;&amp; box, value_or_t&amp;&amp; op) {
+        using Traits = bms::get_box_traits&lt;Box&gt;;
+        if (Traits::has_value(box))
+            return Traits::value(std::forward&lt;Box&gt;(box));
+        return std::move(op.fn_)();
+    }
+
+private:
+    Fn fn_;
+};
+
+inline constexpr bms::callable_adaptor&lt;value_or_t&gt; value_or{};</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;optional&gt;
+
+constexpr auto v = std::optional&lt;int&gt;{} | value_or([] { return 42; }); // 42
+static_assert(v == 42);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>callable_adaptor&lt;value_or_t&gt;</code> is the callable object users invoke (e.g. <code>value_or(fn)</code>). It constructs a <code>value_or_t&lt;decay_t&lt;Fn&gt;&gt;</code> storing the argument. The hidden friend <code>operator|</code> is found via ADL on the closure type — both <code>Box</code> and <code>Fn</code> are in scope simultaneously, so constraints can reference both without any indirection.</p>
+</div>
+<div class="paragraph">
+<p>This pattern requires no changes to <code>beman.monadics</code> and no changes to <code>std::optional</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_value_category_preservation"><a class="anchor" href="#_value_category_preservation"></a>Value-Category Preservation</h3>
+<div class="paragraph">
+<p>All four operations preserve the value category of the box. Passing an rvalue box forwards the contained value as an rvalue to the callback, enabling move semantics through the chain:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">std::optional&lt;std::string&gt;{"hello"}
+    | and_then([](std::string&amp;&amp; s) {       // s is rvalue
+          return std::optional{std::move(s)};
+      });</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_concept_constraints_and_error_messages"><a class="anchor" href="#_concept_constraints_and_error_messages"></a>Concept Constraints and Error Messages</h3>
+<div class="paragraph">
+<p>The <code>operator|</code> for each operation is constrained by a named concept (<code>and_thenable_impl</code>, <code>or_elseable_impl</code>, etc.) rather than an inline <code>requires</code> expression. Named concepts surface human-readable <code>on_error&lt;"msg"&gt;</code> diagnostics when a constraint fails, whereas inline <code>requires</code> expressions produce only "expression not well-formed".</p>
+</div>
+<div class="paragraph">
+<p>If <code>and_then</code> receives a callable that returns a box with a different error type, the compiler reports:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>constraint 'and_thenable_return&lt;..., ...&gt;' not satisfied:
+  'Should return the Box with same error_type'</pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><strong>Note:</strong> MSVC will print ASCII characters.</p>
+</div>
+</blockquote>
+</div>
+</div>
+<div class="sect2">
+<h3 id="the-or_else--and_then-asymmetry"><a class="anchor" href="#the-or_else--and_then-asymmetry"></a>The <code>or_else</code> / <code>and_then</code> Asymmetry</h3>
+<div class="paragraph">
+<p><code>and_then</code> must preserve the <strong>error type</strong>: the callback replaces the value but the error channel stays the same.</p>
+</div>
+<div class="paragraph">
+<p><code>or_else</code> must preserve the <strong>value type</strong>: the callback replaces the error but the value channel stays the same.</p>
+</div>
+<div class="paragraph">
+<p>This mirrors <code>std::expected</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>and_then(f)</code> — <code>f: T -&gt; expected&lt;U, E&gt;</code> (E is fixed)</p>
+</li>
+<li>
+<p><code>or_else(f)</code> — <code>f: E -&gt; expected&lt;T, F&gt;</code> (T is fixed)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_error_channel_detection"><a class="anchor" href="#_error_channel_detection"></a>Error Channel Detection</h3>
+<div class="paragraph">
+<p>Not all boxes have a real error channel. <code>std::optional</code> has no error type — absence is represented structurally. The library detects this via <code>has_error_channel</code>: a box has a real error channel if and only if the assembled <code>error</code> function is callable with the box as an argument (unary <code>error(box)</code>). When <code>error()</code> is nullary — returning a compile-time constant without reading the box — <code>error(box)</code> fails and <code>has_error_channel</code> is false. For <code>optional&lt;T&gt;</code>, <code>has_error_channel&lt;optional&lt;T&gt;&gt;</code> is false and <code>transform_error</code> is disabled.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_compile_time_evaluation"><a class="anchor" href="#_compile_time_evaluation"></a>Compile-time Evaluation</h3>
+<div class="paragraph">
+<p>All four operations are <code>constexpr</code>. Any chain where the box type&#8217;s <code>box_traits</code> methods and all provided callables are also <code>constexpr</code> evaluates entirely at compile time:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;beman/monadics/monadics.hpp&gt;
+#include &lt;optional&gt;
+namespace bms = beman::monadics;
+
+constexpr auto result =
+    std::optional{6}
+    | bms::and_then([](int v) { return std::optional{v * 7}; })
+    | bms::transform([](int v) { return v - 0; });
+
+static_assert(result == std::optional{42});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This applies equally to <code>std::expected</code> and any custom box type whose <code>box_traits</code> members are <code>constexpr</code>. Standard types that prevent compile-time evaluation (e.g. <code>std::shared_ptr</code>, I/O, non-<code>constexpr</code> functions) naturally stay runtime-only — the library imposes no restriction either way.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_non_goals"><a class="anchor" href="#_non_goals"></a>Non-Goals</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Runtime overhead</strong>: all operations are <code>constexpr</code>; no virtual dispatch, no allocation, no type erasure. See <a href="#compile-time-evaluation">Compile-time Evaluation</a>.</p>
+</li>
+<li>
+<p><strong>Heterogeneous chaining</strong>: <code>and_then</code> does not allow changing the box template (only the value type). Mixing <code>optional</code> and <code>expected</code> in a single chain is not supported.</p>
+</li>
+<li>
+<p><strong>Lazy evaluation</strong>: operations execute eagerly. Lazy/deferred evaluation is out of scope.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="site-footer">
+  <div>
+    <h2>Community</h2>
+    <a href="https://discord.com/invite/BKpNyJgSbm">Discord</a>
+    <a href="https://discourse.bemanproject.org/">Discourse</a>
+  </div>
+  <div>
+    <h2>More</h2>
+    <a href="https://github.com/bemanproject">GitHub</a>
+  </div>
+  <p>Copyright (C) The Beman Project. Built with Antora.</p>
+</footer>
+<script>
+(function () {
+  var expandedKey = 'beman.antora.nav.expanded';
+  var scrollKey = 'beman.antora.nav.scrollTop';
+  function navPanel() { return document.querySelector('.nav-panel-menu[data-panel="menu"]'); }
+  function storage() {
+    try { return window.sessionStorage; } catch (err) { return null; }
+  }
+  function itemLabel(item) {
+    var label = item.querySelector(':scope > .nav-text, :scope > .nav-link');
+    return label ? label.textContent.trim() : '';
+  }
+  function itemKey(item) {
+    var parts = [];
+    var current = item;
+    while (current && current.classList && current.classList.contains('nav-item')) {
+      var label = itemLabel(current);
+      if (label) parts.unshift(label);
+      var parentList = current.parentElement;
+      current = parentList ? parentList.closest('.nav-item') : null;
+    }
+    return parts.join(' / ');
+  }
+  function readExpanded() {
+    var store = storage();
+    if (!store) return new Set();
+    try { return new Set(JSON.parse(store.getItem(expandedKey) || '[]')); } catch (err) { return new Set(); }
+  }
+  function writeExpanded() {
+    var panel = navPanel();
+    var store = storage();
+    if (!panel || !store) return;
+    var keys = [];
+    panel.querySelectorAll('.nav-item.is-active').forEach(function (item) {
+      var key = itemKey(item);
+      if (key) keys.push(key);
+    });
+    try { store.setItem(expandedKey, JSON.stringify(keys)); } catch (err) {}
+  }
+  function expandAncestors(item) {
+    var current = item;
+    while (current) {
+      if (current.classList && current.classList.contains('nav-item')) current.classList.add('is-active', 'is-current-path');
+      var parentList = current.parentElement;
+      current = parentList ? parentList.closest('.nav-item') : null;
+    }
+  }
+  function apiReferenceInfo() {
+    var segments = window.location.pathname.split('/').filter(Boolean);
+    for (var index = 0; index < segments.length - 2; index += 1) {
+      if (!segments[index].startsWith('beman.')) continue;
+      if (segments[index + 2] !== 'reference') continue;
+      var baseSegments = segments.slice(0, index + 3);
+      var tail = segments.slice(index + 3);
+      return {
+        component: segments[index],
+        componentLabel: segments[index].replace(/^beman\./, ''),
+        version: segments[index + 1],
+        tail: tail,
+        componentPath: '/' + segments.slice(0, index + 2).join('/') + '/index.html',
+        indexPath: '/' + baseSegments.join('/') + '/index.html'
+      };
+    }
+    return null;
+  }
+  function normalizePath(path) {
+    return path.replace(/\/$/, '/index.html');
+  }
+  function apiReferenceNavLink(info, panel) {
+    if (!info || !panel) return null;
+    var referencePrefix = info.indexPath.replace(/index\.html$/, '');
+    var match = null;
+    panel.querySelectorAll('.nav-link').forEach(function (link) {
+      if (match || link.textContent.trim() !== 'API Reference') return;
+      var linkPath = normalizePath(new URL(link.getAttribute('href'), window.location.href).pathname);
+      if (linkPath.startsWith(referencePrefix)) match = link;
+    });
+    return match;
+  }
+  function markApiReferenceNav(panel) {
+    var info = apiReferenceInfo();
+    if (!info || !panel) return null;
+    var link = apiReferenceNavLink(info, panel);
+    var match = link ? link.closest('.nav-item') : null;
+    if (link) link.classList.add('is-current-page');
+    if (match) {
+      match.classList.add('is-current-page', 'is-current-path');
+      expandAncestors(match);
+    }
+    return match;
+  }
+  function ensureNavItemVisible(panel, item) {
+    if (!panel || !item) return;
+    window.setTimeout(function () {
+      var itemTop = item.offsetTop;
+      var itemBottom = itemTop + item.offsetHeight;
+      var panelBottom = panel.scrollTop + panel.clientHeight;
+      if (itemTop < panel.scrollTop || itemBottom > panelBottom) {
+        panel.scrollTop = Math.max(0, itemTop - panel.clientHeight / 3);
+        saveScroll();
+      }
+    }, 0);
+  }
+  function expandRequiredSections(panel) {
+    panel.querySelectorAll('.nav-item').forEach(function (item) {
+      var label = itemLabel(item);
+      if (label === 'Project' || label === 'Libraries') item.classList.add('is-active');
+    });
+    panel.querySelectorAll('.nav-item.is-current-page, .nav-item.is-current-path').forEach(expandAncestors);
+    markApiReferenceNav(panel);
+  }
+  function restoreExpanded(panel) {
+    var expanded = readExpanded();
+    panel.querySelectorAll('.nav-item').forEach(function (item) {
+      if (expanded.has(itemKey(item))) item.classList.add('is-active');
+    });
+    expandRequiredSections(panel);
+  }
+  function restoreScroll(panel) {
+    var store = storage();
+    if (!store) return;
+    try {
+      var saved = parseInt(store.getItem(scrollKey) || '', 10);
+      if (!Number.isNaN(saved)) panel.scrollTop = saved;
+    } catch (err) {}
+  }
+  function saveScroll() {
+    var panel = navPanel();
+    var store = storage();
+    if (!panel || !store) return;
+    try { store.setItem(scrollKey, String(panel.scrollTop)); } catch (err) {}
+  }
+  function articleScroller() {
+    var article = document.querySelector('article.doc');
+    if (!article) return null;
+    var style = window.getComputedStyle(article);
+    if (style.overflowY === 'visible' || article.scrollHeight <= article.clientHeight + 1) return null;
+    return article;
+  }
+  function scrollArticleToHash(hash, mode) {
+    if (!hash || hash.charAt(0) !== '#') return false;
+    var article = articleScroller();
+    if (!article) return false;
+    var id = hash.slice(1);
+    try { id = decodeURIComponent(id); } catch (err) {}
+    var target = document.getElementById(id);
+    if (!target || !article.contains(target)) return false;
+    var targetTop = target.getBoundingClientRect().top - article.getBoundingClientRect().top + article.scrollTop;
+    article.scrollTo({ top: Math.max(0, targetTop - 8), behavior: mode || 'auto' });
+    window.scrollTo(0, 0);
+    return true;
+  }
+  function setActiveTocLink(link) {
+    document.querySelectorAll('.toc a.is-active').forEach(function (activeLink) {
+      activeLink.classList.remove('is-active');
+    });
+    link.classList.add('is-active');
+  }
+  function installAnchorScrolling() {
+    document.querySelectorAll('main.article a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        var hash = link.getAttribute('href');
+        if (!scrollArticleToHash(hash, 'smooth')) return;
+        event.preventDefault();
+        if (link.closest('aside.toc')) setActiveTocLink(link);
+        if (window.location.hash !== hash) window.history.pushState(null, '', hash);
+      });
+    });
+    if (window.location.hash) window.setTimeout(function () { scrollArticleToHash(window.location.hash, 'auto'); }, 0);
+    window.addEventListener('hashchange', function () { scrollArticleToHash(window.location.hash, 'auto'); });
+  }
+  function installApiReferenceContext() {
+    var info = apiReferenceInfo();
+    if (!info) return;
+    var article = document.querySelector('article.doc');
+    if (!article || article.querySelector('.api-context')) return;
+    var anchor = article.querySelector('h1.page, h1, h2, .sect1, .paragraph, .listingblock, table') || article.firstElementChild;
+    var nav = document.createElement('nav');
+    nav.className = 'api-context';
+    nav.setAttribute('aria-label', 'API reference context');
+    var crumbs = document.createElement('ol');
+    crumbs.className = 'api-breadcrumbs';
+    function addCrumb(label, href) {
+      var item = document.createElement('li');
+      if (href) {
+        var link = document.createElement('a');
+        link.href = href;
+        link.textContent = label;
+        item.appendChild(link);
+      } else {
+        item.textContent = label;
+        item.setAttribute('aria-current', 'page');
+      }
+      crumbs.appendChild(item);
+    }
+    function pathLabel() {
+      var parts = info.tail.map(function (segment) {
+        var label = segment.replace(/\.html$/, '');
+        try { label = decodeURIComponent(label); } catch (err) {}
+        return label;
+      }).filter(Boolean);
+      return parts.length ? parts.join('::') : 'API Reference';
+    }
+    function operatorLabel() {
+      var operators = {
+        operator_3way: '<=>', operator_assign: '=', operator_bitor: '|', operator_call: '()',
+        operator_eq: '==', operator_ge: '>=', operator_gt: '>', operator_le: '<=',
+        operator_lt: '<', operator_minus: '-', operator_not_eq: '!=', operator_plus: '+',
+        operator_ptr: '->', operator_star: '*', operator_subs: '[]'
+      };
+      var parts = info.tail.map(function (segment) {
+        var label = segment.replace(/\.html$/, '').replace(/-[0-9a-f]+$/, '');
+        try { label = decodeURIComponent(label); } catch (err) {}
+        return label;
+      }).filter(Boolean);
+      var name = parts[parts.length - 1];
+      if (!Object.prototype.hasOwnProperty.call(operators, name)) return null;
+      parts[parts.length - 1] = 'operator' + operators[name];
+      return parts.join('::');
+    }
+    function pageLabel() {
+      var heading = article.querySelector('h1.page, h1');
+      if (!heading) return pathLabel();
+      var label = heading.textContent.replace(/\s+/g, ' ').trim();
+      return label || pathLabel();
+    }
+    var apiLink = apiReferenceNavLink(info, navPanel());
+    var apiHref = apiLink ? apiLink.href : info.indexPath;
+    var apiPath = normalizePath(new URL(apiHref, window.location.href).pathname);
+    var isApiLandingPage = normalizePath(window.location.pathname) === apiPath;
+    addCrumb(info.componentLabel, info.componentPath);
+    addCrumb('API Reference', isApiLandingPage ? null : apiHref);
+    if (!isApiLandingPage) addCrumb(operatorLabel() || pageLabel(), null);
+    nav.appendChild(crumbs);
+    if (anchor) article.insertBefore(nav, anchor);
+    else article.appendChild(nav);
+  }
+  function install() {
+    var panel = navPanel();
+    if (panel) {
+      restoreExpanded(panel);
+      restoreScroll(panel);
+      ensureNavItemVisible(panel, markApiReferenceNav(panel));
+      panel.addEventListener('click', function () { window.setTimeout(writeExpanded, 0); });
+      panel.addEventListener('scroll', saveScroll, { passive: true });
+    }
+    installApiReferenceContext();
+    installAnchorScrolling();
+    window.addEventListener('beforeunload', function () { writeExpanded(); saveScroll(); });
+  }
+  if (document.readyState === 'complete') install();
+  else window.addEventListener('load', install);
+})();
+</script>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Code of Conduct :: Beman Docs</title>
+    <link rel="canonical" href="https://bemanproject.org/docs/beman/latest/code_of_conduct.html">
+    <meta name="generator" content="Antora 3.2.0">
+    <script>
+      (function () {
+        function getStoredTheme() {
+          try { return window.localStorage.getItem('theme'); } catch (err) { return null; }
+        }
+        var storedTheme = getStoredTheme();
+        var theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/beman-docs.css?v=12">
+  </head>
+  <body class="article">
+<header class="header site-header">
+  <nav class="navbar site-nav" aria-label="Main navigation">
+    <a class="brand" href="../../../">
+      <img src="../../../img/beman_logo.png" alt="The Beman Project Logo">
+      <span>The Beman Project</span>
+    </a>
+    <button class="navbar-burger site-nav-toggle" type="button" aria-controls="topbar-nav" aria-expanded="false">Menu</button>
+    <button class="theme-toggle theme-toggle-mobile" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+      <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+      </svg>
+      <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+      </svg>
+    </button>
+    <div class="nav-menu navbar-menu" id="topbar-nav">
+      <div class="nav-links navbar-end">
+        <a class="navbar-item" href="../../../">Home</a>
+        <a class="navbar-item active" href="../../">Docs</a>
+        <a class="navbar-item" href="../../../libraries/">Libraries</a>
+        <a class="navbar-item" href="../../../talks/">Talks</a>
+        <a class="navbar-item" href="../../../blog/">Blog</a>
+      </div>
+      <div class="social-links" aria-label="Community links">
+        <a class="social-link discourse" href="https://discourse.bemanproject.org/" aria-label="Discourse Forum"></a>
+        <a class="social-link discord" href="https://discord.com/invite/BKpNyJgSbm" aria-label="Discord"></a>
+        <a class="social-link github" href="https://github.com/bemanproject" aria-label="GitHub Repository"></a>
+        <button class="theme-toggle" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+          <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+          </svg>
+          <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+<script>
+(function () {
+  var themeToggles = document.querySelectorAll('.theme-toggle');
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    themeToggles.forEach(function (themeToggle) {
+      var label = 'Switch between dark and light mode (currently ' + theme + ' mode)';
+      themeToggle.setAttribute('aria-label', label);
+      themeToggle.setAttribute('title', label);
+      themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
+    });
+    try { window.localStorage.setItem('theme', theme); } catch (err) {}
+  }
+  setTheme(currentTheme());
+  themeToggles.forEach(function (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
+    });
+  });
+})();
+</script>
+<div class="body">
+<div class="nav-container" data-component="beman" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">Beman Project</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Project</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="beman_library_maturity_model.html">Beman Library Maturity Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="beman_standard.html">Beman Standard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mission.html">Mission</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="governance.html">Governance</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="code_of_conduct.html">Code of Conduct</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Libraries</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">optional</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.optional/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.optional/latest/overview.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.optional/latest/reference/beman/optional.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">execution</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/overview.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/reference/beman/execution26.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">task</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">cache_latest</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cache_latest/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cache_latest/latest/development.html">Development</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cache_latest/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">copyable_function</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.copyable_function/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.copyable_function/latest/development.html">Development</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.copyable_function/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">cstring_view</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cstring_view/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cstring_view/latest/using_cstring_view.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cstring_view/latest/reference/beman/cstring_view.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">monadics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/tutorial.html">Tutorial</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/design_rationale.html">Design Rationale</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/reference/beman/monadics.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">scope</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.scope/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.scope/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.scope/latest/reference/beman/scope.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">transform_view</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.transform_view/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.transform_view/latest/intro.html">Intro</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.transform_view/latest/reference/beman/transform_view.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Beman Project</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="index.html">Beman Project</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.cache_latest/latest/index.html">beman.cache_latest</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.cache_latest/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.copyable_function/latest/index.html">beman.copyable_function</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.copyable_function/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.cstring_view/latest/index.html">beman.cstring_view</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.cstring_view/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.execution/latest/index.html">beman.execution</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.execution/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.monadics/latest/index.html">beman.monadics</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.monadics/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.optional/latest/index.html">beman.optional</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.optional/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.scope/latest/index.html">beman.scope</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.scope/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.task/latest/index.html">beman.task</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.task/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.transform_view/latest/index.html">beman.transform_view</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.transform_view/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Beman Project</a></li>
+    <li>Project</li>
+    <li><a href="code_of_conduct.html">Code of Conduct</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Code of Conduct</h1>
+<div class="sect1">
+<h2 id="_code_of_conduct"><a class="anchor" href="#_code_of_conduct"></a>Code of conduct</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_guidelines"><a class="anchor" href="#_guidelines"></a>Guidelines</h3>
+<div class="paragraph">
+<p>The Beman Project community works to be welcoming and kind among itself and to others, with a deep commitment to psychological safety, and we want to ensure that doesn’t change as we grow and evolve. To that end, we have a few ground rules that we ask all community members to adhere to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>be welcoming,</p>
+</li>
+<li>
+<p>be friendly and patient,</p>
+</li>
+<li>
+<p>be considerate,</p>
+</li>
+<li>
+<p>be kind,</p>
+</li>
+<li>
+<p>be careful in the words that we choose,</p>
+</li>
+<li>
+<p>when we disagree, try to understand the reason</p>
+</li>
+<li>
+<p>recognize when progress has stopped, and take a step back.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This list isn&#8217;t exhaustive. Rather, take it in the spirit in which it’s intended&#8201;&#8212;&#8201;a guide to make it easier to communicate and participate in the community.</p>
+</div>
+<div class="paragraph">
+<p>This code of conduct applies to all spaces managed by the Beman Project. This includes chat systems, forums, emails (on lists or between members), issue trackers, events, and any other spaces that the community uses for communication. It applies to all of your communication and conduct in these spaces, including emails, chats, things you say, slides, videos, posters, signs, or even t-shirts you display in these spaces.</p>
+</div>
+<div class="paragraph">
+<p>All community members should help support our standards of acceptable behavior. Everyone is encouraged to speak up in response to any behavior that they deem inappropriate, threatening, offensive, or harmful. If you believe someone is violating the code of conduct, please report it to the <a href="#conduct-team">conduct team</a>.</p>
+</div>
+<div class="paragraph">
+<p>More detailed guidance on how to participate effectively in our community spaces:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Be welcoming.</strong></p>
+<div class="paragraph">
+<p>We strive to be a community that welcomes and supports people of all backgrounds and identities. This includes, but is not limited to, members of any race, ethnicity, culture, national origin, color, immigration status, social and economic class, educational level, sex, sexual orientation, gender identity and expression, physical appearance, age, size, family status, relationship status, political belief, religion or lack thereof, and mental and physical ability.</p>
+</div>
+</li>
+<li>
+<p><strong>Be friendly and patient.</strong></p>
+<div class="paragraph">
+<p>We want to encourage people to participate in our community in a constructive manner, so we can keep a friendly atmosphere. This is especially important because many of our communication tools on the Internet are low-fidelity and make it difficult to understand each other. Be patient, acknowledge that we are all on a learning journey, and stay supportive so that we can learn how to collaborate effectively as a group.</p>
+</div>
+</li>
+<li>
+<p><strong>Be considerate.</strong></p>
+<div class="paragraph">
+<p>Your work will be used by other people, and you in turn will depend on the work of others. Any decision you make will affect users and colleagues, and you should take those consequences into account. Remember that we’re a world-wide community, so you might not be communicating in someone else’s primary language.</p>
+</div>
+</li>
+<li>
+<p><strong>Be kind.</strong></p>
+<div class="paragraph">
+<p>Not all of us will agree all the time, but disagreement is no excuse for poor behavior and hurtful words. We might all experience some frustration now and then, but we cannot allow that frustration to turn into a personal attack. It’s important to remember that a community where people feel threatened is not a productive one. Members of our community should be kind when dealing with other members as well as with people outside the Beman Project community.</p>
+</div>
+</li>
+<li>
+<p><strong>Be careful in the words that we choose and be kind to others.</strong></p>
+<div class="paragraph">
+<p>Do not use insults or put downs. Harassment and other exclusionary behaviors aren’t acceptable. This includes, but is not limited to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Violent threats or language directed against another person.</p>
+</li>
+<li>
+<p>Discriminatory jokes and language.</p>
+</li>
+<li>
+<p>Posting sexually explicit or violent material.</p>
+</li>
+<li>
+<p>Posting, or threatening to post, other people’s personally identifying information without their explicit permission ("doxing").</p>
+</li>
+<li>
+<p>Personal insults, especially those using racist or sexist terms.</p>
+</li>
+<li>
+<p>Unwelcome sexual attention.</p>
+</li>
+<li>
+<p>Advocating for, or encouraging, any of the above behavior.</p>
+</li>
+<li>
+<p>In general, if someone asks you to stop, then stop. Persisting after being asked to stop is considered harassment.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>When we disagree, we try to understand the reason.</strong></p>
+<div class="paragraph">
+<p>Disagreements, both social and technical, happen all the time. It is important that we resolve disagreements and differing views constructively. Remember that we’re different. The strength of the project comes from its varied community: people from a wide range of backgrounds. Different people have different perspectives on issues. Being unable to understand why someone holds a viewpoint doesn’t mean that they’re wrong. Don’t forget that it is human to err and blaming each other doesn’t get us anywhere. Instead, focus on helping to resolve issues and learning from mistakes.</p>
+</div>
+</li>
+<li>
+<p><strong>Recognize when progress has stopped, and take a step back.</strong></p>
+<div class="paragraph">
+<p>Regardless of whether you&#8217;re trying to resolve a disagreement or anything else, think about whether you&#8217;re making progress. Sometimes messaging doesn&#8217;t give time to think about a situation fully, and repeating positions can make people defensive. Step back for a few minutes or hours to think through the issue before responding again. Consider pulling in another community member to give a fresh perspective. Maybe meet over VC (video call) instead. Switching approaches can help resume progress.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>No weapons are allowed at Beman Project events. Weapons include, but are not limited to, explosives (including fireworks), guns, and large knives such as those used for hunting or display, as well as any other item used for the purpose of causing injury or harm to others.</p>
+</div>
+<div class="paragraph">
+<p>In rare cases, violations of this code <em>outside</em> of these spaces may affect, and be detrimental to, a person’s ability to participate <em>within</em> these spaces. Important examples include, but are not limited to, <a href="https://hr.un.org/sites/hr.un.org/files/SEA%20Glossary%20%20%5BSecond%20Edition%20-%202017%5D%20-%20English_0.pdf">sexual and gender-based violence and/or harassment</a>, <a href="https://hatecrime.osce.org/">hate crimes</a>, and <a href="https://www.un.org/en/genocideprevention/documents/UN%20Strategy%20and%20Plan%20of%20Action%20on%20Hate%20Speech%2018%20June%20SYNOPSIS.pdf">hate speech</a>. Although we do not conduct proactive research, we have an obligation to respond to reported and, to the extent possible, corroborated concerns. Our motivations are not rooted in responding punitively, or holding people accountable. Instead, our response will be focused on how the continued participation of the person at issue could impact the community&#8217;s safety, well-being, and inclusivity. It is our priority to remain a welcoming community to victims as well as groups subjected to systemic marginalization or underrepresentation.</p>
+</div>
+<div class="paragraph">
+<p>If you have questions, please feel free to ask on our communication channels, or contact any member of the conduct team directly.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conduct_team"><a class="anchor" href="#_conduct_team"></a>Conduct team</h3>
+<div class="paragraph">
+<p>The conduct team will be the Beman Project Leads as outlined in our <a href="governance.html" class="xref page">Governance Documents</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_reporting_conduct"><a class="anchor" href="#_reporting_conduct"></a>Reporting conduct</h4>
+<div class="paragraph">
+<p>If you believe someone is violating the code of conduct, you can report it to the Beman Project Leads.</p>
+</div>
+<div class="paragraph">
+<p><strong>All reports will be kept confidential</strong>, and are only used by the conduct team to address conduct issues and keep the Beman Project community safe and inclusive.</p>
+</div>
+<div class="paragraph">
+<p>Please send reports concerning a member of the conduct team directly to other members of the conduct team. This allows discussion of the complaint to more easily exclude the concerned member as a <a href="#special-cases">special case</a>.</p>
+</div>
+<div class="paragraph">
+<p>If you believe anyone is in <strong>physical danger</strong>, please notify appropriate law enforcement first. If you are unsure what law enforcement agency is appropriate, please include this in your report and we will attempt to notify them.</p>
+</div>
+<div class="paragraph">
+<p>If the violation occurs at an event and requires immediate attention, you can also reach out to any of the event organizers or staff. Event organizers and staff will be prepared to handle the incident and be able to help. If you cannot find one of the organizers, the venue staff can locate one for you. Specific event information will include detailed contact information for that event. In person reports will still be kept confidential exactly as above, but also feel free to email the conduct team, anonymously if needed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_filing_a_report"><a class="anchor" href="#_filing_a_report"></a>Filing a report</h4>
+<div class="paragraph">
+<p>Reports can be as formal or informal as needed for the situation at hand. If possible, please include as much information as you can. If you feel comfortable, please consider including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Your contact info, so we can get in touch with you if we need to follow up.</p>
+</li>
+<li>
+<p>Names&#8201;&#8212;&#8201;real, nicknames, or pseudonyms&#8201;&#8212;&#8201;of any individuals involved. If there were other witnesses besides you, please try to include them as well.</p>
+</li>
+<li>
+<p>When and where the incident occurred. Please be as specific as possible.</p>
+</li>
+<li>
+<p>Your account of what occurred, including any private chat logs or email.</p>
+</li>
+<li>
+<p>Links for any public records, including community discussions.</p>
+</li>
+<li>
+<p>Any extra context for the incident.</p>
+</li>
+<li>
+<p>Whether you believe this incident is ongoing.</p>
+</li>
+<li>
+<p>Any other information you believe we should have.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_what_happens_after_contacting_the_conduct_team"><a class="anchor" href="#_what_happens_after_contacting_the_conduct_team"></a>What happens after contacting the conduct team?</h4>
+<div class="paragraph">
+<p>You will receive a reply from the conduct team acknowledging receipt within 1 business day, and we will aim to respond much quicker than that.</p>
+</div>
+<div class="paragraph">
+<p>The conduct team will review the incident as soon as possible and try to determine:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What happened and who was involved.</p>
+</li>
+<li>
+<p>Whether this event constitutes a code of conduct violation.</p>
+</li>
+<li>
+<p>Whether this is an ongoing situation, or if there is a threat to anyone’s physical safety.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If this is determined to be an ongoing incident or a threat to physical safety, the conduct team&#8217;s immediate priority will be to protect everyone involved. This means we may delay an "official" response until we believe that the situation has ended and that everyone is physically safe.</p>
+</div>
+<div class="paragraph">
+<p>The conduct team will try to contact other parties involved or witnessing the event to gain clarity on what happened and understand any different perspectives.</p>
+</div>
+<div class="paragraph">
+<p>Once the conduct team has a complete account of the events they will make a decision as to how to respond. Responses may include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Nothing, if no violation occurred or it has already been appropriately resolved.</p>
+</li>
+<li>
+<p>One or more <a href="#enforcement-action-guidelines">enforcement actions</a>.</p>
+</li>
+<li>
+<p>Involvement of relevant law enforcement if appropriate.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the situation is not resolved within one week, we’ll respond to the original reporter with an update and explanation.</p>
+</div>
+<div class="paragraph">
+<p>Once we’ve determined our response, we will separately contact the original reporter and other individuals to let them know what actions, if any, we’ll be taking. We will take into account feedback from the individuals involved on the appropriateness of our response, but we don’t guarantee we’ll act on it.</p>
+</div>
+<div class="paragraph">
+<p>After any incident, the Beman Project leads may choose to make a public statement about the incident. If that’s the case, the identities of anyone involved will remain confidential unless instructed otherwise by those individuals.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_appealing"><a class="anchor" href="#_appealing"></a>Appealing</h4>
+<div class="paragraph">
+<p>Only permanent resolutions, such as bans, or requests for public actions may be appealed. To appeal a decision of the conduct team, contact the <a href="governance.html" class="xref page">Beman leads</a> with your appeal and they will review the case.</p>
+</div>
+<div class="paragraph">
+<p>In general, it is <strong>not</strong> appropriate to appeal a particular decision in public areas of GitHub or Discord. Doing so would involve disclosure of information which should remain confidential. Disclosing this kind of information publicly may be considered a separate and, potentially, more serious violation of the Code of Conduct. This is not meant to limit discussion of the Code of Conduct, the conduct team itself, or the appropriateness of responses in general, but <strong>please</strong> refrain from mentioning specific facts about cases without the explicit permission of all parties involved.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_special_cases"><a class="anchor" href="#_special_cases"></a>Special cases</h4>
+<div class="paragraph">
+<p>If a complaint is raised against a member of the Beman Project leads, they will be excluded from conduct discussion and decisions, including appeals. They will only be included as needed for an involved party, such as to get their perspective or to notify them of decisions. Such complaints may lead to a member&#8217;s responsibilities being revoked.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enforcement_action_guidelines"><a class="anchor" href="#_enforcement_action_guidelines"></a>Enforcement action guidelines</h3>
+<div class="paragraph">
+<p>The conduct team, moderators, and event organizers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct. They will communicate reasons for moderation decisions when appropriate.</p>
+</div>
+<div class="paragraph">
+<p>The conduct team may take additional action they deem appropriate for any violation of this Code of Conduct using these guidelines based on the behavior involved:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Correction</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Behavior:</strong> Use of inappropriate language or other minor violations of the code of conduct.</p>
+</li>
+<li>
+<p><strong>Action:</strong> A private, written message providing clarity around the nature of the violation and an explanation of why the behavior was inappropriate. A public apology may be requested.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Warning</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Behavior:</strong> A code of conduct violation through a single moderate incident, or a series of minor violations.</p>
+</li>
+<li>
+<p><strong>Action:</strong> In addition to the correction action, a temporary restriction forbidding interaction with the people involved for a specified period of time, including unsolicited interaction with the conduct team. Violating these terms may lead to a ban.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Temporary ban</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Behavior:</strong> A serious violation of the code of conduct, including sustained inappropriate behavior.</p>
+</li>
+<li>
+<p><strong>Action:</strong> In addition to the warning action, a temporary ban from use of Beman Project&#8217;s community spaces for a specified period of time. External channels, such as social media, should not be used to bypass these restrictions during the temporary ban. Violating these terms may lead to a permanent ban.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Permanent ban</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Behavior:</strong> Demonstrating a pattern of violation of the code of conduct.</p>
+</li>
+<li>
+<p><strong>Action:</strong> A permanent ban from use of Beman Project&#8217;s community spaces.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_acknowledgements"><a class="anchor" href="#_acknowledgements"></a>Acknowledgements</h3>
+<div class="paragraph">
+<p>This code is based on the <a href="https://github.com/carbon-language/carbon-lang/blob/trunk/CODE_OF_CONDUCT.md">Carbon Language Code of Conduct</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="site-footer">
+  <div>
+    <h2>Community</h2>
+    <a href="https://discord.com/invite/BKpNyJgSbm">Discord</a>
+    <a href="https://discourse.bemanproject.org/">Discourse</a>
+  </div>
+  <div>
+    <h2>More</h2>
+    <a href="https://github.com/bemanproject">GitHub</a>
+  </div>
+  <p>Copyright (C) The Beman Project. Built with Antora.</p>
+</footer>
+<script>
+(function () {
+  var expandedKey = 'beman.antora.nav.expanded';
+  var scrollKey = 'beman.antora.nav.scrollTop';
+  function navPanel() { return document.querySelector('.nav-panel-menu[data-panel="menu"]'); }
+  function storage() {
+    try { return window.sessionStorage; } catch (err) { return null; }
+  }
+  function itemLabel(item) {
+    var label = item.querySelector(':scope > .nav-text, :scope > .nav-link');
+    return label ? label.textContent.trim() : '';
+  }
+  function itemKey(item) {
+    var parts = [];
+    var current = item;
+    while (current && current.classList && current.classList.contains('nav-item')) {
+      var label = itemLabel(current);
+      if (label) parts.unshift(label);
+      var parentList = current.parentElement;
+      current = parentList ? parentList.closest('.nav-item') : null;
+    }
+    return parts.join(' / ');
+  }
+  function readExpanded() {
+    var store = storage();
+    if (!store) return new Set();
+    try { return new Set(JSON.parse(store.getItem(expandedKey) || '[]')); } catch (err) { return new Set(); }
+  }
+  function writeExpanded() {
+    var panel = navPanel();
+    var store = storage();
+    if (!panel || !store) return;
+    var keys = [];
+    panel.querySelectorAll('.nav-item.is-active').forEach(function (item) {
+      var key = itemKey(item);
+      if (key) keys.push(key);
+    });
+    try { store.setItem(expandedKey, JSON.stringify(keys)); } catch (err) {}
+  }
+  function expandAncestors(item) {
+    var current = item;
+    while (current) {
+      if (current.classList && current.classList.contains('nav-item')) current.classList.add('is-active', 'is-current-path');
+      var parentList = current.parentElement;
+      current = parentList ? parentList.closest('.nav-item') : null;
+    }
+  }
+  function apiReferenceInfo() {
+    var segments = window.location.pathname.split('/').filter(Boolean);
+    for (var index = 0; index < segments.length - 2; index += 1) {
+      if (!segments[index].startsWith('beman.')) continue;
+      if (segments[index + 2] !== 'reference') continue;
+      var baseSegments = segments.slice(0, index + 3);
+      var tail = segments.slice(index + 3);
+      return {
+        component: segments[index],
+        componentLabel: segments[index].replace(/^beman\./, ''),
+        version: segments[index + 1],
+        tail: tail,
+        componentPath: '/' + segments.slice(0, index + 2).join('/') + '/index.html',
+        indexPath: '/' + baseSegments.join('/') + '/index.html'
+      };
+    }
+    return null;
+  }
+  function normalizePath(path) {
+    return path.replace(/\/$/, '/index.html');
+  }
+  function apiReferenceNavLink(info, panel) {
+    if (!info || !panel) return null;
+    var referencePrefix = info.indexPath.replace(/index\.html$/, '');
+    var match = null;
+    panel.querySelectorAll('.nav-link').forEach(function (link) {
+      if (match || link.textContent.trim() !== 'API Reference') return;
+      var linkPath = normalizePath(new URL(link.getAttribute('href'), window.location.href).pathname);
+      if (linkPath.startsWith(referencePrefix)) match = link;
+    });
+    return match;
+  }
+  function markApiReferenceNav(panel) {
+    var info = apiReferenceInfo();
+    if (!info || !panel) return null;
+    var link = apiReferenceNavLink(info, panel);
+    var match = link ? link.closest('.nav-item') : null;
+    if (link) link.classList.add('is-current-page');
+    if (match) {
+      match.classList.add('is-current-page', 'is-current-path');
+      expandAncestors(match);
+    }
+    return match;
+  }
+  function ensureNavItemVisible(panel, item) {
+    if (!panel || !item) return;
+    window.setTimeout(function () {
+      var itemTop = item.offsetTop;
+      var itemBottom = itemTop + item.offsetHeight;
+      var panelBottom = panel.scrollTop + panel.clientHeight;
+      if (itemTop < panel.scrollTop || itemBottom > panelBottom) {
+        panel.scrollTop = Math.max(0, itemTop - panel.clientHeight / 3);
+        saveScroll();
+      }
+    }, 0);
+  }
+  function expandRequiredSections(panel) {
+    panel.querySelectorAll('.nav-item').forEach(function (item) {
+      var label = itemLabel(item);
+      if (label === 'Project' || label === 'Libraries') item.classList.add('is-active');
+    });
+    panel.querySelectorAll('.nav-item.is-current-page, .nav-item.is-current-path').forEach(expandAncestors);
+    markApiReferenceNav(panel);
+  }
+  function restoreExpanded(panel) {
+    var expanded = readExpanded();
+    panel.querySelectorAll('.nav-item').forEach(function (item) {
+      if (expanded.has(itemKey(item))) item.classList.add('is-active');
+    });
+    expandRequiredSections(panel);
+  }
+  function restoreScroll(panel) {
+    var store = storage();
+    if (!store) return;
+    try {
+      var saved = parseInt(store.getItem(scrollKey) || '', 10);
+      if (!Number.isNaN(saved)) panel.scrollTop = saved;
+    } catch (err) {}
+  }
+  function saveScroll() {
+    var panel = navPanel();
+    var store = storage();
+    if (!panel || !store) return;
+    try { store.setItem(scrollKey, String(panel.scrollTop)); } catch (err) {}
+  }
+  function articleScroller() {
+    var article = document.querySelector('article.doc');
+    if (!article) return null;
+    var style = window.getComputedStyle(article);
+    if (style.overflowY === 'visible' || article.scrollHeight <= article.clientHeight + 1) return null;
+    return article;
+  }
+  function scrollArticleToHash(hash, mode) {
+    if (!hash || hash.charAt(0) !== '#') return false;
+    var article = articleScroller();
+    if (!article) return false;
+    var id = hash.slice(1);
+    try { id = decodeURIComponent(id); } catch (err) {}
+    var target = document.getElementById(id);
+    if (!target || !article.contains(target)) return false;
+    var targetTop = target.getBoundingClientRect().top - article.getBoundingClientRect().top + article.scrollTop;
+    article.scrollTo({ top: Math.max(0, targetTop - 8), behavior: mode || 'auto' });
+    window.scrollTo(0, 0);
+    return true;
+  }
+  function setActiveTocLink(link) {
+    document.querySelectorAll('.toc a.is-active').forEach(function (activeLink) {
+      activeLink.classList.remove('is-active');
+    });
+    link.classList.add('is-active');
+  }
+  function installAnchorScrolling() {
+    document.querySelectorAll('main.article a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        var hash = link.getAttribute('href');
+        if (!scrollArticleToHash(hash, 'smooth')) return;
+        event.preventDefault();
+        if (link.closest('aside.toc')) setActiveTocLink(link);
+        if (window.location.hash !== hash) window.history.pushState(null, '', hash);
+      });
+    });
+    if (window.location.hash) window.setTimeout(function () { scrollArticleToHash(window.location.hash, 'auto'); }, 0);
+    window.addEventListener('hashchange', function () { scrollArticleToHash(window.location.hash, 'auto'); });
+  }
+  function installApiReferenceContext() {
+    var info = apiReferenceInfo();
+    if (!info) return;
+    var article = document.querySelector('article.doc');
+    if (!article || article.querySelector('.api-context')) return;
+    var anchor = article.querySelector('h1.page, h1, h2, .sect1, .paragraph, .listingblock, table') || article.firstElementChild;
+    var nav = document.createElement('nav');
+    nav.className = 'api-context';
+    nav.setAttribute('aria-label', 'API reference context');
+    var crumbs = document.createElement('ol');
+    crumbs.className = 'api-breadcrumbs';
+    function addCrumb(label, href) {
+      var item = document.createElement('li');
+      if (href) {
+        var link = document.createElement('a');
+        link.href = href;
+        link.textContent = label;
+        item.appendChild(link);
+      } else {
+        item.textContent = label;
+        item.setAttribute('aria-current', 'page');
+      }
+      crumbs.appendChild(item);
+    }
+    function pathLabel() {
+      var parts = info.tail.map(function (segment) {
+        var label = segment.replace(/\.html$/, '');
+        try { label = decodeURIComponent(label); } catch (err) {}
+        return label;
+      }).filter(Boolean);
+      return parts.length ? parts.join('::') : 'API Reference';
+    }
+    function operatorLabel() {
+      var operators = {
+        operator_3way: '<=>', operator_assign: '=', operator_bitor: '|', operator_call: '()',
+        operator_eq: '==', operator_ge: '>=', operator_gt: '>', operator_le: '<=',
+        operator_lt: '<', operator_minus: '-', operator_not_eq: '!=', operator_plus: '+',
+        operator_ptr: '->', operator_star: '*', operator_subs: '[]'
+      };
+      var parts = info.tail.map(function (segment) {
+        var label = segment.replace(/\.html$/, '').replace(/-[0-9a-f]+$/, '');
+        try { label = decodeURIComponent(label); } catch (err) {}
+        return label;
+      }).filter(Boolean);
+      var name = parts[parts.length - 1];
+      if (!Object.prototype.hasOwnProperty.call(operators, name)) return null;
+      parts[parts.length - 1] = 'operator' + operators[name];
+      return parts.join('::');
+    }
+    function pageLabel() {
+      var heading = article.querySelector('h1.page, h1');
+      if (!heading) return pathLabel();
+      var label = heading.textContent.replace(/\s+/g, ' ').trim();
+      return label || pathLabel();
+    }
+    var apiLink = apiReferenceNavLink(info, navPanel());
+    var apiHref = apiLink ? apiLink.href : info.indexPath;
+    var apiPath = normalizePath(new URL(apiHref, window.location.href).pathname);
+    var isApiLandingPage = normalizePath(window.location.pathname) === apiPath;
+    addCrumb(info.componentLabel, info.componentPath);
+    addCrumb('API Reference', isApiLandingPage ? null : apiHref);
+    if (!isApiLandingPage) addCrumb(operatorLabel() || pageLabel(), null);
+    nav.appendChild(crumbs);
+    if (anchor) article.insertBefore(nav, anchor);
+    else article.appendChild(nav);
+  }
+  function install() {
+    var panel = navPanel();
+    if (panel) {
+      restoreExpanded(panel);
+      restoreScroll(panel);
+      ensureNavItemVisible(panel, markApiReferenceNav(panel));
+      panel.addEventListener('click', function () { window.setTimeout(writeExpanded, 0); });
+      panel.addEventListener('scroll', saveScroll, { passive: true });
+    }
+    installApiReferenceContext();
+    installAnchorScrolling();
+    window.addEventListener('beforeunload', function () { writeExpanded(); saveScroll(); });
+  }
+  if (document.readyState === 'complete') install();
+  else window.addEventListener('load', install);
+})();
+</script>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

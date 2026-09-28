@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>beman.optional :: Beman Docs</title>
+    <link rel="canonical" href="https://bemanproject.org/docs/beman.optional/latest/index.html">
+    <meta name="generator" content="Antora 3.2.0">
+    <script>
+      (function () {
+        function getStoredTheme() {
+          try { return window.localStorage.getItem('theme'); } catch (err) { return null; }
+        }
+        var storedTheme = getStoredTheme();
+        var theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/beman-docs.css?v=12">
+  </head>
+  <body class="article">
+<header class="header site-header">
+  <nav class="navbar site-nav" aria-label="Main navigation">
+    <a class="brand" href="../../../">
+      <img src="../../../img/beman_logo.png" alt="The Beman Project Logo">
+      <span>The Beman Project</span>
+    </a>
+    <button class="navbar-burger site-nav-toggle" type="button" aria-controls="topbar-nav" aria-expanded="false">Menu</button>
+    <button class="theme-toggle theme-toggle-mobile" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+      <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+      </svg>
+      <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+      </svg>
+    </button>
+    <div class="nav-menu navbar-menu" id="topbar-nav">
+      <div class="nav-links navbar-end">
+        <a class="navbar-item" href="../../../">Home</a>
+        <a class="navbar-item active" href="../../">Docs</a>
+        <a class="navbar-item" href="../../../libraries/">Libraries</a>
+        <a class="navbar-item" href="../../../talks/">Talks</a>
+        <a class="navbar-item" href="../../../blog/">Blog</a>
+      </div>
+      <div class="social-links" aria-label="Community links">
+        <a class="social-link discourse" href="https://discourse.bemanproject.org/" aria-label="Discourse Forum"></a>
+        <a class="social-link discord" href="https://discord.com/invite/BKpNyJgSbm" aria-label="Discord"></a>
+        <a class="social-link github" href="https://github.com/bemanproject" aria-label="GitHub Repository"></a>
+        <button class="theme-toggle" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+          <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+          </svg>
+          <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+<script>
+(function () {
+  var themeToggles = document.querySelectorAll('.theme-toggle');
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    themeToggles.forEach(function (themeToggle) {
+      var label = 'Switch between dark and light mode (currently ' + theme + ' mode)';
+      themeToggle.setAttribute('aria-label', label);
+      themeToggle.setAttribute('title', label);
+      themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
+    });
+    try { window.localStorage.setItem('theme', theme); } catch (err) {}
+  }
+  setTheme(currentTheme());
+  themeToggles.forEach(function (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
+    });
+  });
+})();
+</script>
+<div class="body">
+<div class="nav-container" data-component="beman.optional" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">beman.optional</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Project</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/beman_library_maturity_model.html">Beman Library Maturity Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/beman_standard.html">Beman Standard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/mission.html">Mission</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/governance.html">Governance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/code_of_conduct.html">Code of Conduct</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Libraries</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">optional</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="overview.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="reference/beman/optional.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">execution</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/overview.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/reference/beman/execution26.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">task</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">cache_latest</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cache_latest/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cache_latest/latest/development.html">Development</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cache_latest/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">copyable_function</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.copyable_function/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.copyable_function/latest/development.html">Development</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.copyable_function/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">cstring_view</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cstring_view/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cstring_view/latest/using_cstring_view.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cstring_view/latest/reference/beman/cstring_view.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">monadics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/tutorial.html">Tutorial</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/design_rationale.html">Design Rationale</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/reference/beman/monadics.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">scope</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.scope/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.scope/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.scope/latest/reference/beman/scope.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">transform_view</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.transform_view/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.transform_view/latest/intro.html">Intro</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.transform_view/latest/reference/beman/transform_view.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">beman.optional</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../beman/latest/index.html">Beman Project</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.cache_latest/latest/index.html">beman.cache_latest</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.cache_latest/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.copyable_function/latest/index.html">beman.copyable_function</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.copyable_function/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.cstring_view/latest/index.html">beman.cstring_view</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.cstring_view/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.execution/latest/index.html">beman.execution</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.execution/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.monadics/latest/index.html">beman.monadics</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.monadics/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="index.html">beman.optional</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.scope/latest/index.html">beman.scope</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.scope/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.task/latest/index.html">beman.task</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.task/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.transform_view/latest/index.html">beman.transform_view</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.transform_view/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../beman/latest/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">beman.optional</a></li>
+    <li>Libraries</li>
+    <li>optional</li>
+    <li><a href="index.html">Overview</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">beman.optional</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/bemanproject/optional">GitHub URL</a></p>
+</li>
+<li>
+<p><a href="overview.html" class="xref page">Guide</a></p>
+</li>
+<li>
+<p><a href="reference/beman/optional.html" class="xref page">API Reference</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bemanoptional-c26-extensions-for-stdoptional"><a class="anchor" href="#bemanoptional-c26-extensions-for-stdoptional"></a>beman.optional: C&#43;&#43;26 Extensions for std::optional</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#the-beman-library-maturity-model"><span class="image"><img src="https://raw.githubusercontent.com/bemanproject/beman/refs/heads/main/images/badges/beman_badge-beman_library_production_ready_api_may_undergo_changes.svg" alt="Library Status"></span></a><span class="image"><img src="https://raw.githubusercontent.com/bemanproject/beman/main/images/badges/cpp26.svg" alt="Standard Target"></span><a href="https://godbolt.org/z/Gc6Y9j6zf"><span class="image"><img src="https://img.shields.io/badge/Try%20it%20on%20Compiler%20Explorer-grey?logo=compilerexplorer&amp;logoColor=67c52a" alt="Compiler Explorer Example"></span></a></p>
+</div>
+<div class="paragraph">
+<p>This repository implements <code>std::optional</code> extensions targeting C&#43;&#43;26. The <code>beman.optional</code> library aims to evaluate the stability, the usability, and the performance of these proposed changes before they are officially adopted by WG21 into the C&#43;&#43; Working Draft. Additionally, it allows developers to use these new features before they are implemented in major standard library compilers.</p>
+</div>
+<div class="paragraph">
+<p><strong>Implements</strong>: <a href="https://wg21.link/P2988R12"><code>std::optional&lt;T&amp;&gt;</code> (P2988R12)</a> and <a href="https://wg21.link/P3168R2">Give <em>std::optional</em> Range Support (P3168R2)</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Status</strong>: <a href="https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#production-ready-api-may-undergo-changes">Production ready. API may undergo changes.</a></p>
+</div>
+<div class="sect2">
+<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
+<div class="paragraph">
+<p>Full runable examples can be found in <code>examples/</code> - please check <a href="https://github.com/bemanproject/optional/blob/main/examples/README.md">./examples/README.md</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_range_loop"><a class="anchor" href="#_range_loop"></a>range_loop</h4>
+<div class="paragraph">
+<p>The next code snippet shows optional range support added in <a href="https://wg21.link/P3168R2">Give <em>std::optional</em> Range Support(P3168R2)</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;beman/optional/optional.hpp&gt;
+...
+
+beman::optional::optional&lt;int&gt; empty_opt{};
+for ([[maybe_unused]] const auto&amp; i : empty_opt) {
+    // Should not see this in console.
+    std::cout &lt;&lt; "\"for each loop\" over C++26 optional: empty_opt\n";
+}
+
+beman::optional::optional&lt;int&gt; opt{26};
+for (const auto&amp; i : opt) {
+    // Should see this in console.
+    std::cout &lt;&lt; "\"for each loop\" over C++26 optional: opt = " &lt;&lt; i &lt;&lt; "\n";
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Full code can be found in <a href="https://github.com/bemanproject/optional/blob/main/examples/range_loop.cpp">./examples/range_loop.cpp</a>. Build and run instructions in <a href="https://github.com/bemanproject/optional/blob/main/examples/README.md">./examples/README.md</a>. Or try it on Compiler Explorer: <a href="https://godbolt.org/z/Gc6Y9j6zf">range_loop.cpp@Compiler Explorer</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_optional_ref"><a class="anchor" href="#_optional_ref"></a>optional_ref</h4>
+<div class="paragraph">
+<p>The next code snippet shows optional reference support added in <a href="https://wg21.link/P2988"><code>std::optional&lt;T&amp;&gt;</code> (P2988)</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#include &lt;beman/optional/optional.hpp&gt;
+...
+
+struct Cat { ... };
+
+beman::optional::optional&lt;Cat&amp;&gt; find_cat(std::string) { return {}; }
+beman::optional::optional&lt;Cat&amp;&gt; do_it(Cat&amp; cat) { return { cat }; }
+
+beman::optional::optional&lt;Cat&amp;&gt; api() {
+    beman::optional::optional&lt;Cat&amp;&gt; cat = find_cat("Fido");
+    return cat.and_then(do_it);
+}
+
+beman::optional::optional&lt;Cat&amp;&gt; cat = api();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Full code can be found in <a href="https://github.com/bemanproject/optional/blob/main/examples/optional_ref.cpp">./examples/optional_ref.cpp</a>. Build and run instructions in <a href="https://github.com/bemanproject/optional/blob/main/examples/README.md">./examples/README.md</a>. Or try it on Compiler Explorer: <a href="https://godbolt.org/z/MxjdvTTov">optional_ref.cpp@Compiler Explorer</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_license"><a class="anchor" href="#_license"></a>License</h3>
+<div class="paragraph">
+<p><code>beman.optional</code> is licensed under the Apache License v2.0 with LLVM Exceptions.</p>
+</div>
+<div class="paragraph">
+<p>Documentation and associated papers are licensed with the Creative Commons Attribution 4.0 International license.</p>
+</div>
+<div class="paragraph">
+<p>The intent is that the source and documentation are available for use by people implementing their own optional types as well as people using the optional presented here as-is.</p>
+</div>
+<div class="paragraph">
+<p>The README itself is licensed with CC0 1.0 Universal. Copy the contents and incorporate in your own work as you see fit.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dependencies"><a class="anchor" href="#_dependencies"></a>Dependencies</h3>
+<div class="sect3">
+<h4 id="_build_environment"><a class="anchor" href="#_build_environment"></a>Build Environment</h4>
+<div class="paragraph">
+<p>This project requires at least the following to build:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A C&#43;&#43; compiler that conforms to the C&#43;&#43;20 standard or greater</p>
+</li>
+<li>
+<p>CMake 3.27 or later</p>
+</li>
+<li>
+<p>(Test Only) GoogleTest</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can disable building tests by setting CMake option <code>BEMAN_OPTIONAL_BUILD_TESTS</code> to <code>OFF</code> when configuring the project.</p>
+</div>
+<div class="paragraph">
+<p>You can disable building examples by setting CMake option <code>BEMAN_OPTIONAL_BUILD_EXAMPLES</code> to <code>OFF</code> when configuring the project.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_to_build"><a class="anchor" href="#_how_to_build"></a>How to Build</h3>
+<div class="sect3">
+<h4 id="_compiler_support"><a class="anchor" href="#_compiler_support"></a>Compiler Support</h4>
+<div class="paragraph">
+<p>This is a modern C&#43;&#43; project which can be compiled with the latest C&#43;&#43; standards (<strong>C&#43;&#43;20 or later</strong>).</p>
+</div>
+<div class="paragraph">
+<p>Default build: <code>C&#43;&#43;23</code>. Please check <code>etc/${compiler}-flags.cmake</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dependencies_2"><a class="anchor" href="#_dependencies_2"></a>Dependencies</h4>
+<div class="paragraph">
+<p>Build-time dependencies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cmake</code></p>
+</li>
+<li>
+<p><code>ninja</code>, <code>make</code>, or another CMake-supported build system</p>
+<div class="ulist">
+<ul>
+<li>
+<p>CMake defaults to "Unix Makefiles" on POSIX systems</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example of installation on <code>Ubuntu 24.04</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Install tools:
+apt-get install -y cmake make ninja-build
+
+# Example of toolchains:
+apt-get install                           \
+  g++-14 gcc-14 gcc-13 g++-13             \
+  clang-18 clang++-18 clang-17 clang++-17</code></pre>
+</div>
+</div>
+<details>
+<summary class="title">Build GoogleTest dependency from github.com</summary>
+<div class="content">
+<div class="paragraph">
+<p>If you do not have GoogleTest installed on your development system, you may optionally configure this project to download a known-compatible release of GoogleTest from source and build it as well.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cmake -B build -S . -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=./cmake/use-fetch-content.cmake</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The precise version of GoogleTest that will be used is maintained in <code>./lockfile.json</code>.</p>
+</div>
+</div>
+</details>
+</div>
+<div class="sect3">
+<h4 id="_supported_platforms"><a class="anchor" href="#_supported_platforms"></a>Supported Platforms</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Compiler</th>
+<th class="tableblock halign-left valign-top">Version</th>
+<th class="tableblock halign-left valign-top">C&#43;&#43; Standards</th>
+<th class="tableblock halign-left valign-top">Standard Library</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GCC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15-13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C&#43;&#43;26-C&#43;&#43;20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">libstdc&#43;&#43;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GCC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C&#43;&#43;23, C&#43;&#43;20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">libstdc&#43;&#43;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clang</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22-19</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C&#43;&#43;26-C&#43;&#43;20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">libstdc&#43;&#43;, libc&#43;&#43;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clang</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C&#43;&#43;26-C&#43;&#43;20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">libc&#43;&#43;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AppleClang</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">latest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C&#43;&#43;26-C&#43;&#43;20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">libc&#43;&#43;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MSVC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">latest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C&#43;&#43;23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MSVC STL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_instructions"><a class="anchor" href="#_instructions"></a>Instructions</h4>
+<div class="sect4">
+<h5 id="_develop_using_github_codespace"><a class="anchor" href="#_develop_using_github_codespace"></a>Develop using GitHub Codespace</h5>
+<div class="paragraph">
+<p>This project supports <a href="https://github.com/features/codespaces">GitHub Codespace</a> via <a href="https://containers.dev/">Development Containers</a>, which allows rapid development and instant hacking in your browser. We recommend using GitHub codespace to explore this project as it requires minimal setup.</p>
+</div>
+<div class="paragraph">
+<p>Click the following badge to create a codespace:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://codespaces.new/bemanproject/optional"><span class="image"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces"></span></a></p>
+</div>
+<div class="paragraph">
+<p>For more documentation on GitHub codespaces, please see <a href="https://docs.github.com/en/codespaces/">this doc</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The codespace container may take up to 5 minutes to build and spin-up; this is normal.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_preset_cmake_flows"><a class="anchor" href="#_preset_cmake_flows"></a>Preset CMake Flows</h5>
+<div class="paragraph">
+<p>This project recommends using <a href="https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html">CMake Presets</a> to configure, build and test the project. Appropriate presets for major compilers have been included by default. You can use <code>cmake --list-presets</code> to see all available presets.</p>
+</div>
+<div class="paragraph">
+<p>Here is an example to invoke the <code>gcc-debug</code> preset.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">cmake --workflow --preset gcc-debug</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Generally, there are two kinds of presets, <code>debug</code> and <code>release</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>debug</code> presets are designed to aid development, so it has debugging instrumentation enabled and many sanitizers enabled.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The sanitizers that are enabled vary from compiler to compiler. See the toolchain files under (<a href="https://github.com/bemanproject/optional/tree/main/cmake/"><code>cmake</code></a>) to determine the exact configuration used for each preset.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>release</code> presets are designed for production use, and consequently have the highest optimization turned on (e.g. <code>O3</code>).</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_custom_cmake_flows"><a class="anchor" href="#_custom_cmake_flows"></a>Custom CMake Flows</h5>
+<div class="sect5">
+<h6 id="_build_and_run_tests"><a class="anchor" href="#_build_and_run_tests"></a>Build and Run Tests</h6>
+<div class="paragraph">
+<p>CI current build and test flows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Configure build: default build production code + tests (BEMAN_OPTIONAL_BUILD_TESTS=ON by default).
+$ cmake -G "Ninja Multi-Config" \
+      -DCMAKE_CONFIGURATION_TYPES="RelWithDebInfo;Asan" \
+      -DCMAKE_TOOLCHAIN_FILE=etc/clang-19-toolchain.cmake \
+      -B .build -S .
+-- The CXX compiler identification is Clang 19.0.0
+...
+-- Build files have been written to: /path/to/optional/.build
+
+# Build.
+$ cmake --build .build --config Asan --target all -- -k 0
+...
+[30/30] Linking CXX executable ... # Note: 30 targets here (including tests).
+
+# Run tests.
+$ ctest --build-config Asan --output-on-failure --test-dir .build
+Internal ctest changing into directory: /path/to/optional/.build
+Test project /path/to/optional/.build
+...
+100% tests passed, 0 tests failed out of 82
+
+Total Test time (real) =   0.67 sec</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_build_production_but_skip_tests"><a class="anchor" href="#_build_production_but_skip_tests"></a>Build Production, but Skip Tests</h6>
+<div class="paragraph">
+<p>By default, we build and run tests. You can disable building tests by setting CMake option <code>BEMAN_OPTIONAL_BUILD_TESTS</code> to <code>OFF</code> when configuring the project:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell"># Configure build: build production code, skip tests (BEMAN_OPTIONAL_BUILD_TESTS=OFF).
+$ cmake -G "Ninja Multi-Config" \
+      -DCMAKE_CONFIGURATION_TYPES="RelWithDebInfo;Asan" \
+      -DCMAKE_TOOLCHAIN_FILE=etc/clang-19-toolchain.cmake \
+      -DBEMAN_OPTIONAL_BUILD_TESTS=OFF \
+      -B .build -S .
+-- The CXX compiler identification is Clang 19.0.0
+...
+-- Build files have been written to: /path/to/optional/.build
+
+# Build.
+$ cmake --build .build --config Asan --target all -- -k 0
+...
+[15/15] Linking CXX executable ... # Note: 15 targets here (tests were not built).
+
+# Check that tests are not built/installed.
+$ ctest --build-config Asan --output-on-failure --test-dir .build
+Internal ctest changing into directory: /path/to/beman.optional/.build
+Test project /path/to/beman.optional/.build
+No tests were found!!!</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_pre_commit_for_linting"><a class="anchor" href="#_pre_commit_for_linting"></a>Pre-Commit for Linting</h5>
+<div class="paragraph">
+<p>Various linting tools are configured and installed via the <a href="https://pre-commit.com/">pre-commit</a> framework. This requires a working python environment, but also allows the tools, such as clang-format and cmake-lint, to be versioned on a per project basis rather than being installed globally. Version changes in lint checks often means differences in success or failure between the versions in CI and the versions used by a developer. By using the same configurations, this problem is avoided.</p>
+</div>
+<div class="paragraph">
+<p>In order to set up a python environment, using a python virtual environment can simplify maintaining different configurations between projects. There is no particular dependency on a particular python3 version.</p>
+</div>
+<div class="sect5">
+<h6 id="_creating_and_configuring_a_venv"><a class="anchor" href="#_creating_and_configuring_a_venv"></a>Creating and configuring a venv</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">python3 -m venv .venv
+. .venv/bin/activate &amp;&amp; python3 -m pip install --upgrade pip setuptools wheel
+. .venv/bin/activate &amp;&amp; python3 -m pip install pip-tools
+. .venv/bin/activate &amp;&amp; python3 -m piptools sync requirements.txt
+. .venv/bin/activate &amp;&amp; python3 -m piptools sync requirements-dev.txt
+. .venv/bin/activate &amp;&amp; exec bash</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will create the venv, install the python and python development tools, and run bash with the PATH and other environment variables set to use the venv preferentially.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_running_the_linting_tools"><a class="anchor" href="#_running_the_linting_tools"></a>Running the linting tools</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pre-commit run -a</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will download and configure the lint tools specified in .pre-commit-config.yaml.</p>
+</div>
+<div class="paragraph">
+<p>There is also a Makefile that will automate this process and keep everything up to date.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">make lint</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="install-bemanoptional"><a class="anchor" href="#install-bemanoptional"></a>Install beman.optional</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cmake --workflow --preset gcc-release
+cmake --install build/gcc-release --prefix /opt/beman</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will generate the following directory structure at <code>/opt/beman</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-txt hljs" data-lang="txt">/opt/beman
+├── include
+│   └── beman
+│       └── optional
+│           ├── detail
+│           │   ├── iterator.hpp
+│           │   └── stl_interfaces
+│           │       ├── config.hpp
+│           │       ├── fwd.hpp
+│           │       └── iterator_interface.hpp
+│           └── optional.hpp
+└── lib
+    └── cmake
+        └── beman.optional
+            ├── beman.optional-config.cmake
+            ├── beman.optional-config-version.cmake
+            └── beman.optional-targets.cmake</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_papers"><a class="anchor" href="#_papers"></a>Papers</h3>
+<div class="paragraph">
+<p>Latest revision(s) of the papers can be built / found at:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/neatudarius/give-std-optional-range-support/">give-std-optional-range-support</a> for <code>Give *std::optional* Range Support (P3168)</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>issue: <a href="https://github.com/cplusplus/papers/issues/1831">#1831</a></p>
+</li>
+<li>
+<p>LEWG:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed in Tokyo 2024.</p>
+</li>
+<li>
+<p>Forwarded by LEWG April electronic poll to LWG.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>LWG:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed and approved in Saint Louis 2024.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="https://github.com/bemanproject/optional/blob/main/papers/P2988/README.md">./papers/P2988/README.md</a> for <code>std::optional&lt;T&amp;&gt; (P2988)</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>issue: <a href="https://github.com/cplusplus/papers/issues/1661">#1661</a></p>
+</li>
+<li>
+<p>LEWG:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed in Tokyo 2024.</p>
+</li>
+<li>
+<p>Forwarded by LEWG in 2025 in Hagenberg.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>LWG:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed and approved in Hagenberg 2025.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="site-footer">
+  <div>
+    <h2>Community</h2>
+    <a href="https://discord.com/invite/BKpNyJgSbm">Discord</a>
+    <a href="https://discourse.bemanproject.org/">Discourse</a>
+  </div>
+  <div>
+    <h2>More</h2>
+    <a href="https://github.com/bemanproject">GitHub</a>
+  </div>
+  <p>Copyright (C) The Beman Project. Built with Antora.</p>
+</footer>
+<script>
+(function () {
+  var expandedKey = 'beman.antora.nav.expanded';
+  var scrollKey = 'beman.antora.nav.scrollTop';
+  function navPanel() { return document.querySelector('.nav-panel-menu[data-panel="menu"]'); }
+  function storage() {
+    try { return window.sessionStorage; } catch (err) { return null; }
+  }
+  function itemLabel(item) {
+    var label = item.querySelector(':scope > .nav-text, :scope > .nav-link');
+    return label ? label.textContent.trim() : '';
+  }
+  function itemKey(item) {
+    var parts = [];
+    var current = item;
+    while (current && current.classList && current.classList.contains('nav-item')) {
+      var label = itemLabel(current);
+      if (label) parts.unshift(label);
+      var parentList = current.parentElement;
+      current = parentList ? parentList.closest('.nav-item') : null;
+    }
+    return parts.join(' / ');
+  }
+  function readExpanded() {
+    var store = storage();
+    if (!store) return new Set();
+    try { return new Set(JSON.parse(store.getItem(expandedKey) || '[]')); } catch (err) { return new Set(); }
+  }
+  function writeExpanded() {
+    var panel = navPanel();
+    var store = storage();
+    if (!panel || !store) return;
+    var keys = [];
+    panel.querySelectorAll('.nav-item.is-active').forEach(function (item) {
+      var key = itemKey(item);
+      if (key) keys.push(key);
+    });
+    try { store.setItem(expandedKey, JSON.stringify(keys)); } catch (err) {}
+  }
+  function expandAncestors(item) {
+    var current = item;
+    while (current) {
+      if (current.classList && current.classList.contains('nav-item')) current.classList.add('is-active', 'is-current-path');
+      var parentList = current.parentElement;
+      current = parentList ? parentList.closest('.nav-item') : null;
+    }
+  }
+  function apiReferenceInfo() {
+    var segments = window.location.pathname.split('/').filter(Boolean);
+    for (var index = 0; index < segments.length - 2; index += 1) {
+      if (!segments[index].startsWith('beman.')) continue;
+      if (segments[index + 2] !== 'reference') continue;
+      var baseSegments = segments.slice(0, index + 3);
+      var tail = segments.slice(index + 3);
+      return {
+        component: segments[index],
+        componentLabel: segments[index].replace(/^beman\./, ''),
+        version: segments[index + 1],
+        tail: tail,
+        componentPath: '/' + segments.slice(0, index + 2).join('/') + '/index.html',
+        indexPath: '/' + baseSegments.join('/') + '/index.html'
+      };
+    }
+    return null;
+  }
+  function normalizePath(path) {
+    return path.replace(/\/$/, '/index.html');
+  }
+  function apiReferenceNavLink(info, panel) {
+    if (!info || !panel) return null;
+    var referencePrefix = info.indexPath.replace(/index\.html$/, '');
+    var match = null;
+    panel.querySelectorAll('.nav-link').forEach(function (link) {
+      if (match || link.textContent.trim() !== 'API Reference') return;
+      var linkPath = normalizePath(new URL(link.getAttribute('href'), window.location.href).pathname);
+      if (linkPath.startsWith(referencePrefix)) match = link;
+    });
+    return match;
+  }
+  function markApiReferenceNav(panel) {
+    var info = apiReferenceInfo();
+    if (!info || !panel) return null;
+    var link = apiReferenceNavLink(info, panel);
+    var match = link ? link.closest('.nav-item') : null;
+    if (link) link.classList.add('is-current-page');
+    if (match) {
+      match.classList.add('is-current-page', 'is-current-path');
+      expandAncestors(match);
+    }
+    return match;
+  }
+  function ensureNavItemVisible(panel, item) {
+    if (!panel || !item) return;
+    window.setTimeout(function () {
+      var itemTop = item.offsetTop;
+      var itemBottom = itemTop + item.offsetHeight;
+      var panelBottom = panel.scrollTop + panel.clientHeight;
+      if (itemTop < panel.scrollTop || itemBottom > panelBottom) {
+        panel.scrollTop = Math.max(0, itemTop - panel.clientHeight / 3);
+        saveScroll();
+      }
+    }, 0);
+  }
+  function expandRequiredSections(panel) {
+    panel.querySelectorAll('.nav-item').forEach(function (item) {
+      var label = itemLabel(item);
+      if (label === 'Project' || label === 'Libraries') item.classList.add('is-active');
+    });
+    panel.querySelectorAll('.nav-item.is-current-page, .nav-item.is-current-path').forEach(expandAncestors);
+    markApiReferenceNav(panel);
+  }
+  function restoreExpanded(panel) {
+    var expanded = readExpanded();
+    panel.querySelectorAll('.nav-item').forEach(function (item) {
+      if (expanded.has(itemKey(item))) item.classList.add('is-active');
+    });
+    expandRequiredSections(panel);
+  }
+  function restoreScroll(panel) {
+    var store = storage();
+    if (!store) return;
+    try {
+      var saved = parseInt(store.getItem(scrollKey) || '', 10);
+      if (!Number.isNaN(saved)) panel.scrollTop = saved;
+    } catch (err) {}
+  }
+  function saveScroll() {
+    var panel = navPanel();
+    var store = storage();
+    if (!panel || !store) return;
+    try { store.setItem(scrollKey, String(panel.scrollTop)); } catch (err) {}
+  }
+  function articleScroller() {
+    var article = document.querySelector('article.doc');
+    if (!article) return null;
+    var style = window.getComputedStyle(article);
+    if (style.overflowY === 'visible' || article.scrollHeight <= article.clientHeight + 1) return null;
+    return article;
+  }
+  function scrollArticleToHash(hash, mode) {
+    if (!hash || hash.charAt(0) !== '#') return false;
+    var article = articleScroller();
+    if (!article) return false;
+    var id = hash.slice(1);
+    try { id = decodeURIComponent(id); } catch (err) {}
+    var target = document.getElementById(id);
+    if (!target || !article.contains(target)) return false;
+    var targetTop = target.getBoundingClientRect().top - article.getBoundingClientRect().top + article.scrollTop;
+    article.scrollTo({ top: Math.max(0, targetTop - 8), behavior: mode || 'auto' });
+    window.scrollTo(0, 0);
+    return true;
+  }
+  function setActiveTocLink(link) {
+    document.querySelectorAll('.toc a.is-active').forEach(function (activeLink) {
+      activeLink.classList.remove('is-active');
+    });
+    link.classList.add('is-active');
+  }
+  function installAnchorScrolling() {
+    document.querySelectorAll('main.article a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        var hash = link.getAttribute('href');
+        if (!scrollArticleToHash(hash, 'smooth')) return;
+        event.preventDefault();
+        if (link.closest('aside.toc')) setActiveTocLink(link);
+        if (window.location.hash !== hash) window.history.pushState(null, '', hash);
+      });
+    });
+    if (window.location.hash) window.setTimeout(function () { scrollArticleToHash(window.location.hash, 'auto'); }, 0);
+    window.addEventListener('hashchange', function () { scrollArticleToHash(window.location.hash, 'auto'); });
+  }
+  function installApiReferenceContext() {
+    var info = apiReferenceInfo();
+    if (!info) return;
+    var article = document.querySelector('article.doc');
+    if (!article || article.querySelector('.api-context')) return;
+    var anchor = article.querySelector('h1.page, h1, h2, .sect1, .paragraph, .listingblock, table') || article.firstElementChild;
+    var nav = document.createElement('nav');
+    nav.className = 'api-context';
+    nav.setAttribute('aria-label', 'API reference context');
+    var crumbs = document.createElement('ol');
+    crumbs.className = 'api-breadcrumbs';
+    function addCrumb(label, href) {
+      var item = document.createElement('li');
+      if (href) {
+        var link = document.createElement('a');
+        link.href = href;
+        link.textContent = label;
+        item.appendChild(link);
+      } else {
+        item.textContent = label;
+        item.setAttribute('aria-current', 'page');
+      }
+      crumbs.appendChild(item);
+    }
+    function pathLabel() {
+      var parts = info.tail.map(function (segment) {
+        var label = segment.replace(/\.html$/, '');
+        try { label = decodeURIComponent(label); } catch (err) {}
+        return label;
+      }).filter(Boolean);
+      return parts.length ? parts.join('::') : 'API Reference';
+    }
+    function operatorLabel() {
+      var operators = {
+        operator_3way: '<=>', operator_assign: '=', operator_bitor: '|', operator_call: '()',
+        operator_eq: '==', operator_ge: '>=', operator_gt: '>', operator_le: '<=',
+        operator_lt: '<', operator_minus: '-', operator_not_eq: '!=', operator_plus: '+',
+        operator_ptr: '->', operator_star: '*', operator_subs: '[]'
+      };
+      var parts = info.tail.map(function (segment) {
+        var label = segment.replace(/\.html$/, '').replace(/-[0-9a-f]+$/, '');
+        try { label = decodeURIComponent(label); } catch (err) {}
+        return label;
+      }).filter(Boolean);
+      var name = parts[parts.length - 1];
+      if (!Object.prototype.hasOwnProperty.call(operators, name)) return null;
+      parts[parts.length - 1] = 'operator' + operators[name];
+      return parts.join('::');
+    }
+    function pageLabel() {
+      var heading = article.querySelector('h1.page, h1');
+      if (!heading) return pathLabel();
+      var label = heading.textContent.replace(/\s+/g, ' ').trim();
+      return label || pathLabel();
+    }
+    var apiLink = apiReferenceNavLink(info, navPanel());
+    var apiHref = apiLink ? apiLink.href : info.indexPath;
+    var apiPath = normalizePath(new URL(apiHref, window.location.href).pathname);
+    var isApiLandingPage = normalizePath(window.location.pathname) === apiPath;
+    addCrumb(info.componentLabel, info.componentPath);
+    addCrumb('API Reference', isApiLandingPage ? null : apiHref);
+    if (!isApiLandingPage) addCrumb(operatorLabel() || pageLabel(), null);
+    nav.appendChild(crumbs);
+    if (anchor) article.insertBefore(nav, anchor);
+    else article.appendChild(nav);
+  }
+  function install() {
+    var panel = navPanel();
+    if (panel) {
+      restoreExpanded(panel);
+      restoreScroll(panel);
+      ensureNavItemVisible(panel, markApiReferenceNav(panel));
+      panel.addEventListener('click', function () { window.setTimeout(writeExpanded, 0); });
+      panel.addEventListener('scroll', saveScroll, { passive: true });
+    }
+    installApiReferenceContext();
+    installAnchorScrolling();
+    window.addEventListener('beforeunload', function () { writeExpanded(); saveScroll(); });
+  }
+  if (document.readyState === 'complete') install();
+  else window.addEventListener('load', install);
+})();
+</script>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

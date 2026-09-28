@@ -1,0 +1,2512 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Guide :: Beman Docs</title>
+    <link rel="canonical" href="https://bemanproject.org/docs/beman.execution/latest/overview.html">
+    <meta name="generator" content="Antora 3.2.0">
+    <script>
+      (function () {
+        function getStoredTheme() {
+          try { return window.localStorage.getItem('theme'); } catch (err) { return null; }
+        }
+        var storedTheme = getStoredTheme();
+        var theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/beman-docs.css?v=12">
+  </head>
+  <body class="article">
+<header class="header site-header">
+  <nav class="navbar site-nav" aria-label="Main navigation">
+    <a class="brand" href="../../../">
+      <img src="../../../img/beman_logo.png" alt="The Beman Project Logo">
+      <span>The Beman Project</span>
+    </a>
+    <button class="navbar-burger site-nav-toggle" type="button" aria-controls="topbar-nav" aria-expanded="false">Menu</button>
+    <button class="theme-toggle theme-toggle-mobile" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+      <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+      </svg>
+      <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+      </svg>
+    </button>
+    <div class="nav-menu navbar-menu" id="topbar-nav">
+      <div class="nav-links navbar-end">
+        <a class="navbar-item" href="../../../">Home</a>
+        <a class="navbar-item active" href="../../">Docs</a>
+        <a class="navbar-item" href="../../../libraries/">Libraries</a>
+        <a class="navbar-item" href="../../../talks/">Talks</a>
+        <a class="navbar-item" href="../../../blog/">Blog</a>
+      </div>
+      <div class="social-links" aria-label="Community links">
+        <a class="social-link discourse" href="https://discourse.bemanproject.org/" aria-label="Discourse Forum"></a>
+        <a class="social-link discord" href="https://discord.com/invite/BKpNyJgSbm" aria-label="Discord"></a>
+        <a class="social-link github" href="https://github.com/bemanproject" aria-label="GitHub Repository"></a>
+        <button class="theme-toggle" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+          <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+          </svg>
+          <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+<script>
+(function () {
+  var themeToggles = document.querySelectorAll('.theme-toggle');
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    themeToggles.forEach(function (themeToggle) {
+      var label = 'Switch between dark and light mode (currently ' + theme + ' mode)';
+      themeToggle.setAttribute('aria-label', label);
+      themeToggle.setAttribute('title', label);
+      themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
+    });
+    try { window.localStorage.setItem('theme', theme); } catch (err) {}
+  }
+  setTheme(currentTheme());
+  themeToggles.forEach(function (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
+    });
+  });
+})();
+</script>
+<div class="body">
+<div class="nav-container" data-component="beman.execution" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">beman.execution</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Project</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/beman_library_maturity_model.html">Beman Library Maturity Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/beman_standard.html">Beman Standard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/mission.html">Mission</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/governance.html">Governance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../beman/latest/code_of_conduct.html">Code of Conduct</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Libraries</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">optional</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.optional/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.optional/latest/overview.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.optional/latest/reference/beman/optional.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">execution</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="index.html">Overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="overview.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="reference/beman/execution26.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">task</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">cache_latest</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cache_latest/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cache_latest/latest/development.html">Development</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cache_latest/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">copyable_function</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.copyable_function/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.copyable_function/latest/development.html">Development</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.copyable_function/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">cstring_view</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cstring_view/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cstring_view/latest/using_cstring_view.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cstring_view/latest/reference/beman/cstring_view.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">monadics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/tutorial.html">Tutorial</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/design_rationale.html">Design Rationale</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/reference/beman/monadics.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">scope</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.scope/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.scope/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.scope/latest/reference/beman/scope.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">transform_view</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.transform_view/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.transform_view/latest/intro.html">Intro</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.transform_view/latest/reference/beman/transform_view.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">beman.execution</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../beman/latest/index.html">Beman Project</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.cache_latest/latest/index.html">beman.cache_latest</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.cache_latest/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.copyable_function/latest/index.html">beman.copyable_function</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.copyable_function/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.cstring_view/latest/index.html">beman.cstring_view</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.cstring_view/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="index.html">beman.execution</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.monadics/latest/index.html">beman.monadics</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.monadics/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.optional/latest/index.html">beman.optional</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.optional/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.scope/latest/index.html">beman.scope</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.scope/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.task/latest/index.html">beman.task</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.task/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.transform_view/latest/index.html">beman.transform_view</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.transform_view/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../beman/latest/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">beman.execution</a></li>
+    <li>Libraries</li>
+    <li>execution</li>
+    <li><a href="overview.html">Guide</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Guide</h1>
+<div class="sect1">
+<h2 id="_stdexecution_overview"><a class="anchor" href="#_stdexecution_overview"></a>std::execution Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This page provides an overview of the components in <code>std::execution</code>. The documentation on this page doesn’t represent all details of the specification. However, it should capture enough details to be a suitable resource to determine how the various components are used.</p>
+</div>
+<div class="paragraph">
+<p>For each of the components a summary view is provided. To get more details expand the respective section.</p>
+</div>
+<div class="sect2">
+<h3 id="_terms"><a class="anchor" href="#_terms"></a>Terms</h3>
+<div class="paragraph">
+<p>This section defines a few terms used throughout the description on this page. The terms aren’t taken from the specification and are, thus, somewhat informal.</p>
+</div>
+<details>
+<summary class="title">completion signal</summary>
+<div class="content">
+<div class="paragraph">
+<p>When an asynchronous operation completes it <em>signals</em> its completion by calling a completion function on a <code>receiver</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>std::execution::set_value(_receiver_, _args_&#8230;&#8203;)</code> is called when an operation completes successfully. A call to this completion function is referred to as <em>value completion signal</em>.</p>
+</li>
+<li>
+<p><code>std::execution::set_error(_receiver_, _error_)</code> is called when an operation fails to deliver its success results. A call to this completion function is referred to as <em>error completion signal</em>.</p>
+</li>
+<li>
+<p><code>std::execution::set_stopped()</code> is called when an operation was cancelled. A call to this completion function is referred to as <em>cancellation completion signal</em>.</p>
+</li>
+<li>
+<p>Collectively the value, error, and cancellation completion signals are referred to as <em>completion signal</em>. Note that any `start`ed asynchronous operation triggers exactly one completion signal.</p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">environment</summary>
+<div class="content">
+<div class="paragraph">
+<p>The term <em>enviroment</em> refers to the bag of properties associated with an <code>_object_</code> by the call <code>std::execution::get_env(_object_)</code>. By default the environment for objects is empty (<code>std::execution::env&lt;&gt;</code>). In particular, environments associated with <code>receiver`s are used to provide access to properties like the stop token, scheduler, or allocator associated with the `receiver</code>. The various properties associated with an object are accessed via queries.</p>
+</div>
+</div>
+</details>
+</div>
+<div class="sect2">
+<h3 id="_concepts"><a class="anchor" href="#_concepts"></a>Concepts</h3>
+<div class="paragraph">
+<p>This section lists the concepts from <code>std::execution</code>.</p>
+</div>
+<details>
+<summary class="title"><code>inlinable_receiver&lt;<i>Rcvr</i>, <i>Child</i>&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The concecpt <code>inlinable_receiver&lt;Rcvr, Child&gt;</code> detects if a receiver of type <code>Rcvr</code> can be obtained from a <code>Child</code> reference using <code>Rcvr::make_receiver_for(child)</code>. It is unspecified if any of the standard library receivers is a <code>inlinable_receiver</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>operation_state&lt;<i>State</i>&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>Operation states represent asynchronous operations ready to be `start`ed or executing. Operation state objects are normally neither movable nor copyable. Once `start`ed the object needs to be kept alive until a completion signal is received. Users don’t interact with operation states explicitly except when implementing new sender algorithms.</p>
+</div>
+<div class="paragraph">
+<p>Required members for <code>_State_</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The type <code>operation_state_concept</code> is an alias for <code>operation_state_tag</code> or a type derived thereof.</p>
+</li>
+<li>
+<p><code>state.start() &amp; noexcept</code></p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title">Example</summary>
+<div class="content">
+<div class="paragraph">
+<p>This example shows a simple operation state object which immediately completes successfully without any values (as <code>()</code> would do). Normally <code>start()</code> initiates an asynchronous operation completing at some point later.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">template &lt;std::execution::receiver Receiver&gt;
+struct example_state
+{
+    using operation_state_concept = std::execution::operation_state_tag;
+    std::remove_cvref_t&lt;Receiver&gt; receiver;
+
+    auto start() &amp; noexcept {
+        std::execution::set_value(std::move(this-&gt;receiver));
+    }
+};
+
+static_assert(std::execution::operation_state&lt;example_state&lt;SomeReceiver&gt;&gt;);</code></pre>
+</div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details>
+<summary class="title"><code>receiver&lt;<i>Receiver</i>&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>Receivers are used to receive completion signals: when an asynchronous operation completes the corresponding completion signal is called with the appropriate arguments. In addition receivers provide access to the environment for the operation via the <code>get_env</code> method. Users don’t interact with receivers explicitly except when implementing new sender algorithms.</p>
+</div>
+<div class="paragraph">
+<p>Required members for <code>_Receiver_</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The type <code>receiver_concept</code> is an alias for <code>receiver_tag</code> or a type derived thereof`.</p>
+</li>
+<li>
+<p>Rvalues of type <code>_Receiver_</code> are movable.</p>
+</li>
+<li>
+<p>Lvalues of type <code>_Receiver_</code> are copyable.</p>
+</li>
+<li>
+<p><code>std::execution::get_env(_receiver_)</code> returns an object. By default this operation returns <code>std::execution::env&lt;&gt;</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Typical members for <code>_Receiver_</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>get_env() const noexcept</code></p>
+</li>
+<li>
+<p><code>set_value(args…) &amp;&amp; noexcept -&gt; void</code></p>
+</li>
+<li>
+<p><code>set_error(error) &amp;&amp; noexcept -&gt; void</code></p>
+</li>
+<li>
+<p><code>set_stopped() &amp;&amp; noexcept -&gt; void</code></p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title">Example</summary>
+<div class="content">
+<div class="paragraph">
+<p>The example receiver prints the name of each the received completion signal before forwarding it to a receiver. It forwards the request for an environment (<code>get_env</code>) to the nested receiver. This example is resembling a receiver as it would be used by a sender injecting logging of received signals.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">template &lt;std::execution::receiver NestedReceiver&gt;
+struct example_receiver
+{
+    using receiver_concept = std::execution::receiver_tag;
+    std::remove_cvref_t&lt;NestedReceiver&gt; nested;
+
+    auto get_env() const noexcept {
+        return std::execution::get_env(this-&gt;nested);
+    }
+    template &lt;typename… A&gt;
+    auto set_value(A&amp;&amp;… a) &amp;&amp; noexcept -&gt; void {
+        std::cout &lt;&lt; “set_value\n”;
+        std::execution::set_value(std::move(this-&gt;nested), std::forward&lt;A&gt;(a)…);
+    }
+    template &lt;typename E&gt;
+    auto set_error(E&amp;&amp; e) &amp;&amp; noexcept -&gt; void {
+        std::cout &lt;&lt; “set_error\n”;
+        std::execution::set_error(std::move(this-&gt;nested), std::forward&lt;E&gt;(e));
+    }
+    auto set_stopped() &amp;&amp; noexcept -&gt; void {
+        std::cout &lt;&lt; “set_stopped\n”;
+        std::execution::set_stopped(std::move(this-&gt;nested));
+    }
+};
+
+static_assert(std::execution::receiver&lt;example_receiver&lt;SomeReceiver&gt;&gt;);</code></pre>
+</div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details>
+<summary class="title"><code>receiver_of&lt;<i>Receiver, Completions</i>&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The concept <code>receiver_of&lt;Receiver, Completions&gt;</code> tests whether <code>std::execution::receiver&lt;_Receiver_&gt;</code> is true and if an object of type <code>_Receiver_</code> can be invoked with each of the completion signals in <code>_Completions_</code>.</p>
+</div>
+<details>
+<summary class="title">Example</summary>
+<div class="content">
+<div class="paragraph">
+<p>The example defines a simple <code>receiver</code> and tests whether it models <code>receiver_of</code> with different completion signals in <code>_Completions_</code> (note that not all cases are true).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">struct example_receiver
+{
+    using receiver_concept = std::execution::receiver_tag;
+
+    auto set_value(int) &amp;&amp; noexcept -&gt;void {}
+    auto set_stopped() &amp;&amp; noexcept -&gt;void {}
+};
+
+
+// matching the exact signals models receiver_of:
+static_assert(std::execution::receiver_of&lt;example_receiver,
+    std::execution::completion_signals&lt;
+        std::execution::set_value_t(int),
+        std::execution::set_stopped_t()
+    &gt;);
+// providing a superset of signal models models receiver_of:
+static_assert(std::execution::receiver_of&lt;example_receiver,
+    std::execution::completion_signals&lt;
+        std::execution::set_value_t(int)
+    &gt;);
+// providing only a subset of signals doesn’t model receiver_of:
+static_assert(not std::execution::receiver_of&lt;example_receiver,
+    std::execution::completion_signals&lt;
+        std::execution::set_value_t(),
+        std::execution::set_value_t(int)
+    &gt;);</code></pre>
+</div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details>
+<summary class="title"><code>scheduler&lt;<i>Scheduler</i>&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>Schedulers are used to specify the execution context where the asynchronous work is to be executed. A scheduler is a lightweight handle providing a <code>schedule</code> operation yielding a <code>sender</code> with a value completion signal without parameters. The completion is on the respective execution context.</p>
+</div>
+<div class="paragraph">
+<p>Requirements for <code>_Scheduler_</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The type <code>_Scheduler_::scheduler_concept</code> is an alias for <code>scheduler_tag</code> or a type derived thereof.</p>
+</li>
+<li>
+<p><code>schedule(_scheduler_) -&gt; sender</code></p>
+</li>
+<li>
+<p>The value completion scheduler of the <code>sender</code>’s environment is the <code>_scheduler_</code>:</p>
+<div class="paragraph">
+<p><em>scheduler</em> == std::execution::get_completion_schedulerstd::execution::set_value_t( std::execution::get_env(std::execution::schedule(<em>scheduler</em>)) )</p>
+</div>
+</li>
+<li>
+<p><code>std::equality_comparable&lt;_Scheduler_&gt;</code></p>
+</li>
+<li>
+<p><code>std::copy_constructible&lt;_Scheduler_&gt;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>sender&lt;<i>Sender</i>&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>Senders represent asynchronous work. They may get composed from multiple senders to model a workflow. Senders can’t be run directly. Instead, they are passed to a sender consumer which <code>connect`s the sender to a `receiver</code> to produce an <code>operation_state</code> which may get started. When using senders to represent work the inner workings shouldn’t matter. They do become relevant when creating sender algorithms.</p>
+</div>
+<div class="paragraph">
+<p>Requirements for <code>_Sender_</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The type <code>_Sender_::sender_concept</code> is an alias for <code>sender_tag</code> or a type derived thereof or <code>_Sender_</code> is a suitable <em>awaitable</em>.</p>
+</li>
+<li>
+<p><code>std::execution::get_env(_sender_)</code> is valid. By default this operation returns <code>std::execution::env&lt;&gt;</code>.</p>
+</li>
+<li>
+<p>Rvalues of type <code>_Sender_</code> can be moved.</p>
+</li>
+<li>
+<p>Lvalues of type <code>_Sender_</code> can be copied.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Typical members for <code>_Sender_</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>get_env() const noexcept</code></p>
+</li>
+<li>
+<p><code>get_completion_signatures(_env_) const noexcept -&gt; std::execution::completion_signatures&lt;&#8230;&#8203;&gt;</code></p>
+</li>
+<li>
+<p><code>_Sender_::completion_signatures</code> is a type alias for <code>std::execution::completion_signatures&lt;&#8230;&#8203;&gt;</code> (if there is no <code>get_completion_signatures</code> member).</p>
+</li>
+<li>
+<p><code>connect(_sender_, receiver) -&gt; operation_state</code></p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title">Example</summary>
+<div class="content">
+<div class="paragraph">
+<p>The example shows a sender implementing an operation similar to <code>just(_value)</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">struct example_sender
+{
+    template &lt;std::execution::receiver Receiver&gt;
+    struct state
+    {
+        using operation_state_concept = std::execution::operation_state_tag;
+        std::remove_cvref_t&lt;Receiver&gt; receiver;
+        int                           value;
+        auto start() &amp; noexcept {
+            std::execution::set_value(
+                std::move(this-&gt;receiver),
+                this-&gt;value
+            );
+        }
+    };
+    using sender_concept = std::execution::sender_tag;
+    using completion_signatures = std::execution::completion_signatures&lt;
+        std::execution::set_value_t(int)
+    &gt;;
+
+    int value{};
+    template &lt;std::execution::receiver Receiver&gt;
+    auto connect(Receiver&amp;&amp; receiver) const -&gt; state&lt;Receiver&gt; {
+        return { std::forward&lt;Receiver&gt;(receiver), this-&gt;value };
+    }
+};
+
+static_assert(std::execution::sender&lt;example_sender&gt;);</code></pre>
+</div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details>
+<summary class="title"><code>sender_in&lt;<i>Sender, Env</i> = std::execution::env&lt;&gt;&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The concept <code>sender_in&lt;Sender, Env&gt;</code> tests whether <code>_Sender_</code> is a <code>sender</code>, <code>_Env_</code> is a destructible type, and <code>std::execution::get_completion_signatures&lt;_Sender_, _Env_&gt;()</code> yields a specialization of <code>std::execution::completion_signatures</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code><i>sender-to</i>&lt;<i>Sender, Receiver</i>&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The concept <code>sender-to&lt;Sender, Receiver&gt;</code> tests if <code>std::execution::sender_in&lt;_Sender_, std::execution::env_of_t&lt;_Receiver_&gt;&gt;</code> is true, and if <code>_Receiver_</code> can receive all completion signals which can be sent by <code>_Sender_</code>, and if <code>_Sender_</code> can be <code>connect`ed to `_Receiver_</code>.</p>
+</div>
+<div class="paragraph">
+<p>To determine if <code>_Receiver_</code> can receive all completion signals from <code>_Sender_</code> it checks that for each <code>_Signature_</code> in <code>std::execution::get_completion_signals(_sender_, std::declval&lt;std::execution::env_of_t&lt;_Receiver_&gt;&gt;())</code> the test <code>std::execution::receiver_of&lt;_Receiver_, _Signature_&gt;</code> yields true. To determine if <code>_Sender_</code> can be <code>connect`ed to `_Receiver_</code> the concept checks if <code>connect(std::declval&lt;_Sender_&gt;(), std::declval&lt;_Receiver_&gt;)</code> is a valid expression.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>sends_stopped&lt;<i>Sender, Env</i> = std::execution::env&lt;&gt;&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The concept <code>sends_stopped&lt;Sender, Env&gt;</code> determines if <code>_Sender_</code> may send a <code>stopped</code> completion signal. To do so, the concepts determines if <code>std::execution::get_completion_signals(_sender_, _env_)</code> contains the signatures <code>std::execution::set_stopped_t()</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>stoppable_token&lt;<i>Token</i>&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>A <code>stoppable_token&lt;Token&gt;</code>, e.g., obtained via <code>std::execution::get_stop_token(env)</code> is used to support cancellation of asynchronous operations. Using <code>token.stop_requested()</code> an active operation can poll whether it was requested to cancel. An inactive operation waiting for a notification can use an object of a specialization of the template <code>Token::callback_type</code> to get notified when cancellation is requested.</p>
+</div>
+<div class="paragraph">
+<p>Required members for <code>_Token_</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Token::callback_type&lt;Callback&gt;</code> can be specialized with a <code>std::callable&lt;Callback&gt;</code> type.</p>
+</li>
+<li>
+<p><code>token.stop_requested() const noexcept -&gt; bool</code></p>
+</li>
+<li>
+<p><code>token.stop_possible() const noexcept -&gt; bool</code></p>
+</li>
+<li>
+<p><code>std::copyable&lt;Token&gt;</code></p>
+</li>
+<li>
+<p><code>std::equality_comparable&lt;Token&gt;</code></p>
+</li>
+<li>
+<p><code>std::swappable&lt;Token&gt;</code></p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title">Example: concept use</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">static_assert(std::execution::unstoppable_token&lt;std::execution::never_stop_token&gt;);
+static_assert(std::execution::unstoppable_token&lt;std::execution::stop_token&gt;);
+static_assert(std::execution::unstoppable_token&lt;std::execution::inline_stop_token&gt;);</code></pre>
+</div>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">Example: polling</summary>
+<div class="content">
+<div class="paragraph">
+<p>This example shows a sketch of using a <code>stoppable_token&lt;Token&gt;</code> to cancel an active operation. The computation in this example is represented as <code>sleep_for</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">void compute(std::stoppable_token auto token)
+{
+    using namespace std::chrono::literals;
+    while (not token.stop_requested()) {
+         std::this_thread::sleep_for(1s);
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</details>
+<details>
+<summary class="title">Example: inactive</summary>
+<div class="content">
+<div class="paragraph">
+<p>This example shows how an <code>operation_state</code> can use the <code>callback_type</code> together with a <code>token</code> to get notified when cancellation is requested.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">template &lt;std::execution::receiver Receiver&gt;
+struct example_state
+{
+    struct on_cancel
+    {
+        example_state&amp; state;
+        auto operator()() const noexcept {
+            this-&gt;state.stop();
+        }
+    };
+    using operation_state_concept = std::execution::operation_state_tag;
+    using env = std::execution::env_of_t&lt;Receiver&gt;;
+    using token = std::execution::stop_callback_of_t&lt;env&gt;;
+    using callback = std::execution::stop_callback_of_t&lt;token, on_cancel&gt;;
+    std::remove_cvref_t&lt;Receiver&gt; receiver;
+    std::optional&lt;callback&gt;       cancel{};
+    std::atomic&lt;std::size_t&gt;      outstanding{};
+    auto start() &amp; noexcept {
+        this-&gt;outstanding += 2u;
+        this-&gt;cancel.emplace(
+            std::execution::get_stop_token(this-&gt;receiver),
+            on_cancel{*this}
+        );
+        if (this-&gt;outstanding != 2u)
+           std::execution::set_stopped(std::move(this-&gt;receiver));
+        else {
+           register_work(this);
+           if (this-&gt;outstanding == 0u)
+               std::execution::set_value(std::move(this-&gt;receiver));
+        }
+    }
+    auto stop() {
+        unregister_work(this);
+        if (--this-&gt;outstanding == 0u)
+            std::execution::set_stopped(std::move(this-&gt;receiver));
+    }
+    auto complete() {
+        if (this-&gt;outstanding == 2u) {
+            this-&gt;cancel.reset();
+            std::execution::set_value(std::move(this-&gt;receiver));
+        }
+    }
+};</code></pre>
+</div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details>
+<summary class="title"><code>unstoppable_token&lt;<i>Token</i>&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The concept <code>unstoppable_token&lt;Token&gt;</code> is modeled by a <code>Token</code> if <code>stoppable_token&lt;Token&gt;</code> is true and it can statically be determined that both <code>token.stop_requested()</code> and <code>token.stop_possible()</code> are <code>constexpr</code> epxressions yielding <code>false</code>. This concept is used to avoid extra work when using stop tokens which will never indicate that cancellations are requested.</p>
+</div>
+<details>
+<summary class="title">Example</summary>
+<div class="content">
+<div class="paragraph">
+<p>The concept yields <code>true</code> for the <code>std::execution::never_stop_token</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">static_assert(std::execution::unstoppable_token&lt;std::execution::never_stop_token&gt;);
+static_assert(not std::execution::unstoppable_token&lt;std::execution::stop_token&gt;);
+static_assert(not std::execution::unstoppable_token&lt;std::execution::inline_stop_token&gt;);</code></pre>
+</div>
+</div>
+</div>
+</details>
+</div>
+</details>
+</div>
+<div class="sect2">
+<h3 id="_queries"><a class="anchor" href="#_queries"></a>Queries</h3>
+<div class="paragraph">
+<p>The queries are used to obtain properties associated with an object.</p>
+</div>
+<details>
+<summary class="title">Example defining a query on an environment</summary>
+<div class="content">
+<div class="paragraph">
+<p>This example shows how to define an environment class which provides a <code>get_allocator</code> query. The objects stores a <code>std::pmr::memory_resource*</code> and returns a correspondingly initialized <code>std::pmr::polymorphic_allocator&lt;&gt;</code>.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>struct alloc_env {
+   std::pmr::memory_resource res{std::pmr::new_delete_resource()};
+
+   auto query(get_allocator_t const&amp;) const noexcept {
+       return std::pmr::polymorphic_allocator&lt;&gt;(this-&gt;res);
+   }
+};</pre>
+</div>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>forwarding_query(<i>query</i>) -> bool</code></summary>
+<div class="content">
+<div class="paragraph">
+<p><strong>Default</strong>: <code>false</code></p>
+</div>
+<div class="paragraph">
+<p>The expression <code>forwarding_query(query)</code> is a <code>constexpr</code> query used to determine if the query <code>query</code> should be forwarded when wrapping an environment. The expression is required to be a core constant expression if <code>query</code> is a core constant expression.</p>
+</div>
+<div class="paragraph">
+<p>The result of the expression is determined as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The result is the value of the expression <code>query.query(forwarding_query)</code> if this expression is valid and <code>noexcept</code>.</p>
+</li>
+<li>
+<p>The result is <code>true</code> if the type of <code>query</code> is <code>public`ly derived from `forwarding_query</code>.</p>
+</li>
+<li>
+<p>Otherwise the result is <code>false</code>.</p>
+</li>
+</ol>
+</div>
+<details>
+<summary class="title">Example</summary>
+<div class="content">
+<div class="paragraph">
+<p>When defining a custom query <code>custom</code> it is desirable to allow the query getting forwarded. It is necessary to explicit define the result of <code>forwarding_query(custom)</code>. The result can be defined by providing a corresponding <code>query</code> member function. When using this approach the function isn’t allowed to throw, needs to return <code>bool</code>, and needs to be a core constant expression:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>struct custom_t {
+    // ...
+    constexpr bool query(forwarding_query_t const&amp;) const noexcept {
+        return true;
+    }
+};
+inline constexpr custom_t custom{};</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, the query can be defined as forwarding by deriving publicly from <code>forwarding_query_t</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>struct custom_t: forwarding_query_t {
+    // ...
+};</pre>
+</div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details>
+<summary class="title"><code>get_await_completion_adaptor(<i>queryable</i>) -> <i>awaiter</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>If the expression <code>get_await_completion_adaptor(queryable)</code> is valid it yields an awaiter depending on the <code>queryable</code>. This query is used while getting an awaiter from a sender.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>get_env(<i>queryable</i>) -> <i>env</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p><strong>Default</strong>: <a href="#env">env&lt;&gt;</a></p>
+</div>
+<div class="paragraph">
+<p>The expression <code>get_env(queryable)</code> is used to get the environment <code>env</code> associated with <code>queryable</code>. To provide a non-default environment for a <code>queryable</code> a <code>get_env</code> member needs to be defined. If <code>queryable</code> doesn’t provide the <code>get_env</code> query an object of type <code>env&lt;&gt;</code> is returned. The value of the expression is</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the result of <code>as_const(queryable).get_env()</code> if this expression is valid and <code>noexcept</code>.</p>
+<details>
+<summary class="title">Example</summary>
+<div class="content">
+<div class="paragraph">
+<p>The example defines an environment class <code>env</code> which stores a pointer to the relevant data and is returned as the environment for the type <code>queryable</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">struct data { /*...*/ };
+
+struct env { data* d; /* ... */ };
+
+struct queryable {
+    data* d;
+    // ...
+    env get_env() const noexcept { return { this-&gt;d }; }
+};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the <code>get_env</code> member is both <code>const</code> and <code>noexcept</code>.</p>
+</div>
+</div>
+</details>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>get_allocator(<i>env</i>) -> <i>allocator</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p><strong>Default</strong>: <em>none</em></p>
+</div>
+<div class="paragraph">
+<p>The expression <code>get_allocator(env)</code> returns an <code>allocator</code> for any memory allocations in the respective context. If <code>env</code> doesn’t support this query any attempt to access it will result in a compilation error. The value of the expression <code>get_allocator(env)</code> is the result of <code>as_const(env).query(get_allocator)</code> if</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the expression is valid;</p>
+</li>
+<li>
+<p>the expression is <code>noexcept</code>;</p>
+</li>
+<li>
+<p>the result of the expression satisfies <code>simple-allocator</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Otherwise the expression is ill-formed.</p>
+</div>
+<details>
+<summary class="title">Example</summary>
+<div class="content">
+<div class="paragraph">
+<p>This example shows how to define an environment class which provides a <code>get_allocator</code> query. The objects stores a <code>std::pmr::memory_resource*</code> and returns a correspondingly initialized <code>std::pmr::polymorphic_allocator&lt;&gt;</code>.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>struct alloc_env {
+   std::pmr::memory_resource res{std::pmr::new_delete_resource()};
+
+   auto query(get_allocator_t const&amp;) const noexcept {
+       return std::pmr::polymorphic_allocator&lt;&gt;(this-&gt;res);
+   }
+};</pre>
+</div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details>
+<summary class="title"><code>get_completion_domain&lt;<i>Tag</i>&gt;(<i>attrs</i>) -> <i>domain</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p><strong>Default</strong>: <em>none</em></p>
+</div>
+<div class="paragraph">
+<p>The expression <code>get_completion_domain&lt;Tag&gt;(attrs)</code> yields the completion domain for the completion signal <code>Tag</code> associated with the sender <code>attrs</code>. This query can be used to determine the domain a sender <code>sender</code> completes on for a given completion signal <code>Tag</code> by using <code>get_completion_domain&lt;Tag&gt;(get_env(sender), ev&#8230;&#8203;)</code>. The value of the expression is</p>
+</div>
+<div class="paragraph">
+<p>Otherwise the expression is invalid.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>get_completion_scheduler&lt;<i>Tag</i>&gt;(<i>env</i>) -> <i>scheduler</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p><strong>Default</strong>: <em>none</em></p>
+</div>
+<div class="paragraph">
+<p>The expression <code>get_completion_scheduler&lt;Tag&gt;(env)</code> yields the completion scheduler for the completion signal <code>Tag</code> associated with <code>env</code>. This query can be used to determine the scheduler a sender <code>sender</code> completes on for a given completion signal <code>Tag</code> by using <code>get_completion_scheduler&lt;Tag&gt;(get_env(sender))</code>. The value of the expression is equivalent to <code>as_const(env).query(get_completion_scheduler&lt;Tag&gt;)</code> if</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Tag</code> is one of the types <code>set_value_t</code>, <code>set_error_t</code>, or <code>set_stopped_t</code>;</p>
+</li>
+<li>
+<p>this expression is valid;</p>
+</li>
+<li>
+<p>this expression is <code>noexcept</code>;</p>
+</li>
+<li>
+<p>the expression’s type satisfies <code>scheduler</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Otherwise the expression is invalid.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>get_completion_signatures(<i>sender</i>, <i>env</i>)</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>get_completion_signatures(sender, env)</code> returns an object whose type is a specialization of <code>completion_signatures</code> defining the possible completion signatures of <code>sender</code> when connected to a <code>receiver</code> whose &lt;a href=‘#environment'&gt;environment <code>get_env(receiver)</code> is <code>env</code>. A <code>sender</code> can define the result of this query either by defining a member function <code>get_completion_signatures</code> or using a type alias <code>completion_signatures</code>.</p>
+</div>
+<div class="paragraph">
+<p>To determine the result the <code>sender</code> is first transformed using <code>transform_sender(domain, sender, env)</code> to get <code>new-sender</code> with type <code>New-Sender-Type</code>. With that the result type is</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>the type of <code>new-sender.get_completion_signatures(env)</code> if this expression is valid;</p>
+</li>
+<li>
+<p>the type <code>remove_cvref_t&lt;New-Sender-Type&gt;::completion_signatures</code> if this type exists;</p>
+</li>
+<li>
+<p><code>completion_signatures&lt;set_value_t(T), set_error_t(exception_ptr), set_stopped_t()&gt;</code> if <code>New-Sender-Type</code> is an awaitable type which would yield an object of type <code>T</code> when it is `co_await`ed;</p>
+</li>
+<li>
+<p>invalid otherwise.</p>
+</li>
+</ol>
+</div>
+<details>
+<summary class="title">Example</summary>
+<div class="content">
+<div class="paragraph">
+<p>Even when a <code>sender</code> doesn’t need to compute the completion signatures based on an environment it is necessary to provide <code>get_completion_signatures</code> member function, e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">struct sender {
+    using sender_concept = std::execution::sender_tag;
+    template &lt;typename...&gt;
+    static consteval void get_completion_signatures() {
+        return std::completion_signatures&lt;
+            std::execution::set_value_t(int),
+            std::execution::set_error_t(std::error_code),
+            std::execution::set_stopped()
+        &gt;{};
+    }
+    // ...
+};</code></pre>
+</div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details>
+<summary class="title"><code>get_delegation_scheduler(<i>env</i>) -> <i>scheduler</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>get_delegation_scheduler(env)</code> yields the scheduler associated with <code>env</code> which is used for forward progress delegation. The value of the expression is equivalent to <code>as_const(env).query(get_delegation_scheduler) -&gt; scheduler</code> if</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>this expression is valid;</p>
+</li>
+<li>
+<p>this expression is <code>noexcept</code>;</p>
+</li>
+<li>
+<p>the expression’s type satisfies <code>scheduler</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Otherwise the expression is invalid.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>get_domain(<i>env</i>) -> <i>domain</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>get_domain(env)</code> yields the domain associated with <code>env</code>. The value of the expression is equivalent to return <code>D()</code> where <code>D</code> is the type of the expression</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>auto(as_const(env).query(get_domain))</code> if this expression is valid;</p>
+</li>
+<li>
+<p>otherwise, <code>get_completion_domain&lt;set_value_t&gt;(get_scheduler(env), HIDE-SCHED(env))</code> if this expression is valid;</p>
+</li>
+<li>
+<p><code>default_domain()</code> (except <code>env</code> is evaluated).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Otherwise the expression is invalid.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>get_forward_progress_guarantee(<i>scheduler</i>) -> forward_progress_guarantee</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>get_forward_progress_guarantee(scheduler)</code> yields the forward progress guarantee of the <em>scheduler</em>’s execution agent. The value of the expression is equivalent to <code>as_const(env).query(get_forward_progress_guarantee)</code> if</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>this expression is valid;</p>
+</li>
+<li>
+<p>this expression is <code>noexcept</code>;</p>
+<div class="paragraph">
+<p>Otherwise the expression is invalid.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>get_scheduler(<i>env</i>) -> <i>scheduler</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>get_scheduler(env)</code> yields the scheduler associated with <code>env</code>. The value of the expression is equivalent to <code>as_const(env).query(get_scheduler)</code> if</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>this expression is valid;</p>
+</li>
+<li>
+<p>this expression is <code>noexcept</code>;</p>
+<div class="paragraph">
+<p>Otherwise the expression is invalid.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>get_start_scheduler(<i>env</i>) -> <i>scheduler</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>get_start_scheduler(env)</code> yields the scheduler associated with <code>env</code>. The value of the expression is equivalent to <code>as_const(env).query(get_scheduler)</code> if</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>this expression is valid;</p>
+</li>
+<li>
+<p>this expression is <code>noexcept</code>;</p>
+<div class="paragraph">
+<p>Otherwise the expression is invalid.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If the expression <code>get_start_scheduler(get_env(rcvr))</code> is well-formed it should yield the scheduler the operation state resulting from <code>connect(sndr, rcvr)</code> gets `start`ed on.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>get_stop_token(<i>env</i>) -> <i>stoppable_token</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>get_stop_token(env)</code> yields the stop token associated with <code>env</code>. The value is the result of the expression <code>as_const(env).query(get_stop_token)</code> if</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the expression is valid;</p>
+</li>
+<li>
+<p>the expression is <code>noexcept</code>;</p>
+</li>
+<li>
+<p>the expression satisfies <code>stoppable_token</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Otherwise the value is <code>never_stop_token{}</code>.</p>
+</div>
+</div>
+</details>
+</div>
+<div class="sect2">
+<h3 id="_customization_point_objects"><a class="anchor" href="#_customization_point_objects"></a>Customization Point Objects</h3>
+<details>
+<summary class="title"><code>connect(<i>sender</i>, <i>receiver</i>) -> <i>operation_state</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>connect(sender, receiver)</code> combines <code>sender</code> and <code>receiver</code> into an operation state <code>state</code>. When this <code>state</code> gets started using <code>start(state)</code> the operation represented by <code>sender</code> gets started and reports its completion to <code>receiver</code> or an object copied or moved from <code>receiver</code>. While the operation state <code>state</code> isn’t started it can be destroyed but once it got started it needs to stay valid until one of the completion signals is called on <code>receiver</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>set_error(<i>receiver</i>, <i>error</i>) noexcept -> void</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>set_error(receiver, error)</code> invokes the <code>set_error</code> completion signal on <code>receiver</code> with the argument <code>error</code>, i.e., it invokes <code>receiver.set_error(error)</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>set_stopped(<i>receiver</i>) noexcept -> void</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>set_stopped(receiver)</code> invokes the <code>set_stopped</code> completion signal on <code>receiver</code>, i.e., it invokes <code>receiver.set_stopped()</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>set_value(<i>receiver</i>, <i>value</i>...) noexcept -> void</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>set_value(receiver, value&#8230;&#8203;)</code> invokes the <code>set_value</code> completion signal on <code>receiver</code> with the argument(s) <code>value&#8230;&#8203;</code>, i.e., it invokes <code>receiver.set_value(value&#8230;&#8203;)</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>start(<i>state</i>) noexcept -> void</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>start(state)</code> starts the execution of the <code>operation_state</code> object <code>state</code>. Once this expression started executing the object <code>state</code> is required to stay valid at least until one of the completion signals of <code>state</code>’s <code>receiver</code> is invoked. Once started exactly one of the completion signals is eventually called.</p>
+</div>
+</div>
+</details>
+</div>
+<div class="sect2">
+<h3 id="_senders"><a class="anchor" href="#_senders"></a>Senders</h3>
+<div class="sect3">
+<h4 id="_sender_factories"><a class="anchor" href="#_sender_factories"></a>Sender Factories</h4>
+<div class="paragraph">
+<p>Sender factories create a sender which forms the start of a graph of lazy work items.</p>
+</div>
+<details>
+<summary class="title"><code>just(<i>value...</i>) -> <i>sender-of</i>&lt;set_value_t(<i>Value...</i>)&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>just(value&#8230;&#8203;)</code> creates a sender which sends <code>value&#8230;&#8203;</code> on the <code>set_value</code> (success) channel when started (note that <code>value&#8230;&#8203;</code> can be empty).</p>
+</div>
+<div class="paragraph">
+<p><strong>Completions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>set_value_t(decltype(value)&#8230;&#8203;)</code></p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>just_error(<i>error</i>) -> <i>sender-of</i>&lt;set_error_t(<i>Error</i>)&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>just_error(error)</code> creates a sender which sends <code>error</code> on the <code>set_error</code> (failure) channel when started.</p>
+</div>
+<div class="paragraph">
+<p><strong>Completions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>set_error_t(decltype(error))</code></p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>just_stopped() -> <i>sender-of</i>&lt;set_stopped_t()&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>just_stopped()</code> creates a sender which sends a completion on the <code>set_stopped</code> (cancellation) channel when started.</p>
+</div>
+<div class="paragraph">
+<p><strong>Completions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>set_stopped_t()</code></p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>read_env(<i>query</i>) -> <i>sender-of</i>&lt;set_value_t(<i>query-result</i>)&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>read_env(query)</code> creates a sender which sends the result of querying <code>query</code> the environment of the <code>receiver</code> it gets connected to on the <code>set_value</code> channel when started. Put differently, it calls <code>set_value(move(receiver), query(get_env(receiver)))</code>. For example, in a coroutine it may be useful to extra the stop token associated with the coroutine which can be done using <code>read_env</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">auto token = co_await read_env(get_stop_token);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Completions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>set_value_t(decltype(query(get_env(receiver))))</code></p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>schedule(<i>scheduler</i>) -> <i>sender-of</i>&lt;set_value_t()&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>schedule(scheduler)</code> creates a sender which upon success completes on the <code>set_value</code> channel without any arguments running on the execution context associated with <code>scheduler</code>. Depending on the scheduler it is possible that the sender can complete with an error if the scheduling fails or using <code>set_stopped()</code> if the operation gets cancelled before it is successful.</p>
+</div>
+<div class="paragraph">
+<p><strong>Completions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>set_value_t()</code> upon success</p>
+</li>
+<li>
+<p><code>set_error_t(Error)</code> upon failure if <code>scheduler</code> may fail</p>
+</li>
+<li>
+<p><code>set_stopped_t()</code> upon cancellation if <code>scheduler</code> supports cancellation</p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+</div>
+<div class="sect3">
+<h4 id="_sender_adaptors"><a class="anchor" href="#_sender_adaptors"></a>Sender Adaptors</h4>
+<div class="paragraph">
+<p>The sender adaptors take one or more senders and adapt their respective behavior to complete with a corresponding result. The description uses the informal function <code>completions-of(sender)</code> to represent the completion signatures which <code>sender</code> produces. Also, completion signatures are combined using <code>&#43;</code>: the result is the deduplicated set of the combined completion signatures.</p>
+</div>
+<details>
+<summary class="title"><code>affine(<i>sender</i>) -> <i>sender-of</i><<i>completions-of</i>(<i>sender</i>)></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>affine(sender)</code> creates a sender which completes on the same scheduler it was started on, even if <code>sender</code> changes the scheduler. The scheduler to resume on is determined using <code>get_start_scheduler(get_env(rcvr))</code> where <code>rcvr</code> is the receiver the sender is <code>connect`ed to. The scheduler `sched</code> returned from <code>get_start_scheduler(get_env(rcvr))</code> has to be infallible, i.e., the completion signtures of <code>scheduler(sched)</code> only contain <code>set_value_t()</code>.</p>
+</div>
+<div class="paragraph">
+<p>The primary use of <code>affine</code> is implementing scheduler affinity for <code>task</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>associate(<i>sndr</i>, <i>token</i>) -> <i>sender</i></code></summary>
+<div class="content">
+
+</div>
+</details>
+<details>
+<summary class="title"><code>bulk(<i>sndr</i>, <i>policy</i>, <i>shape</i>, <i>fun</i>) -> <i>sender</i></code></summary>
+<div class="content">
+
+</div>
+</details>
+<details>
+<summary class="title"><code>bulk_chunked(<i>sndr</i>, <i>policy</i>, <i>shape</i>, <i>fun</i>) -> <i>sender</i></code></summary>
+<div class="content">
+
+</div>
+</details>
+<details>
+<summary class="title"><code>bulk_unchunked(<i>sndr</i>, <i>policy</i>, <i>shape</i>, <i>fun</i>) -> <i>sender</i></code></summary>
+<div class="content">
+
+</div>
+</details>
+<details>
+<summary class="title"><code>continues_on(<i>sender</i>, <i>scheduler</i>) -> <i>sender-of</i><<i>completions-of</i>(<i>sender</i>) + <i>completions-of</i>(schedule(<i>scheduler</i>))></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>continues_on(sender, scheduler)</code> creates a sender <code>cs</code> which starts <code>sender</code> when started. The results from <code>sender</code> are stored. Once that is <code>cs</code> creates a sender using <code>schedule(scheduler)</code> and completes itself on the execution once that sender completes.</p>
+</div>
+<div class="paragraph">
+<p><strong>Completions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>completions-of(sender)</code></p>
+</li>
+<li>
+<p><code>completions-of(schedule(scheduler))</code></p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>into_variant(<i>sender</i>) -> <i>sender-of</i>&lt;set_value_t(std::variant&lt;<i>Tuple</i>...&gt;)&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>into_variant(sender)</code> creates a sender which transforms the results of possibly multiple <code>set_value</code> completions of <code>sender</code> into one <code>set_value</code> completion representing the different upstream results as different options of a <code>variant&lt;Tuple&#8230;&#8203;&gt;</code> where each <code>Tuple</code> is a <code>tuple</code> of values initialized with the respective arguments passed to <code>set_value</code>. The order of options in the <code>variant</code> isn’t specified.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>let_error(<i>upstream</i>, <i>fun</i>) -> <i>sender</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>let_error(upstream, fun)</code> yields a sender <code>sndr</code> which uses an error completion (<code>set_error</code>) of <code>upstream</code> as an argument to invoke <code>fun</code> which has to return another sender <code>inner-sndr</code> and the completion of <code>inner-sndr</code> becomes the completion of <code>sndr</code>. If this invocation results in an exception <code>sndr</code> completes with an error completion the result of <code>std::current_exception</code>. If <code>upstream</code> completes successfully (<code>set_value</code>) or with a cancellation (<code>set_stopped</code>) this completion becomes the completion of <code>sndr</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>let_stopped(<i>upstream</i>, <i>fun</i>) -> <i>sender</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>let_stopped(upstream, fun)</code> yields a sender <code>sndr</code> which uses a cancellation completion (<code>set_stopped</code>) of <code>upstream</code> to invoke <code>fun</code> which has to return another sender <code>inner-sndr</code> and the completion of <code>inner-sndr</code> becomes the completion of <code>sndr</code>. If this invocation results in an exception <code>sndr</code> completes with an error completion the result of <code>std::current_exception</code>. If <code>upstream</code> completes successfully (<code>set_value</code>) or with an error (<code>set_error</code>) this completion becomes the completion of <code>sndr</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>let_value(<i>upstream</i>, <i>fun</i>) -> <i>sender</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>let_value(upstream, fun)</code> yields a sender <code>sndr</code> which uses a successful completion (<code>set_value</code>) of <code>upstream</code> as arguments to invoke <code>fun</code> which has to return another sender <code>inner-sndr</code> and the completion of <code>inner-sndr</code> becomes the completion of <code>sndr</code>. If this invocation results in an exception <code>sndr</code> completes with an error completion the result of <code>std::current_exception</code>. If <code>upstream</code> completes with a cancellation (<code>set_stopped</code>) or with an error (<code>set_error</code>) this completion becomes the completion of <code>sndr</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>on(_sched_, _sndr_)</code>, <code>on(_sndr, _sched_, _closure_)</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The <code>on</code> algorithm is a pipeable sender adaptor. Let <code>on-sender</code> be</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>_sndr_</code> when the form <code>on(_sched_, _sndr_)</code> is used;</p>
+</li>
+<li>
+<p><code>_closure_(_sndr_)</code> when the form <code>on(_sndr_, _sched_, _closure_)</code> is used.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The sender <code>on-sndr</code> is started on <code>_sched_&#8217;s execution context. The `on</code> algorithm completes on the original scheduler (obtained using <code>get_start_scheduler</code>) with the result of the <code>on-sndr</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>schedule_from(<i>sender</i>) -> <i>sender</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>schedule_from(sender)</code> yields a sender which behaves likes <code>sender</code>. The purpose of the <code>schedule_from</code> is to allow schedulers to customize the way how to transition off the execution context.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>spawn_future(<i>sndr</i>, <i>token</i>) -> <i>sender</i></code></summary>
+<div class="content">
+
+</div>
+</details>
+<details>
+<summary class="title">split</summary>
+<div class="content">
+
+</div>
+</details>
+<details>
+<summary class="title"><code>starts_on(<i>scheduler</i>, <i>sender</i>) -> <i>sender</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>starts_on(scheduler, sender)</code> yields a sender which starts <code>sender</code> on the <code>scheduler&#8217;s context, i.e., it starts `schedule(scheduler)</code> and then starts <code>sender</code> where the scheduler&#8217;s sender completes.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>stopped_as_error(<i>sndr</i>)</code></summary>
+<div class="content">
+
+</div>
+</details>
+<details>
+<summary class="title"><code>stopped_as_optional(<i>sndr</i>)</code></summary>
+<div class="content">
+
+</div>
+</details>
+<details>
+<summary class="title"><code>then(<i>upstream</i>, <i>fun</i>) -> <i>sender</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>then(upstream, fun)</code> yields a sender <code>sndr</code> which on successful completion of <code>upstream</code> (<code>set_value</code>) calls <code>fun</code> with the arguments passed to <code>set_value</code> and yields the function return as its own result. If the function throws or <code>upstream</code> completes with an error (<code>set_error</code>) the exception or the error becomes <code>sndr&#8217;s result. If `upstream</code> completes with a cancellation (<code>set_stopped</code>).</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>unstoppable(<i>sender</i>) -> <i>sender</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>unstoppable(sender)</code> yields a sender which passes its receiver&#8217;s environment to <code>sender</code> except that the <code>get_stop_token</code> query return <code>never_stop_token</code>: the resulting sender behaves like <code>sender</code> except that it is unstoppable.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>upon_error(<i>upstream</i>, <i>fun</i>) -> <i>sender</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>upon_error(upstream, fun)</code> yields a sender <code>sndr</code> which passes an error completion (<code>set_error</code>) of <code>upstream</code> to <code>fun</code> and uses this result of this function invocation for its own successful (<code>set_value</code>) completion. If the function invocation throws <code>std::current_exception()</code> becomes <code>sndr&#8217;s error (`set_error</code>) completion. The success (<code>set_value</code>) and cancellation (<code>set_stopped</code>) completions of <code>upstream</code> are forwarded.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>upon_stopped(<i>upstream</i>, <i>fun</i>) -> <i>sender</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>upon_stopped(upstream, fun)</code> yields a sender <code>sndr</code> which turns a cancellation completion (<code>set_stopped</code>) result of <code>upstream</code> to <code>fun</code> and uses this result of this function invocation for its own successful (<code>set_value</code>) completion. If the function invocation throws <code>std::current_exception()</code> becomes <code>sndr&#8217;s error (`set_error</code>) completion. The success (<code>set_value</code>) and error (<code>set_error</code>) completions of <code>upstream</code> are forwarded.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>when_all(<i>sender</i>...) -> <i>sender</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>when_all(sender&#8230;&#8203;)</code> yields a sender <code>sndr</code> which completes successfully (<code>set_value</code>) when all nested senders <code>sender&#8230;&#8203;</code> completed successfully using the results of the nested senders in order. If any of the senders completes with an error (<code>set_error</code>) or a cancellation (<code>set_stopped</code>) the first such completion becomes the completion of <code>sndr</code> once all nested senders completed. A stop is requested for the stop source(s) whose token was passed to the nested senders.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>when_all_with_variant(<i>sender</i>...) -> <i>sender</i></code></summary>
+<div class="content">
+
+</div>
+</details>
+<details>
+<summary class="title"><code>write_env(<i>sender</i>, <i>env</i>) -> <i>sender</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>write_env(sender, env)</code> creates a sender which passes a receiver to <code>sender</code> which combines the environment <code>env</code> with the environment from the receiver&#8217;s environment. The queries from <code>env</code> take precedence over those from the receiver&#8217;s environment.</p>
+</div>
+</div>
+</details>
+</div>
+<div class="sect3">
+<h4 id="_sender_consumers"><a class="anchor" href="#_sender_consumers"></a>Sender Consumers</h4>
+<details>
+<summary class="title"><code>sync_wait(<i>sender</i>) -> std::optional&lt;std::tuple&lt;T...&gt;&gt;</code></summary>
+<div class="content">
+
+</div>
+</details>
+<details>
+<summary class="title"><code>sync_wait_with_variant(<i>sender</i>) -> std::optional&lt;std::variant&lt;std::tuple&lt;T...&gt;...&gt;&gt;</code></summary>
+<div class="content">
+
+</div>
+</details>
+<details>
+<summary class="title"><code>spawn(<i>sndr</i>, <i>token</i>) -> void</code></summary>
+<div class="content">
+
+</div>
+</details>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_helpers"><a class="anchor" href="#_helpers"></a>Helpers</h3>
+<details>
+<summary class="title"><code><i>adapt-for-await-completion</i>(<i>s</i>)</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression is equivalent to <code>get_await_completion_adaptor(get_env(s))(s)</code> except that <code>s</code> is evaluated only once.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>as_awaitable(<i>expr</i>, <i>promise</i>)</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>as_awaitable(expr, promise)</code> tries to create an awaitable from <code>expr</code> and <code>promise</code>. It tries the following transformations:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>expr.as_awaitable(promise)</code> if this expression is well-formed; otherwise</p>
+</li>
+<li>
+<p><code>adapt-for-await-completion(transform_sender(expr, get_env(promise)))</code> if this expression is well-formed; otherwise</p>
+</li>
+<li>
+<p><code>expr</code> if <code>GET-AWAITER(expr)</code> is an awaiter for <code>promise</code>; otherwise.</p>
+</li>
+<li>
+<p><code>sender-awaitable{adapt-for-await-completion(transform_sender(expr, get_env(promise))), promise}</code> if this expression is well-formed; otherwise</p>
+</li>
+<li>
+<p><code>expr</code></p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<div class="ulist">
+<ul>
+<li>
+<p><code>with_awaitable_sender</code></p>
+</li>
+<li>
+<p><code>apply_sender</code></p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title"><code>completion_signatures&lt;<i>Sig</i>...&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The template specialization <code>completion_signatures&lt;Sig&#8230;&#8203;&gt;</code> is a list of completion signatures used to declare and compute the result types of senders.</p>
+</div>
+<div class="paragraph">
+<p>It has two exposition-only members template:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>count-of(tag)</code> providing a constant expression with the count of <code>tag</code> completions.</p>
+</li>
+<li>
+<p><code>for-each(fun)</code> invoking <code>fun</code> with a pointer to each of the completion signatures <code>Sig&#8230;&#8203;</code>. The function is used to verify the completion signature types.</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<div class="ulist">
+<ul>
+<li>
+<p><code>completion_signatures_t</code></p>
+</li>
+<li>
+<p><code>connect_result_t</code></p>
+</li>
+<li>
+<p><code>default_domain</code></p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title"><code>env&lt;Ev...&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>env(ev&#8230;&#8203;)</code> creates an environment by combining the environments <code>ev&#8230;&#8203;</code>. If multiple of the environments support an identical query, the first one from the first environment is used.</p>
+</div>
+</div>
+</details>
+<div class="ulist">
+<ul>
+<li>
+<p><code>env_of_t</code></p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title"><code>error_types_of_t&lt;<i>Sndr</i>, <i>Env</i> = env&lt;&gt;, <i>Variant</i> = <i>variant-or-empty</i>&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The template specialization <code>error_types_of_t&lt;sndr, Env, Variant&gt;</code> gets <code>Sndr</code> error completion signatures when using the environment <code>Env</code>. The results is represented as a <code>Variant&lt;E&#8230;&#8203;</code> where <code>E&#8230;&#8203;</code> is the list of argument types to the completion signatures.</p>
+</div>
+</div>
+</details>
+<div class="ulist">
+<ul>
+<li>
+<p><code>fwd_env</code></p>
+</li>
+<li>
+<p><code>operation_state_tag</code></p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title"><code>prop&lt;Query, Value&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>prop(query, value)</code> create an object which can be queried for query <code>query</code> which results in <code>value</code>.</p>
+</div>
+</div>
+</details>
+<div class="ulist">
+<ul>
+<li>
+<p><code>receiver_tag</code></p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title"><code>run_loop</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The class <code>run_loop</code> provides a scheduler to execute work on. It is used to implement <code>sync_wait(sndr)</code>. The <code>public</code> methods on an object <code>loop</code> of type <code>run_loop</code> are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>loop.get_scheduler()</code> to get a scheduler scheduling work on <code>loop</code>.</p>
+</li>
+<li>
+<p><code>loop.finish()</code> to request <code>loop</code> to exit processing work items. Note that <code>run_loop</code> doesn&#8217;t maintain a stop source, i.e., when this operation is invoked the work doesn&#8217;t get cancelled.</p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<div class="ulist">
+<ul>
+<li>
+<p><code>scheduler_tag</code></p>
+</li>
+<li>
+<p><code>schedule_result_t</code></p>
+</li>
+<li>
+<p><code>sender_adaptor_closure</code></p>
+</li>
+<li>
+<p><code>sender_tag</code></p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title"><code>bool sends_stopped&lt;<i>Sndr</i>, <i>Env</i> = env&lt;&gt;&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The Boolean variable <code>sends_stopped&lt;Sndr, Env&gt;</code> is <code>true</code> if the completion signatures of <code>Sndr</code> when using the environment <code>Env</code> contain a cancellation signature (<code>set_stopped_t()</code>).</p>
+</div>
+</div>
+</details>
+<div class="ulist">
+<ul>
+<li>
+<p><code>stop_token_of_t</code></p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title"><code>tag_of_t&lt;Sndr&gt;</code></summary>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>if <code>auto&amp;&amp;[tag, data, children&#8230;&#8203;] = sndr;</code> is well-formed the type <code>decltype(auto(tag))</code>;</p>
+</li>
+<li>
+<p>otherwise ill-formed.</p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<div class="ulist">
+<ul>
+<li>
+<p><code>transform_sender</code></p>
+</li>
+<li>
+<p><code>transform_completion_signatures</code></p>
+</li>
+<li>
+<p><code>transform_completion_signatures_of</code></p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title"><code>value_types_of_t&lt;<i>Sndr</i>, <i>Env</i> = env&lt;&gt;, <i>Tuple</i> = <i>decayed-tuple</i>, <i>Variant</i> = <i>variant-or-empty</i>&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The template specialization <code>value_types_of_t&lt;Sndr, Env, Tuple, Variant&gt;</code> gets <code>Sndr</code> success completion signatures when using the environment <code>Env</code>. The resulting type is a <code>Variant</code> of <code>Tuple</code> elements where each <code>Tuple</code> represents the argument types of one of the value completion signatures.</p>
+</div>
+</div>
+</details>
+</div>
+<div class="sect2">
+<h3 id="_stop_token"><a class="anchor" href="#_stop_token"></a>Stop Token</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>never_stop_token</code></p>
+</li>
+<li>
+<p><code>stop_token</code></p>
+</li>
+<li>
+<p><code>inplace_stop_token</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exposition_only"><a class="anchor" href="#_exposition_only"></a>Exposition Only</h3>
+<details>
+<summary class="title"><code><i>as-except-ptr</i>(err)</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>Turns <code>err</code> smartly into an <code>exception_ptr</code>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>if <code>same_as&lt;decay_t&lt;decltype(err)&gt;, exception_ptr&gt;</code> ⇒ <code>err</code></p>
+</li>
+<li>
+<p>else if <code>same_as&lt;decay_t&lt;decltype(err)&gt;, error_code&gt;</code> ⇒ <code>make_exception_ptr(system_error(err))</code></p>
+</li>
+<li>
+<p>else <code>make_exception_ptr(err)</code></p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code><i>awaitable-sender</i>&lt;Sndr, Promise&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The concept check <code>awaitable-sender&lt;Sndr, Promise&gt;</code> determines if the <code>Sndr</code> could work with the environment provided by <code>Promise</code> and if <code>Promise</code> supports a suitable <code>unhandled_stopped()</code> method.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>concept <i>class-type</i>&lt;T&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>Determines if the type <code>T</code> is a decayed class type: <code>decays-to&lt;T, T&gt; &amp;&amp; is_class_v&lt;T&gt;</code></p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code><i>COMMON-DOMAIN</i>(domains...)</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>COMMON-DOMAIN(domains&#8230;&#8203;)</code> is</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>common_type_t&lt;decltype(auto(domains))&#8230;&#8203;&gt;()</code> if this expression is valid</p>
+</li>
+<li>
+<p><code>indeterminate_domain&lt;decltype(auto(domains))&#8230;&#8203;&gt;()</code> with duplicates removed from the template arguments</p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code><i>COMPL-DOMAIN</i>&lt;Tag&gt;(sndr, ev...)</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>COMPL-DOMAIN&lt;Tag&gt;(sndr, ev&#8230;&#8203;)</code> gets <code>sndr`s completion domain given the optional environment `ev&#8230;&#8203;</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>get_completion_domain(get_env(sndr), ev..)</code> if this expression is well-formed,</p>
+</li>
+<li>
+<p><code>indeterminate_domain()</code> otherwise.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Note</strong>: it seems this exposition-only name is actually unused!</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>concept <i>completion-signature</i>&lt;Signature&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>This concept determines if the type <code>Signature</code> is a completion signature, i.e., if it has one of these three forms:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>set_value_t(T&#8230;&#8203;)</code></p>
+</li>
+<li>
+<p><code>set_error_t(T)</code></p>
+</li>
+<li>
+<p><code>set_stopped_t()</code></p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>concept <i>decays-to</i>&lt;From, To&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>Determines if <code>To</code> is the result of decaying the type <code>From</code>: <code>same_as&lt;decay_t&lt;From&gt;, To&gt;</code></p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code><i>FWD-ENV</i>(env)</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>FWD-ENV(env)</code> yields a queryable object <code>q</code> supporting only forwardable queries. Let <code>qry</code> be a query object and <code>a&#8230;&#8203;</code> be a possibly emnpty pack of arguments. Then <code>q.query(qry, a&#8230;&#8203;)</code> is</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>equivalent to <code>env.query(qry, a&#8230;&#8203;)</code> if <code>forwarding_query(qry)</code> is <code>true</code></p>
+</li>
+<li>
+<p>ill-formed if <code>forwarding_query(qry)</code> is <code>false</code></p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code><i>FWD-ENV-T</i>(Env)</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The type <code>FWD-ENV-T(Env)</code> is <code>decltype(FWD-ENV(decl_val&lt;Env&gt;()))</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code><i>gather-signatures</i>&lt;<i>Tag</i>, <i>Signatures</i>, <i>Tuple</i>, <i>Variant</i>&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The template specializaton <code>gather-signatures&lt;Tag, Signatures, Tuple, Variant&gt;</code> represents the completion signatures in the type list <em>Signatures</em> using <code>Tag</code> (one of <code>set_value_t</code>, <code>set_error_t</code>, or <code>set_stopped_t</code>) as a <code>Variant</code> of <code>Tuple`s. Each `Tuple</code> has the element types of of one of the matching completion signatures.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>concept <i>has-completions</i>&lt;Rcvr, Completions&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>This concept determines if an object of type <code>Rcvr</code> supports ech of the completion signatures in <code>Completions</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code><i>HIDE-SCHED</i>(q)</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>For a query object <code>tag</code> and arguments <code>a&#8230;&#8203;</code> the expressions <code>HIDE-SCHED(q).query(tag, a&#8230;&#8203;)</code> is</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>undefined if <code>decay_t&lt;decltype(tag)&gt;</code> is <code>get_scheduler_t</code> or <code>get_domain_t</code></p>
+</li>
+<li>
+<p>equivalent to <code>q.query(tag, a&#8230;&#8203;)</code> otherwise</p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code><i>infallible-scheduler</i>&lt;<i>Sched</i>, <i>Env</i>&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>Determines if <code>Sched</code> is a scheduler (i.e., <code>scheduler&lt;Sched&gt;</code> is <code>true</code>) and if <code>sched&#8217;s sender has only a `set_value_t()</code> completion signature when used with an environment with an <code>unstoppable_token&lt;Tok&gt;</code> stop token <code>Tok</code>. If the stop token <code>Tok</code> is not <code>unstoppable_token&lt;Tok&gt;</code> the completion signatures can include a <code>set_stopped_t()</code> completion signature in addition to the <code>set_value_t()</code> completion signature.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code><i>JOIN-ENV</i>(ev1, ev2)</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>JOIN-ENV(ev1, ev2)</code> yields a queryable object <code>env</code> such that for a query <code>qry</code> and a pack of arguments <code>a&#8230;&#8203;</code> the result of the expression <code>env.query(qry, a&#8230;&#8203;)</code> is</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>equivalent to ev1.query(qry, a&#8230;&#8203;)</code> if this expression is well-formed, otherwise</p>
+</li>
+<li>
+<p><code>equivalent to ev2.query(qry, a&#8230;&#8203;)</code> if this expression is well-formed, otherwise</p>
+</li>
+<li>
+<p>ill-formed</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code><i>make-sender</i>(tag, data = <i>empty</i>{}, child...)</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>Creates and object of type <code>basic-sender&lt;decltype(tag), decay_t&lt;decltype(data)&gt;, decay_t&lt;decltype(child)&gt;&#8230;&#8203;&gt;</code> that&#8217;s direct initialized with the forwarded arguments.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code><i>MAKE-ENV</i>(qry, value)</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>MAKE-ENV(qry, value)</code> creates a queryable object <code>env</code> such that for a pack of arguments <code>a &#8230;&#8203;</code> the expression <code>env.query(qry, a&#8230;&#8203;)</code> yields <code>value</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>constexpr bool <i>MATCHING-SIG</i>&lt;F1, F2&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>Determines if the two function signatures <code>F1</code> and <code>F2</code> match:</p>
+</div>
+<div class="paragraph">
+<p>If <code>same_as&lt;F1, R1(A1&#8230;&#8203;)&gt;</code> and <code>same_as&lt;F2, R2(A2&#8230;&#8203;)&gt;</code> then <code>MATCHING-SIG&lt;F1, F2&gt; == same_as&lt;R1(A1&amp;&amp;&#8230;&#8203;), R2(A2&amp;&amp;&#8230;&#8203;)&gt;</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>concept <i>movable-value</i>&lt;T&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>Determines if objects of type <code>T</code> are movable, non-array values: <code>move_constructible&lt;decay_t&lt;T&gt;&gt; &amp;&amp; constructible_from&lt;decay_t&lt;T&gt;&gt; &amp;&amp; (!is_array_v&lt;remove_reference_t&lt;T&gt;&gt;)</code></p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>struct <i>product-type</i>&lt;T...&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The type <code>product-type&lt;T&#8230;&#8203;&gt;</code> is a <code>tuple</code>-like type. Instead of constructors it supports only direct initialization, allowing it to hold inplace constructed elements. It supports <code>p.get&lt;I&gt;()</code> and <code>p.apply(fun)</code> member functions.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>concept <i>queryable</i>&lt;T&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>Determines if objects of type <code>T</code> are queryable: <code>destructible&lt;T&gt;</code>. The semantic implication is that using the queryable object with query objects behave as required.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code><i>query-with-default</i>(tag, env, value)</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>Returns</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>tag(env)</code> if this expression is well-formed</p>
+</li>
+<li>
+<p><code>value</code> otherwise</p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code>concept <i>receiver-of</i>&lt;Rcvr, Signatures&gt;</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>This concept determines if an object of type <code>Rcvr</code> is a receiver (i.e., <code>receiver&lt;Rcvr&gt;</code> is <code>true</code>) and supports each of the completion signatures in <code>Signatures</code>.</p>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code><i>SCHED-ENV</i>(sch)</code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The expression <code>SCHED-ENV(sch)</code> yields a queryable <code>o</code> such that</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>get_start_scheduler(o)</code> is equivalent to <code>get_start_scheduler(get_env(o))</code></p>
+</li>
+<li>
+<p><code>get_domain(o)</code> is equivalent to <code>get_start_scheduler(get_env(o))</code></p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+<details>
+<summary class="title"><code><i>scope-join-t</i></code></summary>
+<div class="content">
+<div class="paragraph">
+<p>The type <code>scope-join-t</code> is used with <code>basic-sender</code> to create a sender which completes when a counting scope becomes closed and empty.</p>
+</div>
+</div>
+</details>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="site-footer">
+  <div>
+    <h2>Community</h2>
+    <a href="https://discord.com/invite/BKpNyJgSbm">Discord</a>
+    <a href="https://discourse.bemanproject.org/">Discourse</a>
+  </div>
+  <div>
+    <h2>More</h2>
+    <a href="https://github.com/bemanproject">GitHub</a>
+  </div>
+  <p>Copyright (C) The Beman Project. Built with Antora.</p>
+</footer>
+<script>
+(function () {
+  var expandedKey = 'beman.antora.nav.expanded';
+  var scrollKey = 'beman.antora.nav.scrollTop';
+  function navPanel() { return document.querySelector('.nav-panel-menu[data-panel="menu"]'); }
+  function storage() {
+    try { return window.sessionStorage; } catch (err) { return null; }
+  }
+  function itemLabel(item) {
+    var label = item.querySelector(':scope > .nav-text, :scope > .nav-link');
+    return label ? label.textContent.trim() : '';
+  }
+  function itemKey(item) {
+    var parts = [];
+    var current = item;
+    while (current && current.classList && current.classList.contains('nav-item')) {
+      var label = itemLabel(current);
+      if (label) parts.unshift(label);
+      var parentList = current.parentElement;
+      current = parentList ? parentList.closest('.nav-item') : null;
+    }
+    return parts.join(' / ');
+  }
+  function readExpanded() {
+    var store = storage();
+    if (!store) return new Set();
+    try { return new Set(JSON.parse(store.getItem(expandedKey) || '[]')); } catch (err) { return new Set(); }
+  }
+  function writeExpanded() {
+    var panel = navPanel();
+    var store = storage();
+    if (!panel || !store) return;
+    var keys = [];
+    panel.querySelectorAll('.nav-item.is-active').forEach(function (item) {
+      var key = itemKey(item);
+      if (key) keys.push(key);
+    });
+    try { store.setItem(expandedKey, JSON.stringify(keys)); } catch (err) {}
+  }
+  function expandAncestors(item) {
+    var current = item;
+    while (current) {
+      if (current.classList && current.classList.contains('nav-item')) current.classList.add('is-active', 'is-current-path');
+      var parentList = current.parentElement;
+      current = parentList ? parentList.closest('.nav-item') : null;
+    }
+  }
+  function apiReferenceInfo() {
+    var segments = window.location.pathname.split('/').filter(Boolean);
+    for (var index = 0; index < segments.length - 2; index += 1) {
+      if (!segments[index].startsWith('beman.')) continue;
+      if (segments[index + 2] !== 'reference') continue;
+      var baseSegments = segments.slice(0, index + 3);
+      var tail = segments.slice(index + 3);
+      return {
+        component: segments[index],
+        componentLabel: segments[index].replace(/^beman\./, ''),
+        version: segments[index + 1],
+        tail: tail,
+        componentPath: '/' + segments.slice(0, index + 2).join('/') + '/index.html',
+        indexPath: '/' + baseSegments.join('/') + '/index.html'
+      };
+    }
+    return null;
+  }
+  function normalizePath(path) {
+    return path.replace(/\/$/, '/index.html');
+  }
+  function apiReferenceNavLink(info, panel) {
+    if (!info || !panel) return null;
+    var referencePrefix = info.indexPath.replace(/index\.html$/, '');
+    var match = null;
+    panel.querySelectorAll('.nav-link').forEach(function (link) {
+      if (match || link.textContent.trim() !== 'API Reference') return;
+      var linkPath = normalizePath(new URL(link.getAttribute('href'), window.location.href).pathname);
+      if (linkPath.startsWith(referencePrefix)) match = link;
+    });
+    return match;
+  }
+  function markApiReferenceNav(panel) {
+    var info = apiReferenceInfo();
+    if (!info || !panel) return null;
+    var link = apiReferenceNavLink(info, panel);
+    var match = link ? link.closest('.nav-item') : null;
+    if (link) link.classList.add('is-current-page');
+    if (match) {
+      match.classList.add('is-current-page', 'is-current-path');
+      expandAncestors(match);
+    }
+    return match;
+  }
+  function ensureNavItemVisible(panel, item) {
+    if (!panel || !item) return;
+    window.setTimeout(function () {
+      var itemTop = item.offsetTop;
+      var itemBottom = itemTop + item.offsetHeight;
+      var panelBottom = panel.scrollTop + panel.clientHeight;
+      if (itemTop < panel.scrollTop || itemBottom > panelBottom) {
+        panel.scrollTop = Math.max(0, itemTop - panel.clientHeight / 3);
+        saveScroll();
+      }
+    }, 0);
+  }
+  function expandRequiredSections(panel) {
+    panel.querySelectorAll('.nav-item').forEach(function (item) {
+      var label = itemLabel(item);
+      if (label === 'Project' || label === 'Libraries') item.classList.add('is-active');
+    });
+    panel.querySelectorAll('.nav-item.is-current-page, .nav-item.is-current-path').forEach(expandAncestors);
+    markApiReferenceNav(panel);
+  }
+  function restoreExpanded(panel) {
+    var expanded = readExpanded();
+    panel.querySelectorAll('.nav-item').forEach(function (item) {
+      if (expanded.has(itemKey(item))) item.classList.add('is-active');
+    });
+    expandRequiredSections(panel);
+  }
+  function restoreScroll(panel) {
+    var store = storage();
+    if (!store) return;
+    try {
+      var saved = parseInt(store.getItem(scrollKey) || '', 10);
+      if (!Number.isNaN(saved)) panel.scrollTop = saved;
+    } catch (err) {}
+  }
+  function saveScroll() {
+    var panel = navPanel();
+    var store = storage();
+    if (!panel || !store) return;
+    try { store.setItem(scrollKey, String(panel.scrollTop)); } catch (err) {}
+  }
+  function articleScroller() {
+    var article = document.querySelector('article.doc');
+    if (!article) return null;
+    var style = window.getComputedStyle(article);
+    if (style.overflowY === 'visible' || article.scrollHeight <= article.clientHeight + 1) return null;
+    return article;
+  }
+  function scrollArticleToHash(hash, mode) {
+    if (!hash || hash.charAt(0) !== '#') return false;
+    var article = articleScroller();
+    if (!article) return false;
+    var id = hash.slice(1);
+    try { id = decodeURIComponent(id); } catch (err) {}
+    var target = document.getElementById(id);
+    if (!target || !article.contains(target)) return false;
+    var targetTop = target.getBoundingClientRect().top - article.getBoundingClientRect().top + article.scrollTop;
+    article.scrollTo({ top: Math.max(0, targetTop - 8), behavior: mode || 'auto' });
+    window.scrollTo(0, 0);
+    return true;
+  }
+  function setActiveTocLink(link) {
+    document.querySelectorAll('.toc a.is-active').forEach(function (activeLink) {
+      activeLink.classList.remove('is-active');
+    });
+    link.classList.add('is-active');
+  }
+  function installAnchorScrolling() {
+    document.querySelectorAll('main.article a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        var hash = link.getAttribute('href');
+        if (!scrollArticleToHash(hash, 'smooth')) return;
+        event.preventDefault();
+        if (link.closest('aside.toc')) setActiveTocLink(link);
+        if (window.location.hash !== hash) window.history.pushState(null, '', hash);
+      });
+    });
+    if (window.location.hash) window.setTimeout(function () { scrollArticleToHash(window.location.hash, 'auto'); }, 0);
+    window.addEventListener('hashchange', function () { scrollArticleToHash(window.location.hash, 'auto'); });
+  }
+  function installApiReferenceContext() {
+    var info = apiReferenceInfo();
+    if (!info) return;
+    var article = document.querySelector('article.doc');
+    if (!article || article.querySelector('.api-context')) return;
+    var anchor = article.querySelector('h1.page, h1, h2, .sect1, .paragraph, .listingblock, table') || article.firstElementChild;
+    var nav = document.createElement('nav');
+    nav.className = 'api-context';
+    nav.setAttribute('aria-label', 'API reference context');
+    var crumbs = document.createElement('ol');
+    crumbs.className = 'api-breadcrumbs';
+    function addCrumb(label, href) {
+      var item = document.createElement('li');
+      if (href) {
+        var link = document.createElement('a');
+        link.href = href;
+        link.textContent = label;
+        item.appendChild(link);
+      } else {
+        item.textContent = label;
+        item.setAttribute('aria-current', 'page');
+      }
+      crumbs.appendChild(item);
+    }
+    function pathLabel() {
+      var parts = info.tail.map(function (segment) {
+        var label = segment.replace(/\.html$/, '');
+        try { label = decodeURIComponent(label); } catch (err) {}
+        return label;
+      }).filter(Boolean);
+      return parts.length ? parts.join('::') : 'API Reference';
+    }
+    function operatorLabel() {
+      var operators = {
+        operator_3way: '<=>', operator_assign: '=', operator_bitor: '|', operator_call: '()',
+        operator_eq: '==', operator_ge: '>=', operator_gt: '>', operator_le: '<=',
+        operator_lt: '<', operator_minus: '-', operator_not_eq: '!=', operator_plus: '+',
+        operator_ptr: '->', operator_star: '*', operator_subs: '[]'
+      };
+      var parts = info.tail.map(function (segment) {
+        var label = segment.replace(/\.html$/, '').replace(/-[0-9a-f]+$/, '');
+        try { label = decodeURIComponent(label); } catch (err) {}
+        return label;
+      }).filter(Boolean);
+      var name = parts[parts.length - 1];
+      if (!Object.prototype.hasOwnProperty.call(operators, name)) return null;
+      parts[parts.length - 1] = 'operator' + operators[name];
+      return parts.join('::');
+    }
+    function pageLabel() {
+      var heading = article.querySelector('h1.page, h1');
+      if (!heading) return pathLabel();
+      var label = heading.textContent.replace(/\s+/g, ' ').trim();
+      return label || pathLabel();
+    }
+    var apiLink = apiReferenceNavLink(info, navPanel());
+    var apiHref = apiLink ? apiLink.href : info.indexPath;
+    var apiPath = normalizePath(new URL(apiHref, window.location.href).pathname);
+    var isApiLandingPage = normalizePath(window.location.pathname) === apiPath;
+    addCrumb(info.componentLabel, info.componentPath);
+    addCrumb('API Reference', isApiLandingPage ? null : apiHref);
+    if (!isApiLandingPage) addCrumb(operatorLabel() || pageLabel(), null);
+    nav.appendChild(crumbs);
+    if (anchor) article.insertBefore(nav, anchor);
+    else article.appendChild(nav);
+  }
+  function install() {
+    var panel = navPanel();
+    if (panel) {
+      restoreExpanded(panel);
+      restoreScroll(panel);
+      ensureNavItemVisible(panel, markApiReferenceNav(panel));
+      panel.addEventListener('click', function () { window.setTimeout(writeExpanded, 0); });
+      panel.addEventListener('scroll', saveScroll, { passive: true });
+    }
+    installApiReferenceContext();
+    installAnchorScrolling();
+    window.addEventListener('beforeunload', function () { writeExpanded(); saveScroll(); });
+  }
+  if (document.readyState === 'complete') install();
+  else window.addEventListener('load', install);
+})();
+</script>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<sitemap>
+<loc>https://bemanproject.org/docs/sitemap-beman.xml</loc>
+</sitemap>
+<sitemap>
+<loc>https://bemanproject.org/docs/sitemap-beman.cache_latest.xml</loc>
+</sitemap>
+<sitemap>
+<loc>https://bemanproject.org/docs/sitemap-beman.copyable_function.xml</loc>
+</sitemap>
+<sitemap>
+<loc>https://bemanproject.org/docs/sitemap-beman.cstring_view.xml</loc>
+</sitemap>
+<sitemap>
+<loc>https://bemanproject.org/docs/sitemap-beman.execution.xml</loc>
+</sitemap>
+<sitemap>
+<loc>https://bemanproject.org/docs/sitemap-beman.monadics.xml</loc>
+</sitemap>
+<sitemap>
+<loc>https://bemanproject.org/docs/sitemap-beman.optional.xml</loc>
+</sitemap>
+<sitemap>
+<loc>https://bemanproject.org/docs/sitemap-beman.scope.xml</loc>
+</sitemap>
+<sitemap>
+<loc>https://bemanproject.org/docs/sitemap-beman.task.xml</loc>
+</sitemap>
+<sitemap>
+<loc>https://bemanproject.org/docs/sitemap-beman.transform_view.xml</loc>
+</sitemap>
+</sitemapindex>

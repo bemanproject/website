@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Assignment operators :: Beman Docs</title>
+    <link rel="canonical" href="https://bemanproject.org/docs/beman.cache_latest/latest/reference/beman/non_propagating_cache/operator_assign-01.html">
+    <meta name="generator" content="Antora 3.2.0">
+    <script>
+      (function () {
+        function getStoredTheme() {
+          try { return window.localStorage.getItem('theme'); } catch (err) { return null; }
+        }
+        var storedTheme = getStoredTheme();
+        var theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <link rel="stylesheet" href="../../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../../_/css/beman-docs.css?v=12">
+  </head>
+  <body class="article">
+<header class="header site-header">
+  <nav class="navbar site-nav" aria-label="Main navigation">
+    <a class="brand" href="../../../../../../">
+      <img src="../../../../../../img/beman_logo.png" alt="The Beman Project Logo">
+      <span>The Beman Project</span>
+    </a>
+    <button class="navbar-burger site-nav-toggle" type="button" aria-controls="topbar-nav" aria-expanded="false">Menu</button>
+    <button class="theme-toggle theme-toggle-mobile" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+      <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+      </svg>
+      <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+      </svg>
+    </button>
+    <div class="nav-menu navbar-menu" id="topbar-nav">
+      <div class="nav-links navbar-end">
+        <a class="navbar-item" href="../../../../../../">Home</a>
+        <a class="navbar-item active" href="../../../../../">Docs</a>
+        <a class="navbar-item" href="../../../../../../libraries/">Libraries</a>
+        <a class="navbar-item" href="../../../../../../talks/">Talks</a>
+        <a class="navbar-item" href="../../../../../../blog/">Blog</a>
+      </div>
+      <div class="social-links" aria-label="Community links">
+        <a class="social-link discourse" href="https://discourse.bemanproject.org/" aria-label="Discourse Forum"></a>
+        <a class="social-link discord" href="https://discord.com/invite/BKpNyJgSbm" aria-label="Discord"></a>
+        <a class="social-link github" href="https://github.com/bemanproject" aria-label="GitHub Repository"></a>
+        <button class="theme-toggle" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+          <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+          </svg>
+          <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+<script>
+(function () {
+  var themeToggles = document.querySelectorAll('.theme-toggle');
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    themeToggles.forEach(function (themeToggle) {
+      var label = 'Switch between dark and light mode (currently ' + theme + ' mode)';
+      themeToggle.setAttribute('aria-label', label);
+      themeToggle.setAttribute('title', label);
+      themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
+    });
+    try { window.localStorage.setItem('theme', theme); } catch (err) {}
+  }
+  setTheme(currentTheme());
+  themeToggles.forEach(function (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
+    });
+  });
+})();
+</script>
+<div class="body">
+<div class="nav-container" data-component="beman.cache_latest" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../../index.html">beman.cache_latest</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Project</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../../../beman/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../../../beman/latest/beman_library_maturity_model.html">Beman Library Maturity Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../../../beman/latest/beman_standard.html">Beman Standard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../../../beman/latest/mission.html">Mission</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../../../beman/latest/faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../../../beman/latest/governance.html">Governance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../../../beman/latest/code_of_conduct.html">Code of Conduct</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Libraries</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">optional</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.optional/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.optional/latest/overview.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.optional/latest/reference/beman/optional.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">execution</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.execution/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.execution/latest/overview.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.execution/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.execution/latest/reference/beman/execution26.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">task</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.task/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.task/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.task/latest/examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.task/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">cache_latest</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../development.html">Development</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">copyable_function</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.copyable_function/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.copyable_function/latest/development.html">Development</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.copyable_function/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">cstring_view</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.cstring_view/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.cstring_view/latest/using_cstring_view.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.cstring_view/latest/reference/beman/cstring_view.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">monadics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.monadics/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.monadics/latest/tutorial.html">Tutorial</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.monadics/latest/design_rationale.html">Design Rationale</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.monadics/latest/reference/beman/monadics.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">scope</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.scope/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.scope/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.scope/latest/reference/beman/scope.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">transform_view</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.transform_view/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.transform_view/latest/intro.html">Intro</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../../../../beman.transform_view/latest/reference/beman/transform_view.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">beman.cache_latest</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../../beman/latest/index.html">Beman Project</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../../beman/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../index.html">beman.cache_latest</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../../index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../../beman.copyable_function/latest/index.html">beman.copyable_function</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../../beman.copyable_function/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../../beman.cstring_view/latest/index.html">beman.cstring_view</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../../beman.cstring_view/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../../beman.execution/latest/index.html">beman.execution</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../../beman.execution/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../../beman.monadics/latest/index.html">beman.monadics</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../../beman.monadics/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../../beman.optional/latest/index.html">beman.optional</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../../beman.optional/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../../beman.scope/latest/index.html">beman.scope</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../../beman.scope/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../../beman.task/latest/index.html">beman.task</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../../beman.task/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../../beman.transform_view/latest/index.html">beman.transform_view</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../../beman.transform_view/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../../beman/latest/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../../index.html">beman.cache_latest</a></li>
+    <li><a href="operator_assign-01.html">Assignment operators</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Assignment operators</h1>
+<div class="sect1">
+<h2 id="_synopses"><a class="anchor" href="#_synopses"></a>Synopses</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Declared in <code>&lt;beman&sol;cache&lowbar;latest&sol;cache&lowbar;latest&period;hpp&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Copy assignment operator</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp"><a href="../non_propagating_cache.html" class="xref page">non&lowbar;propagating&lowbar;cache</a>&amp;
+<a href="operator_assign-00.html" class="xref page">operator&equals;</a>(<a href="../non_propagating_cache.html" class="xref page">non&lowbar;propagating&lowbar;cache</a> const&amp; other);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><span class="small"><a href="operator_assign-00.html" class="xref page"><em>» more&period;&period;&period;</em></a></span></p>
+</div>
+<div class="paragraph">
+<p>Move assignment operator</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp"><a href="../non_propagating_cache.html" class="xref page">non&lowbar;propagating&lowbar;cache</a>&amp;
+<a href="operator_assign-0c.html" class="xref page">operator&equals;</a>(<a href="../non_propagating_cache.html" class="xref page">non&lowbar;propagating&lowbar;cache</a>&amp;&amp; other);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><span class="small"><a href="operator_assign-0c.html" class="xref page"><em>» more&period;&period;&period;</em></a></span></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="site-footer">
+  <div>
+    <h2>Community</h2>
+    <a href="https://discord.com/invite/BKpNyJgSbm">Discord</a>
+    <a href="https://discourse.bemanproject.org/">Discourse</a>
+  </div>
+  <div>
+    <h2>More</h2>
+    <a href="https://github.com/bemanproject">GitHub</a>
+  </div>
+  <p>Copyright (C) The Beman Project. Built with Antora.</p>
+</footer>
+<script>
+(function () {
+  var expandedKey = 'beman.antora.nav.expanded';
+  var scrollKey = 'beman.antora.nav.scrollTop';
+  function navPanel() { return document.querySelector('.nav-panel-menu[data-panel="menu"]'); }
+  function storage() {
+    try { return window.sessionStorage; } catch (err) { return null; }
+  }
+  function itemLabel(item) {
+    var label = item.querySelector(':scope > .nav-text, :scope > .nav-link');
+    return label ? label.textContent.trim() : '';
+  }
+  function itemKey(item) {
+    var parts = [];
+    var current = item;
+    while (current && current.classList && current.classList.contains('nav-item')) {
+      var label = itemLabel(current);
+      if (label) parts.unshift(label);
+      var parentList = current.parentElement;
+      current = parentList ? parentList.closest('.nav-item') : null;
+    }
+    return parts.join(' / ');
+  }
+  function readExpanded() {
+    var store = storage();
+    if (!store) return new Set();
+    try { return new Set(JSON.parse(store.getItem(expandedKey) || '[]')); } catch (err) { return new Set(); }
+  }
+  function writeExpanded() {
+    var panel = navPanel();
+    var store = storage();
+    if (!panel || !store) return;
+    var keys = [];
+    panel.querySelectorAll('.nav-item.is-active').forEach(function (item) {
+      var key = itemKey(item);
+      if (key) keys.push(key);
+    });
+    try { store.setItem(expandedKey, JSON.stringify(keys)); } catch (err) {}
+  }
+  function expandAncestors(item) {
+    var current = item;
+    while (current) {
+      if (current.classList && current.classList.contains('nav-item')) current.classList.add('is-active', 'is-current-path');
+      var parentList = current.parentElement;
+      current = parentList ? parentList.closest('.nav-item') : null;
+    }
+  }
+  function apiReferenceInfo() {
+    var segments = window.location.pathname.split('/').filter(Boolean);
+    for (var index = 0; index < segments.length - 2; index += 1) {
+      if (!segments[index].startsWith('beman.')) continue;
+      if (segments[index + 2] !== 'reference') continue;
+      var baseSegments = segments.slice(0, index + 3);
+      var tail = segments.slice(index + 3);
+      return {
+        component: segments[index],
+        componentLabel: segments[index].replace(/^beman\./, ''),
+        version: segments[index + 1],
+        tail: tail,
+        componentPath: '/' + segments.slice(0, index + 2).join('/') + '/index.html',
+        indexPath: '/' + baseSegments.join('/') + '/index.html'
+      };
+    }
+    return null;
+  }
+  function normalizePath(path) {
+    return path.replace(/\/$/, '/index.html');
+  }
+  function apiReferenceNavLink(info, panel) {
+    if (!info || !panel) return null;
+    var referencePrefix = info.indexPath.replace(/index\.html$/, '');
+    var match = null;
+    panel.querySelectorAll('.nav-link').forEach(function (link) {
+      if (match || link.textContent.trim() !== 'API Reference') return;
+      var linkPath = normalizePath(new URL(link.getAttribute('href'), window.location.href).pathname);
+      if (linkPath.startsWith(referencePrefix)) match = link;
+    });
+    return match;
+  }
+  function markApiReferenceNav(panel) {
+    var info = apiReferenceInfo();
+    if (!info || !panel) return null;
+    var link = apiReferenceNavLink(info, panel);
+    var match = link ? link.closest('.nav-item') : null;
+    if (link) link.classList.add('is-current-page');
+    if (match) {
+      match.classList.add('is-current-page', 'is-current-path');
+      expandAncestors(match);
+    }
+    return match;
+  }
+  function ensureNavItemVisible(panel, item) {
+    if (!panel || !item) return;
+    window.setTimeout(function () {
+      var itemTop = item.offsetTop;
+      var itemBottom = itemTop + item.offsetHeight;
+      var panelBottom = panel.scrollTop + panel.clientHeight;
+      if (itemTop < panel.scrollTop || itemBottom > panelBottom) {
+        panel.scrollTop = Math.max(0, itemTop - panel.clientHeight / 3);
+        saveScroll();
+      }
+    }, 0);
+  }
+  function expandRequiredSections(panel) {
+    panel.querySelectorAll('.nav-item').forEach(function (item) {
+      var label = itemLabel(item);
+      if (label === 'Project' || label === 'Libraries') item.classList.add('is-active');
+    });
+    panel.querySelectorAll('.nav-item.is-current-page, .nav-item.is-current-path').forEach(expandAncestors);
+    markApiReferenceNav(panel);
+  }
+  function restoreExpanded(panel) {
+    var expanded = readExpanded();
+    panel.querySelectorAll('.nav-item').forEach(function (item) {
+      if (expanded.has(itemKey(item))) item.classList.add('is-active');
+    });
+    expandRequiredSections(panel);
+  }
+  function restoreScroll(panel) {
+    var store = storage();
+    if (!store) return;
+    try {
+      var saved = parseInt(store.getItem(scrollKey) || '', 10);
+      if (!Number.isNaN(saved)) panel.scrollTop = saved;
+    } catch (err) {}
+  }
+  function saveScroll() {
+    var panel = navPanel();
+    var store = storage();
+    if (!panel || !store) return;
+    try { store.setItem(scrollKey, String(panel.scrollTop)); } catch (err) {}
+  }
+  function articleScroller() {
+    var article = document.querySelector('article.doc');
+    if (!article) return null;
+    var style = window.getComputedStyle(article);
+    if (style.overflowY === 'visible' || article.scrollHeight <= article.clientHeight + 1) return null;
+    return article;
+  }
+  function scrollArticleToHash(hash, mode) {
+    if (!hash || hash.charAt(0) !== '#') return false;
+    var article = articleScroller();
+    if (!article) return false;
+    var id = hash.slice(1);
+    try { id = decodeURIComponent(id); } catch (err) {}
+    var target = document.getElementById(id);
+    if (!target || !article.contains(target)) return false;
+    var targetTop = target.getBoundingClientRect().top - article.getBoundingClientRect().top + article.scrollTop;
+    article.scrollTo({ top: Math.max(0, targetTop - 8), behavior: mode || 'auto' });
+    window.scrollTo(0, 0);
+    return true;
+  }
+  function setActiveTocLink(link) {
+    document.querySelectorAll('.toc a.is-active').forEach(function (activeLink) {
+      activeLink.classList.remove('is-active');
+    });
+    link.classList.add('is-active');
+  }
+  function installAnchorScrolling() {
+    document.querySelectorAll('main.article a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        var hash = link.getAttribute('href');
+        if (!scrollArticleToHash(hash, 'smooth')) return;
+        event.preventDefault();
+        if (link.closest('aside.toc')) setActiveTocLink(link);
+        if (window.location.hash !== hash) window.history.pushState(null, '', hash);
+      });
+    });
+    if (window.location.hash) window.setTimeout(function () { scrollArticleToHash(window.location.hash, 'auto'); }, 0);
+    window.addEventListener('hashchange', function () { scrollArticleToHash(window.location.hash, 'auto'); });
+  }
+  function installApiReferenceContext() {
+    var info = apiReferenceInfo();
+    if (!info) return;
+    var article = document.querySelector('article.doc');
+    if (!article || article.querySelector('.api-context')) return;
+    var anchor = article.querySelector('h1.page, h1, h2, .sect1, .paragraph, .listingblock, table') || article.firstElementChild;
+    var nav = document.createElement('nav');
+    nav.className = 'api-context';
+    nav.setAttribute('aria-label', 'API reference context');
+    var crumbs = document.createElement('ol');
+    crumbs.className = 'api-breadcrumbs';
+    function addCrumb(label, href) {
+      var item = document.createElement('li');
+      if (href) {
+        var link = document.createElement('a');
+        link.href = href;
+        link.textContent = label;
+        item.appendChild(link);
+      } else {
+        item.textContent = label;
+        item.setAttribute('aria-current', 'page');
+      }
+      crumbs.appendChild(item);
+    }
+    function pathLabel() {
+      var parts = info.tail.map(function (segment) {
+        var label = segment.replace(/\.html$/, '');
+        try { label = decodeURIComponent(label); } catch (err) {}
+        return label;
+      }).filter(Boolean);
+      return parts.length ? parts.join('::') : 'API Reference';
+    }
+    function operatorLabel() {
+      var operators = {
+        operator_3way: '<=>', operator_assign: '=', operator_bitor: '|', operator_call: '()',
+        operator_eq: '==', operator_ge: '>=', operator_gt: '>', operator_le: '<=',
+        operator_lt: '<', operator_minus: '-', operator_not_eq: '!=', operator_plus: '+',
+        operator_ptr: '->', operator_star: '*', operator_subs: '[]'
+      };
+      var parts = info.tail.map(function (segment) {
+        var label = segment.replace(/\.html$/, '').replace(/-[0-9a-f]+$/, '');
+        try { label = decodeURIComponent(label); } catch (err) {}
+        return label;
+      }).filter(Boolean);
+      var name = parts[parts.length - 1];
+      if (!Object.prototype.hasOwnProperty.call(operators, name)) return null;
+      parts[parts.length - 1] = 'operator' + operators[name];
+      return parts.join('::');
+    }
+    function pageLabel() {
+      var heading = article.querySelector('h1.page, h1');
+      if (!heading) return pathLabel();
+      var label = heading.textContent.replace(/\s+/g, ' ').trim();
+      return label || pathLabel();
+    }
+    var apiLink = apiReferenceNavLink(info, navPanel());
+    var apiHref = apiLink ? apiLink.href : info.indexPath;
+    var apiPath = normalizePath(new URL(apiHref, window.location.href).pathname);
+    var isApiLandingPage = normalizePath(window.location.pathname) === apiPath;
+    addCrumb(info.componentLabel, info.componentPath);
+    addCrumb('API Reference', isApiLandingPage ? null : apiHref);
+    if (!isApiLandingPage) addCrumb(operatorLabel() || pageLabel(), null);
+    nav.appendChild(crumbs);
+    if (anchor) article.insertBefore(nav, anchor);
+    else article.appendChild(nav);
+  }
+  function install() {
+    var panel = navPanel();
+    if (panel) {
+      restoreExpanded(panel);
+      restoreScroll(panel);
+      ensureNavItemVisible(panel, markApiReferenceNav(panel));
+      panel.addEventListener('click', function () { window.setTimeout(writeExpanded, 0); });
+      panel.addEventListener('scroll', saveScroll, { passive: true });
+    }
+    installApiReferenceContext();
+    installAnchorScrolling();
+    window.addEventListener('beforeunload', function () { writeExpanded(); saveScroll(); });
+  }
+  if (document.readyState === 'complete') install();
+  else window.addEventListener('load', install);
+})();
+</script>
+<script id="site-script" src="../../../../../_/js/site.js" data-ui-root-path="../../../../../_"></script>
+<script async src="../../../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

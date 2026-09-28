@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="mkdocs-1.6.1">
+    <title>Beman Sofia Hackathon | The Beman Project</title>
+    <meta name="description" content="Tomorrow's C++ Standard Libraries Today">
+    <link rel="icon" href="../../img/beman_logo.png">
+    <script>
+      (function () {
+        function getStoredTheme() {
+          try {
+            return window.localStorage.getItem("theme");
+          } catch (err) {
+            return null;
+          }
+        }
+
+        var storedTheme = getStoredTheme();
+        var theme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <link rel="stylesheet" href="../../assets/beman.css">
+    
+    
+  </head>
+  <body class="page-kind-standard">
+    
+
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="brand" href="../../index.html">
+          <img src="../../img/beman_logo.png" alt="The Beman Project Logo">
+          <span>The Beman Project</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+        <button class="theme-toggle theme-toggle-mobile" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+          <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+          </svg>
+          <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+          </svg>
+        </button>
+        <div class="nav-menu" id="nav-menu">
+          <div class="nav-links">
+            
+              
+                
+              
+              <a class="" href="../..">Home</a>
+            
+              
+                
+              
+              <a class="" href="../../docs/">Docs</a>
+            
+              
+                
+              
+              <a class="" href="../../libraries/">Libraries</a>
+            
+              
+                
+              
+              <a class="" href="../../talks/">Talks</a>
+            
+              
+                
+              
+              <a class="active" href="../">Blog</a>
+            
+          </div>
+          <div class="social-links" aria-label="Community links">
+            <a class="social-link discourse" href="https://discourse.bemanproject.org/" aria-label="Discourse Forum"></a>
+            <a class="social-link discord" href="https://discord.com/invite/BKpNyJgSbm" aria-label="Discord"></a>
+            <a class="social-link github" href="https://github.com/bemanproject" aria-label="GitHub Repository"></a>
+            <button class="theme-toggle" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+              <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+              </svg>
+              <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    
+    
+
+    
+      <main class="page-shell">
+        
+        <aside class="sidebar" aria-label="Blog navigation">
+          
+
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              
+                
+            <ul>
+              
+                <li class="">
+                  
+                    <a href="../">Blog</a>
+                  
+                </li>
+              
+                <li class="">
+                  
+                    <a href="../beman-infra-containers/">Reliable CI within a shared container infrastructure</a>
+                  
+                </li>
+              
+                <li class="active">
+                  
+                    <a href="./">Beman Sofia Hackathon</a>
+                  
+                </li>
+              
+                <li class="">
+                  
+                    <a href="../nyc-hackathon/">NYC Hackathon</a>
+                  
+                </li>
+              
+                <li class="">
+                  
+                    <a href="../beman-tutorial/">Beman Project Introduction Online</a>
+                  
+                </li>
+              
+                <li class="">
+                  
+                    <a href="../about-beman/">About The Beman Project</a>
+                  
+                </li>
+              
+            </ul>
+          
+              
+            
+          
+        </aside>
+        
+        <article class="content-panel">
+          
+            <p class="post-meta">2025-07-06 · Darius Neațu</p>
+          
+          <h1 id="beman-sofia-hackathon">Beman Sofia Hackathon<a class="headerlink" href="#beman-sofia-hackathon" title="Permanent link">&para;</a></h1>
+<p><img alt="intro" src="images/intro-v2.png" /></p>
+<p>During the ISO WG21 C++ Meeting in <a href="https://wg21.link/N5004">Sofia, June 2025</a>, we hosted an in-person Beman - Evening Session — a mix of short presentations, a hands-on hackathon, and plenty of big ideas for the future of C++. What started as a relaxed gathering quickly turned into a productive (and caffeinated) brainstorming hub, where we explored potential C++29 library proposals, shared early-stage experiments, and even wrote code live. It was part workshop, part jam session, and fully in the spirit of what makes the C++ community so unique: collaboration, creativity, and a shared passion for pushing the language forward.</p>
+<p>Since November 2024, we have been organizing Beman presentations at ISO WG21 C++ meetings (Warsaw 2024 - Poland, Hagenberg 2025 - Austria). Since we have been receiving positive feedback, we decided to organize another one in Sofia, June 2025 - Bulgaria. (Note that our next session will be at CppCon in September in Colorado - stay tuned for more details!)</p>
+<p><img alt="intro" src="images/intro-v1.png" /></p>
+<p>We had a great turnout, with 25 participants. The evening started with a great discussion about The Beman Project and where it is going, especially considering the C++26 is closed and the design cycle for C++29 is starting.</p>
+<p>We presented our first <a href="https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#production-ready-api-may-undergo-changes">Production ready. API may undergo changes.</a> library, which is the <a href="https://github.com/bemanproject/optional">beman.optional</a> library, hoping to get it into the C++26 standard and become <a href="https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#production-ready-stable-api">Production ready. Stable API.</a>. We counted a total of 10 <a href="https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#production-ready-stable-api">Under development and not yet ready for production use.</a> Beman libraries.</p>
+<p>We have continued the discussion around our set of guidelines for the Beman libraries, which are described in <a href="https://github.com/bemanproject/beman/blob/main/docs/beman_standard.md">The Beman Standard</a>. This strong set of rules is a great foundation for our libraries, and it helps the authors to create libraries that are easy to use, maintain, and extend by example, using our awesome <a href="https://github.com/bemanproject/exemplar">beman.exemplar</a> template library.</p>
+<p>The second part of the evening was a hackathon with our latest tool <a href="https://github.com/bemanproject/infra/tree/main/tools/beman-tidy">beman-tidy: The Codebase Bemanification Tool</a>. For more context, the <code>beman-tidy</code> helps you to apply the Beman Standard to your codebase, at a later stage in the library development.</p>
+<p>Since the <code>beman-tidy</code> framework was already ready to use, but still required some work to implement around 40-50 checks, we created the <a href="https://github.com/orgs/bemanproject/projects/8">beman-tidy Project on GitHub</a> to track the progress of the implementation and to split the work into smaller tasks.</p>
+<p><img alt="beman tidy board" src="images/beman-tidy-board.png" /></p>
+<p>The implication during the hackathon was substantial, with 10 participants working on the <code>beman-tidy</code> framework, and more pushing PRs at a later point in time. The tool is not completed yet, so feel free to contribute (ping <a href="https://github.com/neatudarius">@neatudarius</a> on GitHub, which is the <code>beman-tidy</code> author).</p>
+<p>We were very happy with the impact of that evening (Wednesday evening, in the middle of the ISO WG21 C++ Meeting), but surprises continued ...</p>
+<p>After Friday's LEWG session, <a href="https://wg21.link/P3655R1">P3655R1: std::zstring_view</a> was presented and got feedback to continue the proposed direction. As an immediate consequence of this event, a new author created the <a href="https://github.com/bemanproject/cstring_view">beman.cstring_view</a> library, to pursue the C++29 proposal.</p>
+<p>The cherry on the cake was the Saturday's plenary! Lots and lots of great news for Beman folks!</p>
+<p>The proposals behind the <a href="https://github.com/bemanproject/task">beman.task</a>, <a href="https://github.com/bemanproject/execution">beman.execution</a> and <a href="https://github.com/bemanproject/net">beman.net</a> libraries got accepted in C++26, although significant work remains to make them production ready.</p>
+<p>Previously, in Saint Louis June 2024, <a href="https://wg21.link/P3168R2">(P3168R2) Give std::optional Range Support</a> was accepted into the ISO C++ Working Draft, which is one of the two papers implemented in <a href="https://github.com/bemanproject/optional">beman.optional</a>. The missing piece was the <a href="https://wg21.link/P2988R12">(P2988R12) <code>std::optional&lt;T&amp;&gt;</code></a> paper, which was <strong>also</strong> accepted into the ISO C++ Working Draft. That makes <a href="https://github.com/bemanproject/optional">beman.optional</a> require just a little bit more work to get it <a href="https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#production-ready-stable-api">Production ready. Stable API.</a>.</p>
+<p>We couldn't be happier with the outcome of this event, and we are looking forward to the next one! Please check out the <a href="https://github.com/bemanproject">Beman Project</a> on GitHub or <a href="https://discourse.bemanproject.org/latest">join us on Discourse</a> to get involved!</p>
+          
+            <div id="discourse-comments" data-discourse-url="https://discourse.bemanproject.org/"></div>
+          
+        </article>
+        
+          <aside class="toc-panel">
+            <strong>On this page</strong>
+            <ul>
+              
+                <li><a href="#beman-sofia-hackathon">Beman Sofia Hackathon</a></li>
+              
+            </ul>
+          </aside>
+        
+      </main>
+    
+
+    <footer class="site-footer">
+      <div>
+        <h2>Community</h2>
+        <a href="https://discord.com/invite/BKpNyJgSbm">Discord</a>
+        <a href="https://discourse.bemanproject.org/">Discourse</a>
+      </div>
+      <div>
+        <h2>More</h2>
+        <a href="https://github.com/bemanproject">GitHub</a>
+      </div>
+      <p>Copyright © 2026 The Beman Project. Built with MkDocs.</p>
+    </footer>
+
+    <script src="../../assets/beman.js"></script>
+    
+    <script src="../../assets/discourse-comments.js"></script>
+    
+    
+    <script src="../../search/main.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="mkdocs-1.6.1">
+    <title>Reliable CI within a shared container infrastructure | The Beman Project</title>
+    <meta name="description" content="Tomorrow's C++ Standard Libraries Today">
+    <link rel="icon" href="../../img/beman_logo.png">
+    <script>
+      (function () {
+        function getStoredTheme() {
+          try {
+            return window.localStorage.getItem("theme");
+          } catch (err) {
+            return null;
+          }
+        }
+
+        var storedTheme = getStoredTheme();
+        var theme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <link rel="stylesheet" href="../../assets/beman.css">
+    
+    
+  </head>
+  <body class="page-kind-standard">
+    
+
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="brand" href="../../index.html">
+          <img src="../../img/beman_logo.png" alt="The Beman Project Logo">
+          <span>The Beman Project</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+        <button class="theme-toggle theme-toggle-mobile" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+          <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+          </svg>
+          <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+          </svg>
+        </button>
+        <div class="nav-menu" id="nav-menu">
+          <div class="nav-links">
+            
+              
+                
+              
+              <a class="" href="../..">Home</a>
+            
+              
+                
+              
+              <a class="" href="../../docs/">Docs</a>
+            
+              
+                
+              
+              <a class="" href="../../libraries/">Libraries</a>
+            
+              
+                
+              
+              <a class="" href="../../talks/">Talks</a>
+            
+              
+                
+              
+              <a class="active" href="../">Blog</a>
+            
+          </div>
+          <div class="social-links" aria-label="Community links">
+            <a class="social-link discourse" href="https://discourse.bemanproject.org/" aria-label="Discourse Forum"></a>
+            <a class="social-link discord" href="https://discord.com/invite/BKpNyJgSbm" aria-label="Discord"></a>
+            <a class="social-link github" href="https://github.com/bemanproject" aria-label="GitHub Repository"></a>
+            <button class="theme-toggle" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+              <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+              </svg>
+              <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    
+    
+
+    
+      <main class="page-shell">
+        
+        <aside class="sidebar" aria-label="Blog navigation">
+          
+
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              
+                
+            <ul>
+              
+                <li class="">
+                  
+                    <a href="../">Blog</a>
+                  
+                </li>
+              
+                <li class="active">
+                  
+                    <a href="./">Reliable CI within a shared container infrastructure</a>
+                  
+                </li>
+              
+                <li class="">
+                  
+                    <a href="../sofia-hackathon/">Beman Sofia Hackathon</a>
+                  
+                </li>
+              
+                <li class="">
+                  
+                    <a href="../nyc-hackathon/">NYC Hackathon</a>
+                  
+                </li>
+              
+                <li class="">
+                  
+                    <a href="../beman-tutorial/">Beman Project Introduction Online</a>
+                  
+                </li>
+              
+                <li class="">
+                  
+                    <a href="../about-beman/">About The Beman Project</a>
+                  
+                </li>
+              
+            </ul>
+          
+              
+            
+          
+        </aside>
+        
+        <article class="content-panel">
+          
+            <p class="post-meta">2025-09-15 · Paul Tsouchlos</p>
+          
+          <h1 id="reliable-ci-within-a-shared-container-infrastructure">Reliable CI within a shared container infrastructure<a class="headerlink" href="#reliable-ci-within-a-shared-container-infrastructure" title="Permanent link">&para;</a></h1>
+<p><img alt="intro" src="images/splash.jpg" /></p>
+<p>A challenge that comes up when creating a library or any other tool is setting up a reliable and consistent <a href="https://en.wikipedia.org/wiki/Continuous_integration">continuous integration</a> (CI) pipeline for running tests, checks and other tasks. For The Beman Project, it is especially important to have a consistent and reliable CI pipeline that can be used across the full gamut of library projects.</p>
+<p>This is where <a href="https://github.com/bemanproject/infra-containers">bemanproject/infra-containers</a> comes in. In this post, we'll briefly examine:</p>
+<ul>
+<li>What is <code>bemanproject/infra-containers</code>?</li>
+<li>How does it work?</li>
+<li>How is it used?</li>
+</ul>
+<h2 id="what-is-it">What is it?<a class="headerlink" href="#what-is-it" title="Permanent link">&para;</a></h2>
+<p>In short, <code>bemanproject/infra-containers</code> is a set of <a href="https://www.docker.com/">Docker</a> container images that can be reused in CI pipelines across the Beman library projects. These containers are automatically built and published to the GitHub package registry under the <a href="https://github.com/orgs/bemanproject/packages">bemanproject organization</a>. Why do this? There are several advantages:</p>
+<ul>
+<li>These images provide a standard set of tools that are "baked-in" images. There is no further configuration needed in GitHub Actions to get the necessary tooling installed and set up for a particular job.</li>
+<li>This setup gives complete control of specific tools are installed in a particular image.</li>
+<li>The images don't need to be rebuilt for each CI run. They are built once (when changes are made) and then published to a central repository.</li>
+</ul>
+<p>Additionally, this setup allows us to build containers that contain pre-release or forked versions of compilers and other tools that may not be available in standard package repositories. This is especially useful for testing upcoming C++ features that are not yet available in stable compiler releases. Currently images are built using the most recent stable versions of GCC and Clang, the most recent trunk builds of both compilers, as well as one for the <a href="https://github.com/bloomberg/clang-p2996">P2996 reflection fork</a> of Clang.</p>
+<p>The <code>infra-containers</code> repository also builds <code>devcontainer</code> images which are used as online development environments via <a href="https://github.com/features/codespaces">GitHub Codespaces</a> for the Beman library projects.</p>
+<h2 id="how-does-it-work">How does it work?<a class="headerlink" href="#how-does-it-work" title="Permanent link">&para;</a></h2>
+<p>When a change is made to the <code>Dockerfile</code> definitions in the <a href="https://github.com/bemanproject/infra-containers">infra-containers</a> repository, a series of GitHub Actions are started that build and publish the containers to the package registry, both for production and staging use. These actions additionally run weekly or they can be invoked manually if needed.</p>
+<p>If you're not familiar with Docker or containers in general, this may seem like magic. To simplify things, you can think of these images as "virtual" operating systems that have been pre-configured with specific versions of certain tools. For <a href="https://www.gentoo.org/">fast turnaround, binary caching, and building compiler forks</a> the CI images are built on top of <a href="https://www.gentoo.org/">Gentoo Linux</a>. The devcontainer images are built on top of Ubuntu so that Microsoft's devcontainer images can be used as a base.</p>
+<h2 id="how-is-it-used">How is it used?<a class="headerlink" href="#how-is-it-used" title="Permanent link">&para;</a></h2>
+<p>The simplest way to understand how the infra-containers are used is to look at an example. We will use <a href="https://github.com/bemanproject/task">bemanproject/task</a> for this purpose as it runs tests with a large and diverse set of configurations. If we look at its <a href="https://github.com/bemanproject/task/blob/66da7a2c82f681c0ae1440bc4940626b2791eb9c/.github/workflows/ci_tests.yml#L35">CI GitHub actions workflow</a>, we can see a JSON object used to configure CI. Excerpted below is the Clang portion:</p>
+<pre><code class="language-json">{
+  &quot;clang&quot;: [
+    {
+      &quot;versions&quot;: [&quot;20&quot;],
+      &quot;tests&quot;: [
+        {
+          &quot;cxxversions&quot;: [&quot;c++26&quot;],
+          &quot;tests&quot;: [
+            {
+              &quot;stdlibs&quot;: [&quot;libstdc++&quot;, &quot;libc++&quot;],
+              &quot;tests&quot;: [
+                &quot;Debug.Default&quot;,
+                &quot;Release.Default&quot;,
+                &quot;Release.MaxSan&quot;,
+                &quot;Debug.Werror&quot;,
+                &quot;Debug.Dynamic&quot;
+              ]
+            }
+          ]
+        },
+        {
+          &quot;cxxversions&quot;: [&quot;c++23&quot;, &quot;c++20&quot;],
+          &quot;tests&quot;: [
+            { &quot;stdlibs&quot;: [&quot;libstdc++&quot;, &quot;libc++&quot;], &quot;tests&quot;: [&quot;Release.Default&quot;] }
+          ]
+        }
+      ]
+    },
+    {
+      &quot;versions&quot;: [&quot;19&quot;, &quot;18&quot;],
+      &quot;tests&quot;: [
+        {
+          &quot;cxxversions&quot;: [&quot;c++26&quot;, &quot;c++23&quot;, &quot;c++20&quot;],
+          &quot;tests&quot;: [
+            { &quot;stdlibs&quot;: [&quot;libstdc++&quot;, &quot;libc++&quot;], &quot;tests&quot;: [&quot;Release.Default&quot;] }
+          ]
+        }
+      ]
+    },
+    {
+      &quot;versions&quot;: [&quot;17&quot;],
+      &quot;tests&quot;: [
+        {
+          &quot;cxxversions&quot;: [&quot;c++26&quot;, &quot;c++23&quot;, &quot;c++20&quot;],
+          &quot;tests&quot;: [{ &quot;stdlibs&quot;: [&quot;libc++&quot;], &quot;tests&quot;: [&quot;Release.Default&quot;] }]
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<p>The structure of this configuration allows maintainers to easily produce CI matrices that test large combinations of compilers, standard libraries, and build configurations. The snippet above generates 29 individual CI jobs, each of which takes around 2 minutes to run individually. The compiler name and version specified here is used to determine which CI image to pull.</p>
+<p>Hopefully this brief overview of <code>bemanproject/infra-containers</code> has given you a better understanding of why it's beneficial, how it works and how it's used. If you previously were not familiar with Docker, the GitHub package registry, or even the concept of containers, I hope this has inspired you to dig deeper into the topic to improve your own CI infrastructure at your company or for your personal projects.</p>
+<p>Currently, seven beman projects use this <code>beman/infra-containers</code> as part of their GitHub Actions setup, including:</p>
+<ul>
+<li><a href="https://github.com/bemanproject/cache_latest">bemanproject/cache_latest</a></li>
+<li><a href="https://github.com/bemanproject/execution">bemanproject/execution</a></li>
+<li><a href="https://github.com/bemanproject/net">bemanproject/net</a></li>
+<li><a href="https://github.com/bemanproject/scan_view">bemanproject/scan_view</a></li>
+<li><a href="https://github.com/bemanproject/scope">bemanproject/scope</a></li>
+<li><a href="https://github.com/bemanproject/task">bemanproject/task</a></li>
+<li><a href="https://github.com/bemanproject/transform_view">bemanproject/transform_view</a></li>
+</ul>
+<p>If you're interested in contributing to The Beman Project, including adapting more Beman projects to use the <code>bemanproject/infra-containers</code> setup, please check out the <a href="https://github.com/bemanproject">Beman Project</a> on GitHub or <a href="https://discourse.bemanproject.org/latest">join us on Discourse</a> to get involved! Please also checkout the <a href="https://bemanproject.org">official website</a> for more information on The Beman Project.</p>
+          
+            <div id="discourse-comments" data-discourse-url="https://discourse.bemanproject.org/"></div>
+          
+        </article>
+        
+          <aside class="toc-panel">
+            <strong>On this page</strong>
+            <ul>
+              
+                <li><a href="#reliable-ci-within-a-shared-container-infrastructure">Reliable CI within a shared container infrastructure</a></li>
+              
+            </ul>
+          </aside>
+        
+      </main>
+    
+
+    <footer class="site-footer">
+      <div>
+        <h2>Community</h2>
+        <a href="https://discord.com/invite/BKpNyJgSbm">Discord</a>
+        <a href="https://discourse.bemanproject.org/">Discourse</a>
+      </div>
+      <div>
+        <h2>More</h2>
+        <a href="https://github.com/bemanproject">GitHub</a>
+      </div>
+      <p>Copyright © 2026 The Beman Project. Built with MkDocs.</p>
+    </footer>
+
+    <script src="../../assets/beman.js"></script>
+    
+    <script src="../../assets/discourse-comments.js"></script>
+    
+    
+    <script src="../../search/main.js"></script>
+    
+  </body>
+</html>

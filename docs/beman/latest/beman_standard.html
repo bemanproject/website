@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Beman Standard :: Beman Docs</title>
+    <link rel="canonical" href="https://bemanproject.org/docs/beman/latest/beman_standard.html">
+    <meta name="generator" content="Antora 3.2.0">
+    <script>
+      (function () {
+        function getStoredTheme() {
+          try { return window.localStorage.getItem('theme'); } catch (err) { return null; }
+        }
+        var storedTheme = getStoredTheme();
+        var theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/beman-docs.css?v=12">
+  </head>
+  <body class="article">
+<header class="header site-header">
+  <nav class="navbar site-nav" aria-label="Main navigation">
+    <a class="brand" href="../../../">
+      <img src="../../../img/beman_logo.png" alt="The Beman Project Logo">
+      <span>The Beman Project</span>
+    </a>
+    <button class="navbar-burger site-nav-toggle" type="button" aria-controls="topbar-nav" aria-expanded="false">Menu</button>
+    <button class="theme-toggle theme-toggle-mobile" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+      <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+      </svg>
+      <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+      </svg>
+    </button>
+    <div class="nav-menu navbar-menu" id="topbar-nav">
+      <div class="nav-links navbar-end">
+        <a class="navbar-item" href="../../../">Home</a>
+        <a class="navbar-item active" href="../../">Docs</a>
+        <a class="navbar-item" href="../../../libraries/">Libraries</a>
+        <a class="navbar-item" href="../../../talks/">Talks</a>
+        <a class="navbar-item" href="../../../blog/">Blog</a>
+      </div>
+      <div class="social-links" aria-label="Community links">
+        <a class="social-link discourse" href="https://discourse.bemanproject.org/" aria-label="Discourse Forum"></a>
+        <a class="social-link discord" href="https://discord.com/invite/BKpNyJgSbm" aria-label="Discord"></a>
+        <a class="social-link github" href="https://github.com/bemanproject" aria-label="GitHub Repository"></a>
+        <button class="theme-toggle" type="button" aria-label="Switch between dark and light mode" aria-live="polite">
+          <svg class="theme-toggle-icon theme-toggle-icon-light" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path>
+          </svg>
+          <svg class="theme-toggle-icon theme-toggle-icon-dark" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+<script>
+(function () {
+  var themeToggles = document.querySelectorAll('.theme-toggle');
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    themeToggles.forEach(function (themeToggle) {
+      var label = 'Switch between dark and light mode (currently ' + theme + ' mode)';
+      themeToggle.setAttribute('aria-label', label);
+      themeToggle.setAttribute('title', label);
+      themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
+    });
+    try { window.localStorage.setItem('theme', theme); } catch (err) {}
+  }
+  setTheme(currentTheme());
+  themeToggles.forEach(function (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
+    });
+  });
+})();
+</script>
+<div class="body">
+<div class="nav-container" data-component="beman" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">Beman Project</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Project</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="beman_library_maturity_model.html">Beman Library Maturity Model</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="beman_standard.html">Beman Standard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="mission.html">Mission</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="governance.html">Governance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="code_of_conduct.html">Code of Conduct</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Libraries</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">optional</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.optional/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.optional/latest/overview.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.optional/latest/reference/beman/optional.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">execution</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/overview.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.execution/latest/reference/beman/execution26.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">task</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.task/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">cache_latest</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cache_latest/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cache_latest/latest/development.html">Development</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cache_latest/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">copyable_function</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.copyable_function/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.copyable_function/latest/development.html">Development</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.copyable_function/latest/reference/beman.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">cstring_view</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cstring_view/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cstring_view/latest/using_cstring_view.html">Guide</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.cstring_view/latest/reference/beman/cstring_view.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">monadics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/tutorial.html">Tutorial</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/design_rationale.html">Design Rationale</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.monadics/latest/reference/beman/monadics.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">scope</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.scope/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.scope/latest/resources.html">Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.scope/latest/reference/beman/scope.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">transform_view</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.transform_view/latest/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.transform_view/latest/intro.html">Intro</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../beman.transform_view/latest/reference/beman/transform_view.html">API Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Beman Project</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="index.html">Beman Project</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.cache_latest/latest/index.html">beman.cache_latest</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.cache_latest/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.copyable_function/latest/index.html">beman.copyable_function</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.copyable_function/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.cstring_view/latest/index.html">beman.cstring_view</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.cstring_view/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.execution/latest/index.html">beman.execution</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.execution/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.monadics/latest/index.html">beman.monadics</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.monadics/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.optional/latest/index.html">beman.optional</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.optional/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.scope/latest/index.html">beman.scope</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.scope/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.task/latest/index.html">beman.task</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.task/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../beman.transform_view/latest/index.html">beman.transform_view</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../beman.transform_view/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Beman Project</a></li>
+    <li>Project</li>
+    <li><a href="beman_standard.html">Beman Standard</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Beman Standard</h1>
+<div class="sect1">
+<h2 id="_the_beman_standard"><a class="anchor" href="#_the_beman_standard"></a>The Beman Standard</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document specifies requirements and recommendations for Beman project libraries. Its goal is to create consistency facilitating the evaluation of, and contribution to Beman libraries.</p>
+</div>
+<div class="sect2">
+<h3 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h3>
+<div class="sect3">
+<h4 id="_core_principles"><a class="anchor" href="#_core_principles"></a>Core principles</h4>
+<div class="paragraph">
+<p>This standard is driven by four core principles:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>[core.quality] Highest quality</strong>. Standards track libraries impact countless engineers and, consequently, should be of the highest quality.</p>
+</li>
+<li>
+<p><strong>[core.production_ready] Production-ready</strong>. Production feedback necessitates reliable, well-documented software.</p>
+</li>
+<li>
+<p><strong>[core.industry_standard] Industry standard technology</strong>. Where there&#8217;s industry consensus on best practices, we should take advantage. Innovation in tooling and style is not our purpose.</p>
+</li>
+<li>
+<p><strong>[core.inclusive] Welcoming and inclusive community</strong>. Broad, useful feedback requires an unobstructed path for using, reviewing, and contributing to Beman libraries. This principle encompasses ergonomics, cross-industry participation, and cultural accommodation.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_changing_this_document"><a class="anchor" href="#_changing_this_document"></a>Changing this document</h4>
+<div class="paragraph">
+<p>This is a living document that adapts to evolving best practices and community needs. To make changes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a <a href="https://discourse.boost.org">discourse topic</a> detailing the change and how it aligns with the core principles.</p>
+</li>
+<li>
+<p>After some community discussion, create a PR with the actual change on <a href="https://github.com/bemanproject/beman">GitHub</a> and apply the <em>Beman leads</em> label. The PR should also link to the discourse topic.</p>
+</li>
+<li>
+<p>Continue discussions on the PR and discourse topic.</p>
+</li>
+<li>
+<p>Await a leads decision based on the community feedback.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Note: When making minor changes such as fixing typos, correcting grammar mistakes or improving clarity, some of the previous steps may be skipped - a PR can be directly created.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_conventions"><a class="anchor" href="#_conventions"></a>Conventions</h4>
+<div class="paragraph">
+<p>This standard consists of entries that include a lowercase, dot-separated identifier for referencing.</p>
+</div>
+<div class="paragraph">
+<p>With the exception of the core principles, these entries are either requirements or recommendations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Requirements</strong> must be followed in order to conform to this standard. These entries are prefixed by "Requirement:".</p>
+</li>
+<li>
+<p><strong>Recommendations</strong> should be followed in general, but specific circumstances may make this a less-than-ideal choice. Libraries not following a specific recommendation can still conform to this standard. These entries are prefixed by "Recommendation:".</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_license"><a class="anchor" href="#_license"></a>License</h3>
+<div class="sect3">
+<h4 id="licenseapproved"><a class="anchor" href="#licenseapproved"></a><strong>[license.approved]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: All Beman libraries must be licensed under an approved license. These are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://llvm.org/LICENSE.txt">Apache License v2.0 with LLVM Exceptions</a></p>
+</li>
+<li>
+<p><a href="https://www.boost.org/LICENSE_1_0.txt">Boost Software License 1.0</a></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="licenseapache_llvm"><a class="anchor" href="#licenseapache_llvm"></a><strong>[license.apache_llvm]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: A Beman library should be licensed under the <code>Apache License v2.0 with LLVM Exceptions</code> (first recommended license in <a href="#licenseapproved">license.approved</a>).</p>
+</div>
+<div class="paragraph">
+<p>Use the exact content from <a href="https://github.com/bemanproject/beman/blob/main/LICENSE">beman/LICENSE</a> into your library&#8217;s <code>LICENSE</code> file.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="licensecriteria"><a class="anchor" href="#licensecriteria"></a><strong>[license.criteria]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: All approved licenses must meet the following requirements:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Simple to read and understand.</p>
+</li>
+<li>
+<p>Permission without fee to copy, use and modify the software for any use (commercial and non-commercial).</p>
+</li>
+<li>
+<p>Requires that the license appears on all copies of the software source code.</p>
+</li>
+<li>
+<p>Must not require that the license appears with executables or other binary uses of the library.</p>
+</li>
+<li>
+<p>Must not require that the source code be available for execution or other binary uses of the library.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_general"><a class="anchor" href="#_general"></a>General</h3>
+<div class="sect3">
+<h4 id="libraryname"><a class="anchor" href="#libraryname"></a><strong>[library.name]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: Beman libraries names begin with <code>beman.</code> followed by a <code>snake_case</code> short name. It should not contain a target C&#43;&#43; version.</p>
+</div>
+<div class="paragraph">
+<p>Examples: <code>beman.smart_pointer</code> and <code>beman.sender_receiver</code>.</p>
+</div>
+<div class="paragraph">
+<p>Bad examples: <code>smart_pointer</code> or <code>beman.smartpointer</code> or <code>beman.optional26</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_repository"><a class="anchor" href="#_repository"></a>REPOSITORY</h3>
+<div class="sect3">
+<h4 id="repositoryname"><a class="anchor" href="#repositoryname"></a><strong>[repository.name]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: The repository must be named after the library name excluding the <code>beman.</code> prefix. It must not contain a target C&#43;&#43; version.</p>
+</div>
+<div class="paragraph">
+<p>Examples: A <code>beman.smart_pointer</code> library&#8217;s repository should be named <code>smart_pointer</code>. A <code>beman.optional</code> library&#8217;s repository should be named <code>optional</code>.</p>
+</div>
+<div class="paragraph">
+<p>Bad examples: <code>smartpointer</code> or <code>optional26</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="repositorydefault_branch"><a class="anchor" href="#repositorydefault_branch"></a><strong>[repository.default_branch]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: The repository must have <code>main</code> as default branch.</p>
+</div>
+<div class="paragraph">
+<p>You can change the <code>default branch</code> via default repository settings menu - e.g., <a href="https://github.com/bemanproject/exemplar/settings">exemplar/settings</a>.</p>
+</div>
+<div class="paragraph">
+<p>Here is snapshot of <code>default branch</code> settings in <code>exemplar</code> repository:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/repository.default_branch-example01.png" alt="./images/repository.default_branch-example01"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="repositorycodeowners"><a class="anchor" href="#repositorycodeowners"></a><strong>[repository.codeowners]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: There must be a <code>.github/CODEOWNERS</code> file with a relevant set of codeowners. Please check <a href="https://github.com/bemanproject/exemplar/blob/main/.github/CODEOWNERS">exemplar: CODEOWNERS</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="repositorycode_review_rules"><a class="anchor" href="#repositorycode_review_rules"></a><strong>[repository.code_review_rules]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: There must be a default <code>Rulesets</code> configured for any Beman repository (library, infrastructre, documentation, etc.)</p>
+</div>
+<div class="paragraph">
+<p>Use the following example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Go to your repository&#8217;s settings - e.g., <a href="https://github.com/bemanproject/exemplar/settings/">exemplar/settings</a>.</p>
+</li>
+<li>
+<p>Go to <code>Code and automation</code> / <code>Rules</code> / <code>Rulesets</code> - e.g., <a href="https://github.com/bemanproject/exemplar/settings/rules/">exemplar/settings/rulesets</a>.</p>
+</li>
+<li>
+<p>You should have a single ruleset named <code>Default</code> - e.g., <a href="https://github.com/bemanproject/exemplar/settings/rulesets/beman">exemplar/settings/rulesets/beman</a>.</p>
+</li>
+<li>
+<p>Create (via <code>New ruleset</code> button) or update (click on <code>Default</code> ruleset) it to include the following rules:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Rulset Name: <code>Default</code></p>
+</li>
+<li>
+<p>Enforcement status: <code>Active</code></p>
+</li>
+<li>
+<p>Bypass list: Check <code>Organization admin</code> and <code>Repository admin</code></p>
+</li>
+<li>
+<p>Target branch: Check <code>Include default branch</code></p>
+</li>
+<li>
+<p>Go to <code>Rules</code> section</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Check <code>Restrict deletions</code> and <code>Block force pushes</code></p>
+</li>
+<li>
+<p>Check <code>Require a pull request before merging</code> and configure it to have <code>Required approvals: 1</code>, <code>Require review from Code Owners</code> and <code>Allowed merge methods: Merge, Squash, Rebase</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <code>Create</code> to save the ruleset.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here is a snapshot of <code>default branch</code> settings in <code>exemplar</code>:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/repository.code_review_rules-example01.gif" alt="./images/repository.code_review_rules-example01"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="repositorydisallow_git_submodules"><a class="anchor" href="#repositorydisallow_git_submodules"></a><strong>[repository.disallow_git_submodules]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: The repository should not use git submodules. Check <code>cmake.use_find_package</code> for alternatives.</p>
+</div>
+<div class="paragraph">
+<p>Known exceptions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/mpark/wg21">mpark/wg21: Framework for Writing C&#43;&#43; Committee Papers</a>: A non-C&#43;&#43; submodule designed for drafting ISO C&#43;&#43; papers using LaTeX or Markdown.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_release"><a class="anchor" href="#_release"></a>Release</h3>
+<div class="sect3">
+<h4 id="releasegithub"><a class="anchor" href="#releasegithub"></a><strong>[release.github]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: All Beman libraries must be released using <a href="https://docs.github.com/en/repositories/releasing-projects-on-github">GitHub Releases</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="releaseversion"><a class="anchor" href="#releaseversion"></a><strong>[release.version]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: The versioning of releases should adhere to the following guidance:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The git tag of each version is prefixed with a 'v', e.g., <code>v1.2.3</code></p>
+</li>
+<li>
+<p>Beman libraries not yet ready for the <a href="https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#review-process-for-transitioning-a-library-to-production-ready">review process</a> are version <code>0.y.z</code></p>
+</li>
+<li>
+<p>Beman libraries that are ready for the <a href="https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#review-process-for-transitioning-a-library-to-production-ready">review process</a> but have not yet transitioned to "Production Ready" status are version <code>1.y.z</code></p>
+</li>
+<li>
+<p>Beman libraries that have passed the <a href="https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#review-process-for-transitioning-a-library-to-production-ready">review process</a> and become "Production Ready" are version <code>x.y.z</code> where <code>x</code> &gt;= 2.</p>
+</li>
+<li>
+<p>Except when it conflicts with the above guidance on the major version, Beman library version numbers should roughly observe <a href="https://semver.org/">semantic versioning</a>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>New releases that fix bugs without adding new functionality should bump the patch version</p>
+</li>
+<li>
+<p>New releases that make changes or add new functionality without any API-breaking changes should bump the minor version</p>
+</li>
+<li>
+<p>New releases that have API-breaking changes should bump the major version (unless it is <code>0</code> or <code>1</code>, as stated above).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>These major version bumps should occur even if the library is in "Production ready. API may undergo changes" status.</p>
+</li>
+<li>
+<p>If the library is in "Production ready. Stable API" status, then the major version shouldn&#8217;t change (because the library shouldn&#8217;t publish API-breaking changes).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="releasenotes"><a class="anchor" href="#releasenotes"></a><strong>[release.notes]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: Release should include:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A title that contains the release version, e.g., <code>v1.2.3</code>. (Check visual example for the field location.)</p>
+</li>
+<li>
+<p>Description. (Check visual example for the field location.)</p>
+<div class="paragraph">
+<p>2.1. A "What&#8217;s changed" section listing all changes.</p>
+</div>
+<div class="paragraph">
+<p>2.2. A "New Contributors" section listing all first-time contributors.</p>
+</div>
+<div class="paragraph">
+<p>2.3. A "Full Changelog" link to the complete list of commits.</p>
+</div>
+<div class="paragraph">
+<p>2.4. A "Contributors" section listing all contributors to this release.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Note: All four of the above sections can be autogenerated by GitHub.</p>
+</div>
+<div class="paragraph">
+<p>Note: If desired, maintainers may add additional detail to the release notes, such as handwritten summaries of what changed, an explanation of the purpose of the release, and a reorganization of the changelog specifying which changes are breaking changes, new features, bug fixes, build system changes, or documentation updates.</p>
+</div>
+<div class="paragraph">
+<p>Complete examples can be found in <a href="https://github.com/bemanproject/exemplar/releases">https://github.com/bemanproject/exemplar/releases</a>.</p>
+</div>
+<div class="paragraph">
+<p>Here is a snapshot of notes for a particular release in <code>exemplar</code>:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/release.notes-example01.png" alt="./images/release.notes-example01"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="releasegodbolt_trunk_version"><a class="anchor" href="#releasegodbolt_trunk_version"></a><strong>[release.godbolt_trunk_version]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: A Beman library should have at least a trunk version deployed on godbolt with nightyclone mode activated. Check <a href="https://github.com/bemanproject/beman/blob/main/guidelines/compiler-explorer-deployment.md">tutorial: Compiler Explorer Deployment</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_top_level"><a class="anchor" href="#_top_level"></a>Top-level</h3>
+<div class="paragraph">
+<p>The top-level of a Beman library repository must consist of <code>CMakeLists.txt</code>, <code>LICENSE</code>, and <code>README.md</code> files.</p>
+</div>
+<div class="sect3">
+<h4 id="toplevelcmake"><a class="anchor" href="#toplevelcmake"></a><strong>[toplevel.cmake]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: There must be a <code>CMakeLists.txt</code> file at the repository&#8217;s root that builds and tests (via. CTest) the library.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="toplevellicense"><a class="anchor" href="#toplevellicense"></a><strong>[toplevel.license]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: There must be a <code>LICENSE</code> file at the repository&#8217;s root with the contents of an approved license that covers the contents of the repository.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="toplevelreadme"><a class="anchor" href="#toplevelreadme"></a><strong>[toplevel.readme]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: There must be a markdown-formatted <code>README.md</code> file at the repository&#8217;s root that describes the library, explains how to build it, and links to further documentation.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="readmemd"><a class="anchor" href="#readmemd"></a><code>README.md</code></h3>
+<div class="sect3">
+<h4 id="readmetitle"><a class="anchor" href="#readmetitle"></a><strong>[readme.title]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: The <code>README.md</code> should begin with a level 1 header with the name of the library optionally followed with a ":" and short description.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown"># beman.sender_receiver: Scalable Asychronous Program Building Blocks</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="readmebadges"><a class="anchor" href="#readmebadges"></a><strong>[readme.badges]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: Following the title, the <code>README.md</code> must have a badge list. Examples: library status (<code>[readme.library_status]</code>), CI status, code coverage, Compiler Explorer example.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">[![Library Status](https://raw.githubusercontent.com/bemanproject/beman/refs/heads/main/images/badges/beman_badge-beman_library_under_development.svg)](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#the-beman-library-maturity-model)
+[![Continuous Integration Tests](https://github.com/bemanproject/exemplar/actions/workflows/ci_tests.yml/badge.svg)](https://github.com/bemanproject/exemplar/actions/workflows/ci_tests.yml)
+[![Lint Check (pre-commit)](https://github.com/bemanproject/exemplar/actions/workflows/pre-commit-check.yml/badge.svg)](https://github.com/bemanproject/exemplar/actions/workflows/pre-commit-check.yml)
+[![Coverage](https://coveralls.io/repos/github/bemanproject/exemplar/badge.svg?branch=main)](https://coveralls.io/github/bemanproject/exemplar?branch=main)
+![Standard Target](https://github.com/bemanproject/beman/blob/main/images/badges/cpp29.svg)
+[![Compiler Explorer Example](https://img.shields.io/badge/Try%20it%20on%20Compiler%20Explorer-grey?logo=compilerexplorer&amp;logoColor=67c52a)](https://godbolt.org/z/4qEPK87va)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Use exactly one of the following entries for the library status badge.</p>
+</div>
+<div class="paragraph">
+<p>For "Under development" (which should be used by new libraries), use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">[![Library Status](https://raw.githubusercontent.com/bemanproject/beman/refs/heads/main/images/badges/beman_badge-beman_library_under_development.svg)](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#the-beman-library-maturity-model)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For "Production ready. API may undergo changes," use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">[![Library Status](https://raw.githubusercontent.com/bemanproject/beman/refs/heads/main/images/badges/beman_badge-beman_library_production_ready_api_may_undergo_changes.svg)](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#the-beman-library-maturity-model)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For "Production ready. Stable API," use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">[![Library Status](https://raw.githubusercontent.com/bemanproject/beman/refs/heads/main/images/badges/beman_badge-beman_library_production_ready_stable_api.svg)](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#the-beman-library-maturity-model)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For "Retired. No longer maintained or actively developed," use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">[![Library Status](https://raw.githubusercontent.com/bemanproject/beman/refs/heads/main/images/badges/beman_badge-beman_library_retired.svg)](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#the-beman-library-maturity-model)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Use exactly one of the following entries for the standard target status badge.</p>
+</div>
+<div class="paragraph">
+<p>For C&#43;&#43;26, use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">![Standard Target](https://github.com/bemanproject/beman/blob/main/images/badges/cpp26.svg)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For C&#43;&#43;29, use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">![Standard Target](https://github.com/bemanproject/beman/blob/main/images/badges/cpp29.svg)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the library has been deployed onto Compiler Explorer, add this badge and replace the link with the link of the example code taken from Compiler Explorer:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">[![Compiler Explorer Example](https://img.shields.io/badge/Try%20it%20on%20Compiler%20Explorer-grey?logo=compilerexplorer&amp;logoColor=67c52a)](https://godbolt.org)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="readmepurpose"><a class="anchor" href="#readmepurpose"></a><strong>[readme.purpose]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: Following the badges list and a newline, the <code>README.md</code> should contain a one line summary describing the library&#8217;s purpose.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="readmeimplements"><a class="anchor" href="#readmeimplements"></a><strong>[readme.implements]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: Following the purpose and a newline, the <code>README.md</code> should indicate which papers the repository implements. Use the following style:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">**Implements**: [`std::optional&lt;T&amp;&gt;` (P2988R5)](https://wg21.link/P2988R5) and
+[Give *std::optional* Range Support (P3168R1)](https://wg21.link/P3168R1).</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that specifying the revision number is optional.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="readmelibrary_status"><a class="anchor" href="#readmelibrary_status"></a><strong>[readme.library_status]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: Following the implements section and a newline, the <code>README.md</code> must indicate the <strong>current</strong> library status with respect to the <a href="https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md">Beman library maturity model</a>. An extra badge must be added to the <code>README.md</code> to visually indicate the library status (check <code>[readme.badges]</code>). Note: The full library status history can be found in the GitHub release notes.</p>
+</div>
+<div class="paragraph">
+<p>Use exactly one of the following entries for the status line:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">**Status**: [Under development and not yet ready for production use.](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#under-development-and-not-yet-ready-for-production-use)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">**Status**: [Production ready. API may undergo changes.](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#production-ready-api-may-undergo-changes)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">**Status**: [Production ready. Stable API.](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#production-ready-stable-api)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">**Status**: [Retired. No longer maintained or actively developed.](https://github.com/bemanproject/beman/blob/main/docs/beman_library_maturity_model.md#retired-no-longer-maintained-or-actively-developed)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="readmelicense"><a class="anchor" href="#readmelicense"></a><strong>[readme.license]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: Following the library status line and a new line, the <code>README.md</code> must have a <code>LICENSE</code> section.</p>
+</div>
+<div class="paragraph">
+<p>Use exactly the following format:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">## License
+
+beman.exemplar is licensed under the Apache License v2.0 with LLVM Exceptions.
+
+&lt;!-- Other optional mentions go on this line ... &gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">## License
+
+beman.exemplar is licensed under the Boost Software License 1.0.
+
+&lt;!-- Other optional mentions go on this line ... &gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">## License
+
+beman.exemplar is licensed under the MIT License.
+
+&lt;!-- Other optional mentions go on this line ... &gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown">## License
+
+beman.exemplar is licensed under the Boost Software License 1.0 and under the ... .
+
+&lt;!-- Other optional mentions go on this line ... &gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cmake"><a class="anchor" href="#_cmake"></a>CMake</h3>
+<div class="sect3">
+<h4 id="cmakedefault"><a class="anchor" href="#cmakedefault"></a><strong>[cmake.default]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: The root <code>CMakeLists.txt</code> should build all targets by default (including dependency targets).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cmakeuse_find_package"><a class="anchor" href="#cmakeuse_find_package"></a><strong>[cmake.use_find_package]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: The root <code>CMakeLists.txt</code> should fetch all dependency targets via <a href="https://cmake.org/cmake/help/latest/command/find_package.html">CMake <code>find_package</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>Use the following style:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-CMake hljs" data-lang="CMake">find_package(&lt;PackageName&gt; [REQUIRED])</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <code>[cmake.skip_tests]</code> in this document for a working example or <a href="https://github.com/bemanproject/exemplar/blob/main/CMakeLists.txt">exemplar/blob/main/CMakeLists.txt</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cmakeproject_name"><a class="anchor" href="#cmakeproject_name"></a><strong>[cmake.project_name]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: The CMake project name should be identical to the beman library name.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cmakepassive_projects"><a class="anchor" href="#cmakepassive_projects"></a><strong>[cmake.passive_projects]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: CMake projects must not adjust user-specified compilation flags.</p>
+</div>
+<div class="paragraph">
+<p>User-provided compilation flags, whether specified via presets, command-line options, or toolchains, must not be modified by CMake projects. Therefore, CMake projects may not set variables that impact compilation flags such as <code>CMAKE_CXX_FLAGS</code> and <code>CMAKE_CXX_STANDARD</code>, as this would override user settings.</p>
+</div>
+<div class="paragraph">
+<p>For common compiler/flag combinations, it is recommended to provide CMake presets as a convenient alternative for users.</p>
+</div>
+<div class="paragraph">
+<p>If specific compiler flags are essential for project functionality (e.g., C&#43;&#43; standard features), use utilities like <code>check_cxx_source_compiles</code> to detect support and provide a helpful error message suggesting appropriate flags for the user&#8217;s compiler.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cmakelibrary_name"><a class="anchor" href="#cmakelibrary_name"></a><strong>[cmake.library_name]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: The CMake library target&#8217;s name should be identical to the library name.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-CMake hljs" data-lang="CMake">add_library(beman.smart_pointer)
+#...</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cmakelibrary_alias"><a class="anchor" href="#cmakelibrary_alias"></a><strong>[cmake.library_alias]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: The CMake code must create an alias of the library target named <code>beman::&lt;short_name&gt;</code>. This target is intended for external use.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-CMake hljs" data-lang="CMake">add_library(beman::smart_pointer ALIAS beman.smart_pointer)
+#...</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cmaketarget_names"><a class="anchor" href="#cmaketarget_names"></a><strong>[cmake.target_names]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: All targets, aside from the library target, should begin with a <code>&lt;library_name&gt;.</code> prefix</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-CMake hljs" data-lang="CMake">add_executable(beman.smart_pointer.examples.basic)
+#...
+add_executable(beman.smart_pointer.tests.roundtrip)
+#...</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cmakepassive_targets"><a class="anchor" href="#cmakepassive_targets"></a><strong>[cmake.passive_targets]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: External targets must not modify compilation flags of dependents.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, <code>target_compile_features</code> (e.g., <code>cxx_std_20</code>) must not be used because it modifies the compilation environment of dependent targets. Compiler support for required features should be determined at CMake configuration time using <code>check_cxx_source_compiles</code>.</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, <code>target_compile_definitions</code> with <code>PUBLIC</code> or <code>INTERFACE</code> visibility must not be used, as these definitions are also propagated to dependent targets. Preprocessor definitions intended for external use should be generated into a <code>config.hpp</code> file at CMake configuration time. This <code>config.hpp</code> should then be included by public headers.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cmakeconfig"><a class="anchor" href="#cmakeconfig"></a><strong>[cmake.config]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: At <code>install</code> time, a <code>&lt;library_name&gt;-config.cmake</code> must be created which exports a <code>beman::&lt;short_name&gt;</code> target.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cmakeskip_tests"><a class="anchor" href="#cmakeskip_tests"></a><strong>[cmake.skip_tests]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: The root <code>CMakeLists.txt</code> should not build tests and their dependencies when <code>BEMAN_&lt;short_name&gt;_BUILD_TESTS</code> is set to <code>OFF</code> (see <a href="https://cmake.org/cmake/help/latest/module/CTest.html">CTest docs</a> - similar to cmake&#8217;s <code>BUILD_TESTING</code>). The option is prefixed with the project so that projects can compose. Turning on testing for the top level project should not turn on testing for dependencies. Since testing is part of the normal development workflow it is appropriate to set the option on by default for the top level project.</p>
+</div>
+<div class="paragraph">
+<p>Use the following style:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-CMake hljs" data-lang="CMake"># File: &lt;repo&gt;/CMakeLists.txt
+# ...
+option(
+    BEMAN_&lt;short_name&gt;_BUILD_TESTS
+    "Enable building tests and test infrastructure. Default: ${PROJECT_IS_TOP_LEVEL}. Values: { ON, OFF }."
+    ${PROJECT_IS_TOP_LEVEL}
+)
+# ...
+if(BEMAN_&lt;short_name&gt;_BUILD_TESTS)
+  add_subdirectory(tests)
+endif()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>CMakeLists.txt</code> in the test directory can declare any test-only dependendencies that are required. For instance:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-CMake hljs" data-lang="CMake"># File: &lt;repo&gt;/tests/CMakeLists.txt
+# ...
+find_package(GoogleTest REQUIRED)
+
+add_executable(myrepo-tests)
+# ...
+gtest_discover_tests(myrepo-tests)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Document the option in <code>README.md</code> under <code>## Dependencies</code> → <code>### Build Environment</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Markdown hljs" data-lang="Markdown"># File: &lt;repo&gt;/README.md
+# ...
+## Dependencies
+
+### Build Environment
+
+This project requires at least the following to build:
+
+* A C++ compiler that conforms to C++20 or later
+* CMake 3.30 or later
+* (Test Only) GoogleTest
+
+You can disable building tests by setting CMake option `BEMAN_&lt;short_name&gt;_BUILD_TESTS` to
+`OFF` when configuring the project.
+
+You can disable building examples by setting CMake option `BEMAN_&lt;short_name&gt;_BUILD_EXAMPLES` to
+`OFF` when configuring the project.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="https://github.com/bemanproject/exemplar/blob/main/README.md">exemplar/blob/main/README.md</a> for a working example.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cmakeskip_examples"><a class="anchor" href="#cmakeskip_examples"></a><strong>[cmake.skip_examples]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: The root <code>CMakeLists.txt</code> should not build examples and their dependencies when <code>BEMAN_&lt;short_name&gt;_BUILD_EXAMPLES</code> is set to <code>OFF</code>. The option is prefixed with the project so that projects can compose. Turning on examples for the top level project should not turn on examples for dependencies.</p>
+</div>
+<div class="paragraph">
+<p>Use the following style:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-CMake hljs" data-lang="CMake"># &lt;repo&gt;/CMakeLists.txt
+# ...
+option(
+    BEMAN_&lt;short_name&gt;_BUILD_EXAMPLES
+    "Enable building examples. Default: ${PROJECT_IS_TOP_LEVEL}. Values: { ON, OFF }."
+    ${PROJECT_IS_TOP_LEVEL}
+)
+
+# add actual code to be build here
+...
+
+# ...
+if(BEMAN_&lt;short_name&gt;_BUILD_EXAMPLES)
+  add_subdirectory(examples)
+endif()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Document the option in <code>README.md</code> under <code>## Dependencies</code> → <code>### Build Environment</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Markdown hljs" data-lang="Markdown"># File: &lt;repo&gt;/README.md
+# ...
+## Dependencies
+
+### Build Environment
+
+This project requires at least the following to build:
+
+* A C++ compiler that conforms to C++20 or later
+* CMake 3.30 or later
+* (Test Only) GoogleTest
+
+You can disable building tests by setting CMake option `BEMAN_&lt;short_name&gt;_BUILD_TESTS` to
+`OFF` when configuring the project.
+
+You can disable building examples by setting CMake option `BEMAN_&lt;short_name&gt;_BUILD_EXAMPLES` to
+`OFF` when configuring the project.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="https://github.com/bemanproject/exemplar/blob/main/README.md">exemplar/blob/main/README.md</a> for a working example.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cmakeavoid_passthroughs"><a class="anchor" href="#cmakeavoid_passthroughs"></a><strong>[cmake.avoid_passthroughs]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: Avoid <code>CMakeLists.txt</code> files consisting of a single <code>add_subdirectory</code> call.</p>
+</div>
+<div class="paragraph">
+<p>In other words prefer,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-CMake hljs" data-lang="CMake"># &lt;repo&gt;/CMakeLists.txt
+# ...
+add_subdirectory(src/beman/optional)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>to,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-CMake hljs" data-lang="CMake"># &lt;repo&gt;/CMakeLists.txt
+# ...
+add_subdirectory(src) # Don't do this
+
+# &lt;repo&gt;/src/CMakeLists.txt
+add_subdirectory(beman) # Don't do this
+
+# &lt;repo&gt;/src/beman/CMakeLists.txt
+add_subdirectory(optional) # Don't do this</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cmakeimplicit_defaults"><a class="anchor" href="#cmakeimplicit_defaults"></a><strong>[cmake.implicit_defaults]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: Where CMake commands have reasonable default values, and the project does not intend to change those values, the parameters should be left implicitly defaulted rather than enumerated in the command.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-CMake hljs" data-lang="CMake">install(
+    TARGETS beman.project
+    EXPORT beman.project-targets
+    FILE_SET HEADERS
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bad Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-CMake hljs" data-lang="CMake">install(
+    TARGETS beman.project
+    EXPORT beman.project-targets
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME
+        DESTINATION ${CMAKE_INSTALL_BINDIR}
+    FILE_SET HEADERS
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cmakeno_single_use_vars"><a class="anchor" href="#cmakeno_single_use_vars"></a><strong>[cmake.no_single_use_vars]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: Avoid using <code>set()</code> to create variables that are only used once. Prefer using the value(s) directly in such cases.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-CMake hljs" data-lang="CMake">target_sources(beman.project
+    PRIVATE
+        a.cpp
+        b.cpp
+        c.cpp
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bad Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-CMake hljs" data-lang="CMake">set(SOURCES
+    a.cpp
+    b.cpp
+    c.cpp
+)
+
+# ...
+
+target_sources(beman.project PRIVATE ${SOURCES})</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_directory_layout"><a class="anchor" href="#_directory_layout"></a>Directory layout</h3>
+<div class="sect3">
+<h4 id="directoryinterface_headers"><a class="anchor" href="#directoryinterface_headers"></a><strong>[directory.interface_headers]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: Header files that are part of the public interface must reside within the <code>include/beman/&lt;short_name&gt;/</code> directory.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">include
+└── beman
+    └── exemplar
+        └── identity.hpp
+        └── ...
+        └── ...</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="directoryimplementation_headers"><a class="anchor" href="#directoryimplementation_headers"></a><strong>[directory.implementation_headers]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: Header files residing within <code>include/beman/&lt;short_name&gt;/</code> that are not part of the public interface must either begin with <code>detail_</code> or reside within a subdirectory of <code>include/beman/&lt;short_name&gt;/</code> called <code>detail</code> or begins with <code>detail_</code>.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">include
+└── beman
+    └── optional
+        ├── detail                           # Private implementation subdirectory.
+        │   ├── iterator.hpp
+        │   └── stl_interfaces
+        │       ├── config.hpp
+        │       ├── fwd.hpp
+        │       └── iterator_interface.hpp
+        └── optional.hpp                     # Public interface.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="directorysources"><a class="anchor" href="#directorysources"></a><strong>[directory.sources]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: If present, sources and headers not part of the public interface should reside in the top-level <code>src/</code> directory, and should use the same structure from <code>include/</code> - e.g., <code>src/beman/&lt;short_name&gt;/</code>. Check <code>cmake.avoid_passthroughs</code>.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">src
+└── beman
+    └── exemplar
+        ├── CMakeLists.txt
+        └── identity.cpp
+
+src
+└── beman
+    └── optional
+        ├── CMakeLists.txt
+        ├── detail
+        │   └── iterator.cpp
+        └── optional.cpp</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="directorytests"><a class="anchor" href="#directorytests"></a><strong>[directory.tests]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: All test files must reside within the top-level <code>tests/</code> directory, and should use the same structure from <code>include/</code>. If multiple test types are present, subdirectories can be made (e.g., unit tests, performance etc). Each project must have at least one relevant test.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">tests
+└── beman
+    └── exemplar
+        └── identity.test.cpp
+
+tests
+└── beman
+    └── optional
+        ├── CMakeLists.txt
+        ├── detail
+        │   └── iterator.test.cpp
+        ├── optional.test.cpp
+        ├── optional_constexpr.test.cpp
+        ├── optional_monadic.test.cpp
+        ├── optional_range_support.test.cpp
+        ├── test_types.cpp
+        ├── test_types.hpp
+        ├── test_utilities.cpp
+        └── test_utilities.hpp</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="directoryexamples"><a class="anchor" href="#directoryexamples"></a><strong>[directory.examples]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: All example files must reside within the top-level <code>examples/</code> directory. Each project must have at least one relevant example.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">examples
+├── CMakeLists.txt
+├── identity_as_default_projection.cpp
+└── identity_direct_usage.cpp</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="directorydocs"><a class="anchor" href="#directorydocs"></a><strong>[directory.docs]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: If present, all documentation files, except the root <code>README.md</code> and <code>CONTRIBUTING.md</code>, must reside within the top-level <code>docs/</code> directory. If multiple docs types are present, subdirectories can be made (e.g., dev, public/private etc).</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docs
+├── debug
+│   └── ci.md
+├── dev
+│   └── lint.md
+├── local.md
+└── optional.md</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="directorypapers"><a class="anchor" href="#directorypapers"></a><strong>[directory.papers]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: If present, all paper related files (e.g., WIP LaTeX/Markdown projects for ISO Standardization), must reside within the top-level <code>papers/</code> directory.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">papers
+└── P2988
+    ├── Makefile
+    ├── README.md
+    ├── abstract.bst
+    ...</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_file_layout"><a class="anchor" href="#_file_layout"></a>File layout</h3>
+<div class="sect3">
+<h4 id="filenames"><a class="anchor" href="#filenames"></a><strong>[file.names]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: Source code and header should use the <code>snake_case</code> naming convention (similar to <code>LIBRARY.NAMES</code>).</p>
+</div>
+<div class="paragraph">
+<p>Examples: <code>identity.hpp</code>, <code>identity.cpp</code>, <code>iterator_interface.hpp</code> or <code>optional_range_support.test.cpp</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="filetest_names"><a class="anchor" href="#filetest_names"></a><strong>[file.test_names]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: Test source code files must use the <code>*.test.cpp</code> naming convention.</p>
+</div>
+<div class="paragraph">
+<p>Examples: <code>identity.test.cpp</code>, <code>optional_ref.test.cpp</code> or <code>optional_range_support.test.cpp</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="filelicense_id"><a class="anchor" href="#filelicense_id"></a><strong>[file.license_id]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: The <a href="https://spdx.dev/learn/handling-license-info/">SPDX license identifier</a> must be added within the first 25 lines in all files which can contain a comment (e.g., C&#43;&#43;, scripts, CMake/Makefile, YAML/YML, JASON, XML, HTML, LaTeX, Dockerfile etc).</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>C&#43;&#43; files shall use the following form:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-C++ hljs" data-lang="C++">// SPDX-License-Identifier: &lt;SPDX License Expression&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CMake files and scripts shall use the following form:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-CMake hljs" data-lang="CMake"># SPDX-License-Identifier: &lt;SPDX License Expression&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Markdown files will use a comment following the title:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-markdown hljs" data-lang="markdown"># Title
+
+&lt;!--
+SPDX-License-Identifier: &lt;SPDX License Expression&gt;
+--&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="filecopyright"><a class="anchor" href="#filecopyright"></a><strong>[file.copyright]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: Source code files should NOT include a copyright notice following the SPDX license identifier.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_c"><a class="anchor" href="#_c"></a>C&#43;&#43;</h3>
+<div class="sect3">
+<h4 id="cppnamespace"><a class="anchor" href="#cppnamespace"></a><strong>[cpp.namespace]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: Headers in <code>include/beman/&lt;short_name&gt;/</code> should export entities in the <code>beman::&lt;short_name&gt;</code> namespace.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cppno_flag_forking"><a class="anchor" href="#cppno_flag_forking"></a><strong>[cpp.no_flag_forking]</strong></h4>
+<div class="paragraph">
+<p><strong>Requirement</strong>: C&#43;&#43; preprocessing must produce identical output regardless of compiler flags.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, feature test macros such as <code>__cpp_explicit_this_parameter</code> should not be used directly.</p>
+</div>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: Feature-dependent code should create `#define`s in generated headers based on CMake options, with a fallback for users who just vendor the include/ directory.</p>
+</div>
+<div class="paragraph">
+<p>Instead use the following approach for feature-dependent code generation:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a CMake <code>option</code> (e.g. <code>BEMAN_EXEMPLAR_USE_FEATURE_QUUX</code>).</p>
+</li>
+<li>
+<p>Depending on the option, you may want to implement a check for its availability at CMake time, using, for example, <code>check_cxx_source_compiles</code>, and set the option&#8217;s default value based on the result.</p>
+</li>
+<li>
+<p>Generate a <code>config_generated.hpp</code> with a <code>#define</code> macro set to the selected option.</p>
+</li>
+<li>
+<p>Create a <code>config.hpp</code> file that wraps <code>config_generated.hpp</code> with the following logic, providing fallback defaults for users who vendor the include/ directory:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cpp hljs" data-lang="cpp">#if !defined(__has_include) ||                                                 \
+    __has_include(&lt;beman/exemplar/config_generated.hpp&gt;)
+#include &lt;beman/exemplar/config_generated.hpp&gt;
+#else
+#define BEMAN_EXEMPLAR_USE_FEATURE_QUUX() 1
+#endif</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="5">
+<li>
+<p>Include <code>config.hpp</code> in your headers, and use the resulting macro instead of the feature test macro.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>See <a href="https://github.com/bemanproject/iterator_interface/blob/473a9400fd51b9a4e3372a716ac1b501ec0297ad/CMakeLists.txt#L21">beman.iterator_interface</a> for an example.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cppextension_identifiers"><a class="anchor" href="#cppextension_identifiers"></a><strong>[cpp.extension_identifiers]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: For functionality that is not being recommended for standardization, but is an extension provided by the library, its identifiers should be prefixed with <code>ext_</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cppmin_std_version"><a class="anchor" href="#cppmin_std_version"></a><strong>[cpp.min_std_version]</strong></h4>
+<div class="paragraph">
+<p><strong>Recommendation</strong>: Beman authors can choose the minimum C&#43;&#43; standard version their library will support. C&#43;&#43;20 is the recommended default because concepts and other C&#43;&#43;20 features significantly simplify both implementation and code review. Additionally, most future Beman libraries target C&#43;&#43;29 or beyond, making C&#43;&#43;20 a practical baseline. That said, supporting C&#43;&#43;17 is also reasonable if an author has specific motivation to do so. Some libraries may require a higher minimum version for features like C&#43;&#43;26 reflection or other recent language capabilities. The readme should prominently display the minimum supported C&#43;&#43; standard version so users can quickly assess compatibility with their projects. Note that C&#43;&#43; modules are only supported in C&#43;&#43;23 and later due to <code>import std</code>, and this requirement should be clearly documented in the readme as well.</p>
+</div>
+<div class="paragraph">
+<p>Use the following style in <code>README.md</code> under <code>## Dependencies</code> → <code>### Build Environment</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Markdown hljs" data-lang="Markdown"># File: &lt;repo&gt;/README.md
+# ...
+## Dependencies
+
+### Build Environment
+
+This project requires at least the following to build:
+
+* A C++ compiler that conforms to C++20 or later
+* CMake 3.30 or later
+* (Test Only) GoogleTest
+
+You can disable building tests by setting CMake option `BEMAN_&lt;short_name&gt;_BUILD_TESTS` to
+`OFF` when configuring the project.
+
+You can disable building examples by setting CMake option `BEMAN_&lt;short_name&gt;_BUILD_EXAMPLES` to
+`OFF` when configuring the project.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="https://github.com/bemanproject/exemplar/blob/main/README.md">exemplar/blob/main/README.md</a> for a working example.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="site-footer">
+  <div>
+    <h2>Community</h2>
+    <a href="https://discord.com/invite/BKpNyJgSbm">Discord</a>
+    <a href="https://discourse.bemanproject.org/">Discourse</a>
+  </div>
+  <div>
+    <h2>More</h2>
+    <a href="https://github.com/bemanproject">GitHub</a>
+  </div>
+  <p>Copyright (C) The Beman Project. Built with Antora.</p>
+</footer>
+<script>
+(function () {
+  var expandedKey = 'beman.antora.nav.expanded';
+  var scrollKey = 'beman.antora.nav.scrollTop';
+  function navPanel() { return document.querySelector('.nav-panel-menu[data-panel="menu"]'); }
+  function storage() {
+    try { return window.sessionStorage; } catch (err) { return null; }
+  }
+  function itemLabel(item) {
+    var label = item.querySelector(':scope > .nav-text, :scope > .nav-link');
+    return label ? label.textContent.trim() : '';
+  }
+  function itemKey(item) {
+    var parts = [];
+    var current = item;
+    while (current && current.classList && current.classList.contains('nav-item')) {
+      var label = itemLabel(current);
+      if (label) parts.unshift(label);
+      var parentList = current.parentElement;
+      current = parentList ? parentList.closest('.nav-item') : null;
+    }
+    return parts.join(' / ');
+  }
+  function readExpanded() {
+    var store = storage();
+    if (!store) return new Set();
+    try { return new Set(JSON.parse(store.getItem(expandedKey) || '[]')); } catch (err) { return new Set(); }
+  }
+  function writeExpanded() {
+    var panel = navPanel();
+    var store = storage();
+    if (!panel || !store) return;
+    var keys = [];
+    panel.querySelectorAll('.nav-item.is-active').forEach(function (item) {
+      var key = itemKey(item);
+      if (key) keys.push(key);
+    });
+    try { store.setItem(expandedKey, JSON.stringify(keys)); } catch (err) {}
+  }
+  function expandAncestors(item) {
+    var current = item;
+    while (current) {
+      if (current.classList && current.classList.contains('nav-item')) current.classList.add('is-active', 'is-current-path');
+      var parentList = current.parentElement;
+      current = parentList ? parentList.closest('.nav-item') : null;
+    }
+  }
+  function apiReferenceInfo() {
+    var segments = window.location.pathname.split('/').filter(Boolean);
+    for (var index = 0; index < segments.length - 2; index += 1) {
+      if (!segments[index].startsWith('beman.')) continue;
+      if (segments[index + 2] !== 'reference') continue;
+      var baseSegments = segments.slice(0, index + 3);
+      var tail = segments.slice(index + 3);
+      return {
+        component: segments[index],
+        componentLabel: segments[index].replace(/^beman\./, ''),
+        version: segments[index + 1],
+        tail: tail,
+        componentPath: '/' + segments.slice(0, index + 2).join('/') + '/index.html',
+        indexPath: '/' + baseSegments.join('/') + '/index.html'
+      };
+    }
+    return null;
+  }
+  function normalizePath(path) {
+    return path.replace(/\/$/, '/index.html');
+  }
+  function apiReferenceNavLink(info, panel) {
+    if (!info || !panel) return null;
+    var referencePrefix = info.indexPath.replace(/index\.html$/, '');
+    var match = null;
+    panel.querySelectorAll('.nav-link').forEach(function (link) {
+      if (match || link.textContent.trim() !== 'API Reference') return;
+      var linkPath = normalizePath(new URL(link.getAttribute('href'), window.location.href).pathname);
+      if (linkPath.startsWith(referencePrefix)) match = link;
+    });
+    return match;
+  }
+  function markApiReferenceNav(panel) {
+    var info = apiReferenceInfo();
+    if (!info || !panel) return null;
+    var link = apiReferenceNavLink(info, panel);
+    var match = link ? link.closest('.nav-item') : null;
+    if (link) link.classList.add('is-current-page');
+    if (match) {
+      match.classList.add('is-current-page', 'is-current-path');
+      expandAncestors(match);
+    }
+    return match;
+  }
+  function ensureNavItemVisible(panel, item) {
+    if (!panel || !item) return;
+    window.setTimeout(function () {
+      var itemTop = item.offsetTop;
+      var itemBottom = itemTop + item.offsetHeight;
+      var panelBottom = panel.scrollTop + panel.clientHeight;
+      if (itemTop < panel.scrollTop || itemBottom > panelBottom) {
+        panel.scrollTop = Math.max(0, itemTop - panel.clientHeight / 3);
+        saveScroll();
+      }
+    }, 0);
+  }
+  function expandRequiredSections(panel) {
+    panel.querySelectorAll('.nav-item').forEach(function (item) {
+      var label = itemLabel(item);
+      if (label === 'Project' || label === 'Libraries') item.classList.add('is-active');
+    });
+    panel.querySelectorAll('.nav-item.is-current-page, .nav-item.is-current-path').forEach(expandAncestors);
+    markApiReferenceNav(panel);
+  }
+  function restoreExpanded(panel) {
+    var expanded = readExpanded();
+    panel.querySelectorAll('.nav-item').forEach(function (item) {
+      if (expanded.has(itemKey(item))) item.classList.add('is-active');
+    });
+    expandRequiredSections(panel);
+  }
+  function restoreScroll(panel) {
+    var store = storage();
+    if (!store) return;
+    try {
+      var saved = parseInt(store.getItem(scrollKey) || '', 10);
+      if (!Number.isNaN(saved)) panel.scrollTop = saved;
+    } catch (err) {}
+  }
+  function saveScroll() {
+    var panel = navPanel();
+    var store = storage();
+    if (!panel || !store) return;
+    try { store.setItem(scrollKey, String(panel.scrollTop)); } catch (err) {}
+  }
+  function articleScroller() {
+    var article = document.querySelector('article.doc');
+    if (!article) return null;
+    var style = window.getComputedStyle(article);
+    if (style.overflowY === 'visible' || article.scrollHeight <= article.clientHeight + 1) return null;
+    return article;
+  }
+  function scrollArticleToHash(hash, mode) {
+    if (!hash || hash.charAt(0) !== '#') return false;
+    var article = articleScroller();
+    if (!article) return false;
+    var id = hash.slice(1);
+    try { id = decodeURIComponent(id); } catch (err) {}
+    var target = document.getElementById(id);
+    if (!target || !article.contains(target)) return false;
+    var targetTop = target.getBoundingClientRect().top - article.getBoundingClientRect().top + article.scrollTop;
+    article.scrollTo({ top: Math.max(0, targetTop - 8), behavior: mode || 'auto' });
+    window.scrollTo(0, 0);
+    return true;
+  }
+  function setActiveTocLink(link) {
+    document.querySelectorAll('.toc a.is-active').forEach(function (activeLink) {
+      activeLink.classList.remove('is-active');
+    });
+    link.classList.add('is-active');
+  }
+  function installAnchorScrolling() {
+    document.querySelectorAll('main.article a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        var hash = link.getAttribute('href');
+        if (!scrollArticleToHash(hash, 'smooth')) return;
+        event.preventDefault();
+        if (link.closest('aside.toc')) setActiveTocLink(link);
+        if (window.location.hash !== hash) window.history.pushState(null, '', hash);
+      });
+    });
+    if (window.location.hash) window.setTimeout(function () { scrollArticleToHash(window.location.hash, 'auto'); }, 0);
+    window.addEventListener('hashchange', function () { scrollArticleToHash(window.location.hash, 'auto'); });
+  }
+  function installApiReferenceContext() {
+    var info = apiReferenceInfo();
+    if (!info) return;
+    var article = document.querySelector('article.doc');
+    if (!article || article.querySelector('.api-context')) return;
+    var anchor = article.querySelector('h1.page, h1, h2, .sect1, .paragraph, .listingblock, table') || article.firstElementChild;
+    var nav = document.createElement('nav');
+    nav.className = 'api-context';
+    nav.setAttribute('aria-label', 'API reference context');
+    var crumbs = document.createElement('ol');
+    crumbs.className = 'api-breadcrumbs';
+    function addCrumb(label, href) {
+      var item = document.createElement('li');
+      if (href) {
+        var link = document.createElement('a');
+        link.href = href;
+        link.textContent = label;
+        item.appendChild(link);
+      } else {
+        item.textContent = label;
+        item.setAttribute('aria-current', 'page');
+      }
+      crumbs.appendChild(item);
+    }
+    function pathLabel() {
+      var parts = info.tail.map(function (segment) {
+        var label = segment.replace(/\.html$/, '');
+        try { label = decodeURIComponent(label); } catch (err) {}
+        return label;
+      }).filter(Boolean);
+      return parts.length ? parts.join('::') : 'API Reference';
+    }
+    function operatorLabel() {
+      var operators = {
+        operator_3way: '<=>', operator_assign: '=', operator_bitor: '|', operator_call: '()',
+        operator_eq: '==', operator_ge: '>=', operator_gt: '>', operator_le: '<=',
+        operator_lt: '<', operator_minus: '-', operator_not_eq: '!=', operator_plus: '+',
+        operator_ptr: '->', operator_star: '*', operator_subs: '[]'
+      };
+      var parts = info.tail.map(function (segment) {
+        var label = segment.replace(/\.html$/, '').replace(/-[0-9a-f]+$/, '');
+        try { label = decodeURIComponent(label); } catch (err) {}
+        return label;
+      }).filter(Boolean);
+      var name = parts[parts.length - 1];
+      if (!Object.prototype.hasOwnProperty.call(operators, name)) return null;
+      parts[parts.length - 1] = 'operator' + operators[name];
+      return parts.join('::');
+    }
+    function pageLabel() {
+      var heading = article.querySelector('h1.page, h1');
+      if (!heading) return pathLabel();
+      var label = heading.textContent.replace(/\s+/g, ' ').trim();
+      return label || pathLabel();
+    }
+    var apiLink = apiReferenceNavLink(info, navPanel());
+    var apiHref = apiLink ? apiLink.href : info.indexPath;
+    var apiPath = normalizePath(new URL(apiHref, window.location.href).pathname);
+    var isApiLandingPage = normalizePath(window.location.pathname) === apiPath;
+    addCrumb(info.componentLabel, info.componentPath);
+    addCrumb('API Reference', isApiLandingPage ? null : apiHref);
+    if (!isApiLandingPage) addCrumb(operatorLabel() || pageLabel(), null);
+    nav.appendChild(crumbs);
+    if (anchor) article.insertBefore(nav, anchor);
+    else article.appendChild(nav);
+  }
+  function install() {
+    var panel = navPanel();
+    if (panel) {
+      restoreExpanded(panel);
+      restoreScroll(panel);
+      ensureNavItemVisible(panel, markApiReferenceNav(panel));
+      panel.addEventListener('click', function () { window.setTimeout(writeExpanded, 0); });
+      panel.addEventListener('scroll', saveScroll, { passive: true });
+    }
+    installApiReferenceContext();
+    installAnchorScrolling();
+    window.addEventListener('beforeunload', function () { writeExpanded(); saveScroll(); });
+  }
+  if (document.readyState === 'complete') install();
+  else window.addEventListener('load', install);
+})();
+</script>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
