@@ -83,7 +83,8 @@ Its final rendered artifacts live in the local `build/` directory by default:
 
 Set `PAGES_DEPLOY=true` to make the default `build/` directory a `gh-pages`
 worktree for publishing. Normal local and preview builds do not fetch or require
-the `gh-pages` branch.
+the `gh-pages` branch. Publishing preserves an existing root `CNAME` file so a
+configured GitHub Pages custom domain is not cleared by deployment.
 
 When `CI=true`, configured library repositories are cloned into the temporary
 workspace as needed and updated to `main`. Local builds continue to use adjacent

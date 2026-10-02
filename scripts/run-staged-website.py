@@ -618,16 +618,18 @@ def prepare_stage_workspace(stage_root: Path, build_root: Path):
     stage_root.parent.mkdir(parents=True, exist_ok=True)
 
 
-def sync_build_output(build_root: Path, pages_root: Path):
+def sync_build_output(build_root: Path, pages_root: Path, preserve_cname: bool = False):
+    rsync_command = [
+        "rsync",
+        "-a",
+        "--delete",
+        "--exclude=.git",
+    ]
+    if preserve_cname and (pages_root / "CNAME").is_file():
+        rsync_command.append("--exclude=/CNAME")
+    rsync_command.extend([f"{build_root}/", f"{pages_root}/"])
     run_command(
-        [
-            "rsync",
-            "-a",
-            "--delete",
-            "--exclude=.git",
-            f"{build_root}/",
-            f"{pages_root}/",
-        ],
+        rsync_command,
         check=True,
     )
     (pages_root / ".nojekyll").touch()
@@ -703,7 +705,11 @@ def main():
         pages_root.mkdir(parents=True, exist_ok=True)
 
     build_composed_site(repo_root, build_root, stage_root, args)
-    sync_build_output(build_root, pages_root)
+    sync_build_output(
+        build_root,
+        pages_root,
+        preserve_cname=publishing_to_gh_pages,
+    )
 
     if args.command == "serve":
         run_mkdocs(repo_root, stage_root, pages_root, "serve")
