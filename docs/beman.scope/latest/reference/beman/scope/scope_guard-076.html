@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Generalized scope guard template This template provides the general behaviors required for more concrete instances of scope types. :: Beman Docs</title>
+    <title>Generalized scope guard template :: Beman Docs</title>
     <link rel="canonical" href="https://bemanproject.org/docs/beman.scope/latest/reference/beman/scope/scope_guard-076.html">
     <meta name="generator" content="Antora 3.2.0">
     <script>
@@ -374,7 +374,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../../../index.html">beman.scope</a></li>
-    <li><a href="scope_guard-076.html">Generalized scope guard template This template provides the general behaviors required for more concrete instances of scope types.</a></li>
+    <li><a href="scope_guard-076.html">Generalized scope guard template</a></li>
   </ul>
 </nav>
 </div>
@@ -383,7 +383,7 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Generalized scope guard template This template provides the general behaviors required for more concrete instances of scope types.</h1>
+<h1 class="page">Generalized scope guard template</h1>
 <div class="sect1">
 <h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>Synopsis</h2>
 <div class="sectionbody">
@@ -416,11 +416,11 @@ class <a href="scope_guard-071.html" class="xref page">scope&lowbar;guard</a>&lt
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope_guard-076/2constructor-050.html" class="xref page"><code>scope&lowbar;guard</code></a>         <span class="small">[constructor]</span> <span class="small">[deleted]</span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The constructor parameter <code>exit&lowbar;func</code> in the following constructors shall be &colon; &hyphen; a reference to a function &hyphen; or a reference to a function object(&lsqb;function&period;objects&rsqb;)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Constructors</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope_guard-076/2destructor.html" class="xref page"><code>&#126;scope&lowbar;guard</code></a> <span class="small">[destructor]</span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Destructor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invokes the exit function when the checker says the guard is still active&period;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope_guard-076/operator_assign-06.html" class="xref page"><code>operator&equals;</code></a>  <span class="small">[deleted]</span></p></td>
@@ -428,11 +428,11 @@ class <a href="scope_guard-071.html" class="xref page">scope&lowbar;guard</a>&lt
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope_guard-076/invoke_checker.html" class="xref page"><code>invoke&lowbar;checker</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns the invocation checker stored by this guard&period;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope_guard-076/release.html" class="xref page"><code>release</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disables invocation of the exit function for this guard&period;</p></td>
 </tr>
 </tbody>
 </table>
@@ -452,16 +452,16 @@ class <a href="scope_guard-071.html" class="xref page">scope&lowbar;guard</a>&lt
 <td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ScopeExitFunction</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">callable function that is conditionally invoked at the end of the scope&period;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ScopeExitFunc</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">callable invoked when the guard is active at scope exit&period;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>InvokeChecker</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">callable function that handles checking if callback should be called on scope exit&period;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">callable that decides whether <code>ScopeExitFunc</code> is invoked&period;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ConstructionExceptionBehavior</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">callable function that defines the behavior if an exception occurs on the construction&period;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">behavior when construction of the guard fails&period;</p></td>
 </tr>
 </tbody>
 </table>

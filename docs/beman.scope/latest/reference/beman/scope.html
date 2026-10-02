@@ -401,43 +401,43 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope/releaseable_execute_only_when_exception.html" class="xref page"><code>releaseable&lowbar;execute&lowbar;only&lowbar;when&lowbar;exception</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invocation checker that enables execution only while unwinding an exception&period;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope/releaseable_execute_when_no_exception.html" class="xref page"><code>releaseable&lowbar;execute&lowbar;when&lowbar;no&lowbar;exception</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invocation checker that enables execution only when no exception is active&period;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope/releaser.html" class="xref page"><code>releaser</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invocation checker used by <code>scope&lowbar;exit</code>&period;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope/scope_guard-071.html" class="xref page"><code>scope&lowbar;guard</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generalized scope guard that conditionally invokes a callable at scope exit&period;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope/scope_guard-06.html" class="xref page"><code>scope&lowbar;guard&lt;ScopeExitFunc, void, exception&lowbar;during&lowbar;construction&lowbar;behaviour&colon;&colon;dont&lowbar;invoke&lowbar;exit&lowbar;func&gt;</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scope guard specialization that does not invoke its exit function when construction fails&period;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope/scope_guard-0a.html" class="xref page"><code>scope&lowbar;guard&lt;ScopeExitFunc, void, exception&lowbar;during&lowbar;construction&lowbar;behaviour&colon;&colon;invoke&lowbar;exit&lowbar;func&gt;</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scope guard specialization that invokes its exit function when construction fails&period;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope/scope_guard-076.html" class="xref page"><code>scope&lowbar;guard&lt;ScopeExitFunc, InvokeChecker, ConstructionExceptionBehavior&gt;</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Generalized scope guard template This template provides the general behaviors required for more concrete instances of scope types&period;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generalized scope guard template</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope/scope_exit.html" class="xref page"><code>scope&lowbar;exit</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Executes a callable on every scope exit unless released&period;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope/scope_fail.html" class="xref page"><code>scope&lowbar;fail</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Executes a callable only when the scope exits during exception unwinding&period;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope/scope_success.html" class="xref page"><code>scope&lowbar;success</code></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Executes a callable only when the scope exits without an exception&period;</p></td>
 </tr>
 </tbody>
 </table>
@@ -448,14 +448,17 @@
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 100%;">
+<col style="width: 50%;">
+<col style="width: 50%;">
 </colgroup>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope/exception_during_construction_behaviour.html" class="xref page"><code>exception&lowbar;during&lowbar;construction&lowbar;behaviour</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controls whether the exit function runs if a scope guard constructor throws&period;</p></td>
 </tr>
 </tbody>
 </table>
@@ -466,17 +469,21 @@
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 100%;">
+<col style="width: 50%;">
+<col style="width: 50%;">
 </colgroup>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope/HasRelease.html" class="xref page"><code>HasRelease</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Checks whether <code>T</code> provides an instance <code>release()</code> member function&period;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="scope/HasStaticRelease.html" class="xref page"><code>HasStaticRelease</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Checks whether <code>T</code> provides a static <code>release()</code> member function&period;</p></td>
 </tr>
 </tbody>
 </table>

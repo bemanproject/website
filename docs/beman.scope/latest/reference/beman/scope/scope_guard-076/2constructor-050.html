@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>beman::scope::scope_guard-076::2constructor :: Beman Docs</title>
+    <title>Constructors :: Beman Docs</title>
     <link rel="canonical" href="https://bemanproject.org/docs/beman.scope/latest/reference/beman/scope/scope_guard-076/2constructor-050.html">
     <meta name="generator" content="Antora 3.2.0">
     <script>
@@ -374,7 +374,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../../../../index.html">beman.scope</a></li>
-    <li><a href="2constructor-050.html">beman::scope::scope_guard-076::2constructor</a></li>
+    <li><a href="2constructor-050.html">Constructors</a></li>
   </ul>
 </nav>
 </div>
@@ -383,14 +383,7 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">beman::scope::scope_guard-076::2constructor</h1>
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>The constructor parameter <code>exit&lowbar;func</code> in the following constructors shall be &colon; &hyphen; a reference to a function &hyphen; or a reference to a function object(&lsqb;function&period;objects&rsqb;)</p>
-</div>
-</div>
-</div>
+<h1 class="page">Constructors</h1>
 <div class="sect1">
 <h2 id="_synopses"><a class="anchor" href="#_synopses"></a>Synopses</h2>
 <div class="sectionbody">
@@ -409,7 +402,7 @@
 <p><span class="small"><a href="2constructor-09.html" class="xref page"><em>» more&period;&period;&period;</em></a></span></p>
 </div>
 <div class="paragraph">
-<p>Move constructor</p>
+<p>Moves a guard and releases the moved&hyphen;from guard&apos;s invocation checker&period;</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -422,7 +415,7 @@ requires (HasRelease&lt;InvokeChecker&gt; &verbar;&verbar; HasStaticRelease&lt;I
 <p><span class="small"><a href="2constructor-05c.html" class="xref page"><em>» more&period;&period;&period;</em></a></span></p>
 </div>
 <div class="paragraph">
-<p>Construct from <code>EF</code></p>
+<p>Constructs a guard from an exit function and a default&hyphen;constructed checker&period;</p>
 </div>
 <div class="listingblock">
 <div class="content">
