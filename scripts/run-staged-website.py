@@ -11,6 +11,7 @@ import tempfile
 from pathlib import Path
 
 import yaml
+from urllib.parse import parse_qs, urlparse
 
 
 def parse_args():
@@ -147,12 +148,14 @@ def migrate_pages(stage_root: Path, content_root: Path):
 
 def youtube_embed(url: str) -> str:
     video_id = ""
-    if "youtu.be/" in url:
-        video_id = url.rsplit("/", 1)[-1].split("?", 1)[0]
-    elif "youtube.com" in url:
-        marker = "v="
-        if marker in url:
-            video_id = url.split(marker, 1)[1].split("&", 1)[0]
+    parsed = urlparse(url)
+    host = (parsed.hostname or "").lower()
+
+    if host == "youtu.be":
+        video_id = parsed.path.lstrip("/").split("/", 1)[0]
+    elif host in {"youtube.com", "www.youtube.com", "m.youtube.com"}:
+        video_id = parse_qs(parsed.query).get("v", [""])[0]
+
     if not video_id:
         return url
     return (
