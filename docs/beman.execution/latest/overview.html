@@ -1566,7 +1566,7 @@ struct queryable {
 </div>
 </details>
 <details>
-<summary class="title"><code>on(_sched_, _sndr_)</code>, <code>on(_sndr, _sched_, _closure_)</code></summary>
+<summary class="title"><code>on(<i>sched</i>, <i>sndr</i>)</code>, <code>on(<i>sndr</i>, <i>sched</i>, <i>closure</i>)</code></summary>
 <div class="content">
 <div class="paragraph">
 <p>The <code>on</code> algorithm is a pipeable sender adaptor. Let <code>on-sender</code> be</p>
@@ -1574,15 +1574,15 @@ struct queryable {
 <div class="ulist">
 <ul>
 <li>
-<p><code>_sndr_</code> when the form <code>on(_sched_, _sndr_)</code> is used;</p>
+<p><code>sndr</code> when the form <code>on(sched, sndr)</code> is used;</p>
 </li>
 <li>
-<p><code>_closure_(_sndr_)</code> when the form <code>on(_sndr_, _sched_, _closure_)</code> is used.</p>
+<p><code>closure(sndr)</code> when the form <code>on(sndr, sched, closure)</code> is used.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The sender <code>on-sndr</code> is started on <code>_sched_&#8217;s execution context. The `on</code> algorithm completes on the original scheduler (obtained using <code>get_start_scheduler</code>) with the result of the <code>on-sndr</code>.</p>
+<p>The sender <code>on-sndr</code> is started on <code>sched&#8217;s execution context. The `on</code> algorithm completes on the original scheduler (obtained using <code>get_start_scheduler</code>) with the result of the <code>on-sndr</code>.</p>
 </div>
 </div>
 </details>
@@ -1678,6 +1678,28 @@ struct queryable {
 <div class="paragraph">
 <p>The expression <code>write_env(sender, env)</code> creates a sender which passes a receiver to <code>sender</code> which combines the environment <code>env</code> with the environment from the receiver&#8217;s environment. The queries from <code>env</code> take precedence over those from the receiver&#8217;s environment.</p>
 </div>
+<details>
+<summary class="title">Example</summary>
+<div class="content">
+<div class="paragraph">
+<p>This example shows using <code>write_env</code> providing an environment with an allocator:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-c++ hljs" data-lang="c++">std::pmr::monotonic_buffer_resource        mbr;
+std::pmr::polymorphic_allocator&lt;std::byte&gt; mbr_alloc(&amp;mbr);
+ex::sync_wait(
+      ex::read_env(ex::get_allocator)
+    | ex::then([&amp;](auto alloc){ assert(mbr_alloc == alloc); })
+    | ex::write_env(ex::env{ex::prop{ex::get_allocator, mbr_alloc}})
+);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that <code>write_env</code> affects the sender passed as first argument or, when using <code>|</code>, the sender before the <code>|</code>.</p>
+</div>
+</div>
+</details>
 </div>
 </details>
 </div>
@@ -2233,6 +2255,16 @@ struct queryable {
 </div>
 </div>
 </details>
+<div class="paragraph">
+<p>The concept <code>simple-allocator&lt;Alloc&gt;</code> determines if <code>Alloc</code> is a basic allocator. If <code>alloc</code> is an object of type <code>Alloc</code>, the following need to be <code>true</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>alloc.allocate(n)</code> has type <code>Alloc::value_type*</code>.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
