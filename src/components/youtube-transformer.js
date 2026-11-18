@@ -25,7 +25,8 @@ const YouTubeTransformer = {
     const videoId = isShort
       ? urlObj.pathname.split("/").filter(Boolean).pop()
       : urlObj.searchParams.get("v");
-    const validVideoId = typeof videoId === "string" && /^[A-Za-z0-9_-]{11}$/.test(videoId);
+    const validVideoId =
+      typeof videoId === "string" && /^[A-Za-z0-9_-]{11}$/.test(videoId);
 
     if (!validVideoId) {
       return "";
