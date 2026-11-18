@@ -156,7 +156,7 @@ def youtube_embed(url: str) -> str:
     elif host in {"youtube.com", "www.youtube.com", "m.youtube.com"}:
         video_id = parse_qs(parsed.query).get("v", [""])[0]
 
-    if not video_id:
+    if not re.fullmatch(r"[A-Za-z0-9_-]{11}", video_id):
         return url
     return (
         '<div class="video-frame">\n'
