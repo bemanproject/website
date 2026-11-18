@@ -9,9 +9,9 @@ import subprocess  # nosec B404
 import sys
 import tempfile
 from pathlib import Path
+from urllib.parse import parse_qs, urlparse
 
 import yaml
-from urllib.parse import parse_qs, urlparse
 
 
 def parse_args():
