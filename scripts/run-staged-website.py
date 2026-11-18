@@ -141,7 +141,7 @@ def migrate_pages(stage_root: Path, content_root: Path):
         r"](docs/beman.\1/latest/index.html)",
         body,
     )
-    body = body.replace('src="/img/book.svg"', 'src="../img/book.svg"')
+    body = body.replace('src="/img/', 'src="../img/')
     write_markdown_page(content_root / "libraries.md", metadata, body)
 
 
