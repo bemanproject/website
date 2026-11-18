@@ -54,6 +54,11 @@ def parse_args():
         help="skip the Antora/MrDocs API reference build",
         action="store_true",
     )
+    parser.add_argument(
+        "--strict",
+        help="fail the MkDocs build on warnings, such as broken links or anchors",
+        action="store_true",
+    )
     return parser.parse_args()
 
 
@@ -636,7 +641,13 @@ def sync_build_output(build_root: Path, pages_root: Path, preserve_cname: bool =
     shutil.rmtree(build_root, ignore_errors=True)
 
 
-def run_mkdocs(repo_root: Path, stage_root: Path, out_dir: Path, command: str):
+def run_mkdocs(
+    repo_root: Path,
+    stage_root: Path,
+    out_dir: Path,
+    command: str,
+    strict: bool = False,
+):
     env = os.environ.copy()
     env["BEMAN_WEBSITE_BRANCH"] = (
         run_command(
@@ -652,6 +663,8 @@ def run_mkdocs(repo_root: Path, stage_root: Path, out_dir: Path, command: str):
         cmd = [sys.executable, "-m", "mkdocs", "serve", "--dev-addr", "127.0.0.1:8000"]
     elif command == "build":
         cmd = [sys.executable, "-m", "mkdocs", "build", "--site-dir", str(out_dir)]
+        if strict:
+            cmd.append("--strict")
     else:
         cmd = [sys.executable, "-m", "http.server", "8000", "--directory", str(out_dir)]
 
@@ -668,7 +681,7 @@ def fix_mkdocs_output_links(build_root: Path):
 
 
 def build_composed_site(repo_root: Path, build_root: Path, stage_root: Path, args):
-    run_mkdocs(repo_root, stage_root, build_root, "build")
+    run_mkdocs(repo_root, stage_root, build_root, "build", strict=args.strict)
     fix_mkdocs_output_links(build_root)
     build_antora_docs(repo_root, build_root, stage_root, args)
 
