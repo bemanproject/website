@@ -58,18 +58,18 @@ jobs:
 
     steps:
       - name: Checkout website repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
       - name: Checkout beman repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: bemanproject/beman
           path: beman
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: 3.x
 
