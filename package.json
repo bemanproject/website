@@ -8,9 +8,9 @@
     "serve": "python3 scripts/run-staged-website.py serve"
   },
   "devDependencies": {
-    "@antora/cli": "3.2.0",
+    "@antora/cli": "3.2.3",
     "@antora/collector-extension": "1.0.3",
-    "@antora/site-generator": "3.2.0"
+    "@antora/site-generator": "3.2.3"
   },
   "engines": {
     "node": ">=20.0.0"
