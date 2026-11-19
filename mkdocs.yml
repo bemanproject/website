@@ -37,6 +37,12 @@ markdown_extensions:
 plugins:
   - search
 
+# Report broken links and anchors as warnings; `--strict` fails on them.
+validation:
+  links:
+    not_found: warn
+    anchors: warn
+
 extra:
   tagline: Tomorrow's C++ Standard Libraries Today
   discourse_url: https://discourse.bemanproject.org/

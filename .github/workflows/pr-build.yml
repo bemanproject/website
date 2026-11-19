@@ -1,0 +1,62 @@
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+# Builds the website on pull requests, without publishing, so broken links
+# and anchors fail the PR instead of the next deploy.
+
+name: Build Beman website (PR check)
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: pr-build-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout website repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+          cache: pip
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install docs toolchain
+        run: |
+          tool_bin="$(bash scripts/install-ci-docs-tools.sh "${RUNNER_TEMP}/beman-docs-tools")"
+          echo "${tool_bin}" >> "${GITHUB_PATH}"
+          "${tool_bin}/pandoc" --version
+          "${tool_bin}/mrdocs" --version
+
+      - name: Install website dependencies
+        run: make install
+
+      - name: Build staged website (strict link checking)
+        run: |
+          python3 scripts/run-staged-website.py build \
+            --strict \
+            --work-root "${RUNNER_TEMP}/beman-website-work" \
+            --repos-root "${RUNNER_TEMP}/beman-external" \
+            --pages-root "${RUNNER_TEMP}/beman-website-build" \
+            --clone-missing \
+            --update-repos
