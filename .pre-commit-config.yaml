@@ -5,6 +5,8 @@ repos:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
+        # mkdocs.yml uses the custom !ENV tag; only check syntax.
+        args: [--unsafe]
       - id: check-added-large-files
 
   - repo: https://github.com/psf/black
@@ -21,6 +23,8 @@ repos:
     rev: v3.0.0 # Use the latest stable version
     hooks:
       - id: prettier
+        # Jinja template, not valid HTML for prettier (Trunk ignores it too).
+        exclude: ^mkdocs_theme/main\.html$
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.48.0
