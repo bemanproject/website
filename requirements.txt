@@ -1,2 +1,2 @@
 mkdocs==1.6.1
-PyYAML>=6.0
+PyYAML>=6.0.3
