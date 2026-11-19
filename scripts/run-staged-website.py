@@ -9,6 +9,7 @@ import subprocess  # nosec B404
 import sys
 import tempfile
 from pathlib import Path
+from urllib.parse import parse_qs, urlparse
 
 import yaml
 
@@ -152,13 +153,15 @@ def migrate_pages(stage_root: Path, content_root: Path):
 
 def youtube_embed(url: str) -> str:
     video_id = ""
-    if "youtu.be/" in url:
-        video_id = url.rsplit("/", 1)[-1].split("?", 1)[0]
-    elif "youtube.com" in url:
-        marker = "v="
-        if marker in url:
-            video_id = url.split(marker, 1)[1].split("&", 1)[0]
-    if not video_id:
+    parsed = urlparse(url)
+    host = (parsed.hostname or "").lower()
+
+    if host == "youtu.be":
+        video_id = parsed.path.lstrip("/").split("/", 1)[0]
+    elif host in {"youtube.com", "www.youtube.com", "m.youtube.com"}:
+        video_id = parse_qs(parsed.query).get("v", [""])[0]
+
+    if not re.fullmatch(r"[A-Za-z0-9_-]{11}", video_id):
         return url
     return (
         '<div class="video-frame">\n'
