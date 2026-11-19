@@ -87,6 +87,11 @@ img {
   max-width: 100%;
 }
 
+/* Library status badges keep their natural size inside table cells. */
+img[src*="/img/badges/"] {
+  max-width: none;
+}
+
 code {
   padding: 0.1rem 0.25rem;
   border-radius: 4px;
