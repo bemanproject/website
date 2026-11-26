@@ -603,6 +603,37 @@ CXX=g++-15 cmake --workflow --preset release</pre>
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h4>
+<div class="sect4">
+<h5 id="_vcpkg"><a class="anchor" href="#_vcpkg"></a>Vcpkg</h5>
+<div class="paragraph">
+<p>The release workflow publishes <code>beman-execution</code> to the <a href="https://github.com/bemanproject/vcpkg-registry">Beman vcpkg registry</a>. After a release containing the port has been published, in your project&#8217;s <code>vcpkg-configuration.json</code>, use the registry configuration from <a href="https://github.com/bemanproject/execution/blob/main/vcpkg-configuration.json">this repository</a> and set the Beman registry&#8217;s <code>baseline</code> to a registry commit that contains the desired <code>beman-execution</code> version.</p>
+</div>
+<div class="paragraph">
+<p>Add <code>beman-execution</code> to your project&#8217;s <code>vcpkg.json</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "dependencies": ["beman-execution"]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Run <code>vcpkg install</code> from your project directory. Configure CMake with the vcpkg toolchain file (<code>scripts/buildsystems/vcpkg.cmake</code> in your vcpkg installation) and link against the exported target:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-cmake hljs" data-lang="cmake">find_package(beman.execution CONFIG REQUIRED)
+target_link_libraries(your_target PRIVATE beman::execution)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The default package provides headers, including <code>&lt;beman/execution.hpp&gt;</code>. To use <code>import beman.execution;</code> with a module-capable toolchain, replace the dependency entry with <code>{"name": "beman-execution", "features": ["modules"]}</code>.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_license"><a class="anchor" href="#_license"></a>License</h3>
